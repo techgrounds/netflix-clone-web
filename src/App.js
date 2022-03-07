@@ -1,5 +1,5 @@
 import Navbar from "./components/Navbar/Navbar";
-
+import './assets/scss/default.scss';
 function App() {
   return (
     <div className="App">

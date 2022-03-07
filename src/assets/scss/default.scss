@@ -1,0 +1,28 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+:root {
+  --red: #b9090b;
+  --black: #141414;
+  --gray: #808080;
+  --midgrey: rgba(109,109,110,0.7);
+  --smokewhite: #e5e5e5;
+  --whiteOpacity: rgba(255,255,255,0.3);
+  --white: #ffffff;
+}
+body {
+  background-color: var(--black);
+  color: var(--white);
+}
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+li {
+  list-style-type: none;
+}
