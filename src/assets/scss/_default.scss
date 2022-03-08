@@ -5,17 +5,9 @@
   padding: 0;
   margin: 0;
 }
-:root {
-  --red: #b9090b;
-  --black: rgb(20,20,20);
-  --gray: rgb(128,128,128);
-  --midgrey: rgba(109,109,110,0.7);
-  --smokewhite: rgba(229,229,229,1);
-  --whiteOpacity: rgba(255,255,255,0.3);
-  --white: rgb(255,255,255);
-}
 body {
   background-color: var(--black);
+  font-family: "NetflixSansRegular", sans-serif;
   color: var(--white);
 }
 a {
