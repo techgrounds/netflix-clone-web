@@ -5,11 +5,15 @@
   padding: 0;
   margin: 0;
 }
+body {
+  background-color: var(--black);
+  font-family: "NetflixSansRegular", sans-serif;
+  color: var(--white);
+}
 a {
   text-decoration: none;
   cursor: pointer;
 }
-
 li {
   list-style-type: none;
 }

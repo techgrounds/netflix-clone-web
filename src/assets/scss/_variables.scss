@@ -1,0 +1,38 @@
+:root {
+  --red: #b9090b;
+  --black: rgb(20, 20, 20);
+  --gray: rgb(128, 128, 128);
+  --midgrey: rgba(109, 109, 110, 0.7);
+  --smokewhite: rgba(229, 229, 229, 1);
+  --whiteOpacity: rgba(255, 255, 255, 0.3);
+  --white: rgb(255, 255, 255);
+}
+
+@font-face {
+  font-family: "NetflixSansBlack";
+  src: url(../fonts/NetflixSansBlack.ttf);
+}
+@font-face {
+  font-family: "NetflixSansBold";
+  src: url(../fonts/NetflixSansBold.ttf);
+}
+@font-face {
+  font-family: "NetflixSansIcon";
+  src: url(../fonts/NetflixSansIcon.ttf);
+}
+@font-face {
+  font-family: "NetflixSansRegular";
+  src: url(../fonts/NetflixSansRegular.ttf);
+}
+@font-face {
+  font-family: "NetflixSansMedium";
+  src: url(../fonts/NetflixSansMedium.ttf);
+}
+@font-face {
+  font-family: "NetflixSansLight";
+  src: url(../fonts/NetflixSansLight.ttf);
+}
+@font-face {
+  font-family: "NetflixSansThin";
+  src: url(../fonts/NetflixSansThin.ttf);
+}
