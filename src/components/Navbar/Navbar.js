@@ -2,22 +2,31 @@ import React from "react";
 import "./Navbar.scss";
 
 const Navbar = () => {
+
+
+const searchInput = () => {
+  console.log("click")
+}
+
   return (
     <header>
       <nav className="navbar">
         <a href="/" className="logo-link">
           <picture>
-            <img src="" alt="" className="logo" />
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
+              alt=""
+              className="logo"
+            />
           </picture>
         </a>
 
         <ul className="primary-nav">
           <li className="navigation-menu">
             <a href="/" role="button" className="menu-trigger">
-              Browse 
+              Browse
               <span className="caret">▼</span>
             </a>
-
           </li>
           <li className="navigation-tab">
             <a href="/" className="nav-link">
@@ -50,14 +59,16 @@ const Navbar = () => {
           <div className="nav-element">
             <div className="searchBox">
               <button className="searchTab">
-                <span className="icon-search">🔍</span>
+                <span className="icon-search" onClick={() => searchInput()}>🔍</span>
               </button>
             </div>
           </div>
           <div className="nav-element">
             <span className="notifications">
               <button className="notifications-menu">
-                <span className="icon-button-notification">🔔</span>
+                <span className="icon-button-notification">
+                  
+                  🔔</span>
               </button>
             </span>
           </div>
@@ -66,7 +77,7 @@ const Navbar = () => {
               <div className="account-dropdown-button">
                 <a href="/" className="">
                   <span className="profile-link">
-                    <img src="/" alt="profile-img" className="profile-icon" />
+                    <img src="/" alt="img" className="profile-icon" />
                   </span>
                 </a>
                 <span className="caret">▼</span>
