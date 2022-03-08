@@ -12,6 +12,8 @@ import FilmsPage from "./pages/FilmsPage";
 import LogoutPage from "./pages/LogoutPage";
 import ErrorPage from "./pages/ErrorPage";
 import SearchPage from "./pages/SearchPage";
+import Footer1 from "./components/Footer1/Footer1";
+
 
 function App() {
   return (
@@ -28,6 +30,7 @@ function App() {
             <Route exact path="/logout" element={<LogoutPage />} />
             <Route exact path="/error" element={<ErrorPage />} />
           </Routes>
+          <Footer1 />
         </ScrollToTop>
       </Router>
     </div>
