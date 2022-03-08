@@ -1,9 +1,11 @@
+import DiscoverHero from '../components/DiscoverHero/DiscoverHero'
+
 const LandingPage = () => {
   return (
     <>
-      <div>Landing Page</div>
+      <DiscoverHero />
     </>
-  );
-};
+  )
+}
 
-export default LandingPage;
+export default LandingPage
