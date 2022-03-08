@@ -8,7 +8,6 @@ import LandingPage from "./pages/LandingPage";
 import LoginPage from "./pages/LoginPage";
 import DiscoverPage from "./pages/DiscoverPage";
 import FilmsPage from "./pages/FilmsPage";
-
 import LogoutPage from "./pages/LogoutPage";
 import ErrorPage from "./pages/ErrorPage";
 import SearchPage from "./pages/SearchPage";
