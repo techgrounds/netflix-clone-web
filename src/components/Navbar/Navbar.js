@@ -66,7 +66,7 @@ const Navbar = () => {
               <div className="account-dropdown-button">
                 <a href="/" className="">
                   <span className="profile-link">
-                    <img src="" alt="profile-img" className="profile-icon" />
+                    <img src="/" alt="profile-img" className="profile-icon" />
                   </span>
                 </a>
                 <span className="caret">▼</span>

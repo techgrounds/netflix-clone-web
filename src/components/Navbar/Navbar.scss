@@ -103,10 +103,12 @@ header{
   font-size: 1.2rem;
   transition: background-color .4s;
   background:#222;
-  max-height:61px;
-
+  height:41px;
   a{
     text-decoration: none;
+    &:hover{
+      cursor: pointer;
+    }
   }
 
 }
@@ -121,6 +123,10 @@ header{
   display:flex;
   list-style: none;
 
+  // border: 1px solid magenta;
+
+
+
 }
 .menu-trigger{
     display: flex;
@@ -132,6 +138,7 @@ header{
 
 .navigation-tab{
   display:none;
+  margin-left: 20px;
 }
 .secondary-nav{
   display: flex;
@@ -144,3 +151,17 @@ header{
   height: 100%;
 }
 
+@media screen and (min-width: 950px){
+  .navbar{   
+    height:61px;
+
+}
+
+.navigation-tab{
+  display:block
+}
+
+.menu-trigger{
+  display: none;
+}
+}
