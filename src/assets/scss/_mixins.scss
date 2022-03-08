@@ -1,9 +1,5 @@
 @mixin breakpoint($breakpoint) {
-  @if $breakpoint == xsm {
-    @media (min-width: 32em) {
-      @content;
-    }
-  } @else if $breakpoint == sm {
+  @if $breakpoint == sm {
     @media (min-width: 48em) {
       @content;
     }
