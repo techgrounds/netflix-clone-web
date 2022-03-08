@@ -1,34 +1,121 @@
 .hero-container{
+  position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 1440px;
-  height: 700px;
+  width: 100%;
+  height: 500px;
+  background-size: cover;
+  border-bottom: 8px solid #222;
+  &::before{
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(0,0,0,0.6);
+  }
 }
+
 .hero-card{
-  text-align: center;
+  margin-top: 5rem;
   &-title{
     display: block;
     width: 100%;
-    font-size: 3.2rem;
+    font-size: 1.75rem;
     font-family: "NetflixSansBold";
     color: var(--white);
     font-weight: 700;
     line-height: 1.1;
+    margin: 0 auto;
   }
   &-subtitle{
     display: block;
     width: 100%;
-    font-size: 1.6rem;
-    font-family: "NetflixSansRegular";
+    font-size: 1.125rem;
+    font-family: "NetflixSansLight";
     color: var(--white);
-    font-weight: 700;
     margin: 1rem auto;
   }
 
 }
 .email-form{
+  
+  &-title{
+    font-family: "NetflixSansLight";    display: block;
+    max-width: 350px;
+    margin: 0.5rem auto;
+    font-size: 18px;
+    padding: 0 8%;
+
+  }
+  &-input{
+    height: 3rem;
+    padding: 10px;
+    width: 90%;
+    margin-bottom: 1rem;
+    outline: none;
+    border: none;
+  }
+  &-btn{
+    height: 2.5rem;
+    width: 8.125rem;
+    background-color: var(--red);
+    color: var(--white);
+    outline: none;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    cursor: pointer;
+   
+  }
+}
+
+@media only screen and (min-width: 950px) and (max-width: 1449px), only screen and (min-width: 1450px) {
+.hero-container {
+    top: -65px;
+    max-width: 1440px;
+    height: 800px;
+
+}
+.hero-card{
+  text-align: center;
+  position: relative;
+  margin-top: 2rem;
+  &-title{
+    font-size: 3.2rem;
+  }
+  &-subtitle{
+    font-size: 1.625rem;
+  }
+}
+.email-form{
   max-width: 950px;
   padding-top: 1rem;
-  
+  &-title{
+    min-width: 950px;
+   font-size: 1.2rem;
+   margin-bottom: 1rem;
+  }
+  &-input{
+    height: 4rem;
+    width: 450px;
+    margin-right: .1em;
+    font-size: 1.625rem;
+  }
+  &-btn{
+    height: 4rem;
+    width: 13.25rem;
+    display: inline-flex;
+    padding: 2rem 0;
+   span{
+     font-size: 1.625rem;
+   }
+  }
+}
+
 }

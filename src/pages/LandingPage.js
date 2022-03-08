@@ -1,12 +1,12 @@
-import './assets/scss/main.scss';
-import LandingHero from './components/LandingHero/LandingHero';
+import LandingHero from './../components/LandingHero/LandingHero';
 
 
 const LandingPage = () => {
   return (
-    <>
+    <div className="landingPage">
       <LandingHero />
-    </>
+      
+    </div>
   );
 };
 

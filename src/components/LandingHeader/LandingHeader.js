@@ -2,10 +2,12 @@ import React from 'react'
 
 import './styles.scss'
 
-export default function LandingHero() {
+export default function LandingHeader() {
   return (
-    <div>
-      <p>hello from header</p>
+    <div className="landing-page-header">
+      <div className="logo">
+        LOGO
+      </div>
     </div>
   )
 }
