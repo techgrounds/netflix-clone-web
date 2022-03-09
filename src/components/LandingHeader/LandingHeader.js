@@ -1,16 +1,16 @@
-import React from 'react'
-import ButtonRed from '../ButtonRed/ButtonRed'
+import React from 'react';
+import ButtonRed from '../ButtonRed/ButtonRed';
+import { NetflixLogo } from './../Logos/NetflixLogo';
 
+import './styles.scss';
 
-import './styles.scss'
-
-export default function LandingHeader() {
+export default function LandingHeader({}) {
   return (
     <div className="landing-page-header">
       <div className="logo">
-      
+        <NetflixLogo />
       </div>
-      <ButtonRed btnLink='/SignIn' btnTxt='Sign In'/>
+      <ButtonRed>Sign In</ButtonRed>
     </div>
-  )
+  );
 }

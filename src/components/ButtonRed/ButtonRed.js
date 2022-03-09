@@ -1,18 +1,12 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import './styles.scss';
 
-
-const ButtonRed = ({
-  btnLink = 'test',
-  btnText = 'Test',
-}) => {
+const ButtonRed = ({ children, ...otherProps }) => {
   return (
-    <ButtonRed className="btn-red">
-      <Link className="button" to = {btnLink}>
-        {btnText}
-      </Link>
-    </ButtonRed>
-  )
-}
+    <button className="btn-red" {...otherProps}>
+      {children}
+    </button>
+  );
+};
 
-export default ButtonRed
+export default ButtonRed;
