@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./Navbar.scss";
 import { NetflixLogo } from "../Logos/NetflixLogo";
 import { IconNotification } from "../Icons/IconNotification";
+import { debounce } from "lodash";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -14,7 +15,17 @@ const Navbar = () => {
     open === false ? setOpen(true) : setOpen(false);
   };
   const accountMenu = () => {
-    dropdown === false ? setDropdown(true) : setDropdown(false);
+     dropdown === false ? setDropdown(true) : setDropdown(false);
+   };
+
+  const [isHovered, setIsHovered] = useState(false);
+  console.log(isHovered);
+
+  const debouncedHandleMouseLeave = debounce(() => setIsHovered(false), 500);
+
+  const handlOnMouseEnter = () => {
+    setIsHovered(true);
+    debouncedHandleMouseLeave.cancel();
   };
 
   return (
@@ -116,7 +127,8 @@ const Navbar = () => {
               <div
                 className="account-dropdown-button"
                 onClick={() => accountMenu()}
-                onMouseEnter={() => setDropdown(true)}
+                onMouseEnter={handlOnMouseEnter}
+                onMouseLeave={debouncedHandleMouseLeave}
               >
                 <a href="#" className="account-link">
                   <span className="profile-link">
@@ -129,7 +141,7 @@ const Navbar = () => {
                 </a>
                 <span className="caret">▼</span>
               </div>
-              {dropdown ? (
+              {dropdown || isHovered ? (
                 <div className="account-drop-down ">
                   <div className="callout-arrow"></div>
                   <ul className="sub-menu-list profiles">
