@@ -1,7 +1,5 @@
 import React from 'react'
 import './styles.scss'
-// import { Icon } from 'react-icons-kit'
-// import { facebook } from 'react-icons-kit/fa/facebook';
 
 
 function FooterBrowserPage() {
