@@ -27,6 +27,11 @@ const searchInput = () => {
               Browse
               <span className="caret">▼</span>
             </a>
+
+            <div className="sub-menu">
+              
+              </div>
+
           </li>
           <li className="navigation-tab">
             <a href="/" className="nav-link">
@@ -75,9 +80,9 @@ const searchInput = () => {
           <div className="nav-element">
             <div className="account-menu-item">
               <div className="account-dropdown-button">
-                <a href="/" className="">
+                <a href="/" className="account-link">
                   <span className="profile-link">
-                    <img src="/" alt="img" className="profile-icon" />
+                    <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="img" className="profile-icon" />
                   </span>
                 </a>
                 <span className="caret">▼</span>
