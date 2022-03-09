@@ -8,13 +8,21 @@ const HomeHero = () => {
       </video>
 
       <div className='hero-description'>
-        <h2>The Bombardment</h2>
-        <p className='hero-info'>
-          The fates of several Copenhagen residents collide when a WWII bombing
-          mission accidentally targets a school full of children.
-        </p>
-        <button>Play</button>
-        <button>More Info</button>
+        <div className='title-wrapper'>
+          <h2>The Bombardment</h2>
+        </div>
+
+        <div className='info-wrapper'>
+          <p>
+            The fates of several Copenhagen residents collide when a WWII
+            bombing mission accidentally targets a school full of children.
+          </p>
+        </div>
+
+        <div className='button-wrapper'>
+          <button className='hero-button play-button'>Play</button>
+          <button className='hero-button info-button'>More Info</button>
+        </div>
       </div>
     </div>
   )

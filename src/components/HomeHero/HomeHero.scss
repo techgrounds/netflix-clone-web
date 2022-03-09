@@ -22,3 +22,33 @@
   align-items: center;
   display: block;
 }
+
+h2 {
+  text-transform: uppercase;
+  font-family: 'NetflixSansLight';
+  letter-spacing: 5px;
+  font-weight: 200;
+  font-size: 6.695rem;
+  line-height: 8.176rem;
+  text-align: center;
+}
+
+p {
+  font-size: 2.157rem;
+  font-family: 'NetflixSansLight';
+  padding-left: 0.5rem;
+}
+
+.button-wrapper {
+  margin-top: 1.5vw;
+}
+
+.hero-button {
+  padding: 0.8rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  opacity: 1;
+  border: 0;
+}
