@@ -1,0 +1,33 @@
+.buttonRound {
+    display: inline-block;
+  height: 2.6em;
+  width: 2.6em;
+  margin: 0.3em;
+  border-radius: 50%;
+  transition: 0.6s;
+  cursor: pointer;
+  svg {
+    height: 55%;
+    width: auto;
+    position: relative;
+    margin: auto;
+    top: 35%;
+    left: 25%;
+    transform: translate(-50%,-50%);
+  }
+}
+.buttonDark {
+  background-color: transparent;
+  border: 1.5px solid var(--whiteOpacity);
+  &:hover {
+    background-color: var(--midgrey);
+    border: 1.5px solid var(--white);
+  }
+}
+.buttonLight {
+  background-color: var(--white);
+  border: none;
+  &:hover {
+    background-color: var(--smokewhite);
+  }
+}

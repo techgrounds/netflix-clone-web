@@ -1,0 +1,23 @@
+@mixin breakpoint($breakpoint) {
+  @if $breakpoint == sm {
+    @media (min-width: 48em) {
+      @content;
+    }
+  } @else if $breakpoint == md {
+    @media (min-width: 55em) {
+      @content;
+    }
+  } @else if $breakpoint == lg {
+    @media (min-width: 62rem) {
+      @content;
+    }
+  } @else if $breakpoint == xlg {
+    @media (min-width: 75em) {
+      @content;
+    }
+  }
+}
+
+@mixin pagePadding() {
+  padding: 0 60px;
+}
