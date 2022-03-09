@@ -1,9 +1,10 @@
 import React from 'react'
 import './styles.scss'
+// import { Icon } from 'react-icons-kit'
+// import { facebook } from 'react-icons-kit/fa/facebook';
 
 
-
-function Footer1() {
+function FooterBrowserPage() {
     return (
         <footer className="member-footer" role="contentinfo">
             <div className="social-links">
@@ -84,4 +85,4 @@ function Footer1() {
     )
 }
 
-export default Footer1
+export default FooterBrowserPage
