@@ -65,6 +65,7 @@
     justify-content: center;
     gap: 0.5rem;
     cursor: pointer;
+    font-family: 'NetflixSansLight';
   }
 }
 
@@ -105,8 +106,9 @@
       height: 4rem;
       width: 13.25rem;
       padding: 2rem 0;
-      span {
-        font-size: 1.625rem;
+      font-size: 1.625rem;
+      div {
+        margin-top: 0.5rem;
       }
     }
   }
