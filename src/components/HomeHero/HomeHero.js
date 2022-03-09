@@ -8,13 +8,10 @@ const HomeHero = () => {
       </video>
 
       <div className='hero-description'>
-        <h2>Queen</h2>
-        <p>of the</p>
-        <h2>South</h2>
+        <h2>The Bombardment</h2>
         <p className='hero-info'>
-          Forced to work for a cartel that recently killed her boyfriend, Teresa
-          relies on her street smarts, a loyal friend and a mysterious notebook
-          to survive.
+          The fates of several Copenhagen residents collide when a WWII bombing
+          mission accidentally targets a school full of children.
         </p>
         <button>Play</button>
         <button>More Info</button>
