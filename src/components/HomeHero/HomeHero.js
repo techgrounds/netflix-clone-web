@@ -21,7 +21,10 @@ const HomeHero = () => {
 
         <div className='button-wrapper'>
           <button className='hero-button play-button'>Play</button>
-          <button className='hero-button info-button'>More Info</button>
+          <button className='hero-button info-button'>
+            <div className='button-icon'></div>
+            <span>More Info</span>
+          </button>
         </div>
       </div>
     </div>
