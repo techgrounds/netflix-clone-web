@@ -3,8 +3,6 @@
 *::before,
 *::after {
   box-sizing: border-box;
-
-  
 }
 
 /* Remove default margin / padding */
@@ -19,7 +17,7 @@ blockquote,
 dl,
 dd {
   margin: 0;
-  padding:0;
+  padding: 0;
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
@@ -39,18 +37,14 @@ body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
   overflow-x: hidden;
-  
-  
-
-
 }
 
 /* A elements that don't have a class get default styles */
 a:not([class]) {
   text-decoration-skip-ink: auto;
 }
-a{
-  color:inherit;
+a {
+  color: inherit;
 }
 
 /* Make images easier to work with */
@@ -68,15 +62,12 @@ select {
   font: inherit;
 }
 
-
-
-
 /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
-   scroll-behavior: auto;
+    scroll-behavior: auto;
   }
-  
+
   *,
   *::before,
   *::after {
@@ -85,62 +76,53 @@ select {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-
-
 }
-header{
-  color:white;
+header {
+  color: white;
 }
 
-
-
-.navbar{
+.navbar {
   position: relative;
   display: flex;
   align-items: center;
   padding: 0 4%;
   z-index: 2;
   font-size: 1.2rem;
-  transition: background-color .4s;
-  background:#222;
-  height:41px;
-  a{
+  transition: background-color 0.4s;
+  background: #222;
+  height: 41px;
+  a {
     text-decoration: none;
-    &:hover{
+    &:hover {
       cursor: pointer;
     }
   }
-
 }
 
-.logo{
-  height:100%;
-  width:100%;
+.logo {
+  height: 100%;
+  width: 100%;
   object-fit: cover;
 }
 
-.primary-nav{
-  display:flex;
+.primary-nav {
+  display: flex;
   list-style: none;
 
   // border: 1px solid magenta;
-
-
-
 }
-.menu-trigger{
-    display: flex;
-    align-items: center;
-    font-weight: 700;
-    height: 100%;
+.menu-trigger {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  height: 100%;
 }
 
-
-.navigation-tab{
-  display:none;
+.navigation-tab {
+  display: none;
   margin-left: 20px;
 }
-.secondary-nav{
+.secondary-nav {
   display: flex;
   align-items: center;
   flex-grow: 1;
@@ -151,17 +133,16 @@ header{
   height: 100%;
 }
 
-@media screen and (min-width: 950px){
-  .navbar{   
-    height:61px;
+@media screen and (min-width: 950px) {
+  .navbar {
+    height: 61px;
+  }
 
-}
+  .navigation-tab {
+    display: block;
+  }
 
-.navigation-tab{
-  display:block
-}
-
-.menu-trigger{
-  display: none;
-}
+  .menu-trigger {
+    display: none;
+  }
 }
