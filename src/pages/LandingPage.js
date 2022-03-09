@@ -1,11 +1,7 @@
 import HomeHero from '../components/HomeHero/HomeHero'
 
 const LandingPage = () => {
-  return (
-    <>
-      <HomeHero />
-    </>
-  )
+  return <></>
 }
 
 export default LandingPage
