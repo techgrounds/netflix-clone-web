@@ -2,6 +2,7 @@ import React from 'react';
 import HeroBG from '../../assets/images/landing-bg.jpg';
 import LandingHeader from '../LandingHeader/LandingHeader';
 import ButtonRed from '../ButtonRed/ButtonRed';
+import { IconArrowRight } from '../Icons/IconArrowRight';
 
 import './styles.scss';
 
@@ -32,7 +33,9 @@ export default function LandingHero() {
           />
           <ButtonRed>
             <span> Get Started</span>
-            <span className="chevron-right-arrow">&#62;</span>
+            <div className="chevron-right-arrow">
+              <IconArrowRight />
+            </div>
           </ButtonRed>
         </form>
       </div>
