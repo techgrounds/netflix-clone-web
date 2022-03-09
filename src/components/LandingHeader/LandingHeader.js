@@ -1,4 +1,5 @@
 import React from 'react'
+import ButtonRed from '../ButtonRed/ButtonRed'
 
 import './styles.scss'
 
@@ -8,6 +9,7 @@ export default function LandingHeader() {
       <div className="logo">
         LOGO
       </div>
+      <ButtonRed btnLink='/SignIn' btnTxt='Sign In'/>
     </div>
   )
 }
