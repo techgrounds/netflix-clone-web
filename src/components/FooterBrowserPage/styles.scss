@@ -5,8 +5,11 @@
     font-family: "NetflixSansRegular", sans-serif;
     color:var(--gray);
     background-color: var(--black);
-    display: block;
-    position: static;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .footer-links {
@@ -30,23 +33,11 @@
     cursor: pointer;
     color: #fff;
     margin-right: 0.938em;
-    line-height: 1.2;
-}
-
-.footer-links ul {
-    margin-right: 0.938em;
-    display:flex;
-    font-size: 0.813em;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    margin: 0 0 0.875em 0;
-    padding: 0;
 }
 
 .footer-link-wrapper  {
     list-style-type: none;
-    flex: 0 0 25%;
+    flex: 0 0 50%;
     margin-bottom: 1em;
 }
 
@@ -68,3 +59,19 @@
     margin-bottom: 15px;
 }
 
+/* Desktop */
+@media (min-width: 600px) {
+    .member-footer {
+        display: block;
+        position: static;
+    }
+    .footer-links {
+        display: flex;
+        flex-direction: row;
+    }
+    .footer-link-wrapper  {
+        list-style-type: none;
+        flex: 0 0 25%;
+        margin-bottom: 1em;
+    }
+}
