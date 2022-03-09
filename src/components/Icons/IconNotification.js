@@ -7,7 +7,7 @@ export const IconNotification = () => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_2_4)">
+      <g clipPath="url(#clip0_2_4)">
         <path
           d="M12 24C13.37 24 14.4959 22.9561 14.6264 21.6204H9.37354C9.50404 22.9561 10.63 24 12 24Z"
           fill="#141414"
