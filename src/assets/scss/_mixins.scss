@@ -8,11 +8,11 @@
       @content;
     }
   } @else if $breakpoint == lg {
-    @media (min-width: 62rem) {
+    @media (min-width: 70rem) {
       @content;
     }
   } @else if $breakpoint == xlg {
-    @media (min-width: 75em) {
+    @media (min-width: 110em) {
       @content;
     }
   }

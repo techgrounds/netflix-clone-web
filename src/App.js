@@ -9,6 +9,7 @@ import HomePage from './pages/HomePage'
 import GenrePage from './pages/GenrePage'
 import ErrorPage from './pages/ErrorPage'
 import SearchPage from './pages/SearchPage'
+import FooterLandingPage from './components/FooterLandingPage/FooterLandingPage'
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route exact path='*' element={<ErrorPage />} />
           </Routes>
         </ScrollToTop>
+        <FooterLandingPage />
       </Router>
     </div>
   )
