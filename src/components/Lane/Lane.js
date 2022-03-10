@@ -1,9 +1,16 @@
 import React, { useState } from "react";
+import { useSwipeable } from "react-swipeable";
 import "./Lane.scss";
 
-const laneLenght = 6;
+const laneLenght = 6
+// 5
+// 4
+// 3
+// 2
 const laneItemWidth = 15;
 const laneItemHeight = 9;
+
+console.log(window.innerWidth)
 
 export const  LaneItem = ({ children }) => {
     return (
@@ -16,7 +23,6 @@ export const  LaneItem = ({ children }) => {
 
 const Lane = ({ children }) => {
     const [activeIndex, setActiveIndex] = useState(0);
-
     const updateIndex = (newIndex) => {
         if (newIndex < 0) {
             newIndex = React.Children.count(children) - laneLenght
@@ -26,10 +32,15 @@ const Lane = ({ children }) => {
         setActiveIndex(newIndex);
     }
 
+    const handlers = useSwipeable({
+        onSwipedLeft: () => updateIndex(activeIndex + laneLenght),
+        onSwipedRight: () => updateIndex(activeIndex - laneLenght)
+    })
+
     return (
         <div className="lane">
             <div className="laneName">Lane</div>
-            <div className="inner" style={{ transform: `translateX(-${activeIndex * laneItemWidth}vw)`}}>
+            <div className="inner" {...handlers} style={{ transform: `translateX(-${activeIndex * laneItemWidth}vw)`}}>
                 {React.Children.map(children, (child, index) => {
                     return React.cloneElement( child )
                 })}
@@ -46,7 +57,7 @@ const Lane = ({ children }) => {
                     if (index % laneLenght === 0) return (
                         <button
                         className={`${
-                                    index == activeIndex ? "active_pageIndicatior pageIndicator" : "pageIndicator"
+                                    index === activeIndex ? "active_pageIndicatior pageIndicator" : "pageIndicator"
                                 }`}
                         />
                         )}
