@@ -14,7 +14,7 @@ const Navbar = () => {
         <ul className="primary-nav">
           <li className="navigation-menu">
             <a href="/" role="button" className="menu-trigger">
-              Browse 
+              Browse
               <span className="caret">▼</span>
             </a>
 
