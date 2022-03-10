@@ -1,21 +1,20 @@
 import "./ButtonRound.scss";
-import { Icon } from "../Icon/Icon";
 
-export const ButtonRoundDark = () => {
+export const ButtonRoundDark = ({children}) => {
   return (
     <>
       <button className="buttonRound buttonDark">
-        <Icon className="icon" />
+        {children}
       </button>
     </>
   );
 };
 
-export const ButtonRoundLight = () => {
+export const ButtonRoundLight = ({children}) => {
   return (
     <>
       <button className="buttonRound buttonLight">
-        <Icon className="icon" />
+        {children}
       </button>
     </>
   );
