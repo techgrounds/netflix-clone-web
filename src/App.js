@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Navbar />
+        {/* <Navbar /> */}
         <ScrollToTop>
           <Routes>
             <Route exact path="/" element={<LandingPage />} />
