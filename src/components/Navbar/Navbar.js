@@ -88,13 +88,15 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="navigation-tab">
-            <Link to="" className="nav-link">
-              Series
+            <Link to="genre" className="nav-link">
+              {/* Series */}
+              Genres
             </Link>
           </li>
           <li className="navigation-tab">
-            <Link to="" className="nav-link">
-              Films
+            <Link to="/search" className="nav-link">
+              {/* Films */}
+              Search
             </Link>
           </li>
           <li className="navigation-tab">
