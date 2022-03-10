@@ -10,20 +10,26 @@
 }
 
 .hero-video {
-  width: 100%;
-  height: auto;
+  height: 400px;
   align-self: center;
+  @include breakpoint(md) {
+    width: 100%;
+    height: auto;
+  }
 }
 
 .hero-description {
   position: absolute;
-  top: 30%;
+  top: 25%;
   left: 30px;
-  width: 36%;
+  width: 80%;
   justify-content: center;
   align-items: center;
+  @include breakpoint(md) {
+    top: 30%;
+    width: 60%;
+  }
   @include breakpoint(lg) {
-    width: 40%;
     left: 60px;
   }
 }
@@ -33,10 +39,17 @@ h2 {
   font-family: 'NetflixSansRegular';
   letter-spacing: 5px;
   font-weight: 500;
-  font-size: 1.6rem;
+  font-size: 1.397rem;
+  padding-bottom: 0.6rem;
+  text-shadow: 2px 2px 4px var(--black);
+  @include breakpoint(md) {
+    font-size: 2.695rem;
+    line-height: 3.076rem;
+  }
   @include breakpoint(lg) {
     font-size: 4.695rem;
     line-height: 6.076rem;
+    padding-bottom: 0;
   }
   @include breakpoint(xlg) {
     font-size: 6.695rem;
@@ -47,10 +60,13 @@ h2 {
 p {
   font-family: 'NetflixSansRegular';
   font-weight: 100;
-  padding-left: 0.5rem;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   letter-spacing: -1px;
-  text-shadow: 2px 2px 4px #000000;
+  text-shadow: 2px 2px 4px var(--black);
+  @include breakpoint(md) {
+    padding-left: 0.5rem;
+    font-size: 1.35rem;
+  }
   @include breakpoint(lg) {
     font-size: 1.457rem;
     line-height: 2.585rem;
@@ -62,10 +78,12 @@ p {
 }
 
 .button-wrapper {
-  margin-top: 1.5vw;
-  padding-left: 0.5rem;
   display: flex;
   flex-direction: row;
+  margin-top: 1.7vw;
+  @include breakpoint(md) {
+    padding-left: 0.5rem;
+  }
 }
 
 .hero-button {
@@ -76,10 +94,14 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.7rem 2rem 0.7rem 0.7rem;
+  padding: 0.2rem 2.5rem 0.2rem 1.4rem;
   margin-right: 1rem;
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   font-family: 'NetflixSansMedium';
+  @include breakpoint(sm) {
+    padding: 0.7rem 2rem 0.7rem 0.7rem;
+    font-size: 1.2rem;
+  }
   @include breakpoint(xlg) {
     font-size: 1.47rem;
     padding: 0.7rem 2.5rem 0.7rem 1.5rem;
