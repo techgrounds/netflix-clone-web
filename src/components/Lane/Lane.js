@@ -3,11 +3,12 @@ import "./Lane.scss";
 
 const laneLenght = 6;
 const laneItemWidth = 15;
+const laneItemHeight = 9;
 
 export const  LaneItem = ({ children }) => {
     return (
         <div className="laneItem"
-        style={{height: "9vw", width: `${laneItemWidth}vw`}}>
+        style={{height: `${laneItemHeight}vw`, width: `${laneItemWidth}vw`}}>
             {children}
             </div>
     )
@@ -34,8 +35,12 @@ const Lane = ({ children }) => {
                 })}
             </div>
             <div className="indicators">
-                <button className="indicator indicator_prev" onClick={() => {updateIndex(activeIndex - laneLenght)}}>PREV</button>
-                <button className="indicator indicator_next" onClick={() => {updateIndex(activeIndex + laneLenght)}}>NEXT</button>
+                <button className="indicator indicator_prev"
+                style={{height: `${laneItemHeight}vw`, width: "5vw"}}
+                onClick={() => {updateIndex(activeIndex - laneLenght)}}>PREV</button>
+                <button className="indicator indicator_next"
+                style={{height: `${laneItemHeight}vw`, width: "5vw"}}
+                onClick={() => {updateIndex(activeIndex + laneLenght)}}>NEXT</button>
                 <div className="pageIndicator_container">
                     {React.Children.map(children, (child, index) => {
                     if (index % laneLenght === 0) return (
