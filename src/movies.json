@@ -1,0 +1,122 @@
+[
+  {
+    "id": "01.jpg",
+    "title": "Seven",
+    "description": "A seasoned homicide detective and his new partner are on a desperate hunt for a killer whose gruesome crimes are based on the Seven Deadly Sins.",
+    "actors": "Brad Pitt, Morgan Freeman, Gwyneth Paltrow, Kevin Spacey",
+    "director": "David Fincher",
+    "imdb_rating": "8.3/10",
+    "category": "Thrillers",
+    "date_released": "1522540800"
+  },
+  {
+    "id": "02.jpg",
+    "title": "Schindler's List",
+    "description": "Oskar Schindler becomes an unlikely humanitarian, spending his entire fortune to help save 1,100 Jews from Auschwitz during World War II.",
+    "actors": "Liam Neeson, Ben Kingsley, Ralph Fiennes, Caroline Goodall",
+    "director": "Steven Spielberg",
+    "imdb_rating": "8.5/10",
+    "category": "Classic Movies",
+    "date_released": "1491004800"
+  },
+  {
+    "id": "03.jpg",
+    "title": "V for Vendetta",
+    "description": "A masked freedom fighter known as \"V\" takes up arms against a totalitarian government and finds an unlikely ally in a young woman.",
+    "actors": "Natalie Portman, Hugo Weaving, Stephen Rea, Stephen Fry",
+    "director": "James McTeigue",
+    "imdb_rating": "7.9/10",
+    "category": "Action & Adventure",
+    "date_released": "1538352000"
+  },
+  {
+    "id": "04.jpg",
+    "title": "Once Upon a Time in America",
+    "description": "Director Sergio Leone's sprawling crime epic follows a group of Jewish mobsters who rise in the ranks of organized crime in 1920s New York City.",
+    "actors": "Robert De Niro, James Woods, Elizabeth McGovern, Treat Williams",
+    "director": "Sergio Leone",
+    "imdb_rating": "8.4/10",
+    "category": "Classic Movies",
+    "date_released": "1538352000"
+  },
+  {
+    "id": "05.jpg",
+    "title": "No Country for Old Men",
+    "description": "A drug deal gone bad and a bag full of cash entwine an unsuspecting hunter, a veteran sheriff and a murderous hit man in the stark West Texas desert.",
+    "actors": "Tommy Lee Jones, Javier Bardem, Josh Brolin, Woody Harrelson",
+    "director": "Ethan Coen, Joel Coen",
+    "imdb_rating": "7.9/10",
+    "category": "Dramas",
+    "date_released": "1533945600"
+  },
+  {
+    "id": "06.jpg",
+    "title": "Nymphomaniac: Volume 1",
+    "description": "A self-diagnosed nymphomaniac reveals a lifetime of sexual experiences to a man who saves her from being beaten in an alley.",
+    "actors": "Charlotte Gainsbourg, Stellan Skarsg\u00e5rd, Stacy Martin, Shia LaBeouf",
+    "director": "Lars von Trier",
+    "imdb_rating": "6.9/10",
+    "category": "Dramas",
+    "date_released": "1514764800"
+  },
+  {
+    "id": "07.jpg",
+    "title": "Nymphomaniac: Volume II",
+    "description": "The second half of Lars von Trier's epic follows Joe as her reignited sex addiction destroys her family and thrusts her toward a surprising new trade.",
+    "actors": "Charlotte Gainsbourg, Stellan Skarsg\u00e5rd, Stacy Martin, Shia LaBeouf",
+    "director": "Lars von Trier",
+    "imdb_rating": "6.7/10",
+    "category": "Dramas",
+    "date_released": "1514764800"
+  },
+  {
+    "id": "08.jpg",
+    "title": "Kill Bill: Vol. 1",
+    "description": "An assassin is shot by her ruthless employer, Bill, and other members of their assassination circle. But she lives -- and plots her vengeance.",
+    "actors": "Uma Thurman, Lucy Liu, Vivica A. Fox, Daryl Hannah",
+    "director": "Quentin Tarantino",
+    "imdb_rating": "7.9/10",
+    "category": "Action & Adventure",
+    "date_released": "1517443200"
+  },
+  {
+    "id": "09.jpg",
+    "title": "Kill Bill: Vol. 2",
+    "description": "The Bride has three left on her rampage list: Budd, Elle Driver and Bill himself. But when she arrives at Bill's house, she's in for a surprise.",
+    "actors": "Uma Thurman, David Carradine, Michael Madsen, Daryl Hannah",
+    "director": "Quentin Tarantino",
+    "imdb_rating": "7.8/10",
+    "category": "Action & Adventure",
+    "date_released": "1517443200"
+  },
+  {
+    "id": "10.jpg",
+    "title": "Berlin Calling",
+    "description": "DJ Ickarus is at the top of his game, dazzling fans and touring the world -- until he gets locked in the loony bin after taking a few too many drugs.",
+    "actors": "Paul Kalkbrenner, Rita Lengyel, Corinna Harfouch, Araba Walton",
+    "director": "Hannes St\u00f6hr",
+    "imdb_rating": "7.0/10",
+    "category": "Dramas",
+    "date_released": "1484438400"
+  },
+  {
+    "id": "11.jpg",
+    "title": "Newness",
+    "description": "Martin and Gabi try to form a relationship after meeting through a hookup app, but when boredom creeps in, they seek out an unconventional solution.",
+    "actors": "Nicholas Hoult, Laia Costa, Danny Huston, Courtney Eaton",
+    "director": "Drake Doremus",
+    "imdb_rating": "5.7/10",
+    "category": "Dramas",
+    "date_released": "1517443200"
+  },
+  {
+    "id": "12.jpg",
+    "title": "The Aviator",
+    "description": "Leonardo DiCaprio portrays eccentric tycoon Howard Hughes, who turned a small fortune into a massive one by building Hollywood and aviation empires.",
+    "actors": "Leonardo DiCaprio, Cate Blanchett, Kate Beckinsale, John C. Reilly",
+    "director": "Martin Scorsese",
+    "imdb_rating": "7.1/10",
+    "category": "Dramas",
+    "date_released": "1533081600"
+  }
+]
