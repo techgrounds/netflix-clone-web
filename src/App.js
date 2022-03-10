@@ -1,15 +1,15 @@
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 
-import "./assets/scss/main.scss";
+import './assets/scss/main.scss';
 
-import Navbar from "./components/Navbar/Navbar";
-import ScrollToTop from "./components/ScrollToTop";
-import LandingPage from "./pages/LandingPage";
-import HomePage from "./pages/HomePage";
-import GenrePage from "./pages/GenrePage";
-import ErrorPage from "./pages/ErrorPage";
-import SearchPage from "./pages/SearchPage";
-import FooterLandingPage from "./components/FooterLandingPage/FooterLandingPage";
+import Navbar from './components/Navbar/Navbar';
+import ScrollToTop from './components/ScrollToTop';
+import LandingPage from './pages/LandingPage';
+import HomePage from './pages/HomePage';
+import GenrePage from './pages/GenrePage';
+import ErrorPage from './pages/ErrorPage';
+import SearchPage from './pages/SearchPage';
+import FooterLandingPage from './components/FooterLandingPage/FooterLandingPage';
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
             <Route exact path="*" element={<ErrorPage />} />
           </Routes>
         </ScrollToTop>
-        <FooterLandingPage />
+        {/* <FooterLandingPage /> */}
       </Router>
     </div>
   );
