@@ -1,3 +1,5 @@
+@import '../../assets/scss/mixins';
+
 .hero {
   position: relative;
   display: flex;
@@ -15,12 +17,15 @@
 
 .hero-description {
   position: absolute;
-  top: 35%;
-  left: 60px;
+  top: 30%;
+  left: 30px;
   width: 36%;
   justify-content: center;
   align-items: center;
-  display: block;
+  @include breakpoint(lg) {
+    width: 40%;
+    left: 60px;
+  }
 }
 
 h2 {
@@ -28,31 +33,74 @@ h2 {
   font-family: 'NetflixSansRegular';
   letter-spacing: 5px;
   font-weight: 500;
-  font-size: 6.695rem;
-  line-height: 8.176rem;
-  text-align: center;
+  font-size: 1.6rem;
+  @include breakpoint(lg) {
+    font-size: 4.695rem;
+    line-height: 6.076rem;
+  }
+  @include breakpoint(xlg) {
+    font-size: 6.695rem;
+    line-height: 8.076rem;
+  }
 }
 
 p {
-  font-size: 2.257rem;
   font-family: 'NetflixSansRegular';
   font-weight: 100;
   padding-left: 0.5rem;
-  line-height: 2.585rem;
+  font-size: 1.2rem;
   letter-spacing: -1px;
+  text-shadow: 2px 2px 4px #000000;
+  @include breakpoint(lg) {
+    font-size: 1.457rem;
+    line-height: 2.585rem;
+  }
+  @include breakpoint(xlg) {
+    font-size: 2.257rem;
+    line-height: 2.585rem;
+  }
 }
 
 .button-wrapper {
   margin-top: 1.5vw;
   padding-left: 0.5rem;
+  display: flex;
+  flex-direction: row;
 }
 
 .hero-button {
-  padding: 0.8rem;
-  margin-right: 1rem;
-  margin-bottom: 1rem;
   cursor: pointer;
   border-radius: 4px;
   opacity: 1;
   border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 2rem 0.7rem 0.7rem;
+  margin-right: 1rem;
+  font-size: 1.2rem;
+  font-family: 'NetflixSansMedium';
+  @include breakpoint(xlg) {
+    font-size: 1.47rem;
+    padding: 0.7rem 2.5rem 0.7rem 1.5rem;
+  }
+}
+
+.play-button {
+  background-color: var(--white);
+  &:hover {
+    background-color: rgb(214, 214, 214);
+  }
+}
+
+.info-button {
+  background-color: var(--midgrey);
+  color: var(--color-white);
+  &:hover {
+    background-color: rgba(109, 109, 110, 0.562);
+  }
+}
+
+.button-icon {
+  display: flex;
 }
