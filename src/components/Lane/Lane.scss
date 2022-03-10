@@ -1,6 +1,15 @@
+@import "../../assets/scss/mixins";
+
+.laneName {
+    position: relative;
+    font-size: 1.4vw;
+    font-family: NetflixSansBold;
+    left: 4px;
+}
+
 .lane {
     overflow: hidden;
-    transform: translateX(5vw);
+    padding-left: 5vw;
 }
 
 .inner {
@@ -8,15 +17,62 @@
     transition: transform 0.7s;
 }
 
-.lane-item {
+.laneItem {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: 10vw;
-    width: 15vw;
     background-color: var(--red);
-    border: 4px solid  var(--black);
+    border: 3.5px solid  var(--black);
     color: var(--white);
     border-radius: 8px;
+}
 
+.indicator {
+    height: 9vw;
+    width: 5vw;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--black);
+    opacity: 0.5;
+    color: var(--black);
+    position: relative;
+    top: -9vw;
+    &:hover {
+        color: var(--white);
+    }
+}
+
+.indicators {
+    position: relative;
+}
+
+.indicator_prev {
+    left: calc(-5vw - 2px);
+}
+
+.indicator_next {
+    right: -85vw;
+}
+
+.pageIndicator_container {
+    position: relative;
+    top: -19vw;
+    display: flex;
+    justify-content: flex-end;
+    width: calc(90vw - 4px);
+}
+
+.pageIndicator {
+    width: 0.8vw;
+    height: 2px;
+    border: none;
+    margin: 1px;
+    background-color: var(--gray);
+}
+.active_pageIndicatior {
+    background-color: var(--smokewhite);
+}
+
+.pageIndicator_hidden {
+    display: none;
 }

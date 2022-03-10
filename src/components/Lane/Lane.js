@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import "./Lane.scss";
 
+const laneLenght = 6;
+const laneItemWidth = 15;
 
 export const  LaneItem = ({ children }) => {
     return (
-        <div className="lane-item">
+        <div className="laneItem"
+        style={{height: "9vw", width: `${laneItemWidth}vw`}}>
             {children}
             </div>
     )
@@ -15,24 +18,35 @@ const Lane = ({ children }) => {
 
     const updateIndex = (newIndex) => {
         if (newIndex < 0) {
-            newIndex = 0
+            newIndex = React.Children.count(children) - laneLenght
         } else if (newIndex >= React.Children.count(children)) {
-            newIndex = React.Children.count(children) - 1;
+            newIndex = 0;
         }
         setActiveIndex(newIndex);
     }
 
-
     return (
         <div className="lane">
-            <div className="inner" style={{ transform: `translateX(-${activeIndex * 15}vw)`}}>
+            <div className="laneName">Lane</div>
+            <div className="inner" style={{ transform: `translateX(-${activeIndex * laneItemWidth}vw)`}}>
                 {React.Children.map(children, (child, index) => {
                     return React.cloneElement( child )
                 })}
             </div>
             <div className="indicators">
-                <button onClick={() => {updateIndex(activeIndex - 6)}}>PREV</button>
-                <button onClick={() => {updateIndex(activeIndex + 6)}}>NEXT</button>
+                <button className="indicator indicator_prev" onClick={() => {updateIndex(activeIndex - laneLenght)}}>PREV</button>
+                <button className="indicator indicator_next" onClick={() => {updateIndex(activeIndex + laneLenght)}}>NEXT</button>
+                <div className="pageIndicator_container">
+                    {React.Children.map(children, (child, index) => {
+                    if (index % laneLenght === 0) return (
+                        <button
+                        className={`${
+                                    index == activeIndex ? "active_pageIndicatior pageIndicator" : "pageIndicator"
+                                }`}
+                        />
+                        )}
+                    )}
+                </div>
             </div>
         </div>
     )

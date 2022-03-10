@@ -24,6 +24,11 @@ const LandingPage = () => {
         <LaneItem>17</LaneItem>
         <LaneItem>18</LaneItem>
         <LaneItem>19</LaneItem>
+        <LaneItem>20</LaneItem>
+        <LaneItem>21</LaneItem>
+        <LaneItem>22</LaneItem>
+        <LaneItem>23</LaneItem>
+        <LaneItem>24</LaneItem>
       </Lane>
     </>
   );
