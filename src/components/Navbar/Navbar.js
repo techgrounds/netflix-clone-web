@@ -3,72 +3,78 @@ import "./Navbar.scss";
 import { NetflixLogo } from "../Logos/NetflixLogo";
 import { IconNotification } from "../Icons/IconNotification";
 import { debounce } from "lodash";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const [open, setOpen] = useState(false);
   const [dropdown, setDropdown] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   const searchInput = () => {
     console.log("click");
   };
-  const submenu = () => {
-    open === false ? setOpen(true) : setOpen(false);
+
+  const submenu = (e) => {
+    console.log(dropdown);
+    !dropdown ? setDropdown(true) : setDropdown(false);
   };
-  const accountMenu = () => {
-     dropdown === false ? setDropdown(true) : setDropdown(false);
-   };
 
-  const [isHovered, setIsHovered] = useState(false);
-  console.log(isHovered);
+  const accountMenu = (e) => {
+    !isHovered ? setIsHovered(true) : setIsHovered(false);
+  };
 
-  const debouncedHandleMouseLeave = debounce(() => setIsHovered(false), 500);
+  const debouncedHandleMouseLeave = debounce(() => setIsHovered(false), 400);
+  const debouncedHandleDropdown = debounce(() => setDropdown(false), 400);
 
   const handlOnMouseEnter = () => {
     setIsHovered(true);
     debouncedHandleMouseLeave.cancel();
   };
+  const handlDropdown = () => {
+    setDropdown(true);
+    debouncedHandleDropdown.cancel();
+  };
 
   return (
     <header>
       <nav className="navbar">
-        <a href="#" className="logo-link">
+        <Link to="/" className="logo-link">
           <picture>
             <NetflixLogo />
           </picture>
-        </a>
+        </Link>
 
         <ul className="primary-nav">
-          <li className="navigation-menu">
-            <a
-              href="#"
-              className="menu-trigger"
-              onClick={() => submenu()}
-              onMouseEnter={() => setOpen(true)}
-            >
+          <li
+            className="navigation-menu"
+            onClick={() => submenu()}
+            onMouseEnter={handlDropdown}
+            onMouseLeave={debouncedHandleDropdown}
+          >
+            <Link to="" className="menu-trigger">
               Browse
-            </a>
+            </Link>
 
-            {open ? (
+            {dropdown ? (
               <div className="sub-menu ">
                 <div className="callout-arrow"></div>
                 <div className="topbar"></div>
                 <ul className="sub-menu-list">
                   <li className="sub-menu-item">
-                    <a className="current active" href="#">
+                    <Link to="/" className="current active">
                       Home
-                    </a>
+                    </Link>
                   </li>
                   <li className="sub-menu-item">
-                    <a href="#">Series</a>
+                    <Link to="">Series</Link>
                   </li>
                   <li className="sub-menu-item">
-                    <a href="#">Films</a>
+                    <Link to="">Films</Link>
                   </li>
                   <li className="sub-menu-item">
-                    <a href="#">New &amp; Popular</a>
+                    <Link to="">New &amp; Popular</Link>
                   </li>
                   <li className="sub-menu-item">
-                    <a href="#">My List</a>
+                    <Link to="">My List</Link>
                   </li>
                 </ul>
               </div>
@@ -77,29 +83,29 @@ const Navbar = () => {
             )}
           </li>
           <li className="navigation-tab">
-            <a href="#" className="nav-link">
+            <Link to="" className="nav-link">
               Home
-            </a>
+            </Link>
           </li>
           <li className="navigation-tab">
-            <a href="#" className="nav-link">
+            <Link to="" className="nav-link">
               Series
-            </a>
+            </Link>
           </li>
           <li className="navigation-tab">
-            <a href="#" className="nav-link">
+            <Link to="" className="nav-link">
               Films
-            </a>
+            </Link>
           </li>
           <li className="navigation-tab">
-            <a href="#" className="nav-link">
+            <Link to="" className="nav-link">
               New &amp; Popular
-            </a>
+            </Link>
           </li>
           <li className="navigation-tab">
-            <a href="#" className="nav-link">
+            <Link to="" className="nav-link">
               My List
-            </a>
+            </Link>
           </li>
         </ul>
 
@@ -123,14 +129,14 @@ const Navbar = () => {
             </span>
           </div>
           <div className="nav-element">
-            <div className="account-menu-item">
-              <div
-                className="account-dropdown-button"
-                onClick={() => accountMenu()}
-                onMouseEnter={handlOnMouseEnter}
-                onMouseLeave={debouncedHandleMouseLeave}
-              >
-                <a href="#" className="account-link">
+            <div
+              className="account-menu-item"
+              onClick={() => accountMenu()}
+              onMouseEnter={handlOnMouseEnter}
+              onMouseLeave={debouncedHandleMouseLeave}
+            >
+              <div className="account-dropdown-button">
+                <Link to="" className="account-link">
                   <span className="profile-link">
                     <img
                       src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
@@ -138,16 +144,16 @@ const Navbar = () => {
                       className="profile-icon"
                     />
                   </span>
-                </a>
+                </Link>
                 <span className="caret">▼</span>
               </div>
-              {dropdown || isHovered ? (
+              {isHovered ? (
                 <div className="account-drop-down ">
                   <div className="callout-arrow"></div>
                   <ul className="sub-menu-list profiles">
                     <li className="sub-menu-item profile">
                       <div>
-                        <a className="profile-link" href="#">
+                        <Link to="" className="profile-link">
                           <div className="avatar-wrapper">
                             <img
                               className="profile-icon"
@@ -156,12 +162,12 @@ const Navbar = () => {
                             />
                           </div>
                           <span className="profile-name">Miki</span>
-                        </a>
+                        </Link>
                       </div>
                     </li>
                     <li className="sub-menu-item profile">
                       <div>
-                        <a className="profile-link" href="#">
+                        <Link to="" className="profile-link">
                           <div className="avatar-wrapper">
                             <img
                               className="profile-icon"
@@ -170,12 +176,12 @@ const Navbar = () => {
                             />
                           </div>
                           <span className="profile-name">Miki</span>
-                        </a>
+                        </Link>
                       </div>
                     </li>
                     <li className="sub-menu-item profile">
                       <div>
-                        <a className="profile-link" href="#">
+                        <Link to="" className="profile-link">
                           <div className="avatar-wrapper">
                             <img
                               className="profile-icon"
@@ -184,12 +190,12 @@ const Navbar = () => {
                             />
                           </div>
                           <span className="profile-name">Miki</span>
-                        </a>
+                        </Link>
                       </div>
                     </li>
                     <li className="sub-menu-item profile">
                       <div>
-                        <a className="profile-link" href="#">
+                        <Link to="" className="profile-link">
                           <div className="avatar-wrapper">
                             <img
                               className="profile-icon"
@@ -198,11 +204,11 @@ const Navbar = () => {
                             />
                           </div>
                           <span className="profile-name">Miki</span>
-                        </a>
+                        </Link>
                       </div>
                     </li>
                     <li className="sub-menu-item profile-link">
-                      <a className="sub-menu-link sub-menu-link-icon" href="#">
+                      <Link to="" className="sub-menu-link sub-menu-link-icon">
                         <svg
                           width="24"
                           height="24"
@@ -219,14 +225,14 @@ const Navbar = () => {
                           ></path>
                         </svg>
                         <span>Manage Profiles</span>
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                   <ul className="sub-menu-list responsive-links"></ul>
 
                   <ul className="account-links sub-menu-list">
                     <li className="sub-menu-item">
-                      <a className="sub-menu-link sub-menu-link-icon" href="#">
+                      <Link to="" className="sub-menu-link sub-menu-link-icon">
                         <svg
                           width="24"
                           height="24"
@@ -243,10 +249,10 @@ const Navbar = () => {
                           ></path>
                         </svg>
                         <span>Account</span>
-                      </a>
+                      </Link>
                     </li>
                     <li className="sub-menu-item">
-                      <a className="sub-menu-link sub-menu-link-icon" href="#">
+                      <Link to="" className="sub-menu-link sub-menu-link-icon">
                         <svg
                           width="24"
                           height="24"
@@ -263,14 +269,14 @@ const Navbar = () => {
                           ></path>
                         </svg>
                         <span>Help Centre</span>
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                   <ul className="account-links sub-menu-list sign-out-links">
                     <li className="sub-menu-item">
-                      <a className="sub-menu-link " href="#">
+                      <Link to="" className="sub-menu-link ">
                         Sign out of Netflix
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
