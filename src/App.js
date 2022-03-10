@@ -1,4 +1,4 @@
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import "./assets/scss/main.scss";
 
@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        {/* <Navbar /> */}
+        <Navbar /> 
         <ScrollToTop>
           <Routes>
             <Route exact path="/" element={<LandingPage />} />
