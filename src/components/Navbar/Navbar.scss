@@ -1,3 +1,5 @@
+@import "../../assets/scss/mixins";
+
 /* Box sizing rules */
 *,
 *::before,
@@ -21,8 +23,8 @@ dd {
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role='list'],
-ol[role='list'] {
+ul[role="list"],
+ol[role="list"] {
   list-style: none;
 }
 
@@ -37,6 +39,7 @@ body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
   overflow-x: hidden;
+  font-size: 16px;
 }
 
 /* A elements that don't have a class get default styles */
@@ -79,18 +82,23 @@ select {
 }
 header {
   color: white;
+  font-family: "NetflixSansLight";
+  font-size: 80%;
 }
 
 .navbar {
+  // @include pagePadding;
   position: relative;
   display: flex;
   align-items: center;
   padding: 0 4%;
   z-index: 2;
-  font-size: 1.2rem;
   transition: background-color 0.4s;
-  background: #222;
+  background: var(--midgrey);
+  background: transparent;
   height: 41px;
+  // border: 1px solid red;
+
   a {
     text-decoration: none;
     &:hover {
@@ -99,28 +107,49 @@ header {
   }
 }
 
-.logo {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
+.logo-link {
+  height: 60%;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+}
+
+picture {
+  height: 80%;
+
+  svg {
+    height: 100%;
+    width: 100%;
+  }
 }
 
 .primary-nav {
   display: flex;
+  align-items: center;
   list-style: none;
-
-  // border: 1px solid magenta;
+  height: 100%;
 }
 .menu-trigger {
   display: flex;
   align-items: center;
   font-weight: 700;
   height: 100%;
+  margin-left: 1.1em;
+
+  &::after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 5px 0 5px;
+    border-color: var(--white) transparent transparent transparent;
+    margin-left: 5px;
+  }
 }
 
 .navigation-tab {
   display: none;
-  margin-left: 20px;
+  margin-left: 1.1em;
 }
 .secondary-nav {
   display: flex;
@@ -131,11 +160,199 @@ header {
   right: 4%;
   top: 0;
   height: 100%;
+
+  :last-child {
+    margin-right: 0em;
+  }
 }
 
-@media screen and (min-width: 950px) {
+.nav-element {
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1em;
+
+  :not(:last-child) {
+    margin-right: 0em;
+  }
+}
+
+.notifications-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.account-menu-item {
+  display: block;
+  position: relative;
+  font-size: 12px;
+  z-index: 0;
+  height: 100%;
+}
+.account-dropdown-button {
+  height: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+
+  .caret {
+    display: none;
+  }
+}
+
+.account-link {
+  height: 70%;
+}
+
+.profile-link {
+  height: 100%;
+}
+.profile-icon {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5%;
+}
+
+button {
+  background: transparent;
+  border: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.sub-menu {
+  top: 4.43em;
+  left: 4%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+  font-size: 13px;
+  line-height: 1.31em;
+  border: solid 1px var(--blackTrans);
+  cursor: default;
+
+  a {
+    &:hover {
+      background-color: rgba(20, 20, 20, 0.2);
+    }
+  }
+}
+
+.callout-arrow {
+  position: absolute;
+  top: -1.23em;
+  left: 50%;
+  border-width: 7px;
+  margin-left: -7px;
+  border-color: transparent transparent var(--smokewhite);
+  border-style: solid;
+  height: 0;
+  width: 0;
+}
+
+.topbar {
+  position: absolute;
+  top: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--smokewhite);
+}
+
+.sub-menu-item {
+  transition: all 0.4s ease-in-out;
+
+  a {
+    width: 260px;
+    height: 50px;
+    padding: 0 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: var(--midgrey);
+    //TODO ADD VARIABLE
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: background-color 0.4s ease;
+  }
+}
+
+.current.active {
+  color: var(--white);
+}
+
+.account-drop-down {
+  position: absolute;
+  right: 0;
+  top: 52px;
+  width: 181px;
+  margin-left: 0;
+  padding: 0;
+  // border: 1px solid var(--midgrey);
+
+  a {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: var(--white);
+    background-color: rgba(0, 0, 0, 0.9);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .callout-arrow {
+    left: 96%;
+  }
+}
+.responsive-links {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+.account-drop-down .account-links,
+.responsive-links {
+  padding: 10px 0;
+  border-top: solid 1px var(--whiteOpacity);
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.profile-name {
+  margin-left: 1em;
+}
+
+.sub-menu-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    margin-left: 1em;
+  }
+
+  svg {
+    color: var(--midgrey);
+  }
+}
+
+.sign-out-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (min-width: 870px) {
+  header {
+    font-size: 100%;
+  }
   .navbar {
-    height: 61px;
+    height: 68px;
   }
 
   .navigation-tab {
@@ -144,5 +361,12 @@ header {
 
   .menu-trigger {
     display: none;
+  }
+
+  .account-dropdown-button {
+    .caret {
+      display: block;
+      margin-left: 1em;
+    }
   }
 }
