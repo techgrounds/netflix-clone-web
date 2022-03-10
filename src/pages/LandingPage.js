@@ -1,9 +1,10 @@
+import LandingHero from './../components/LandingHero/LandingHero';
 
 const LandingPage = () => {
   return (
-    <>
-      <div>Landing Page</div>
-      </>
+    <div className="landingPage">
+      <LandingHero />
+    </div>
   );
 };
 
