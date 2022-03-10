@@ -9,6 +9,9 @@ const Navbar = () => {
   const [dropdown, setDropdown] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
+
+
+
   const searchInput = () => {
     console.log("click");
   };
@@ -65,16 +68,22 @@ const Navbar = () => {
                     </Link>
                   </li>
                   <li className="sub-menu-item">
-                    <Link to="">Series</Link>
+                    <Link to="/genre">
+                      {/* Series */}
+                      Genres
+                      </Link>
                   </li>
                   <li className="sub-menu-item">
-                    <Link to="">Films</Link>
+                    <Link to="/search">
+                      Search
+                      {/* Films */}
+                      </Link>
                   </li>
                   <li className="sub-menu-item">
-                    <Link to="">New &amp; Popular</Link>
+                    <Link to="/">New &amp; Popular</Link>
                   </li>
                   <li className="sub-menu-item">
-                    <Link to="">My List</Link>
+                    <Link to="/">My List</Link>
                   </li>
                 </ul>
               </div>
