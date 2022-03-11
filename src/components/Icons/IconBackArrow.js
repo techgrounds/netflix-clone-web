@@ -1,4 +1,4 @@
-export const IconArrowUp = () => {
+export const IconBackArrow = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -9,12 +9,10 @@ export const IconArrowUp = () => {
       preserveAspectRatio="xMidYMid meet"
       viewBox="0 0 32 32"
     >
-      <g transform="rotate(180 16 16)">
-        <path
-          fill="#ffffff"
-          d="M16 22L6 12l1.4-1.4l8.6 8.6l8.6-8.6L26 12z"
-        />
-      </g>
+      <path
+        fill="#ffffff"
+        d="M10.813 9.281L4.093 16l6.72 6.719l1.406-1.438L7.938 17H28v-2H7.937l4.282-4.281z"
+      />
     </svg>
   );
 };
