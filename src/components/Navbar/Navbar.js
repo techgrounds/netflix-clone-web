@@ -1,29 +1,40 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import "./Navbar.scss";
 import { NetflixLogo } from "../Logos/NetflixLogo";
 import { IconNotification } from "../Icons/IconNotification";
 import { debounce } from "lodash";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { IconCaretDown } from "../Icons/IconCaretDown";
+import { IconSearch } from "../Icons/IconSearch";
 
 const Navbar = () => {
   const [dropdown, setDropdown] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
+  window.onscroll = () => {
+    setIsScrolled(window.pageYOffset === 0 ? false : true);
+    return () => (window.onscroll = null);
+  };
 
-
+  const ref = useRef();
 
   const searchInput = () => {
     console.log("click");
   };
-
-  const submenu = (e) => {
-    console.log(dropdown);
+  const submenu = () => {
     !dropdown ? setDropdown(true) : setDropdown(false);
   };
-
-  const accountMenu = (e) => {
+  const accountMenu = () => {
+    console.log(isHovered + " isHovered");
     !isHovered ? setIsHovered(true) : setIsHovered(false);
   };
+
+  useEffect(() => {
+    console.log(dropdown + " dropdown");
+
+    console.log(ref.current);
+  }, [dropdown]);
 
   const debouncedHandleMouseLeave = debounce(() => setIsHovered(false), 400);
   const debouncedHandleDropdown = debounce(() => setDropdown(false), 400);
@@ -39,7 +50,7 @@ const Navbar = () => {
 
   return (
     <header>
-      <nav className="navbar">
+      <nav className={isScrolled ? "navbar scrolled" : "navbar"}>
         <Link to="/" className="logo-link">
           <picture>
             <NetflixLogo />
@@ -53,31 +64,36 @@ const Navbar = () => {
             onMouseEnter={handlDropdown}
             onMouseLeave={debouncedHandleDropdown}
           >
-            <Link to="" className="menu-trigger">
-              Browse
-            </Link>
+            <div className="menu-trigger">Browse</div>
 
             {dropdown ? (
               <div className="sub-menu ">
                 <div className="callout-arrow"></div>
                 <div className="topbar"></div>
                 <ul className="sub-menu-list">
-                  <li className="sub-menu-item">
-                    <Link to="/" className="current active">
-                      Home
-                    </Link>
+                  <li className="sub-menu-item current active">
+                    <Link to="/">Home</Link>
                   </li>
                   <li className="sub-menu-item">
-                    <Link to="/genre">
+                    {/* <Link to="/genre"> */}
+                    <NavLink
+                      to="/genre"
+                      style={({ isActive }) => ({
+                        color: isActive ? "var(--white)" : "var(--smokewhite)",
+                      })}
+                      className={({ isActive }) =>
+                        `nav_link${isActive ? " red" : ""}`
+                      }
+                    >
                       {/* Series */}
                       Genres
-                      </Link>
+                    </NavLink>
                   </li>
                   <li className="sub-menu-item">
                     <Link to="/search">
                       Search
                       {/* Films */}
-                      </Link>
+                    </Link>
                   </li>
                   <li className="sub-menu-item">
                     <Link to="/">New &amp; Popular</Link>
@@ -91,8 +107,8 @@ const Navbar = () => {
               ""
             )}
           </li>
-          <li className="navigation-tab">
-            <Link to="" className="nav-link">
+          <li className="navigation-tab current active">
+            <Link to="" className="nav-link ">
               Home
             </Link>
           </li>
@@ -125,7 +141,7 @@ const Navbar = () => {
             <div className="searchBox">
               <button className="searchTab">
                 <span className="search-icon" onClick={() => searchInput()}>
-                  🔍
+                  <IconSearch />
                 </span>
               </button>
             </div>
@@ -156,7 +172,9 @@ const Navbar = () => {
                     />
                   </span>
                 </Link>
-                <span className="caret">▼</span>
+                <span className="caret">
+                  <IconCaretDown />
+                </span>
               </div>
               {isHovered ? (
                 <div className="account-drop-down ">

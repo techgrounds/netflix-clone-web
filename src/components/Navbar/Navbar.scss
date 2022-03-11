@@ -84,20 +84,30 @@ header {
   color: white;
   font-family: "NetflixSansLight";
   font-size: 80%;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  width: 100%;
 }
 
 .navbar {
-  // @include pagePadding;
   position: relative;
   display: flex;
   align-items: center;
   padding: 0 4%;
   z-index: 2;
   transition: background-color 0.4s;
-  background: var(--midgrey);
   background: transparent;
+  background-image: linear-gradient(
+    to top,
+    transparent 0%,
+    rgba(0, 0, 0, 0.3) 50%
+  );
   height: 41px;
-  // border: 1px solid red;
+
+  &.scrolled {
+    background: var(--black);
+  }
 
   a {
     text-decoration: none;
@@ -135,6 +145,7 @@ picture {
   font-weight: 700;
   height: 100%;
   margin-left: 1.1em;
+  cursor: pointer;
 
   &::after {
     content: "";
@@ -183,6 +194,10 @@ picture {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  svg {
+    font-size: 70%;
+  }
 }
 
 .account-menu-item {
@@ -275,7 +290,7 @@ button {
     align-items: center;
     justify-content: center;
     position: relative;
-    color: var(--midgrey);
+    color: var(--smokewhite);
     //TODO ADD VARIABLE
     background-color: rgba(0, 0, 0, 0.5);
     transition: background-color 0.4s ease;
@@ -283,7 +298,17 @@ button {
 }
 
 .current.active {
-  color: var(--white);
+  a {
+    color: var(--white);
+    font-weight: bold;
+  }
+}
+
+.red {
+  font-weight: bold;
+  a {
+    color: red;
+  }
 }
 
 .account-drop-down {
@@ -347,6 +372,22 @@ button {
   justify-content: center;
 }
 
+//search input
+.searchTab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 70%;
+}
+.search-icon {
+  height: 100%;
+  width: 100%;
+  svg {
+    width: 70%;
+  }
+}
+
 @media screen and (min-width: 870px) {
   header {
     font-size: 100%;
@@ -366,7 +407,15 @@ button {
   .account-dropdown-button {
     .caret {
       display: block;
-      margin-left: 1em;
+
+      svg {
+        font-size: 80%;
+      }
     }
+  }
+
+  .account-drop-down {
+    top: 6em;
+    // border: 1px solid aqua;
   }
 }
