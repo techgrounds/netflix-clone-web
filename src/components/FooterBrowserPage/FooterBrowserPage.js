@@ -3,7 +3,7 @@ import './styles.scss';
 import { IconFacebook } from '../Icons/IconFacebook';
 import { IconInstagram } from '../Icons/IconInstagram';
 import { IconTwitter } from '../Icons/IconTwitter';
-import { IconYoutube} from '../Icons/IconYoutube'
+import { IconYoutube } from '../Icons/IconYoutube'
 
 
 function FooterBrowserPage() {
@@ -24,35 +24,35 @@ function FooterBrowserPage() {
             </div>
             <ul className="footer-links">
                 <li className="footer-link-wrapper">
-                    <a href="/">Audio en ondertiteling</a>
+                    <a href="/">Audio and Subtitles</a>
                 </li>
 
                 <li className="footer-link-wrapper">
-                    <a href="/">Audiodescriptie</a>
+                    <a href="/">Audio Description</a>
                 </li>
 
                 <li className="footer-link-wrapper">
-                    <a href="/">Helpcentrum</a>
+                    <a href="/">Help Center</a>
                 </li>
 
                 <li className="footer-link-wrapper">
-                    <a href="/">Cadeaubonnen</a>
+                    <a href="/">Gift Cards</a>
                 </li>
 
                 <li className="footer-link-wrapper">
-                    <a href="/">Mediacenter</a>
+                    <a href="/">Media Center</a>
                 </li>
 
                 <li className="footer-link-wrapper">
-                    <a href="/">Relaties met investeerders</a>
+                    <a href="/">Investor Relations</a>
                 </li>
 
                 <li className="footer-link-wrapper">
-                    <a href="/">Vacatures</a>
+                    <a href="/">Vacancies</a>
                 </li>
 
                 <li className="footer-link-wrapper">
-                    <a href="/">Gebruiksvoorwaarden</a>
+                    <a href="/">Terms of Use</a>
                 </li>
 
                 <li className="footer-link-wrapper">
@@ -60,25 +60,25 @@ function FooterBrowserPage() {
                 </li>
 
                 <li className="footer-link-wrapper">
-                    <a href="/">Wettelijke bepalingen</a>
+                    <a href="/">Legal Regulations</a>
                 </li>
 
                 <li className="footer-link-wrapper">
-                    <a href="/">Cookievoorkeuren</a>
+                    <a href="/">Cookie Preferences</a>
                 </li>
 
                 <li className="footer-link-wrapper">
-                    <a href="/">Bedrijfsgegevens</a>
+                    <a href="/">Company Details</a>
                 </li>
 
                 <li className="footer-link-wrapper">
-                    <a href="/">Contact opnemen</a>
+                    <a href="/">Contact</a>
                 </li>
 
             </ul>
 
             <div className="footer-service">
-                <button className='service-code-btn'>Servicecode</button>
+                <button className='service-code-btn'>Service Code</button>
             </div>
             <div className="footer-copyright">
                 <span>© Netflix Clone 2022 Netflix</span>

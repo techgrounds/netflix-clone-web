@@ -2,15 +2,40 @@ import React, { useState } from "react";
 import { useSwipeable } from "react-swipeable";
 import "./Lane.scss";
 
-const laneLenght = 6
-// 5
-// 4
-// 3
-// 2
-const laneItemWidth = 15;
-const laneItemHeight = 9;
+function setLaneLenght(){
+    return (
+        window.innerWidth < 500 ? 2 :
+        window.innerWidth < 650 ? 3 :
+        window.innerWidth < 800 ? 4 :
+        window.innerWidth < 1000 ? 5 :
+        6
+        )
+}
+function setLaneItemWidth(){
+    return (
+        window.innerWidth < 500 ? 45 :
+        window.innerWidth < 650 ? 30 :
+        window.innerWidth < 800 ? 22.5 :
+        window.innerWidth < 1000 ? 18 :
+        15
+        )
+}
+function setLaneItemHeight(){
+    return (
+        window.innerWidth < 500 ? 27 :
+        window.innerWidth < 650 ? 18 :
+        window.innerWidth < 800 ? 13.5 :
+        window.innerWidth < 1000 ? 10.8 :
+        9
+        )
+}
+
+const laneLenght = setLaneLenght()
+const laneItemWidth = setLaneItemWidth();
+const laneItemHeight = setLaneItemHeight();
 
 console.log(window.innerWidth)
+console.log(laneLenght)
 
 export const  LaneItem = ({ children }) => {
     return (
