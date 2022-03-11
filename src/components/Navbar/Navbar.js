@@ -1,16 +1,17 @@
-import { useState } from "react";
-import "./Navbar.scss";
-import { NetflixLogo } from "../Logos/NetflixLogo";
-import { IconNotification } from "../Icons/IconNotification";
-import { debounce } from "lodash";
-import { Link } from "react-router-dom";
+import { useState } from 'react';
+import './Navbar.scss';
+import { NetflixLogo } from '../Logos/NetflixLogo';
+import { IconNotification } from '../Icons/IconNotification';
+import { debounce } from 'lodash';
+import { Link } from 'react-router-dom';
+import SearchBar from '../SearchBar/SearchBar';
 
 const Navbar = () => {
   const [dropdown, setDropdown] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
   const searchInput = () => {
-    console.log("click");
+    console.log('click');
   };
 
   const submenu = (e) => {
@@ -79,7 +80,7 @@ const Navbar = () => {
                 </ul>
               </div>
             ) : (
-              ""
+              ''
             )}
           </li>
           <li className="navigation-tab">
@@ -110,7 +111,8 @@ const Navbar = () => {
         </ul>
 
         <div className="secondary-nav">
-          <div className="nav-element">
+          <SearchBar />
+          {/* <div className="nav-element">
             <div className="searchBox">
               <button className="searchTab">
                 <span className="search-icon" onClick={() => searchInput()}>
@@ -118,7 +120,7 @@ const Navbar = () => {
                 </span>
               </button>
             </div>
-          </div>
+          </div> */}
           <div className="nav-element">
             <span className="notifications">
               <button className="notifications-menu">
@@ -281,7 +283,7 @@ const Navbar = () => {
                   </ul>
                 </div>
               ) : (
-                ""
+                ''
               )}
             </div>
           </div>
