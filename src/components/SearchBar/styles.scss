@@ -1,4 +1,4 @@
-.Searchbar {
+.searchbar {
   position: relative;
   display: flex;
   align-items: center;
@@ -6,7 +6,7 @@
   margin-right: 1.2rem;
   cursor: pointer;
 
-  &--search {
+  &-search {
     background-color: rgba(0, 0, 0, 0.2);
     border: 1px solid white;
     padding: 7px 30px;
@@ -18,10 +18,10 @@
     transition: all 0.3s ease-out;
   }
 
-  &--toggler {
+  &-toggler {
     margin-left: 0.5rem;
 
-    .Icon--search {
+    .icon-search {
       position: absolute;
       top: 0.6rem;
       right: 1rem;
@@ -32,10 +32,10 @@
         height: 1.5rem;
       }
     }
-    .Icon--search--active {
+    .icon-search-active {
       opacity: 0;
     }
-    .Icon--search--close {
+    .icon-search-close {
       position: absolute;
       top: 0.6rem;
       left: 1rem;
@@ -47,12 +47,12 @@
         height: 1.5rem;
       }
     }
-    .Icon--search--close--active {
+    .icon-search-close-active {
       opacity: 1;
       transition: all 0.3s ease-out;
     }
   }
-  &--clear {
+  &-clear {
     position: absolute;
     right: 18%;
     top: 55%;
@@ -69,14 +69,14 @@
     }
   }
 
-  &--active {
+  &-active {
     width: 270px;
     opacity: 1;
   }
 }
 
 @media (max-width: 400px) {
-  .Searchbar {
+  .searchbar {
     display: none;
   }
 }

@@ -25,11 +25,11 @@ export default function SearchBar() {
   };
 
   return (
-    <div className="Searchbar" ref={searchbarRef}>
-      <div className="Searchbar--toggler" onClick={handleSearchInputToggle}>
+    <div className="searchbar" ref={searchbarRef}>
+      <div className="searchbar-toggler" onClick={handleSearchInputToggle}>
         <span
-          className={`Icon--search--close ${
-            searchInputToggle && 'Icon--search--close--active'
+          className={`icon-search-close ${
+            searchInputToggle && 'icon-search-close-active'
           }`}
         >
           <IconSearch size="2em" />
@@ -40,27 +40,23 @@ export default function SearchBar() {
           value={searchInput}
           onChange={handleSearchInput}
           ref={searchInputRef}
-          className={`Searchbar--search ${
-            searchInputToggle && 'Searchbar--active'
+          className={`searchbar-search ${
+            searchInputToggle && 'searchbar-active'
           }`}
         />
         <span
-          className={`Icon--search ${
-            searchInputToggle && 'Icon--search--active'
-          }`}
+          className={`icon-search ${searchInputToggle && 'icon-search-active'}`}
         >
           <IconSearch size="2em" />
         </span>
       </div>
 
       <div
-        className={`Searchbar--clear ${
+        className={`searchbar-clear ${
           searchInputToggle && searchInput.length && 'typing'
         }`}
         onClick={clearSearchInputToggle}
-      >
-        {/* <RiCloseFill /> */}
-      </div>
+      ></div>
     </div>
   );
 }
