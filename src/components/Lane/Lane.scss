@@ -35,7 +35,7 @@
     opacity: 0.5;
     color: var(--black);
     position: relative;
-    top: -9vw;
+    // top: -9vw;
     &:hover {
         color: var(--white);
     }
@@ -55,7 +55,7 @@
 
 .pageIndicator_container {
     position: relative;
-    top: -19vw;
+    // top: -19vw;
     display: flex;
     justify-content: flex-end;
     width: calc(90vw - 4px);

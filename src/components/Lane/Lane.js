@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSwipeable } from "react-swipeable";
 import "./Lane.scss";
 
-function setLaneLenght(){
+function setLaneLength(){
     return (
         window.innerWidth < 500 ? 2 :
         window.innerWidth < 650 ? 3 :
@@ -30,11 +30,10 @@ function setLaneItemHeight(){
         )
 }
 
-const laneLenght = setLaneLenght()
+const laneLenght = setLaneLength()
 const laneItemWidth = setLaneItemWidth();
 const laneItemHeight = setLaneItemHeight();
 
-console.log(window.innerWidth)
 console.log(laneLenght)
 
 export const  LaneItem = ({ children }) => {
@@ -47,6 +46,16 @@ export const  LaneItem = ({ children }) => {
 }
 
 const Lane = ({ children }) => {
+    // const [screenSize] = useState({
+    //     dynamicWidth: window.innerWidth,
+    //   })
+    // useEffect(() => {
+    //     window.addEventListener("resize", setLaneLenght);
+    //     return(() => {
+    //         window.addEventListener("resize", setLaneLenght)
+    //     })
+    // }),[]
+
     const [activeIndex, setActiveIndex] = useState(0);
     const updateIndex = (newIndex) => {
         if (newIndex < 0) {
@@ -72,12 +81,16 @@ const Lane = ({ children }) => {
             </div>
             <div className="indicators">
                 <button className="indicator indicator_prev"
-                style={{height: `${laneItemHeight}vw`, width: "5vw"}}
+                style={{height: `${laneItemHeight}vw`, width: "5vw", top: `-${laneItemHeight}vw`}}
                 onClick={() => {updateIndex(activeIndex - laneLenght)}}>PREV</button>
                 <button className="indicator indicator_next"
-                style={{height: `${laneItemHeight}vw`, width: "5vw"}}
+                style={{height: `${laneItemHeight}vw`, width: "5vw", top: `-${laneItemHeight}vw`}}
                 onClick={() => {updateIndex(activeIndex + laneLenght)}}>NEXT</button>
-                <div className="pageIndicator_container">
+                <div className="pageIndicator_container"
+                 style={
+                     { top: `-${(laneItemHeight * 2.1)}vw`
+                    }}
+                 >
                     {React.Children.map(children, (child, index) => {
                     if (index % laneLenght === 0) return (
                         <button
