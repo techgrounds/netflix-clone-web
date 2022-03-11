@@ -24,7 +24,7 @@ function App() {
             <Route exact path="/search" element={<SearchPage />} />
             <Route exact path="*" element={<ErrorPage />} />
           </Routes>
-          <FooterBrowserPage />
+          {/* <FooterBrowserPage /> */}
         </ScrollToTop>
         {/* <FooterLandingPage /> */}
       </Router>
