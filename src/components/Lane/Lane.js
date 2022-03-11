@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useSwipeable } from "react-swipeable";
 import "./Lane.scss";
+import useWindowSize from "./WindowSize";
 
 function setLaneLength(){
     return (
@@ -30,13 +31,9 @@ function setLaneItemHeight(){
         )
 }
 
-const laneLenght = setLaneLength()
-const laneItemWidth = setLaneItemWidth();
-const laneItemHeight = setLaneItemHeight();
-
-console.log(laneLenght)
-
 export const  LaneItem = ({ children }) => {
+    const laneItemWidth = setLaneItemWidth();
+    const laneItemHeight = setLaneItemHeight();
     return (
         <div className="laneItem"
         style={{height: `${laneItemHeight}vw`, width: `${laneItemWidth}vw`}}>
@@ -46,15 +43,12 @@ export const  LaneItem = ({ children }) => {
 }
 
 const Lane = ({ children }) => {
-    // const [screenSize] = useState({
-    //     dynamicWidth: window.innerWidth,
-    //   })
-    // useEffect(() => {
-    //     window.addEventListener("resize", setLaneLenght);
-    //     return(() => {
-    //         window.addEventListener("resize", setLaneLenght)
-    //     })
-    // }),[]
+    useWindowSize()
+    console.log(useWindowSize)
+
+    const laneItemWidth = setLaneItemWidth();
+    const laneLenght = setLaneLength();
+    const laneItemHeight = setLaneItemHeight();
 
     const [activeIndex, setActiveIndex] = useState(0);
     const updateIndex = (newIndex) => {
@@ -65,7 +59,6 @@ const Lane = ({ children }) => {
         }
         setActiveIndex(newIndex);
     }
-
     const handlers = useSwipeable({
         onSwipedLeft: () => updateIndex(activeIndex + laneLenght),
         onSwipedRight: () => updateIndex(activeIndex - laneLenght)
