@@ -1,4 +1,4 @@
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import './assets/scss/main.scss';
 
@@ -9,7 +9,10 @@ import HomePage from './pages/HomePage';
 import GenrePage from './pages/GenrePage';
 import ErrorPage from './pages/ErrorPage';
 import SearchPage from './pages/SearchPage';
+<<<<<<< HEAD
 // gitimport FooterLandingPage from './components/FooterLandingPage/FooterLandingPage';
+=======
+>>>>>>> 6f4969e565ca10575893be4f9dcf397cd280b32e
 
 function App() {
   return (
@@ -24,9 +27,11 @@ function App() {
             <Route exact path="/search" element={<SearchPage />} />
             <Route exact path="*" element={<ErrorPage />} />
           </Routes>
+<<<<<<< HEAD
           {/* <FooterBrowserPage /> */}
+=======
+>>>>>>> 6f4969e565ca10575893be4f9dcf397cd280b32e
         </ScrollToTop>
-        {/* <FooterLandingPage /> */}
       </Router>
     </div>
   );

@@ -1,7 +1,8 @@
+
 const GenrePage = () => {
   return (
     <>
-      <div>Films Page</div>
+      <div>Genre Page</div>
     </>
   );
 };

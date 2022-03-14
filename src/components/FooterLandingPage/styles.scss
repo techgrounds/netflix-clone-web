@@ -1,8 +1,14 @@
 .footer-landingpage-wrapper {
   max-width: 1000px;
+<<<<<<< HEAD
   margin: 2.5em auto 0;
   padding: 0 4%;
   font-family: 'NetflixSansRegular', sans-serif;
+=======
+  margin: 2.5em auto;
+  padding: 0 4%;
+  font-family: "NetflixSansRegular", sans-serif;
+>>>>>>> 6f4969e565ca10575893be4f9dcf397cd280b32e
   color: var(--gray);
   background-color: var(--black);
   display: flex;
@@ -13,7 +19,11 @@
 }
 
 .footer-top {
+<<<<<<< HEAD
   margin: 0 0 30px;
+=======
+  margin: 1.2em 0;
+>>>>>>> 6f4969e565ca10575893be4f9dcf397cd280b32e
   font-size: 1.2em;
 }
 
@@ -42,6 +52,7 @@
 .container-select-lang {
   margin-top: 0.5em;
 }
+<<<<<<< HEAD
 
 .ui-select {
   background: 0 0;
@@ -51,6 +62,38 @@
   margin-bottom: 20px;
   width: 156px;
   padding: 12px;
+=======
+.selectArrowGlobe {
+  display: flex;
+  flex-direction: row;
+  background: 0 0;
+  align-items: center;
+  justify-content: space-between;
+  color: grey;
+  border: solid 1px grey;
+  border-radius: 4px;
+  padding: 0.5em;
+  margin-bottom: 20px;
+  height: 4em;
+  width: 13em;
+  padding: 12px;
+  svg {
+      height: 80%;
+      width: auto;
+  }
+  .ui-select {
+    background: 0 0;
+    height: 80%;
+    margin: 1em;
+    font-size: 1.2em;
+    outline: none;
+    color: grey;
+    border: none;
+    option {
+      background-color: var(--black);
+    }
+  }
+>>>>>>> 6f4969e565ca10575893be4f9dcf397cd280b32e
 }
 
 .footer-copyright {

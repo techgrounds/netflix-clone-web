@@ -1,9 +1,41 @@
 import React, { useState } from "react";
+import { useSwipeable } from "react-swipeable";
 import "./Lane.scss";
 
-const laneLenght = 6;
-const laneItemWidth = 15;
-const laneItemHeight = 9;
+function setLaneLenght(){
+    return (
+        window.innerWidth < 500 ? 2 :
+        window.innerWidth < 650 ? 3 :
+        window.innerWidth < 800 ? 4 :
+        window.innerWidth < 1000 ? 5 :
+        6
+        )
+}
+function setLaneItemWidth(){
+    return (
+        window.innerWidth < 500 ? 45 :
+        window.innerWidth < 650 ? 30 :
+        window.innerWidth < 800 ? 22.5 :
+        window.innerWidth < 1000 ? 18 :
+        15
+        )
+}
+function setLaneItemHeight(){
+    return (
+        window.innerWidth < 500 ? 27 :
+        window.innerWidth < 650 ? 18 :
+        window.innerWidth < 800 ? 13.5 :
+        window.innerWidth < 1000 ? 10.8 :
+        9
+        )
+}
+
+const laneLenght = setLaneLenght()
+const laneItemWidth = setLaneItemWidth();
+const laneItemHeight = setLaneItemHeight();
+
+console.log(window.innerWidth)
+console.log(laneLenght)
 
 export const  LaneItem = ({ children }) => {
     return (
@@ -16,7 +48,6 @@ export const  LaneItem = ({ children }) => {
 
 const Lane = ({ children }) => {
     const [activeIndex, setActiveIndex] = useState(0);
-
     const updateIndex = (newIndex) => {
         if (newIndex < 0) {
             newIndex = React.Children.count(children) - laneLenght
@@ -26,10 +57,15 @@ const Lane = ({ children }) => {
         setActiveIndex(newIndex);
     }
 
+    const handlers = useSwipeable({
+        onSwipedLeft: () => updateIndex(activeIndex + laneLenght),
+        onSwipedRight: () => updateIndex(activeIndex - laneLenght)
+    })
+
     return (
         <div className="lane">
             <div className="laneName">Lane</div>
-            <div className="inner" style={{ transform: `translateX(-${activeIndex * laneItemWidth}vw)`}}>
+            <div className="inner" {...handlers} style={{ transform: `translateX(-${activeIndex * laneItemWidth}vw)`}}>
                 {React.Children.map(children, (child, index) => {
                     return React.cloneElement( child )
                 })}
@@ -46,7 +82,7 @@ const Lane = ({ children }) => {
                     if (index % laneLenght === 0) return (
                         <button
                         className={`${
-                                    index == activeIndex ? "active_pageIndicatior pageIndicator" : "pageIndicator"
+                                    index === activeIndex ? "active_pageIndicatior pageIndicator" : "pageIndicator"
                                 }`}
                         />
                         )}
