@@ -1,21 +1,11 @@
-<<<<<<< HEAD
 import { useState } from 'react';
 import './Navbar.scss';
 import { NetflixLogo } from '../Logos/NetflixLogo';
 import { IconNotification } from '../Icons/IconNotification';
 import { debounce } from 'lodash';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import SearchBar from '../SearchBar/SearchBar';
-=======
-import { useState, useRef, useEffect } from "react";
-import "./Navbar.scss";
-import { NetflixLogo } from "../Logos/NetflixLogo";
-import { IconNotification } from "../Icons/IconNotification";
-import { debounce } from "lodash";
-import { Link, NavLink } from "react-router-dom";
-import { IconCaretDown } from "../Icons/IconCaretDown";
-import { IconSearch } from "../Icons/IconSearch";
->>>>>>> 6f4969e565ca10575893be4f9dcf397cd280b32e
+import { IconCaretDown } from '../Icons/IconCaretDown';
 
 const Navbar = () => {
   const [dropdown, setDropdown] = useState(false);
@@ -27,24 +17,13 @@ const Navbar = () => {
     return () => (window.onscroll = null);
   };
 
-  const ref = useRef();
-
-  const searchInput = () => {
-    console.log('click');
-  };
   const submenu = () => {
     !dropdown ? setDropdown(true) : setDropdown(false);
   };
   const accountMenu = () => {
-    console.log(isHovered + " isHovered");
+    console.log(isHovered + ' isHovered');
     !isHovered ? setIsHovered(true) : setIsHovered(false);
   };
-
-  useEffect(() => {
-    console.log(dropdown + " dropdown");
-
-    console.log(ref.current);
-  }, [dropdown]);
 
   const debouncedHandleMouseLeave = debounce(() => setIsHovered(false), 400);
   const debouncedHandleDropdown = debounce(() => setDropdown(false), 400);
@@ -60,7 +39,7 @@ const Navbar = () => {
 
   return (
     <header>
-      <nav className={isScrolled ? "navbar scrolled" : "navbar"}>
+      <nav className={isScrolled ? 'navbar scrolled' : 'navbar'}>
         <Link to="/" className="logo-link">
           <picture>
             <NetflixLogo />
@@ -82,17 +61,17 @@ const Navbar = () => {
                 <div className="topbar"></div>
                 <ul className="sub-menu-list">
                   <li className="sub-menu-item current active">
-                    <Link to="/">Home</Link>
+                    <Link to="/home">Home</Link>
                   </li>
                   <li className="sub-menu-item">
                     {/* <Link to="/genre"> */}
                     <NavLink
                       to="/genre"
                       style={({ isActive }) => ({
-                        color: isActive ? "var(--white)" : "var(--smokewhite)",
+                        color: isActive ? 'var(--white)' : 'var(--smokewhite)',
                       })}
                       className={({ isActive }) =>
-                        `nav_link${isActive ? " red" : ""}`
+                        `nav_link${isActive ? ' red' : ''}`
                       }
                     >
                       {/* Series */}
