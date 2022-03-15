@@ -3,60 +3,82 @@
     position: relative;
     font-family: "NetflixSansRegular", sans-serif;
     color: var(--white);
-    font-size: 0.8rem;
+    font-size: inherit;
     position: relative;
+    background-color: rgba(var(--black), 0.8);
 }
 
 .dropdown-ui {
     width: 100%;
     padding: 0.7rem 1rem;
     border: solid 2px white;
-    background: transparant;
     top: 0;
-    // font-size: 0.8rem;
+    line-height: 2em;   
 }
 
 .dropdown-links {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+   
 }
 
-.dropdown-links ul {
+.dropdown-links ul a {
     padding-right: 2rem;
+     &:hover{
+        text-decoration-line: underline;
+    } 
 }
 
-.selectGenre{
-    font-size: 0.4rem;
-    background-color: aqua;
+// .container-icon-genre:hover {  
+//     background-color: rgba(128, 128, 128, 0.591);
+// }
+
+.container-icon-genre {
     display: flex;
-    align-items: center;
-    width: 100%;
-    border: solid 1px white;
-    background: transparant;
-    
+    flex-direction: row;
 }
 
-label {
-    background-color: pink;
-    font-size: 0.8rem;
-    padding: 0.5rem 1rem;
-    display: flex;
-    align-items: center;
-    width: 100%;
+.selectGenre {
+    font-size: inherit;
+    background-color: transparent;
     border: solid 1px white;
-    background: transparant;
+    background: transparant; 
+    width: 100%;
+    padding: 0.5rem 1rem; 
+    cursor: pointer; 
+    transition: all ease-in ;
+    }
+    svg {
+        font-size: 0.5rem;
+        margin-left: 0.5rem;
+} 
+
+.dropdown-toggle-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
+.selectGenre:hover {
+    background-color: rgba(128, 128, 128, 0.591);
+}
+
 
 button {
     width: 7rem;
     background: transparent;
-    padding: 0.5rem 1rem;
     padding-right: 1.5rem;
-    border: solid 2px white;
     color: var(--white);
-    font-size: 0.8rem;
+    font-size: inherit;
+    cursor: pointer;
 }
+
+button:focus + ul li{
+    opacity: 1;
+    pointer-events: all;
+}
+
 
 @media (min-width: 600px) {
     .container-dropdown-genres {
@@ -68,5 +90,8 @@ button {
         display: flex;
         flex-direction: row;
         flex-wrap:nowrap;
+    }
+    .selectGenre {
+        width: auto;
     }
 }

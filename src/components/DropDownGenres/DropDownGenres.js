@@ -1,53 +1,86 @@
-import React from 'react'
+import React, { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './styles.scss'
 import { IconCaretDown } from '../Icons/IconCaretDown'
 
 function DropDownGenres() {
+
+    const [showDropdown, setShowDropdown] = useState(false);
+
+    const ref = useRef()
+
+    // const dropDownHandler = () => {
+    //     setShowDropdown(true)
+    // }
+
+    // const hideDropDownHandler = () => {
+    //     setShowDropdown(false)
+    // }
+
+    // window.onClick = (e) => {
+    //     if(e.target ===)
+    // }
+
+    useEffect(() => {
+        const checkIfClickedOutside = event => {
+            if (showDropdown && ref.current && !ref.current.contains(event.target)) {
+                setShowDropdown(false)
+            }
+        }
+        document.addEventListener("mousedown", checkIfClickedOutside)
+        return () => {
+            document.removeEventListener("mousedown", checkIfClickedOutside)
+        }
+    }, [showDropdown])
+
+
     return (
         <div className="container-dropdown-genres ">
-            <div className="selectGenre">              
-                {/* <button className='dropdown-hover-btn'>Genres</button> */}
-                <label htmlFor="select">Genres</label>
-                <IconCaretDown />
+            <div className="container-icon-genre">
+                <div className="selectGenre" ref={ref}>
+                    <button onClick={() => setShowDropdown(!showDropdown)} className='dropdown-toggle-btn open-dropdown'>Genres
+                        <IconCaretDown />
+                    </button>
+                </div>
             </div>
+            {showDropdown &&
                 <div className='dropdown-ui'>
                     <div className='dropdown-links'>
                         <ul>
-                            <li value="">
-                                <a href="">Comedy</a>
+                            <li >
+                                <Link to="/">Comedy</Link>
                             </li>
-                            <li value="">
-                                <a href="">Action</a></li>
-                            <li value="">
-                                <a href="">Thriller</a></li>
-                            <li value="">
-                                <a href="">Family</a></li>
-                            <li value="">
-                                <a href="">Fantasy</a></li>
+                            <li >
+                                <Link to="/" >Action</Link></li>
+                            <li>
+                                <Link to="/" >Thriller</Link></li>
+                            <li >
+                                <Link to="/" >Family</Link></li>
+                            <li >
+                                <Link to="/" >Fantasy</Link></li>
                         </ul>
+
                         <ul>
-                            <li value="">
-                                <a href="">Crime</a>
+                            <li >
+                                <Link to="/" >Crime</Link>
                             </li>
-                            <li value="">
-                                <a href="">Adventure</a>
+                            <li >
+                                <Link to="/" >Adventure</Link>
                             </li>
-                            <li value="">
-                                <a href="">80ties</a>
+                            <li >
+                                <Link to="/" >80ties</Link>
                             </li>
-                            <li value="">
-                                <a href="">90ties</a>
+                            <li >
+                                <Link to="/" >90ties</Link>
                             </li>
-                            <li value="">
-                                <a href="">2000 Millenials</a>
+                            <li >
+                                <Link to="/" >2000 Millenials</Link>
                             </li>
                         </ul>
                     </div>
                 </div>
+            }
 
-            
-
-          
         </div>
     )
 }
