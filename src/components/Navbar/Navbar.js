@@ -15,9 +15,11 @@ import { IconQuestion } from "../Icons/IconQuestion";
 const Navbar = () => {
   const [dropdown, setDropdown] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
+  const [notifications, setNotifications] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const node = useRef();
   const point = useRef();
+  const notificationsElement = useRef();
 
   window.onscroll = () => {
     setIsScrolled(window.pageYOffset === 0 ? false : true);
@@ -30,11 +32,15 @@ const Navbar = () => {
   const accountMenu = () => {
     !isClicked ? setIsClicked(true) : setIsClicked(false);
   };
+  const notificationsDropdown = () => {
+    !notifications ? setNotifications(true) : setNotifications(false);
+  };
 
   let activeClassName = "active-bold";
 
   useOnClickOutside(node, () => setDropdown(false));
   useOnClickOutside(point, () => setIsClicked(false));
+  useOnClickOutside(notificationsElement, () => setNotifications(false));
 
   return (
     <header>
@@ -54,7 +60,7 @@ const Navbar = () => {
                 <div className="callout-arrow"></div>
                 <div className="topbar"></div>
                 <ul className="sub-menu-list">
-                  <li className="sub-menu-item current active">
+                  <li className="sub-menu-item ">
                     <NavLink
                       to="/home"
                       className={({ isActive }) =>
@@ -166,107 +172,116 @@ const Navbar = () => {
             </div>
           </div>
           <div className="nav-element">
-            <span className="notifications-element">
-              <button className="notifications-menu">
+            <span className="notifications-element" ref={notificationsElement}>
+              <button
+                className="notifications-menu"
+                onClick={() => notificationsDropdown()}
+              >
                 <div className="notifications-icon">
                   <IconNotification />
                 </div>
-                <div className="callout-arrow"></div>
+                {notifications ? <div className="callout-arrow"></div> : ""}
               </button>
-              <div className="sub-menu">
-                <div className="topbar"></div>
-                <ul className="sub-menu-list">
-                  <li className="sub-menu-item">
-                    <ul className="notifications-container">
-                      <li className="notifications">
-                        <div className="notifications-content">
-                          <div className="image-text-notifications element">
-                            <NavLink to="/" className="notifications-image">
-                              <img
-                                className="title-card"
-                                src="https://images.unsplash.com/photo-1494342311068-0acb56cfa61d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-                                alt="cat-project"
-                              />
-                            </NavLink>
-                            <NavLink
-                              to="/"
-                              className="notifications-text element"
-                            >
-                              <div className="notifications-header">
-                                New Arrival
-                              </div>
-                              <div className="notifications-body">
-                                The Cat Project
-                              </div>
-                              <div className="notifications-age">
-                                <span className="relative-tim">
-                                  {" "}
-                                  2 days ago
-                                </span>
-                              </div>
-                            </NavLink>
+              {notifications ? (
+                <div className="sub-menu">
+                  <div className="topbar"></div>
+                  <ul className="sub-menu-list">
+                    <li className="sub-menu-item">
+                      <ul className="notifications-container">
+                        <li className="notifications">
+                          <div className="notifications-content">
+                            <div className="image-text-notifications element">
+                              <NavLink to="/" className="notifications-image">
+                                <img
+                                  className="title-card"
+                                  src="https://images.unsplash.com/photo-1494342311068-0acb56cfa61d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                                  alt="cat-project"
+                                />
+                              </NavLink>
+                              <NavLink
+                                to="/"
+                                className="notifications-text element"
+                              >
+                                <div className="notifications-header">
+                                  New Arrival
+                                </div>
+                                <div className="notifications-body">
+                                  The Cat Project
+                                </div>
+                                <div className="notifications-age">
+                                  <span className="relative-tim">
+                                    {" "}
+                                    2 days ago
+                                  </span>
+                                </div>
+                              </NavLink>
+                            </div>
                           </div>
-                        </div>
-                      </li>
-                      <li className="notifications">
-                        <div className="notifications-content">
-                          <div className="image-text-notifications element">
-                            <NavLink to="/" className="notifications-image ">
-                              <img
-                                className="title-card"
-                                src="https://images.unsplash.com/photo-1466921583968-f07aa80c526e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                                alt="doggo"
-                              />
-                            </NavLink>
-                            <NavLink
-                              to="/"
-                              className="notifications-text element"
-                            >
-                              <div className="notifications-header">
-                                New Arrival
-                              </div>
-                              <div className="notifications-body">Season 5</div>
-                              <div className="notifications-age">
-                                <span className="relative-tim"> Today</span>
-                              </div>
-                            </NavLink>
+                        </li>
+                        <li className="notifications">
+                          <div className="notifications-content">
+                            <div className="image-text-notifications element">
+                              <NavLink to="/" className="notifications-image ">
+                                <img
+                                  className="title-card"
+                                  src="https://images.unsplash.com/photo-1466921583968-f07aa80c526e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                                  alt="doggo"
+                                />
+                              </NavLink>
+                              <NavLink
+                                to="/"
+                                className="notifications-text element"
+                              >
+                                <div className="notifications-header">
+                                  New Arrival
+                                </div>
+                                <div className="notifications-body">
+                                  Season 5
+                                </div>
+                                <div className="notifications-age">
+                                  <span className="relative-tim"> Today</span>
+                                </div>
+                              </NavLink>
+                            </div>
                           </div>
-                        </div>
-                      </li>
-                      <li className="notifications">
-                        <div className="notifications-content">
-                          <div className="image-text-notifications element">
-                            <NavLink to="/" className="notifications-image">
-                              <img
-                                className="title-card"
-                                src="https://images.unsplash.com/photo-1540573133985-87b6da6d54a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1176&q=80"
-                                alt="monkey"
-                              />
-                            </NavLink>
-                            <NavLink
-                              to="/"
-                              className="notifications-text element"
-                            >
-                              <div className="notifications-header">
-                                Now Available
-                              </div>
-                              <div className="notifications-body">
-                                MonkeyTime
-                              </div>
-                              <div className="notifications-age">
-                                <span className="relative-tim">
-                                  {" "}
-                                  4 days ago
-                                </span>
-                              </div>
-                            </NavLink>
+                        </li>
+                        <li className="notifications">
+                          <div className="notifications-content">
+                            <div className="image-text-notifications element">
+                              <NavLink to="/" className="notifications-image">
+                                <img
+                                  className="title-card"
+                                  src="https://images.unsplash.com/photo-1540573133985-87b6da6d54a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1176&q=80"
+                                  alt="monkey"
+                                />
+                              </NavLink>
+                              <NavLink
+                                to="/"
+                                className="notifications-text element"
+                              >
+                                <div className="notifications-header">
+                                  Now Available
+                                </div>
+                                <div className="notifications-body">
+                                  MonkeyTime
+                                </div>
+                                <div className="notifications-age">
+                                  <span className="relative-tim">
+                                    {" "}
+                                    4 days ago
+                                  </span>
+                                </div>
+                              </NavLink>
+                            </div>
                           </div>
-                        </div>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              ) : (
+                ""
+              )}
             </span>
           </div>
           <div className="nav-element" ref={point}>
