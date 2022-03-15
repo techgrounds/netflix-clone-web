@@ -5,15 +5,6 @@ import { IconArrowRight } from "../Icons/IconArrowRight";
 import { IconArrowLeft } from "../Icons/IconArrowLeft"
 import "./Lane.scss";
 
-export const  LaneItem = ({ children }) => {
-    const size = useWindowSize()
-    return (
-        <div className="laneItem"
-        style={{height: `${size.itemHeight}vw`, width: `${size.itemWidth}vw`}}>
-            {children}
-            </div>
-    )
-}
 
 const Lane = ({ children }) => {
     function setRerender() {
@@ -25,7 +16,8 @@ const Lane = ({ children }) => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [badPractice, setBadPractice] = useReducer(x => x + 1, 0)
     const reference = useRef(React.Children.map(children, (child ) => {
-        return React.cloneElement( child )}));
+        return React.cloneElement( child )
+    }));
     const updateIndex  = (newIndex) => {
         if (newIndex < 0) {
             newIndex = React.Children.count(children) - size.length
@@ -48,11 +40,8 @@ const Lane = ({ children }) => {
         const sliceLane_front = reference.current.slice(0, size.length)
         reference.current.push(...sliceLane_front)
         reference.current.splice(0, size.length)
-        setRerender();
-        console.log(reference.current)
+        // setRerender();
     }
-
- 
 
     return (
         <div className="lane">
@@ -86,12 +75,10 @@ const Lane = ({ children }) => {
                     }}
                  >
                     {React.Children.map(children, (child, index) => {
-                        if (index % size.length === 0) return (
+                        if (index % (size.length) === 0) return (
                             <button className={`${ index === activeIndex ? "active_pageIndicatior pageIndicator" : "pageIndicator"}`}/>
                         )
                     })}
-
-                    <button className="RENDERBUTTON" onClick={setRerender}>RENDER</button>
 
                 </div>
             </div>
