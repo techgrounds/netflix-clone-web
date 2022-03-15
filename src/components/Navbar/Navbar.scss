@@ -46,11 +46,15 @@ header {
   button {
     background: transparent;
     border: none;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 
 .logo-link {
-  height: 60%;
+  height: 55%;
   display: flex;
   align-items: center;
   width: fit-content;
@@ -113,7 +117,6 @@ picture {
 
 .nav-element {
   height: 100%;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -182,15 +185,16 @@ picture {
     top: 4.43em;
     left: 4%;
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: var(--blackTrans);
     font-size: 13px;
     line-height: 1.31em;
     border: solid 1px var(--blackTrans);
     cursor: default;
+    transition: all 0.4s ease-in-out;
 
     a {
       &:hover {
-        background-color: rgba(20, 20, 20, 0.2);
+        filter: (brightness(1.5));
       }
     }
 
@@ -206,11 +210,22 @@ picture {
         justify-content: center;
         position: relative;
         color: var(--smokewhite);
-        //TODO ADD VARIABLE
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: var(--blackTrans);
         transition: background-color 0.4s ease;
       }
     }
+  }
+
+  .callout-arrow {
+    position: absolute;
+    top: -1.23em;
+    left: 50%;
+    border-width: 7px;
+    margin-left: -7px;
+    border-color: transparent transparent var(--smokewhite);
+    border-style: solid;
+    height: 0;
+    width: 0;
   }
 }
 
@@ -234,8 +249,6 @@ picture {
       padding: 0 1em;
       position: relative;
       color: var(--smokewhite);
-      //TODO ADD VARIABLE
-      background-color: rgba(0, 0, 0, 0.5);
       transition: background-color 0.4s ease;
     }
   }
@@ -270,7 +283,7 @@ picture {
     align-items: center;
     justify-content: flex-start;
     color: var(--white);
-    background-color: var(--blackTrans);
+    background-color: var(--black);
 
     &:hover {
       text-decoration: underline;
@@ -281,15 +294,15 @@ picture {
     left: 96%;
   }
 }
-.responsive-links {
-  background-color: var(--blackTrans);
-}
+
 .account-drop-down .account-links,
 .responsive-links {
-  padding: 10px 0;
   border-top: solid 1px var(--whiteOpacity);
-  background-color: var(--blackTrans);
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--black);
+}
+
+.responsive-links {
+  padding: 10px 0;
 }
 
 .profile-name {
@@ -375,6 +388,9 @@ picture {
 
   .notifications {
     position: relative;
+    padding: 0.5em;
+    border-bottom: 1px solid var(--whiteOpacity);
+    background-color: var(--blackTrans);
   }
 }
 
