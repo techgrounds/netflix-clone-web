@@ -66,8 +66,14 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
+    padding-left: .3rem;
     cursor: pointer;
     font-family: 'NetflixSansLight';
+    div {
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
   }
 }
 
@@ -109,9 +115,7 @@
       width: 13.25rem;
       padding: 2rem 0;
       font-size: 1.625rem;
-      div {
-        margin-top: 0.5rem;
-      }
+      
     }
   }
 }

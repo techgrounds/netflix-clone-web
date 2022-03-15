@@ -1,11 +1,11 @@
-import { useState, useRef, useEffect } from "react";
-import "./Navbar.scss";
-import { NetflixLogo } from "../Logos/NetflixLogo";
-import { IconNotification } from "../Icons/IconNotification";
-import { debounce } from "lodash";
-import { Link, NavLink } from "react-router-dom";
-import { IconCaretDown } from "../Icons/IconCaretDown";
-import { IconSearch } from "../Icons/IconSearch";
+import { useState } from 'react';
+import './Navbar.scss';
+import { NetflixLogo } from '../Logos/NetflixLogo';
+import { IconNotification } from '../Icons/IconNotification';
+import { debounce } from 'lodash';
+import { Link, NavLink } from 'react-router-dom';
+import SearchBar from '../SearchBar/SearchBar';
+import { IconCaretDown } from '../Icons/IconCaretDown';
 
 const Navbar = () => {
   const [dropdown, setDropdown] = useState(false);
@@ -17,24 +17,13 @@ const Navbar = () => {
     return () => (window.onscroll = null);
   };
 
-  const ref = useRef();
-
-  const searchInput = () => {
-    console.log("click");
-  };
   const submenu = () => {
     !dropdown ? setDropdown(true) : setDropdown(false);
   };
   const accountMenu = () => {
-    console.log(isHovered + " isHovered");
+    console.log(isHovered + ' isHovered');
     !isHovered ? setIsHovered(true) : setIsHovered(false);
   };
-
-  useEffect(() => {
-    console.log(dropdown + " dropdown");
-
-    console.log(ref.current);
-  }, [dropdown]);
 
   const debouncedHandleMouseLeave = debounce(() => setIsHovered(false), 400);
   const debouncedHandleDropdown = debounce(() => setDropdown(false), 400);
@@ -50,7 +39,7 @@ const Navbar = () => {
 
   return (
     <header>
-      <nav className={isScrolled ? "navbar scrolled" : "navbar"}>
+      <nav className={isScrolled ? 'navbar scrolled' : 'navbar'}>
         <Link to="/" className="logo-link">
           <picture>
             <NetflixLogo />
@@ -72,17 +61,17 @@ const Navbar = () => {
                 <div className="topbar"></div>
                 <ul className="sub-menu-list">
                   <li className="sub-menu-item current active">
-                    <Link to="/">Home</Link>
+                    <Link to="/home">Home</Link>
                   </li>
                   <li className="sub-menu-item">
                     {/* <Link to="/genre"> */}
                     <NavLink
                       to="/genre"
                       style={({ isActive }) => ({
-                        color: isActive ? "var(--white)" : "var(--smokewhite)",
+                        color: isActive ? 'var(--white)' : 'var(--smokewhite)',
                       })}
                       className={({ isActive }) =>
-                        `nav_link${isActive ? " red" : ""}`
+                        `nav_link${isActive ? ' red' : ''}`
                       }
                     >
                       {/* Series */}
@@ -104,7 +93,7 @@ const Navbar = () => {
                 </ul>
               </div>
             ) : (
-              ""
+              ''
             )}
           </li>
           <li className="navigation-tab current active">
@@ -137,7 +126,8 @@ const Navbar = () => {
         </ul>
 
         <div className="secondary-nav">
-          <div className="nav-element">
+          <SearchBar />
+          {/* <div className="nav-element">
             <div className="searchBox">
               <button className="searchTab">
                 <span className="search-icon" onClick={() => searchInput()}>
@@ -145,7 +135,7 @@ const Navbar = () => {
                 </span>
               </button>
             </div>
-          </div>
+          </div> */}
           <div className="nav-element">
             <span className="notifications">
               <button className="notifications-menu">
@@ -310,7 +300,7 @@ const Navbar = () => {
                   </ul>
                 </div>
               ) : (
-                ""
+                ''
               )}
             </div>
           </div>
