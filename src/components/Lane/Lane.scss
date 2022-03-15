@@ -28,16 +28,15 @@
 }
 
 .indicator {
+    font-size: 1vw;
     border: none;
     border-radius: 6px;
     background-color: var(--black);
-    // background-color: limegreen;
     opacity: 0.5;
-    color: var(--black);
     position: relative;
-    // top: -9vw;
+    svg{opacity: 0;}
     &:hover {
-        color: var(--white);
+        svg{opacity: 1;}
     }
 }
 
@@ -55,7 +54,6 @@
 
 .pageIndicator_container {
     position: relative;
-    // top: -19vw;
     display: flex;
     justify-content: flex-end;
     width: calc(90vw - 4px);
@@ -74,4 +72,8 @@
 
 .pageIndicator_hidden {
     display: none;
+}
+
+.RENDERBUTTON {
+    background-color: limegreen;
 }

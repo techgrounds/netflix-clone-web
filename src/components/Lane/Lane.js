@@ -1,98 +1,98 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useReducer, useEffect } from "react";
 import { useSwipeable } from "react-swipeable";
-import "./Lane.scss";
 import useWindowSize from "./WindowSize";
-
-function setLaneLength(){
-    return (
-        window.innerWidth < 500 ? 2 :
-        window.innerWidth < 650 ? 3 :
-        window.innerWidth < 800 ? 4 :
-        window.innerWidth < 1000 ? 5 :
-        6
-        )
-}
-function setLaneItemWidth(){
-    return (
-        window.innerWidth < 500 ? 45 :
-        window.innerWidth < 650 ? 30 :
-        window.innerWidth < 800 ? 22.5 :
-        window.innerWidth < 1000 ? 18 :
-        15
-        )
-}
-function setLaneItemHeight(){
-    return (
-        window.innerWidth < 500 ? 27 :
-        window.innerWidth < 650 ? 18 :
-        window.innerWidth < 800 ? 13.5 :
-        window.innerWidth < 1000 ? 10.8 :
-        9
-        )
-}
+import { IconArrowRight } from "../Icons/IconArrowRight";
+import { IconArrowLeft } from "../Icons/IconArrowLeft"
+import "./Lane.scss";
 
 export const  LaneItem = ({ children }) => {
-    const laneItemWidth = setLaneItemWidth();
-    const laneItemHeight = setLaneItemHeight();
+    const size = useWindowSize()
     return (
         <div className="laneItem"
-        style={{height: `${laneItemHeight}vw`, width: `${laneItemWidth}vw`}}>
+        style={{height: `${size.itemHeight}vw`, width: `${size.itemWidth}vw`}}>
             {children}
             </div>
     )
 }
 
 const Lane = ({ children }) => {
-    useWindowSize()
-    console.log(useWindowSize)
+    function setRerender() {
+        setBadPractice()
+        console.log("rerender")
+    }
 
-    const laneItemWidth = setLaneItemWidth();
-    const laneLenght = setLaneLength();
-    const laneItemHeight = setLaneItemHeight();
-
+    const size = useWindowSize()
     const [activeIndex, setActiveIndex] = useState(0);
-    const updateIndex = (newIndex) => {
+    const [badPractice, setBadPractice] = useReducer(x => x + 1, 0)
+    const reference = useRef(React.Children.map(children, (child ) => {
+        return React.cloneElement( child )}));
+    const updateIndex  = (newIndex) => {
         if (newIndex < 0) {
-            newIndex = React.Children.count(children) - laneLenght
+            newIndex = React.Children.count(children) - size.length
         } else if (newIndex >= React.Children.count(children)) {
             newIndex = 0;
         }
         setActiveIndex(newIndex);
     }
     const handlers = useSwipeable({
-        onSwipedLeft: () => updateIndex(activeIndex + laneLenght),
-        onSwipedRight: () => updateIndex(activeIndex - laneLenght)
+        onSwipedLeft: () => updateIndex(activeIndex + size.length),
+        onSwipedRight: () => updateIndex(activeIndex - size.length)
     })
+    const prev = () => {
+        const sliceLane_back = reference.current.slice(reference.current.length-reference.current, size.length)
+        reference.current.unshift(...sliceLane_back)
+        reference.current.splice(reference.current.length - size.length, size.length)
+        // setRerender();
+    }
+    const next = () => {
+        const sliceLane_front = reference.current.slice(0, size.length)
+        reference.current.push(...sliceLane_front)
+        reference.current.splice(0, size.length)
+        setRerender();
+        console.log(reference.current)
+    }
+
+ 
 
     return (
         <div className="lane">
             <div className="laneName">Lane</div>
-            <div className="inner" {...handlers} style={{ transform: `translateX(-${activeIndex * laneItemWidth}vw)`}}>
-                {React.Children.map(children, (child, index) => {
-                    return React.cloneElement( child )
-                })}
+            <div className="inner" {...handlers} style={{ transform: `translateX(-${activeIndex * size.itemWidth}vw)`}}>
+                {reference.current}
             </div>
+
             <div className="indicators">
                 <button className="indicator indicator_prev"
-                style={{height: `${laneItemHeight}vw`, width: "5vw", top: `-${laneItemHeight}vw`}}
-                onClick={() => {updateIndex(activeIndex - laneLenght)}}>PREV</button>
+                style={{height: `${size.itemHeight}vw`, width: "5vw", top: `-${size.itemHeight}vw`}}
+                onClick={() => {
+                    updateIndex(activeIndex - size.length);
+                    // prev()
+                    }}>
+                    <IconArrowLeft/>
+                </button>
+
                 <button className="indicator indicator_next"
-                style={{height: `${laneItemHeight}vw`, width: "5vw", top: `-${laneItemHeight}vw`}}
-                onClick={() => {updateIndex(activeIndex + laneLenght)}}>NEXT</button>
+                style={{height: `${size.itemHeight}vw`, width: "5vw", top: `-${size.itemHeight}vw`}}
+                onClick={() => {
+                    updateIndex(activeIndex + size.length);
+                    next()
+                    }}>
+                    <IconArrowRight/>
+                </button>
+
                 <div className="pageIndicator_container"
                  style={
-                     { top: `-${(laneItemHeight * 2.1)}vw`
+                     { top: `-${(size.itemHeight * 2.1)}vw`
                     }}
                  >
                     {React.Children.map(children, (child, index) => {
-                    if (index % laneLenght === 0) return (
-                        <button
-                        className={`${
-                                    index === activeIndex ? "active_pageIndicatior pageIndicator" : "pageIndicator"
-                                }`}
-                        />
-                        )}
-                    )}
+                        if (index % size.length === 0) return (
+                            <button className={`${ index === activeIndex ? "active_pageIndicatior pageIndicator" : "pageIndicator"}`}/>
+                        )
+                    })}
+
+                    <button className="RENDERBUTTON" onClick={setRerender}>RENDER</button>
+
                 </div>
             </div>
         </div>
