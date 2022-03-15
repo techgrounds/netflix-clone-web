@@ -4,7 +4,7 @@
   width: 100%;
   background: transparent;
   position: relative;
-  top: -.5rem;
+  top: 0rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -13,15 +13,15 @@
     width: 5.5rem;
     height: 1.5rem;
     svg {
-      width: 100%;
+      width: auto;
       height: 100%;
     }
   }
-  Button {
+  button {
     width: 3.8125rem;
     height: 1.625rem;
     font-size: 0.9rem;
-    font-family: 'NetflixSansLight';
+    font-family: "NetflixSansLight";
   }
 }
 @media only screen and (min-width: 950px) and (max-width: 1449px),
@@ -29,13 +29,12 @@
   .landing-page-header {
     height: 6rem;
     padding: 1rem 3.5rem 0;
-    top: -7rem;
-
+    top: -5.5rem;
     .logo {
       width: 8.3125rem;
       height: 2.25rem;
     }
-    Button {
+    button {
       width: 5.25rem;
       height: 2.125rem;
       font-size: 1rem;
