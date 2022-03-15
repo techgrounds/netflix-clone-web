@@ -18,6 +18,9 @@ const Lane = ({ children }) => {
     const reference = useRef(React.Children.map(children, (child ) => {
         return React.cloneElement( child )
     }));
+
+    console.log(activeIndex)
+
     const updateIndex  = (newIndex) => {
         if (newIndex < 0) {
             newIndex = React.Children.count(children) - size.length
