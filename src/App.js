@@ -12,20 +12,20 @@ import SearchPage from './pages/SearchPage';
 
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       <Router>
         <ScrollToTop>
           <Routes>
-            <Route exact path="/" element={<LandingPage />} />
-            <Route exact path="/home" element={<HomePage />} />
-            <Route exact path="/genre" element={<GenrePage />} />
-            <Route exact path="/search" element={<SearchPage />} />
-            <Route exact path="*" element={<ErrorPage />} />
+            <Route exact path='/' element={<LandingPage />} />
+            <Route exact path='/home' element={<HomePage />} />
+            <Route exact path='/genre' element={<GenrePage />} />
+            <Route exact path='/search' element={<SearchPage />} />
+            <Route exact path='*' element={<ErrorPage />} />
           </Routes>
         </ScrollToTop>
       </Router>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

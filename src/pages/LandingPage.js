@@ -5,11 +5,11 @@ import FooterLandingPage from '../components/FooterLandingPage/FooterLandingPage
 
 const LandingPage = () => {
   return (
-    <div className="landingPage">
+    <div className='landingPage'>
       <LandingHero />
       <FooterLandingPage />
     </div>
-  );
-};
+  )
+}
 
-export default LandingPage;
+export default LandingPage
