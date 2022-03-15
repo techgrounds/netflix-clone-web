@@ -1,8 +1,8 @@
-import React from 'react';
-import ButtonRed from '../ButtonRed/ButtonRed';
-import { NetflixLogo } from './../Logos/NetflixLogo';
-
-import './styles.scss';
+import React from "react";
+import ButtonRed from "../ButtonRed/ButtonRed";
+import { NetflixLogo } from "./../Logos/NetflixLogo";
+import { Link } from "react-router-dom";
+import "./styles.scss";
 
 export default function LandingHeader({}) {
   return (
@@ -10,7 +10,9 @@ export default function LandingHeader({}) {
       <div className="logo">
         <NetflixLogo />
       </div>
-      <ButtonRed>Sign In</ButtonRed>
+      <ButtonRed>
+        <Link to="/home">Sign In</Link>
+      </ButtonRed>
     </div>
   );
 }
