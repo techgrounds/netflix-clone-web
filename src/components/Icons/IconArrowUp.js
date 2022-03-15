@@ -1,17 +1,20 @@
 export const IconArrowUp = () => {
   return (
     <svg
-      width="20"
-      height="18"
-      viewBox="0 0 20 24"
-      fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      role="img"
+      width="2em"
+      height="2em"
+      preserveAspectRatio="xMidYMid meet"
+      viewBox="0 0 32 32"
     >
-      <path
-        d="M 24.00005,17.35465 22.75256,18.60625 12.00005,7.88878 1.24755,18.60625 5e-5,17.35465 l 12,-11.9609 z"
-        fill="#ffffff"
-        id="path2"
-      />
+      <g transform="rotate(180 16 16)">
+        <path
+          fill="#ffffff"
+          d="M16 22L6 12l1.4-1.4l8.6 8.6l8.6-8.6L26 12z"
+        />
+      </g>
     </svg>
   );
 };
