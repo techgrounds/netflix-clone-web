@@ -1,0 +1,65 @@
+.container-dropdown-genres {
+    position: relative;
+    font-size: 1.2rem;
+    color: var(--white);
+    height: 3rem;
+}
+
+.dropdown-toggle-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10rem;
+    height: 3rem;
+    padding: 0 0.8rem;;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "NetflixSansBold", sans-serif;
+    color: var(--white);
+    border: solid 2px var(--white);
+    cursor: pointer;
+    svg {
+         font-size: 0.5rem;
+         margin-left: 0.5rem;
+    }
+}
+
+.dropdown-toggle-btn:hover {
+    background-color: var(--whiteOpacity);
+}
+
+.dropdown-ui {
+    position: absolute;
+    width: 16em;
+    padding: 1rem;
+    background-color: var(--black);
+    border: solid 0.5px var(--gray);
+    font-family: "NetflixSansRegular", sans-serif;
+    top: 100%;
+    line-height: 2em;   
+    z-index: 200;
+}
+
+.dropdown-links ul a {
+    padding-right: 2rem;
+     &:hover{
+        text-decoration-line: underline;
+    } 
+}
+
+@media (min-width: 600px) {
+    .container-dropdown-genres {
+        display: block;
+        max-width: 20rem;
+        
+    }
+    .dropdown-links {
+        display: flex;
+        flex-direction: row;
+        flex-wrap:nowrap;
+    }
+    .selectGenre {
+        width: auto;
+    }
+}
