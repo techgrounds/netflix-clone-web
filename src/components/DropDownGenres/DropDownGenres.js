@@ -9,18 +9,6 @@ function DropDownGenres() {
 
     const ref = useRef()
 
-    // const dropDownHandler = () => {
-    //     setShowDropdown(true)
-    // }
-
-    // const hideDropDownHandler = () => {
-    //     setShowDropdown(false)
-    // }
-
-    // window.onClick = (e) => {
-    //     if(e.target ===)
-    // }
-
     useEffect(() => {
         const checkIfClickedOutside = event => {
             if (showDropdown && ref.current && !ref.current.contains(event.target)) {
@@ -36,13 +24,12 @@ function DropDownGenres() {
 
     return (
         <div className="container-dropdown-genres ">
-            <div className="container-icon-genre">
-                <div className="selectGenre" ref={ref}>
-                    <button onClick={() => setShowDropdown(!showDropdown)} className='dropdown-toggle-btn open-dropdown'>Genres
-                        <IconCaretDown />
-                    </button>
-                </div>
-            </div>
+
+            <button onClick={() => setShowDropdown(!showDropdown)} className='dropdown-toggle-btn' ref={ref}>Genres
+                <IconCaretDown />
+            </button>
+
+
             {showDropdown &&
                 <div className='dropdown-ui'>
                     <div className='dropdown-links'>
