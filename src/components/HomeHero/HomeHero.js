@@ -16,11 +16,11 @@ const HomeHero = () => {
       .to(
         q('.title-wrapper'),
         {
-          duration: 2,
+          duration: 1.5,
           delay: 3,
           ease: 'none',
-          y: 100,
-          x: -70,
+          y: 110,
+          x: -120,
           scale: 0.8,
         },
         'start'
