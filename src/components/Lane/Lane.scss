@@ -1,0 +1,75 @@
+@import "../../assets/scss/mixins";
+
+.laneName {
+    position: relative;
+    font-size: 1.4vw;
+    font-family: NetflixSansBold;
+    left: 4px;
+}
+
+.lane {
+    overflow: hidden;
+    padding-left: 5vw;
+}
+
+.inner {
+    white-space: nowrap;
+    transition: transform 0.7s;
+}
+
+.laneItem {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--red);
+    border: 3.5px solid  var(--black);
+    color: var(--white);
+    border-radius: 8px;
+}
+
+.indicator {
+    font-size: 1vw;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--black);
+    opacity: 0.5;
+    position: relative;
+    svg{opacity: 0;}
+    &:hover {
+        svg{opacity: 1;}
+    }
+}
+
+.indicators {
+    position: relative;
+}
+
+.indicator_prev {
+    left: calc(-5vw - 2px);
+}
+
+.indicator_next {
+    right: -85vw;
+}
+
+.pageIndicator_container {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    width: calc(90vw - 4px);
+}
+
+.pageIndicator {
+    width: 0.8vw;
+    height: 2px;
+    border: none;
+    margin: 1px;
+    background-color: var(--gray);
+}
+.active_pageIndicatior {
+    background-color: var(--smokewhite);
+}
+
+.pageIndicator_hidden {
+    display: none;
+}

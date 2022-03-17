@@ -1,5 +1,5 @@
 import './HomeHero.scss'
-import { IconDetail } from '../Icons/IconDetail'
+import { IconInfo } from '../Icons/IconInfo'
 import { IconPlayBlack } from '../Icons/IconPlayBlack'
 
 const HomeHero = () => {
@@ -32,7 +32,7 @@ const HomeHero = () => {
 
           <button className='hero-button info-button'>
             <div className='button-icon'>
-              <IconDetail />
+              <IconInfo />
             </div>
             <div style={{ width: '1rem' }}></div>
             <span>More Info</span>
