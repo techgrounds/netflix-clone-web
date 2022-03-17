@@ -6,13 +6,21 @@
     align-items: center;
     width: 100%;
     height: auto;
-    background-color: rgba(0,0,0,0.6);
+    // background: rgba(0,0,0,0.6);
     background-size: cover;
-    background-blend-mode: multiply;
+    // background-blend-mode: multiply;
     border-bottom: 8px solid #222;
     &::before {
       content: '';
       position: absolute;
+      background: rgba(0,0,0,0.6);
+      background-image: linear-gradient(
+        to top,
+        rgba(0,0,0,0.8) 0,
+        rgba(0,0,0,0.0) 30%,
+        rgba(0,0,0,0.0) 50%,
+        rgba(0,0,0,0.8) 100%
+      );
       top: 0px;
       right: 0px;
       bottom: 0px;
@@ -87,7 +95,7 @@
     .hero-card {
       text-align: center;
       position: relative;
-      margin-top: 2.4rem;
+      margin-top: 13rem;
       &-title {
         font-size: 3.125rem;
         line-height: 1.1;
