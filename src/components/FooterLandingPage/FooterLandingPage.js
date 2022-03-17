@@ -87,7 +87,7 @@ function FooterLandingPage() {
               </div>
             </div>
           </div>
-          <p>Neflix Netherlands</p>
+          <span>Neflix Netherlands</span>
         </div>
       </footer>
     </div>
