@@ -3,11 +3,14 @@ import { useRef, useEffect } from 'react'
 import { IconInfo } from '../Icons/IconInfo'
 import { IconPlayBlack } from '../Icons/IconPlayBlack'
 import { gsap } from 'gsap'
+import movieData from '../../movies.json'
 
 const HomeHero = () => {
   const el = useRef()
   const q = gsap.utils.selector(el)
   const timeline = useRef()
+
+  const newMovieData = movieData.slice(0, 1)
 
   useEffect(() => {
     timeline.current = gsap
@@ -18,10 +21,10 @@ const HomeHero = () => {
         {
           duration: 1.5,
           delay: 3,
-          ease: 'none',
-          y: 110,
-          x: -120,
+          ease: 'power4.out',
+          y: '8vh',
           scale: 0.8,
+          transformOrigin: 'left bottom',
         },
         'start'
       )
@@ -30,6 +33,7 @@ const HomeHero = () => {
         {
           opacity: 0,
           delay: 3,
+          ease: 'power4',
         },
         'start'
       )
@@ -43,14 +47,15 @@ const HomeHero = () => {
 
       <div className='hero-description' ref={el}>
         <div className='title-wrapper'>
-          <h2>The Bombardment</h2>
+          {newMovieData.map((movieDetail, index) => {
+            return <h2 key={index}>{movieDetail.title}</h2>
+          })}
         </div>
 
         <div className='info-wrapper'>
-          <p>
-            The fates of several Copenhagen residents collide when a WWII
-            bombing mission accidentally targets a school full of children.
-          </p>
+          {newMovieData.map((movieDetail, index) => {
+            return <p key={index}>{movieDetail.description}</p>
+          })}
         </div>
 
         <div className='button-wrapper'>
