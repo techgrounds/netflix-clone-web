@@ -12,7 +12,7 @@
     content: "";
     position: absolute;
     background: rgba(0, 0, 0, 0.3);
-    background: radial-gradient(
+    background-image: radial-gradient(
       ellipse at center,
       rgba(0, 0, 0, 0.3),
       rgba(0, 0, 0, 0.9)
