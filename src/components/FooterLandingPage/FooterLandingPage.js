@@ -9,7 +9,7 @@ function FooterLandingPage() {
       <footer className="footer-landingpage-wrapper">
         <div className="footer-content">
           <p className="footer-top">
-            "Questions? Call"
+            Questions? Call
             <a className="footer-top-call" href="">
               0800-022-9647
             </a>
