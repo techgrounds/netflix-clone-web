@@ -4,6 +4,7 @@ import InputField from "../InputField/InputField";
 import { Link } from "react-router-dom";
 import { IconFacebook } from '../Icons/IconFacebook'
 import HeroBG from '../../assets/images/landing-bg.jpg';
+import FooterSigninPage from '../FooterSigninPage/FooterSignin'
 
 
 import "./styles.scss";
@@ -74,6 +75,7 @@ function SignIn({ }) {
           <Link className="link-learn-more" to="/">Learn more.</Link>
         </div>
       </form>
+      <FooterSigninPage />
     </div>
   );
 }

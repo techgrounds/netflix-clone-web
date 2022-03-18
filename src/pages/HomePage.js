@@ -1,9 +1,10 @@
-import React from 'react'
-import HomeHero from '../components/HomeHero/HomeHero'
-import FooterBrowserPage from '../components/FooterBrowserPage/FooterBrowserPage'
-import Navbar from '../components/Navbar/Navbar'
-import Lane from '../components/Lane/Lane'
-import { LaneItem } from '../components/Lane/LaneItem'
+import React from 'react';
+import HomeHero from "../components/HomeHero/HomeHero";
+import FooterBrowserPage from '../components/FooterBrowserPage/FooterBrowserPage';
+import Navbar from '../components/Navbar/Navbar';
+import Lane from "../components/Lane/Lane"
+import { LaneItem } from '../components/Lane/LaneItem';
+
 
 const HomePage = () => {
   return (
@@ -33,7 +34,7 @@ const HomePage = () => {
       </Lane>
       <FooterBrowserPage />
     </>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;

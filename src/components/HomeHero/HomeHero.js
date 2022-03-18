@@ -1,5 +1,5 @@
+import { useEffect, useRef } from 'react'
 import './HomeHero.scss'
-import { useRef, useEffect } from 'react'
 import { IconInfo } from '../Icons/IconInfo'
 import { IconPlayBlack } from '../Icons/IconPlayBlack'
 import { gsap } from 'gsap'

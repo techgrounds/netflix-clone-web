@@ -12,7 +12,7 @@
     content: "";
     position: absolute;
     background: rgba(0, 0, 0, 0.3);
-    background: radial-gradient(
+    background-image: radial-gradient(
       ellipse at center,
       rgba(0, 0, 0, 0.3),
       rgba(0, 0, 0, 0.9)
@@ -72,54 +72,120 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
-    padding-left: 0.3rem;
-    cursor: pointer;
-    font-family: "NetflixSansLight";
-    div {
-      display: flex;
-      align-items: center;
-      height: 100%;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    background-color: rgba(0,0,0,0.6);
+    background-size: cover;
+    background-blend-mode: multiply;
+    border-bottom: 8px solid #222;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
     }
   }
-}
-
-@media only screen and (min-width: 950px) and (max-width: 1449px),
-  only screen and (min-width: 1450px) {
-  .hero-container {
-    top: -65px;
-    height: 800px;
-  }
+  
   .hero-card {
+    margin-top: 3.4rem;
+    margin-bottom: 2em;
     text-align: center;
-    position: relative;
-    margin-top: 13rem;
     &-title {
-      font-size: 3.125rem;
-      line-height: 1;
+      display: block;
+      width: 100%;
+      font-size: 1.75rem;
+      font-family: 'NetflixSansMedium';
+      color: var(--white);
+      line-height: 1.1;
+      margin: 0 auto;
     }
     &-subtitle {
-      font-size: 1.625rem;
-      margin-top: 0;
+      display: block;
+      width: 100%;
+      font-size: 1.125rem;
+      font-family: 'NetflixSansLight';
+      color: var(--white);
+      margin: 1rem auto;
     }
   }
   .email-form {
-    max-width: 950px;
     &-title {
-      min-width: 950px;
-      font-size: 1.2rem;
+      font-family: 'NetflixSansLight';
+      display: block;
+      max-width: 350px;
+      margin: 0.5rem auto;
+      font-size: 18px;
+      padding: 0 8%;
     }
     &-input {
-      height: 4rem;
-      width: 450px;
-      margin-right: 0.1em;
-      font-size: 1.625rem;
+      height: 3rem;
+      padding: 10px;
+      width: 90%;
+      margin-bottom: 1rem;
+      outline: none;
+      border: none;
     }
     Button {
-      height: 4rem;
-      width: 13.25rem;
-      padding: 2rem 0;
-      font-size: 1.625rem;
+      height: 2.5rem;
+      width: 8.125rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding-left: .3rem;
+      cursor: pointer;
+      font-family: 'NetflixSansLight';
+      div {
+        display: flex;
+        align-items: center;
+        height: 100%;
+      }
     }
   }
-}
+  
+  @media only screen and (min-width: 950px) and (max-width: 1449px),
+    only screen and (min-width: 1450px) {
+    .hero-container {
+      top: -65px;
+      // max-width: 1440px;
+      height: 800px;
+    }
+    .hero-card {
+      text-align: center;
+      position: relative;
+      margin-top: 2.4rem;
+      &-title {
+        font-size: 3.125rem;
+        line-height: 1.1;
+      }
+      &-subtitle {
+        font-size: 1.625rem;
+      }
+    }
+    .email-form {
+      max-width: 950px;
+      padding-top: 0.85rem;
+      &-title {
+        min-width: 950px;
+        font-size: 1.2rem;
+        margin: 0 auto 1rem;
+      }
+      &-input {
+        height: 4rem;
+        width: 450px;
+        margin-right: 0.1em;
+        font-size: 1.625rem;
+      }
+      Button {
+        height: 4rem;
+        width: 13.25rem;
+        padding: 2rem 0;
+        font-size: 1.625rem;
+        
+      }
+    }
+    }
+  }

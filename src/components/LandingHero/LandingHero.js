@@ -1,29 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import HeroBG from '../../assets/images/landing-bg.jpg';
 import LandingHeader from '../LandingHeader/LandingHeader';
 import ButtonRed from '../ButtonRed/ButtonRed';
 import { IconArrowRight } from '../Icons/IconArrowRight';
-import { Link } from 'react-router-dom'
-// import SignInModal from '../SignInModal/SignInModal'
+
 import './styles.scss';
 
 export default function LandingHero() {
-  // const [isModalOpen, setIsModalOpen] = useState(false);
-
-  // const [signIn, setSignIn] = useState(false)
-
- 
   return (
     <div
       className="hero-container"
       style={{ backgroundImage: `url(${HeroBG})` }}
     >
-      
       <LandingHeader />
-      {/* {signIn ? (
-        <SignInModal />
-      ) : ( */}
-        <div className="hero-card">
+      <div className="hero-card">
         <h1 className="hero-card-title">
           Unlimited films, TV <br></br> programmes and more.
         </h1>
@@ -41,23 +31,14 @@ export default function LandingHero() {
             name="email"
             placeholder="Email address"
           />
-          <ButtonRed
-            // onClick = {() => setSignIn(true)}
-            // onClick={() => setIsModalOpen(true)}
-          >
-                    <Link to="/signin"><span>Get Started</span>
-</Link>
+          <ButtonRed>
+            <span> Get Started</span>
             <div className="chevron-right-arrow">
               <IconArrowRight />
             </div>
           </ButtonRed>
         </form>
-        {/* {isModalOpen && <SignInModal setIsModalOpen={setIsModalOpen} />} */}
-
       </div>
-      {/* )} */}
-
-
     </div>
   );
 }

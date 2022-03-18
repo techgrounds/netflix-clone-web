@@ -2,13 +2,13 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import './assets/scss/main.scss';
 
+import Navbar from './components/Navbar/Navbar';
 import ScrollToTop from './components/ScrollToTop';
 import LandingPage from './pages/LandingPage';
 import HomePage from './pages/HomePage';
 import GenrePage from './pages/GenrePage';
 import ErrorPage from './pages/ErrorPage';
 import SearchPage from './pages/SearchPage';
-import SignInPage from './pages/SignInPage'
 
 function App() {
   return (
@@ -20,7 +20,6 @@ function App() {
             <Route exact path='/home' element={<HomePage />} />
             <Route exact path='/genre' element={<GenrePage />} />
             <Route exact path='/search' element={<SearchPage />} />
-            <Route exact path='/signin' element={<SignInPage />} />
             <Route exact path='*' element={<ErrorPage />} />
           </Routes>
         </ScrollToTop>

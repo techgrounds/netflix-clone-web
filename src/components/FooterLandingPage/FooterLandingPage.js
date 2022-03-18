@@ -67,6 +67,7 @@ function FooterLandingPage() {
               <a href="">Only on Netflix</a>
             </li>
           </ul>
+
           <div className="container-select-lang" id="lang-switcher">
             <div data-ui-a className="container-ui">
               <label
@@ -87,6 +88,8 @@ function FooterLandingPage() {
               </div>
             </div>
           </div>
+
+          
           <p>Neflix Netherlands</p>
         </div>
       </footer>
