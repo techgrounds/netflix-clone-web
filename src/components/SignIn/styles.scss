@@ -1,7 +1,7 @@
-.container{
+.container {
   position: relative;
   background-blend-mode: multiply;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
@@ -10,14 +10,21 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  button {
+    padding: 0.6rem;
+    font-size: 1.4rem;
+    border-radius: 5px;
+    margin-top: 2.2rem;
+  }
 }
-.logo-signin{
+.logo-signin {
   position: absolute;
   top: 1.6rem;
   left: 3rem;
-  svg{
-  width: 10.5rem;
-  height: 3rem;
+  svg {
+    width: 10.5rem;
+    height: 3rem;
   }
 }
 
@@ -40,7 +47,7 @@
   color: var(--gray);
   font-size: 0.8rem;
   margin-top: 0.5rem;
-  &-box{
+  &-box {
     width: 1rem;
     height: 1rem;
   }
@@ -48,73 +55,66 @@
     display: inline-flex;
     gap: 0.4rem;
     align-items: center;
-   
-    span{
+
+    span {
       display: block;
       width: 100px;
       cursor: pointer;
     }
   }
-  &-link{
-    cursor: pointer
+  &-link {
+    cursor: pointer;
   }
 }
 
-button {
-  padding: 0.6rem;
-  font-size: 1.4rem;
-  border-radius: 5px;
-  margin-top: 2.2rem;
-}
-.login-signup-now{
+.login-signup-now {
   margin-top: 1rem;
-  span{
+  span {
     margin-right: 0.5rem;
     color: var(--gray);
   }
- .signup_link:hover{
-   cursor: pointer;
-   text-decoration: underline;
- }
+  .signup_link:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
 }
-.terms-of-use{
+.terms-of-use {
   margin-top: 2rem;
   color: var(--gray);
   font-size: 0.8rem;
   letter-spacing: 0.5px;
   line-height: 1.4;
- 
-  .link-learn-more{
+
+  .link-learn-more {
     // font-size: 0.8rem;
     color: rgb(43, 43, 241);
     margin-left: 0.3rem;
   }
 }
-.facebook-login{
+.facebook-login {
   margin-top: 2rem;
-  svg{
+  svg {
     width: 18px !important;
     height: 18px !important;
   }
-  span{
+  span {
     margin-left: 0.4rem;
     cursor: pointer;
-
   }
 }
 
 @media only screen and (max-width: 600px) {
-  .container{
+  .container {
     background: #000;
     padding: 0 1rem;
   }
-  .logo-signin{
+  .logo-signin {
     position: absolute;
     top: 1.2rem;
     left: 1.2rem;
-    svg{
-    width: 4.5rem;
-    height: 2rem;
+    svg {
+      width: 4.5rem;
+      height: 2rem;
     }
   }
   .form {
