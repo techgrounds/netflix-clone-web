@@ -1,9 +1,14 @@
 .btn-red {
-  width: 5.25rem;
-  height: 2.125rem;
+  width: 100%;
+  font-family: "NetflixSansLight";
   color: var(--white);
   background-color: var(--red);
   border: none;
   outline: none;
   cursor: pointer;
+  &:hover{
+    background-color: #f40612;
+    transition: all 0.4s ease-in-out;
+
+  }
 }
