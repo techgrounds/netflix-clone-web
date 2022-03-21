@@ -1,7 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import useOutsideClick from '../../hooks/useOutsideClick';
 import { IconSearch } from '../Icons/IconSearch';
 
 import './styles.scss';
@@ -15,12 +14,12 @@ export default function SearchBar() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  useOutsideClick(searchbarRef, () => {
-    if (searchInputToggle) {
-      setSearchInput('');
-      setSearchInputToggle(false);
-    }
-  });
+  // useOutsideClick(searchbarRef, () => {
+  //   if (searchInputToggle) {
+  //     setSearchInput('');
+  //     setSearchInputToggle(false);
+  //   }
+  // });
 
   const handleSearchInputToggle = () => {
     searchInputRef.current.focus();
