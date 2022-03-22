@@ -19,14 +19,15 @@
 
 .hero-description {
   position: absolute;
-  top: 30%;
-  width: 80%;
+  top: 19%;
   padding: 0 4%;
   @include breakpoint(sm) {
-    width: 50%;
+    top: 17%;
+    width: 55%;
   }
-  @include breakpoint(xlg) {
-    width: 46%;
+  @include breakpoint(lg) {
+    top: 30%;
+    width: 58%;
   }
 }
 
@@ -35,23 +36,16 @@ h2 {
   font-family: 'NetflixSansRegular';
   letter-spacing: 5px;
   font-weight: 500;
-  font-size: 1.397rem;
-  padding-bottom: 0.6rem;
+  font-size: 2.997rem;
   text-shadow: 2px 2px 4px var(--black);
-  @include breakpoint(sm) {
-    font-size: 2rem;
-  }
   @include breakpoint(md) {
-    font-size: 2.695rem;
-    line-height: 3.076rem;
+    font-size: 3.695rem;
   }
   @include breakpoint(lg) {
-    font-size: 3.995rem;
-    line-height: 4.076rem;
+    font-size: 4.995rem;
   }
   @include breakpoint(xlg) {
     font-size: 6.695rem;
-    line-height: 8.076rem;
   }
 }
 
@@ -66,18 +60,21 @@ p {
   }
   @include breakpoint(lg) {
     font-size: 1.457rem;
-    line-height: 2.585rem;
   }
   @include breakpoint(xlg) {
     font-size: 2.257rem;
-    line-height: 2.585rem;
   }
 }
 
 .button-wrapper {
+  position: absolute;
+  top: 50%;
   display: flex;
   flex-direction: row;
-  margin-top: 1rem;
+  padding: 0 4%;
+  @include breakpoint(xlg) {
+    top: 50%;
+  }
 }
 
 .hero-button {
@@ -88,14 +85,15 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.2rem 2.5rem 0.2rem 1.4rem;
-  margin-top: 0px;
+  padding: 0.5rem 2.5rem 0.5rem 1.4rem;
+  margin-top: 2rem;
   margin-right: 1rem;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-family: 'NetflixSansMedium';
   @include breakpoint(sm) {
     padding: 0.7rem 2rem 0.7rem 0.7rem;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    margin-top: 1rem;
   }
   @include breakpoint(xlg) {
     font-size: 1.47rem;
@@ -103,18 +101,21 @@ p {
   }
 }
 
-.play-button {
+.hero-play-button {
   background-color: var(--white);
   &:hover {
     background-color: rgb(214, 214, 214);
   }
 }
 
-.info-button {
+.hero-info-button {
   background-color: var(--midgrey);
   color: var(--color-white);
   &:hover {
     background-color: rgba(109, 109, 110, 0.562);
+  }
+  &:focus {
+    border: 2px solid var(--white);
   }
 }
 
