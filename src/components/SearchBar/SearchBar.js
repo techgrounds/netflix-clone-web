@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import useOutsideClick from '../../hooks/useOutsideClick';
 
 import { IconSearch } from '../Icons/IconSearch';
 
@@ -9,6 +10,18 @@ export default function SearchBar() {
   const [searchInput, setSearchInput] = useState('');
   const searchbarRef = useRef();
   const searchInputRef = useRef();
+
+  useOutsideClick(searchbarRef, () => {
+    if (searchInputToggle) {
+      setSearchInput('');
+      setSearchInputToggle(false);
+    }
+  });
+
+  const handleSearchInputToggle = () => {
+    searchInputRef.current.focus();
+    setSearchInputToggle(!searchInputToggle);
+  };
 
   const clearSearchInputToggle = () => {
     setSearchInput('');
