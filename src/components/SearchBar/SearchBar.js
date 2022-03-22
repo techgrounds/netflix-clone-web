@@ -10,11 +10,6 @@ export default function SearchBar() {
   const searchbarRef = useRef();
   const searchInputRef = useRef();
 
-  const handleSearchInputToggle = () => {
-    searchInputRef.current.focus();
-    setSearchInputToggle(!searchInputToggle);
-  };
-
   const clearSearchInputToggle = () => {
     setSearchInput('');
   };
