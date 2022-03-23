@@ -1,0 +1,20 @@
+.suggestions-title {
+  font-weight: 700;
+  font-size: 1.57rem;
+  margin-top: 48px;
+  margin-bottom: 20px;
+}
+
+.suggestions-container {
+  max-height: 65em;
+  display: grid;
+  grid-gap: 1em;
+  align-items: stretch;
+  justify-items: stretch;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.suggestions-item {
+  margin: 0.1em;
+  height: 100%;
+}

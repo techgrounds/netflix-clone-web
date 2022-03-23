@@ -28,7 +28,7 @@ const HomeHero = () => {
           duration: 1.5,
           delay: 5,
           ease: 'power4.out',
-          y: '8rem',
+          yPercent: '100',
           scale: 0.8,
           transformOrigin: 'left bottom',
         },
@@ -46,43 +46,57 @@ const HomeHero = () => {
   }, [q])
 
   return (
-    <div className='hero'>
-      <video autoPlay loop muted className='hero-video'>
-        <source src={require(`../../assets/videos/homehero.mp4`)} />
-      </video>
-
-      <div className='hero-description' ref={el}>
-        <div className='title-wrapper'>
-          {newMovieData.map((movieDetail, index) => {
-            return <h2 key={index}>{movieDetail.title}</h2>
-          })}
-        </div>
-
-        <div className='info-wrapper'>
-          {newMovieData.map((movieDetail, index) => {
-            return <p key={index}>{movieDetail.description}</p>
-          })}
+    <>
+      <div className='home-hero'>
+        <div className='home-hero-row' role='region'>
+          <div className='home-hero-container' ref={el}>
+            <div className='home-hero-trailer-wrapper'>
+              <video autoPlay loop muted className='home-hero-trailer'>
+                <source src={require(`../../assets/videos/homehero.mp4`)} />
+              </video>
+              <div className='trailer-overlay overlay'></div>
+              <div className='home-hero-overlay overlay'></div>
+            </div>
+            <div className='fill-container'>
+              <div className='home-hero-info'>
+                <div className='logo-and-text'>
+                  <div className='title-wrapper'>
+                    {newMovieData.map((movieDetail, index) => {
+                      return <h2 key={index}>{movieDetail.title}</h2>
+                    })}
+                  </div>
+                  <div className='info-wrapper'>
+                    {newMovieData.map((movieDetail, index) => {
+                      return <p key={index}>{movieDetail.description}</p>
+                    })}
+                  </div>
+                  <div className='button-wrapper button-layer'>
+                    <button className='home-hero-button home-hero-play-button'>
+                      <div className='home-hero-button-icon'>
+                        <IconPlayBlack />
+                      </div>
+                      <div style={{ width: '1rem' }}></div>
+                      <span>Play</span>
+                    </button>
+                    <button
+                      className='home-hero-button home-hero-info-button'
+                      onClick={openModal}
+                    >
+                      <div className='home-hero-button-icon'>
+                        <IconInfo />
+                      </div>
+                      <div style={{ width: '1rem' }}></div>
+                      <span>More Info</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <FilmInfoModal showModal={showModal} setShowModal={setShowModal} />
         </div>
       </div>
-      <div className='button-wrapper'>
-        <button className='hero-button hero-play-button'>
-          <div className='button-icon'>
-            <IconPlayBlack />
-          </div>
-          <div style={{ width: '1rem' }}></div>
-          <span>Play</span>
-        </button>
-
-        <button className='hero-button hero-info-button' onClick={openModal}>
-          <div className='button-icon'>
-            <IconInfo />
-          </div>
-          <div style={{ width: '1rem' }}></div>
-          <span>More Info</span>
-        </button>
-      </div>
-      <FilmInfoModal showModal={showModal} setShowModal={setShowModal} />
-    </div>
+    </>
   )
 }
 

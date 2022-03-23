@@ -3,6 +3,7 @@ import { IconClose } from '../Icons/IconClose'
 import { useRef, useEffect, useCallback } from 'react'
 import FilmInfoModalHeader from '../FilmInfoModalHeader/FilmInfoModalHeader'
 import FilmInfoModalDetails from '../FilmInfoModalDetails/FilmInfoModalDetails'
+import FilmInfoModalSuggestions from '../FilmInfoModalSuggestions/FilmInfoModalSuggestions'
 
 const FilmInfoModal = ({ showModal, setShowModal }) => {
   const modalRef = useRef()
@@ -39,12 +40,15 @@ const FilmInfoModal = ({ showModal, setShowModal }) => {
     <>
       {showModal ? (
         <div onClick={closeModal} ref={modalRef} className='background'>
-          <div className='modal-wrapper'>
+          <div className='modal-container'>
             <FilmInfoModalHeader />
             <button className='close-button'>
               <IconClose />
             </button>
-            <FilmInfoModalDetails />
+            <div className='details-container'>
+              <FilmInfoModalDetails />
+              <FilmInfoModalSuggestions />
+            </div>
           </div>
         </div>
       ) : null}

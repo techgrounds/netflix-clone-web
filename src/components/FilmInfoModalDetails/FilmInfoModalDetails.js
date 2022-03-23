@@ -7,12 +7,12 @@ import movieData from '../../movies.json'
 const FilmInfoModalDetails = () => {
   const newMovieData = movieData.slice(0, 1)
   return (
-    <div className='details-contrainer'>
+    <>
       <div className='details-wrapper'>
         <div className='details-left'>
           <div className='first-line'>
             <span className='match-title'>97% Match</span>
-            <span className='release-title'>2020</span>
+            <span className='release-title'>1995</span>
             <div className='details-icons'>
               <button className='details-button details-add-button'>
                 <IconAdd />
@@ -24,31 +24,38 @@ const FilmInfoModalDetails = () => {
                 <IconDisLike />
               </button>
             </div>
-            <span>1h 45m</span>
+            <span>2h 15m</span>
           </div>
-          <div style={{ marginBottom: '2em' }}></div>
-          <p className='details-description'>
-            {newMovieData.map((movieDetail, index) => {
-              return <div key={index}>{movieDetail.description}</div>
-            })}
-          </p>
+          <div style={{ marginBottom: '1em' }}></div>
+          {newMovieData.map((movieDetail, index) => {
+            return (
+              <p className='details-title' key={index}>
+                {movieDetail.description}
+              </p>
+            )
+          })}
         </div>
         <div className='details-right'>
           <div className='details-tags details-person'>
             <span className='tags-label'>Cast:</span>
             <span className='tag-item'>Morgan Freeman,</span>
             <span className='tag-item'>Brad Pitt,</span>
-            <span className='tag-item'>Gwyneth Paltrow</span>
+            <span className='tag-item'>Gwyneth Paltrow,</span>
+            <span className='tag-item'>Kevin Spacey</span>
           </div>
           <div className='details-tags details-person'>
             <span className='tags-label'>Genres:</span>
-            <span className='tag-item'>Crime</span>
-            <span className='tag-item'>Mystery</span>
+            <span className='tag-item'>Crime,</span>
+            <span className='tag-item'>Mystery,</span>
             <span className='tag-item'>Drama</span>
+          </div>
+          <div className='details-tags details-person'>
+            <span className='tags-label'>This film is:</span>
+            <span className='tag-item'>Dark</span>
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 
