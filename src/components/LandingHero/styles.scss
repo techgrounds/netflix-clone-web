@@ -7,7 +7,7 @@
   width: 100%;
   height: auto;
   background-blend-mode: multiply;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0, 0, 0, 0.7);
   background-size: cover;
   border-bottom: 8px solid #222;
   &::before {
@@ -94,12 +94,12 @@
       right: 0px;
       bottom: 0px;
       left: 0px;
-      background: rgba(0,0,0,0.1);
-    background-image: radial-gradient(
-      ellipse at center,
-      rgba(0, 0, 0, 0.1),
-      rgba(0, 0, 0, 1)
-    );
+      background: rgba(0, 0, 0, 0.1);
+      background-image: radial-gradient(
+        ellipse at center,
+        rgba(0, 0, 0, 0.1),
+        rgba(0, 0, 0, 1)
+      );
     }
   }
   .hero-card {

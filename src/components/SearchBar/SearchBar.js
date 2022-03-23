@@ -1,11 +1,11 @@
 import React, { useState, useRef } from 'react';
+
 import { IconSearch } from '../Icons/IconSearch';
 
 import './styles.scss';
 
 export default function SearchBar() {
   const [searchInputToggle, setSearchInputToggle] = useState(false);
-
   const [searchInput, setSearchInput] = useState('');
   const searchbarRef = useRef();
   const searchInputRef = useRef();

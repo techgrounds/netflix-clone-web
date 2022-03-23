@@ -42,7 +42,7 @@
   {
     "id": "05.jpg",
     "title": "No Country for Old Men",
-    "description": "A drug deal gone bad and a bag full of cash entwine an unsuspecting hunter, a veteran sheriff and a murderous hit man in the stark West Texas desert.",
+    "description": "A drugs deal gone bad and a bag full of cash entwine an unsuspecting hunter, a veteran sheriff and a murderous hit man in the stark West Texas desert.",
     "actors": "Tommy Lee Jones, Javier Bardem, Josh Brolin, Woody Harrelson",
     "director": "Ethan Coen, Joel Coen",
     "imdb_rating": "7.9/10",
@@ -111,6 +111,66 @@
   },
   {
     "id": "12.jpg",
+    "title": "The Aviator",
+    "description": "Leonardo DiCaprio portrays eccentric tycoon Howard Hughes, who turned a small fortune into a massive one by building Hollywood and aviation empires.",
+    "actors": "Leonardo DiCaprio, Cate Blanchett, Kate Beckinsale, John C. Reilly",
+    "director": "Martin Scorsese",
+    "imdb_rating": "7.1/10",
+    "category": "Dramas",
+    "date_released": "1533081600"
+  },
+  {
+    "id": "13.jpg",
+    "title": "The Aviator",
+    "description": "Leonardo DiCaprio portrays eccentric tycoon Howard Hughes, who turned a small fortune into a massive one by building Hollywood and aviation empires.",
+    "actors": "Leonardo DiCaprio, Cate Blanchett, Kate Beckinsale, John C. Reilly",
+    "director": "Martin Scorsese",
+    "imdb_rating": "7.1/10",
+    "category": "Dramas",
+    "date_released": "1533081600"
+  },
+  {
+    "id": "14.jpg",
+    "title": "The Aviator",
+    "description": "Leonardo DiCaprio portrays eccentric tycoon Howard Hughes, who turned a small fortune into a massive one by building Hollywood and aviation empires.",
+    "actors": "Leonardo DiCaprio, Cate Blanchett, Kate Beckinsale, John C. Reilly",
+    "director": "Martin Scorsese",
+    "imdb_rating": "7.1/10",
+    "category": "Dramas",
+    "date_released": "1533081600"
+  },
+  {
+    "id": "15.jpg",
+    "title": "The Aviator",
+    "description": "Leonardo DiCaprio portrays eccentric tycoon Howard Hughes, who turned a small fortune into a massive one by building Hollywood and aviation empires.",
+    "actors": "Leonardo DiCaprio, Cate Blanchett, Kate Beckinsale, John C. Reilly",
+    "director": "Martin Scorsese",
+    "imdb_rating": "7.1/10",
+    "category": "Dramas",
+    "date_released": "1533081600"
+  },
+  {
+    "id": "16.jpg",
+    "title": "The Aviator",
+    "description": "Leonardo DiCaprio portrays eccentric tycoon Howard Hughes, who turned a small fortune into a massive one by building Hollywood and aviation empires.",
+    "actors": "Leonardo DiCaprio, Cate Blanchett, Kate Beckinsale, John C. Reilly",
+    "director": "Martin Scorsese",
+    "imdb_rating": "7.1/10",
+    "category": "Dramas",
+    "date_released": "1533081600"
+  },
+  {
+    "id": "17.jpg",
+    "title": "The Aviator",
+    "description": "Leonardo DiCaprio portrays eccentric tycoon Howard Hughes, who turned a small fortune into a massive one by building Hollywood and aviation empires.",
+    "actors": "Leonardo DiCaprio, Cate Blanchett, Kate Beckinsale, John C. Reilly",
+    "director": "Martin Scorsese",
+    "imdb_rating": "7.1/10",
+    "category": "Dramas",
+    "date_released": "1533081600"
+  },
+  {
+    "id": "18.jpg",
     "title": "The Aviator",
     "description": "Leonardo DiCaprio portrays eccentric tycoon Howard Hughes, who turned a small fortune into a massive one by building Hollywood and aviation empires.",
     "actors": "Leonardo DiCaprio, Cate Blanchett, Kate Beckinsale, John C. Reilly",
