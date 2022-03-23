@@ -8,7 +8,7 @@ const FilmInfoModalSuggestions = () => {
         <div className='suggestions-item'>
           <div className='image-wrapper'>
             <img
-              src={require('../../assets/images/MockupImg/001.jpg')}
+              src={require('../../assets/mockup_images/01.jpg')}
               alt='suggestion'
             />
           </div>
@@ -16,7 +16,7 @@ const FilmInfoModalSuggestions = () => {
         <div className='suggestions-item'>
           <div className='image-wrapper'>
             <img
-              src={require('../../assets/images/MockupImg/002.jpg')}
+              src={require('../../assets/mockup_images/02.jpg')}
               alt='suggestion'
             />
           </div>
@@ -24,7 +24,7 @@ const FilmInfoModalSuggestions = () => {
         <div className='suggestions-item'>
           <div className='image-wrapper'>
             <img
-              src={require('../../assets/images/MockupImg/003.jpg')}
+              src={require('../../assets/mockup_images/03.jpg')}
               alt='suggestion'
             />
           </div>
