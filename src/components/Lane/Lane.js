@@ -10,7 +10,7 @@ import "./Lane.scss";
 
 const Lane = ({ children }) => {
     const size = useWindowSize()
-    const [activeIndex, setActiveIndex] = useState(0);
+    const [activeIndex, setActiveIndex] = useState(1);
     const [startSwitch, setStartSwitch] = useState(0);
     const [animationState, setAnimationState] = useState(true);
     const keyedMovies = movies.map(movie => {movie.key = uuidv4()
@@ -28,41 +28,41 @@ const Lane = ({ children }) => {
     const arrayFromLastLane = midLane.filter((movie, index) => index >= keyedMovies.length - (size.length+1))
     const fullLaneLenght = arrayFromLastLane.length + midLane.length + arrayFromFirstLane.length;
     const sleep = (milliseconds) => {return new Promise(resolve => setTimeout(resolve, milliseconds))}
-
-    const checkIndex = async (activeIndex) => {
-        await sleep(800)
-        if (activeIndex > (fullLaneLenght+1) - (size.length*2)) {
-            console.log(activeIndex)
-            console.log(fullLaneLenght)
-            console.log(fullLaneLenght+2)
-            setAnimationState(false)
-            setActiveIndex((size.length+2) + (size.length - (fullLaneLenght - activeIndex)))
-            // setStartSwitch(1)
+    const animationStateOn = () => { setAnimationState(true) }
+    const checkIndexNext = async (activeIndex) => {
+      await sleep(800);
+      if (activeIndex > fullLaneLenght - 1 - size.length * 2) {
+            setAnimationState(false);
+            setActiveIndex(
+            size.length + 2 + (size.length - (fullLaneLenght - activeIndex))
+            )
         }
-        // } else if (activeIndex < ((size.length*2)+1)) {
-        //     if (startSwitch > 0) {
-        //     setAnimationState(false)
-        //     setActiveIndex(((fullLaneLenght+1) - (size.length *2)) + activeIndex)
-        // }
-        // }
     }
-
-    const animationStateOn = () => {
-        setAnimationState(true)
+    const checkIndexPrev = async (activeIndex) => {
+        await sleep(800)
+        if (activeIndex < (arrayFromLastLane.length+size.length)) {
+            if (startSwitch > 0) {
+                setAnimationState(false)
+                setActiveIndex(fullLaneLenght-1 - ((size.length + arrayFromFirstLane.length)-(size.length-(size.length-activeIndex))))
+            }
+        }
     }
-
-    const updateIndex  = (newIndex) => {
+    const updateIndexNext  = (newIndex) => {
         setActiveIndex(newIndex);
-        checkIndex(newIndex);
+        checkIndexNext(newIndex);
         animationStateOn();
-        setStartSwitch(1)
+        setStartSwitch(1);
     }
-
+    const updateIndexPrev  = (newIndex) => {
+        setActiveIndex(newIndex);
+        checkIndexPrev(newIndex);
+        animationStateOn();
+        setStartSwitch(1);
+    }
     const handlers = useSwipeable({
-        onSwipedLeft: () => updateIndex(activeIndex + size.length),
-        onSwipedRight: () => updateIndex(activeIndex - size.length)
+        onSwipedLeft: () => updateIndexPrev(activeIndex + size.length),
+        onSwipedRight: () => updateIndexNext(activeIndex - size.length)
     })
-
     return (
         <div className="lane"
         style={{height: `${size.itemHeight*1.4}vw`}} >
@@ -84,20 +84,20 @@ const Lane = ({ children }) => {
             <div className="indicators">
                 <button className="indicator indicator_prev"
                     style={{height: `${size.itemHeight}vw`, width: "5vw", top: `-${size.itemHeight}vw`}}
-                    onClick={() => {updateIndex(activeIndex - size.length)}}>
+                    onClick={() => {updateIndexPrev(activeIndex - size.length)}}>
                     <IconArrowLeft/>
                 </button>
 
                 <button className="indicator indicator_next"
                     style={{height: `${size.itemHeight}vw`, width: "5vw", top: `-${size.itemHeight}vw`}}
-                    onClick={() => {updateIndex(activeIndex + size.length)}}>
+                    onClick={() => {updateIndexNext(activeIndex + size.length)}}>
                     <IconArrowRight/>
                 </button>
 
                 <div className="pageIndicator_container"
                  style={{ top: `-${(size.itemHeight * 2.1)}vw`}}>
                     {React.Children.map(children, (child, index) => {
-                        if ((index) % (size.length) === 0) return (
+                        if ((index) % (size.length) === 1) return (
                             <button className={`${ (index) === activeIndex-size.length ? "active_pageIndicatior pageIndicator" : "pageIndicator"}`}/>)
                     })}
 

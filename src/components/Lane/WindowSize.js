@@ -29,7 +29,6 @@ function useWindowSize() {
         : window.innerWidth < 1400 ? 10.8
         : 9;
     }
-
     function handleResize() {
       setWindowSize({
         length: setLaneLength(),
