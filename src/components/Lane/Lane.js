@@ -11,10 +11,9 @@ import "./Lane.scss";
 const Lane = ({ children }) => {
     const size = useWindowSize()
     const [activeIndex, setActiveIndex] = useState(0);
-    const [clickCounter, setClickCounter] = useState(0);
+    const [startSwitch, setStartSwitch] = useState(0);
     const [animationState, setAnimationState] = useState(true);
-    const keyedMovies = movies.map(movie => {
-        movie.key = uuidv4()
+    const keyedMovies = movies.map(movie => {movie.key = uuidv4()
         return movie} )
     const midLane = movies && keyedMovies.map((movie) => {
         return (
@@ -25,33 +24,38 @@ const Lane = ({ children }) => {
             className="movie-image" />
         </LaneItem>)
     })
-    const arrayFromFirstLane = midLane.filter((movie, index) => index < size.length)
-    const arrayFromLastLane = midLane.filter((movie, index) => index >= keyedMovies.length - size.length)
+    const arrayFromFirstLane = midLane.filter((movie, index) => index < (size.length+1))
+    const arrayFromLastLane = midLane.filter((movie, index) => index >= keyedMovies.length - (size.length+1))
     const fullLaneLenght = arrayFromLastLane.length + midLane.length + arrayFromFirstLane.length;
-    const sleep = (milliseconds) => {
-        return new Promise(resolve => setTimeout(resolve, milliseconds))
-      }
+    const sleep = (milliseconds) => {return new Promise(resolve => setTimeout(resolve, milliseconds))}
 
     const checkIndex = async (activeIndex) => {
         await sleep(800)
-            
-        if (activeIndex > fullLaneLenght - (size.length*2)) {
-            console.log("last lane")
-            setActiveIndex(size.length + (size.length - (fullLaneLenght - activeIndex)))
-        } else if (activeIndex < (size.length*2)) {
-            console.log("first lane")
-            if (clickCounter > 0) {
-                setAnimationState(false)
-            setActiveIndex(fullLaneLenght - ((size.length *2) + activeIndex))}
-            else setClickCounter(1)
+        if (activeIndex > (fullLaneLenght+1) - (size.length*2)) {
+            console.log(activeIndex)
+            console.log(fullLaneLenght)
+            console.log(fullLaneLenght+2)
+            setAnimationState(false)
+            setActiveIndex((size.length+2) + (size.length - (fullLaneLenght - activeIndex)))
+            // setStartSwitch(1)
         }
-        else console.log("midlane")
-        // setAnimationState(true)
+        // } else if (activeIndex < ((size.length*2)+1)) {
+        //     if (startSwitch > 0) {
+        //     setAnimationState(false)
+        //     setActiveIndex(((fullLaneLenght+1) - (size.length *2)) + activeIndex)
+        // }
+        // }
+    }
+
+    const animationStateOn = () => {
+        setAnimationState(true)
     }
 
     const updateIndex  = (newIndex) => {
         setActiveIndex(newIndex);
-        checkIndex(newIndex)
+        checkIndex(newIndex);
+        animationStateOn();
+        setStartSwitch(1)
     }
 
     const handlers = useSwipeable({
@@ -59,8 +63,6 @@ const Lane = ({ children }) => {
         onSwipedRight: () => updateIndex(activeIndex - size.length)
     })
 
-    console.log(animationState);
-    
     return (
         <div className="lane"
         style={{height: `${size.itemHeight*1.4}vw`}} >
@@ -69,7 +71,7 @@ const Lane = ({ children }) => {
                 <button className="laneNameButton"><div className="laneNameButtonOpened">Explore all </div><IconArrowRight/></button>
                 </div>
 
-            <div id="MovingLane" className="inner animate"
+            <div id="MovingLane" className="inner"
                 {...handlers}
                 style={{ transform: `translateX(-${activeIndex * size.itemWidth}vw)`,
                 transition: `${animationState ? ' transform 0.8s' : 'undefined'}`
