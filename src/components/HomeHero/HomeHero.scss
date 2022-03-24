@@ -1,86 +1,152 @@
 @import '../../assets/scss/mixins';
 
-.hero {
+.home-hero {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  overflow: hidden;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 85vh;
 }
 
-.hero-video {
-  height: 450px;
-  align-self: center;
-  @include breakpoint(sm) {
-    width: 100%;
-    height: auto;
-  }
+.home-hero-row {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  user-select: none;
+  touch-action: pan-y;
+  margin-bottom: 20px;
+  background-color: #000;
+  padding-bottom: 40%;
 }
 
-.hero-description {
+.home-hero-container {
   position: absolute;
-  top: 30%;
-  width: 80%;
-  padding: 0 4%;
-  @include breakpoint(sm) {
-    width: 50%;
-  }
-  @include breakpoint(xlg) {
-    width: 46%;
-  }
+  background-color: #000;
+  width: 100%;
+  height: 56.25vw;
+  z-index: 0;
 }
 
-h2 {
-  text-transform: uppercase;
-  font-family: 'NetflixSansRegular';
-  letter-spacing: 5px;
-  font-weight: 500;
-  font-size: 1.397rem;
-  padding-bottom: 0.6rem;
-  text-shadow: 2px 2px 4px var(--black);
-  @include breakpoint(sm) {
-    font-size: 2rem;
-  }
-  @include breakpoint(md) {
-    font-size: 2.695rem;
-    line-height: 3.076rem;
-  }
-  @include breakpoint(lg) {
-    font-size: 3.995rem;
-    line-height: 4.076rem;
-  }
-  @include breakpoint(xlg) {
-    font-size: 6.695rem;
-    line-height: 8.076rem;
-  }
+.home-hero-trailer-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
-p {
-  font-family: 'NetflixSansRegular';
-  font-weight: 100;
-  font-size: 1.1rem;
-  letter-spacing: -1px;
+.home-hero-trailer {
+  position: absolute;
+  background-position: center center;
+  background-size: cover;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  opacity: 1;
+  transition: opacity 0.4s cubic-bezier(0.665, 0.235, 0.265, 0.8) 0s;
+}
+
+.trailer-overlay {
+  background: linear-gradient(
+    77deg,
+    rgba(0, 0, 0, 0.6) 0,
+    rgba(0, 0, 0, 0) 85%
+  );
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 26.09%;
+  bottom: 0;
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+.overlay {
+  z-index: 8;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.home-hero-overlay {
+  background-image: linear-gradient(
+    to bottom,
+    rgba(20, 20, 20, 0) 0,
+    rgba(20, 20, 20, 0.15) 15%,
+    rgba(20, 20, 20, 0.35) 29%,
+    rgba(20, 20, 20, 0.58) 44%,
+    #141414 68%,
+    #141414 100%
+  );
+  background-size: 100% 100%;
+  background-position: 0 top;
+  background-repeat: repeat-x;
+  background-color: transparent;
+  width: 100%;
+  height: 14.7vw;
+  top: auto;
+  bottom: -1px;
+  opacity: 1;
+}
+
+.fill-container {
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  position: absolute;
+}
+
+.home-hero-info {
+  position: absolute;
+  top: 0;
+  bottom: 45%;
+  left: 4%;
+  width: 36%;
+  z-index: 10;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+
+.logo-and-text {
+  width: 100%;
+}
+
+.title-wrapper {
+  position: relative;
+  margin-bottom: 1.2vw;
+  font-size: 4vw;
   text-shadow: 2px 2px 4px var(--black);
-  @include breakpoint(md) {
-    font-size: 1.35rem;
-  }
-  @include breakpoint(lg) {
-    font-size: 1.457rem;
-    line-height: 2.585rem;
-  }
-  @include breakpoint(xlg) {
-    font-size: 2.257rem;
-    line-height: 2.585rem;
-  }
+}
+
+.info-wrapper {
+  color: #fff;
+  font-weight: 400;
+  line-height: normal;
+  width: 100%;
+  font-size: 1.4vw;
+  text-shadow: 2px 2px 4px var(--black);
+  margin-top: 0.1vw;
+  margin: 0.5vw 0 0 0;
 }
 
 .button-wrapper {
+  margin-top: 1.5vw;
+  white-space: nowrap;
   display: flex;
-  flex-direction: row;
-  margin-top: 1rem;
+  line-height: 88%;
 }
 
-.hero-button {
+.button-layer {
+  position: relative;
+  z-index: 10;
+}
+
+.home-hero-button {
   cursor: pointer;
   border-radius: 4px;
   opacity: 1;
@@ -88,14 +154,13 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.2rem 2.5rem 0.2rem 1.4rem;
-  margin-top: 0px;
+  padding: 0.15rem 2rem 0.15rem 1rem;
   margin-right: 1rem;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-family: 'NetflixSansMedium';
   @include breakpoint(sm) {
     padding: 0.7rem 2rem 0.7rem 0.7rem;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
   @include breakpoint(xlg) {
     font-size: 1.47rem;
@@ -103,21 +168,24 @@ p {
   }
 }
 
-.play-button {
+.home-hero-play-button {
   background-color: var(--white);
   &:hover {
     background-color: rgb(214, 214, 214);
   }
 }
 
-.info-button {
+.home-hero-info-button {
   background-color: var(--midgrey);
   color: var(--color-white);
   &:hover {
     background-color: rgba(109, 109, 110, 0.562);
   }
+  &:focus {
+    border: 2px solid var(--white);
+  }
 }
 
-.button-icon {
+.home-hero-button-icon {
   display: flex;
 }

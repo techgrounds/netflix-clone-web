@@ -1,14 +1,20 @@
-import { useEffect, useRef } from 'react'
 import './HomeHero.scss'
+import { useEffect, useRef, useState } from 'react'
 import { IconInfo } from '../Icons/IconInfo'
 import { IconPlayBlack } from '../Icons/IconPlayBlack'
 import { gsap } from 'gsap'
 import movieData from '../../movies.json'
+import FilmInfoModal from '../FilmInfoModal/FilmInfoModal'
 
 const HomeHero = () => {
   const el = useRef()
   const q = gsap.utils.selector(el)
   const timeline = useRef()
+  const [showModal, setShowModal] = useState(false)
+
+  const openModal = () => {
+    setShowModal((prev) => !prev)
+  }
 
   const newMovieData = movieData.slice(0, 1)
 
@@ -20,9 +26,9 @@ const HomeHero = () => {
         q('.title-wrapper'),
         {
           duration: 1.5,
-          delay: 3,
+          delay: 5,
           ease: 'power4.out',
-          y: '8vh',
+          yPercent: '100',
           scale: 0.8,
           transformOrigin: 'left bottom',
         },
@@ -32,7 +38,7 @@ const HomeHero = () => {
         q('.info-wrapper'),
         {
           opacity: 0,
-          delay: 3,
+          delay: 5,
           ease: 'power4',
         },
         'start'
@@ -40,43 +46,57 @@ const HomeHero = () => {
   }, [q])
 
   return (
-    <div className='hero'>
-      <video autoPlay loop muted className='hero-video'>
-        <source src={require(`../../assets/videos/homehero.mp4`)} />
-      </video>
-
-      <div className='hero-description' ref={el}>
-        <div className='title-wrapper'>
-          {newMovieData.map((movieDetail, index) => {
-            return <h2 key={index}>{movieDetail.title}</h2>
-          })}
-        </div>
-
-        <div className='info-wrapper'>
-          {newMovieData.map((movieDetail, index) => {
-            return <p key={index}>{movieDetail.description}</p>
-          })}
-        </div>
-
-        <div className='button-wrapper'>
-          <button className='hero-button play-button'>
-            <div className='button-icon'>
-              <IconPlayBlack />
+    <>
+      <div className='home-hero'>
+        <div className='home-hero-row' role='region'>
+          <div className='home-hero-container' ref={el}>
+            <div className='home-hero-trailer-wrapper'>
+              <video autoPlay loop muted className='home-hero-trailer'>
+                <source src={require(`../../assets/videos/homehero.mp4`)} />
+              </video>
+              <div className='trailer-overlay overlay'></div>
+              <div className='home-hero-overlay overlay'></div>
             </div>
-            <div style={{ width: '1rem' }}></div>
-            <span>Play</span>
-          </button>
-
-          <button className='hero-button info-button'>
-            <div className='button-icon'>
-              <IconInfo />
+            <div className='fill-container'>
+              <div className='home-hero-info'>
+                <div className='logo-and-text'>
+                  <div className='title-wrapper'>
+                    {newMovieData.map((movieDetail, index) => {
+                      return <h2 key={index}>{movieDetail.title}</h2>
+                    })}
+                  </div>
+                  <div className='info-wrapper'>
+                    {newMovieData.map((movieDetail, index) => {
+                      return <p key={index}>{movieDetail.description}</p>
+                    })}
+                  </div>
+                  <div className='button-wrapper button-layer'>
+                    <button className='home-hero-button home-hero-play-button'>
+                      <div className='home-hero-button-icon'>
+                        <IconPlayBlack />
+                      </div>
+                      <div style={{ width: '1rem' }}></div>
+                      <span>Play</span>
+                    </button>
+                    <button
+                      className='home-hero-button home-hero-info-button'
+                      onClick={openModal}
+                    >
+                      <div className='home-hero-button-icon'>
+                        <IconInfo />
+                      </div>
+                      <div style={{ width: '1rem' }}></div>
+                      <span>More Info</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div style={{ width: '1rem' }}></div>
-            <span>More Info</span>
-          </button>
+          </div>
+          <FilmInfoModal showModal={showModal} setShowModal={setShowModal} />
         </div>
       </div>
-    </div>
+    </>
   )
 }
 
