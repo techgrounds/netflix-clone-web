@@ -67,9 +67,11 @@ const Lane = ({ children }) => {
     return (
         <div className="lane"
         style={{
-            height: `${size.itemHeight*3}vw`,
-            paddingTop: "100px", 
-            marginBottom: "-200px"}} >
+            height: `${size.itemHeight*1.4}vw`,
+            // height: `${size.itemHeight*3}vw`
+            // paddingTop: "100px",
+            // marginBottom: "-200px"
+            }} >
             <div className="laneName">
                 Lane
                 <button className="laneNameButton"><div className="laneNameButtonOpened">Explore all </div><IconArrowRight/></button>

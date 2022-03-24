@@ -86,6 +86,7 @@
     opacity: 0.5;
     position: relative;
     svg{opacity: 0;}
+    z-index: 1;
     &:hover {
         svg{opacity: 1;}
     }
@@ -142,5 +143,5 @@
 }
 
 .lane1 {
-    border: 1px solid limegreen;
+    background-color: lime;
 }
