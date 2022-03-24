@@ -1,0 +1,61 @@
+.modal {
+  // border: 1px solid red;
+
+  width: 350px;
+  height: 350px;
+  // margin: 5em auto;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  // outline:1px double rgba(34, 34, 34, 0.514);
+  // outline-offset: 3px;
+
+  // background:#222;
+
+  // visibility: hidden;
+
+  // z-index:100;
+  position: relative;
+
+  // box-shadow: 6px 6px 1px 1px rgba(34, 34, 34, 0.514);
+
+  &:hover {
+    position: absolute;
+  }
+}
+
+.visible {
+  visibility: visible;
+}
+
+.top-container {
+  // background:magenta;
+  background: #222;
+
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.video-title {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 1.2em;
+  color: #fff;
+  line-height: 0.8em;
+}
+
+.bottom-container {
+  padding: 0 1em;
+  background: #222;
+  height: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  z-index: 23;
+  overflow: hidden;
+}
