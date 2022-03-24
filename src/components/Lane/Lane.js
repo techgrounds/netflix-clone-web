@@ -63,9 +63,13 @@ const Lane = ({ children }) => {
         onSwipedLeft: () => updateIndexPrev(activeIndex + size.length),
         onSwipedRight: () => updateIndexNext(activeIndex - size.length)
     })
+    console.log(startSwitch)
     return (
         <div className="lane"
-        style={{height: `${size.itemHeight*1.4}vw`}} >
+        style={{
+            height: `${size.itemHeight*3}vw`,
+            paddingTop: "100px", 
+            marginBottom: "-200px"}} >
             <div className="laneName">
                 Lane
                 <button className="laneNameButton"><div className="laneNameButtonOpened">Explore all </div><IconArrowRight/></button>
@@ -82,7 +86,7 @@ const Lane = ({ children }) => {
             </div>
 
             <div className="indicators">
-                <button className="indicator indicator_prev"
+                <button className={`${ (startSwitch) === 0 ? "indicator_inactive indicator_prev" : "indicator indicator_prev"}`}
                     style={{height: `${size.itemHeight}vw`, width: "5vw", top: `-${size.itemHeight}vw`}}
                     onClick={() => {updateIndexPrev(activeIndex - size.length)}}>
                     <IconArrowLeft/>

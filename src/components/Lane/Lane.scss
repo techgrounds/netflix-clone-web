@@ -1,5 +1,21 @@
 @import "../../assets/scss/mixins";
 
+.lane {
+    border: 1px solid lime;
+    position: relative;
+    // top:250px;
+    overflow: hidden;
+    padding-left: 5vw;
+    &:hover{
+        .pageIndicator_container{
+            opacity: 1;
+        }
+        .laneNameButton {
+            opacity: 1;
+        }
+    }
+}
+
 .laneName {
     position: relative;
     display: flex;
@@ -12,19 +28,6 @@
         .laneNameButtonOpened {
         opacity: 1;
         width: 100%
-        }
-    }
-}
-
-.lane {
-    overflow: hidden;
-    padding-left: 5vw;
-    &:hover{
-        .pageIndicator_container{
-            opacity: 1;
-        }
-        .laneNameButton {
-            opacity: 1;
         }
     }
 }
@@ -42,8 +45,8 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--red);
-    border: 3.5px solid  var(--black);
+    background-color: var(----transparent);
+    border: 3.5px solid  var(--transparent);
     color: var(--white);
     border-radius: 8px;
     overflow: hidden;
@@ -87,6 +90,17 @@
         svg{opacity: 1;}
     }
 }
+.indicator_inactive {
+    position: relative;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--black);
+    pointer-events: none;
+    svg{opacity: 0;
+    // mix-blend-mode: screen;
+    // mask-clip: content;
+    }
+}
 
 .indicators {
     position: relative;
@@ -125,4 +139,8 @@
 
 .pageIndicator_hidden {
     display: none;
+}
+
+.lane1 {
+    border: 1px solid limegreen;
 }

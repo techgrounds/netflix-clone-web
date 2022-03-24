@@ -21,12 +21,9 @@ const HomePage = () => {
     <>
       <Navbar />
       <HomeHero />
-      <Lane>
-        {laneMovie}
-      </Lane>
-      {/* <Lane>
-        {laneMovie}
-      </Lane> */}
+      <Lane>{laneMovie}</Lane>
+      <Lane>{laneMovie}</Lane>
+      <Lane>{laneMovie}</Lane>
       <FooterBrowserPage />
     </>
   );
