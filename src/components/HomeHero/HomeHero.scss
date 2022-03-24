@@ -5,7 +5,6 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 85vh;
 }
 
 .home-hero-row {
@@ -92,7 +91,7 @@
   opacity: 1;
 }
 
-.fill-container {
+.home-hero-fill-container {
   top: 0;
   bottom: 0;
   right: 0;
@@ -141,30 +140,20 @@
   line-height: 88%;
 }
 
-.button-layer {
-  position: relative;
-  z-index: 10;
-}
-
 .home-hero-button {
-  cursor: pointer;
-  border-radius: 4px;
-  opacity: 1;
-  border: 0;
-  display: flex;
   align-items: center;
+  appearance: none;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
   justify-content: center;
-  padding: 0.15rem 2rem 0.15rem 1rem;
+  opacity: 1;
+  padding: 0.8rem;
+  user-select: none;
   margin-right: 1rem;
-  font-size: 0.9rem;
-  font-family: 'NetflixSansMedium';
-  @include breakpoint(sm) {
-    padding: 0.7rem 2rem 0.7rem 0.7rem;
-    font-size: 1.1rem;
-  }
-  @include breakpoint(xlg) {
-    font-size: 1.47rem;
-    padding: 0.7rem 2.5rem 0.7rem 1.5rem;
+  @include breakpoint(lg) {
+    padding: 1.7rem;
   }
 }
 
@@ -186,6 +175,19 @@
   }
 }
 
-.home-hero-button-icon {
+.has-label {
+  min-height: 32px;
+  max-height: 42px;
+}
+
+.button-icon {
   display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-text {
+  font-family: inherit;
+  font-size: 1.2rem;
+  font-weight: bold;
 }

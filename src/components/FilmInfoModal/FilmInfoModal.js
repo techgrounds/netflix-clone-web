@@ -4,6 +4,7 @@ import { useRef, useEffect, useCallback } from 'react'
 import FilmInfoModalHeader from '../FilmInfoModalHeader/FilmInfoModalHeader'
 import FilmInfoModalDetails from '../FilmInfoModalDetails/FilmInfoModalDetails'
 import FilmInfoModalSuggestions from '../FilmInfoModalSuggestions/FilmInfoModalSuggestions'
+import FilmInfoModalFooter from '../FilmInfoModalFooter/FilmInfoModalFooter'
 
 const FilmInfoModal = ({ showModal, setShowModal }) => {
   const modalRef = useRef()
@@ -39,16 +40,26 @@ const FilmInfoModal = ({ showModal, setShowModal }) => {
   return (
     <>
       {showModal ? (
-        <div onClick={closeModal} ref={modalRef} className='background'>
+        <div onClick={closeModal} ref={modalRef} className='modal-background'>
           <div className='modal-container'>
-            <FilmInfoModalHeader />
-            <button className='close-button'>
+            <div className='modal-header'>
+              <FilmInfoModalHeader />
+            </div>
+            <div className='modal-description'>
+              <div className='modal-details'>
+                <FilmInfoModalDetails />
+              </div>
+              <div className='modal-suggestions'>
+                <FilmInfoModalSuggestions />
+              </div>
+            </div>
+            <div className='modal-footer'>
+              <FilmInfoModalFooter />
+            </div>
+
+            <button className='modal-close-button'>
               <IconClose />
             </button>
-            <div className='details-container'>
-              <FilmInfoModalDetails />
-              <FilmInfoModalSuggestions />
-            </div>
           </div>
         </div>
       ) : null}

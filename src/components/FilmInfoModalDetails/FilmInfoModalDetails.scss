@@ -1,9 +1,13 @@
+@import '../../assets/scss/mixins';
+
 .details-wrapper {
   position: relative;
   width: 100%;
   display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
   column-gap: 2em;
+  @include breakpoint(sm) {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  }
 }
 
 .details-left {
@@ -53,12 +57,13 @@
   margin-right: 0.5rem;
 }
 
-.details-title {
+.details-description {
   line-height: 27px;
-  font-size: 1.27rem;
+  font-size: 18px;
 }
 
 .details-tags {
+  font-size: 14px;
   line-height: 20px;
   margin: 0.5em;
   margin-left: 0;
