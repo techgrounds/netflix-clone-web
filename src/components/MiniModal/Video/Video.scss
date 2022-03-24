@@ -1,0 +1,41 @@
+.video-container {
+  position: relative;
+
+
+  //Note: To find the container aspect ratio, use this formula: height ÷ width = aspect ratio.
+
+  //The 16:9 aspect ratio corresponds to a height that is 56.25% of the width.
+  // padding-bottom:calc(56.25%);
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+
+  &::before{
+    content: "";
+    position: absolute;
+    inset:0;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+   margin:-0.4em 0;
+
+   width: 100%;
+   height: auto;
+
+
+
+}
+
+.video-content {
+  overflow: hidden;
+  border:0;
+  align-items: center;
+  position: absolute;
+inset: 0;
+  width: 100%;
+  height:100%;
+
+
+}
+
