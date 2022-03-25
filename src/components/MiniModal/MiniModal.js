@@ -65,23 +65,24 @@ const MiniModal = () => {
 
   return (
     <div
-    // className={!isModalVisible ? "modal" : "modal visible"}
-    className="modal"
-    // ref={modalRef}
-    // onMouseLeave={reversedModal}
-  >
-    <div className="top-container">
-      <Video youtubeId={youtubeId} />
-
-      <div className="video-title">INVENTING ANNA</div>
-    </div>
-    <div className="bottom-container"   
-    // ref={modalBottomRef}
+      // className={!isModalVisible ? "modal" : "modal visible"}
+      className="modal"
+      // ref={modalRef}
+      // onMouseLeave={reversedModal}
     >
-<MiniModalDetails/>
+      <div className="top-container">
+        <Video youtubeId={youtubeId} />
+
+        <div className="video-title">INVENTING ANNA</div>
+      </div>
+      <div
+        className="bottom-container"
+        // ref={modalBottomRef}
+      >
+        <MiniModalDetails />
+      </div>
     </div>
-  </div>
-  )
+  );
 }
 
 export default MiniModal

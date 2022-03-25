@@ -6,6 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { LaneItem } from '../../components/Lane/LaneItem';
 import movies from "../../movies.json";
 import useWindowSize from "./WindowSize";
+import MiniModal from "../MiniModal/MiniModal";
 import "./Lane.scss";
 
 const Lane = ({ children }) => {
@@ -18,12 +19,14 @@ const Lane = ({ children }) => {
     const midLane = movies && keyedMovies.map((movie) => {
         return (
         <LaneItem key={movie.key}>
+            <div className="miniModal"><MiniModal/></div>
             <img
             src={require(`../../assets/mockup_images/${movie.id}`)}
             alt={movie.title}
-            className="movie-image" />
+            className="movie-image"/>
         </LaneItem>)
-    })
+        })
+
     const arrayFromFirstLane = midLane.filter((movie, index) => index < (size.length+1))
     const arrayFromLastLane = midLane.filter((movie, index) => index >= keyedMovies.length - (size.length+1))
     const fullLaneLenght = arrayFromLastLane.length + midLane.length + arrayFromFirstLane.length;
@@ -63,15 +66,16 @@ const Lane = ({ children }) => {
         onSwipedLeft: () => updateIndexPrev(activeIndex + size.length),
         onSwipedRight: () => updateIndexNext(activeIndex - size.length)
     })
-    console.log(startSwitch)
+
     return (
         <div className="lane"
         style={{
             height: `${size.itemHeight*1.4}vw`,
-            // height: `${size.itemHeight*3}vw`
+            // height: `${size.itemHeight*3}vw`,
             // paddingTop: "100px",
             // marginBottom: "-200px"
-            }} >
+            }}
+            >
             <div className="laneName">
                 Lane
                 <button className="laneNameButton"><div className="laneNameButtonOpened">Explore all </div><IconArrowRight/></button>

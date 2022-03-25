@@ -14,7 +14,6 @@ const MiniModalDetails = () => {
           <button className="add-button"><IconAdd/></button>
           <button className="like-button"><IconLike/></button>
 
-          
         </div>
         <div className="right-content">
           <button className="moreInfo-button">▼</button>
