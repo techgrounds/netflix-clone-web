@@ -1,11 +1,18 @@
 @import "../../assets/scss/mixins";
 
+.laneContainer {
+    pointer-events: none;
+    position: relative;
+     overflow: hidden;
+    top: 200px;
+    padding: 5em 0;
+    margin-bottom: -150px;
+    // border: 1px solid purple;
+}
 .lane {
     // border: 1px solid lime;
     position: relative;
-    top:250px;
-    overflow: hidden;
-    // padding-top: 100px;
+    pointer-events: auto;
     padding-left: 5vw;
     &:hover{
         .pageIndicator_container{
@@ -16,7 +23,6 @@
         }
     }
 }
-
 .laneName {
     position: relative;
     display: flex;
@@ -97,6 +103,7 @@
     border-radius: 6px;
     background-color: var(--black);
     pointer-events: none;
+    z-index: 100;
     svg{opacity: 0;
     }
 }
@@ -123,6 +130,7 @@
     display: flex;
     justify-content: flex-end;
     width: calc(90vw - 4px);
+    height: 20px;
     // border: 1px solid yellow;
 }
 
@@ -138,9 +146,6 @@
     background-color: var(--smokewhite);
 }
 
-.pageIndicator_hidden {
-    display: none;
-}
 .miniModal {
     position: absolute;
     width: 15vw;
@@ -151,7 +156,7 @@
     &:hover{
             opacity: 1;
             width: 30vw;
-            height: 12vw;
+            height: 112vw;
             /// onclick toevoegen in js. onclick opent film direct. 2 sec pauze (sleep) open modal//
     }
 }

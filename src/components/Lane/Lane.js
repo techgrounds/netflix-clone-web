@@ -68,6 +68,7 @@ const Lane = ({ children }) => {
     })
 
     return (
+        <div className="laneContainer">
         <div className="lane"
         style={{
             height: `${size.itemHeight*1.4}vw`,
@@ -113,6 +114,7 @@ const Lane = ({ children }) => {
 
                 </div>
             </div>
+        </div>
         </div>
     )
 }

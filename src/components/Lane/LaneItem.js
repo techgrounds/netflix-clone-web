@@ -5,8 +5,8 @@ export const  LaneItem = ({ children,isHovered, setIsHovered }) => {
 
     return (
         <div className="laneItem"
-            onMouseEnter={() => {setIsHovered(true); console.log("mouse hover")}}
-            onMouseLeave={() => {setIsHovered(false); console.log("mouse leave")}}
+            // onMouseEnter={() => {setIsHovered(true); console.log("mouse hover")}}
+            // onMouseLeave={() => {setIsHovered(false); console.log("mouse leave")}}
             style={{height: `${size.itemHeight}vw`, width: `${size.itemWidth}vw`}}>
             {children}
         </div>
