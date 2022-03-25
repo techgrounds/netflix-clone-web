@@ -71,7 +71,7 @@ const MiniModal = () => {
       // onMouseLeave={reversedModal}
     >
       <div className="top-container">
-        <Video youtubeId={youtubeId} />
+        {/* <Video youtubeId={youtubeId} /> */}
 
         <div className="video-title">INVENTING ANNA</div>
       </div>

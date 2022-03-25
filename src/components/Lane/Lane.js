@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useImperativeHandle, useRef, useState } from "react";
 import { useSwipeable } from "react-swipeable";
 import { IconArrowRight } from "../Icons/IconArrowRight";
 import { IconArrowLeft } from "../Icons/IconArrowLeft";
@@ -14,11 +14,18 @@ const Lane = ({ children }) => {
     const [activeIndex, setActiveIndex] = useState(1);
     const [startSwitch, setStartSwitch] = useState(0);
     const [animationState, setAnimationState] = useState(true);
+    const [stateZIndex, setStateZIndex] = useState(0)
+//    useImperativeHandle(stateZIndex)
+//     const stateZIndex = useRef(0)
+    // const updateRef = () => {
+    //     console.log('UPDATE', stateZIndex)
+    //     stateZIndex.current = !stateZIndex
+    // }
     const keyedMovies = movies.map(movie => {movie.key = uuidv4()
         return movie} )
     const midLane = movies && keyedMovies.map((movie) => {
         return (
-        <LaneItem key={movie.key}>
+        <LaneItem key={movie.key} setStateZIndex={settateZIndex}>
             <div className="miniModal"><MiniModal/></div>
             <img
             src={require(`../../assets/mockup_images/${movie.id}`)}
@@ -67,16 +74,14 @@ const Lane = ({ children }) => {
         onSwipedRight: () => updateIndexNext(activeIndex - size.length)
     })
 
+    console.log("state z ",stateZIndex)
+
     return (
-        <div className="laneContainer">
+        <div className="laneContainer" style={{zIndex: `${stateZIndex}`}}>
         <div className="lane"
         style={{
-            height: `${size.itemHeight*1.4}vw`,
-            // height: `${size.itemHeight*3}vw`,
-            // paddingTop: "100px",
-            // marginBottom: "-200px"
-            }}
-            >
+                height: `${size.itemHeight*1.4}vw`}}
+                >
             <div className="laneName">
                 Lane
                 <button className="laneNameButton"><div className="laneNameButtonOpened">Explore all </div><IconArrowRight/></button>

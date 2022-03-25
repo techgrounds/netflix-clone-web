@@ -1,16 +1,16 @@
 @import "../../assets/scss/mixins";
 
 .laneContainer {
+    // border: 1px solid limegreen;
     pointer-events: none;
     position: relative;
-     overflow: hidden;
+    overflow: hidden;
     top: 200px;
-    padding: 5em 0;
+    padding: 5.5em 0;
     margin-bottom: -150px;
-    // border: 1px solid purple;
 }
 .lane {
-    // border: 1px solid lime;
+    // border: 1px solid fuchsia;
     position: relative;
     pointer-events: auto;
     padding-left: 5vw;
@@ -38,7 +38,6 @@
         }
     }
 }
-
 .movie-image {
     position: relative;
     min-height: 100%;
@@ -47,7 +46,6 @@
 .inner {
     white-space: nowrap;
 }
-
 .laneItem {
     display: inline-flex;
     align-items: center;
@@ -58,7 +56,6 @@
     border-radius: 8px;
     overflow: hidden;
 }
-
 .laneNameButton {
     display: flex;
     align-items: center;
@@ -84,7 +81,6 @@
     transition: 0.6s;
     opacity: 0;
 }
-
 .indicator {
     font-size: 1vw;
     border: none;
@@ -107,23 +103,19 @@
     svg{opacity: 0;
     }
 }
-
 .indicators {
     position: relative;
 }
-
 .indicator_prev {
     left: calc(-5vw - 2px);
     stroke: var(--white);
     stroke-width: 2;
 }
-
 .indicator_next {
     right: -85vw;
     stroke: var(--white);
     stroke-width: 2;
 }
-
 .pageIndicator_container {
     opacity: 1;
     position: relative;
@@ -133,7 +125,6 @@
     height: 20px;
     // border: 1px solid yellow;
 }
-
 .pageIndicator {
     // border: 1px solid orangered;
     width: 0.8vw;
@@ -145,18 +136,17 @@
 .active_pageIndicatior {
     background-color: var(--smokewhite);
 }
-
 .miniModal {
     position: absolute;
     width: 15vw;
     height: 9vw;
-    z-index: 5;
+    z-index: 500;
     opacity: 0;
-    transition: 0.4s;
+    transition: 0.5s;
     &:hover{
             opacity: 1;
-            width: 30vw;
-            height: 112vw;
+            width: 20vw;
+            height: 22vw;
             /// onclick toevoegen in js. onclick opent film direct. 2 sec pauze (sleep) open modal//
     }
 }
