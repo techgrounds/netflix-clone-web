@@ -5,7 +5,6 @@ import { IconDisLike } from '../Icons/IconDisLike'
 import movieData from '../../movies.json'
 
 const FilmInfoModalDetails = () => {
-  const newMovieData = movieData.slice(0, 1)
   return (
     <>
       <div className='details-wrapper'>
@@ -27,9 +26,9 @@ const FilmInfoModalDetails = () => {
             <span>2h 15m</span>
           </div>
           <div style={{ marginBottom: '1em' }}></div>
-          {newMovieData.map((movieDetail, index) => {
+          {movieData.slice(0, 1).map((movieDetail, index) => {
             return (
-              <p className='details-title' key={index}>
+              <p className='details-description' key={index}>
                 {movieDetail.description}
               </p>
             )
@@ -38,20 +37,21 @@ const FilmInfoModalDetails = () => {
         <div className='details-right'>
           <div className='details-tags details-person'>
             <span className='tags-label'>Cast:</span>
-            <span className='tag-item'>Morgan Freeman,</span>
-            <span className='tag-item'>Brad Pitt,</span>
-            <span className='tag-item'>Gwyneth Paltrow,</span>
-            <span className='tag-item'>Kevin Spacey</span>
+            {movieData.slice(0, 1).map((cast) => {
+              return <span className='tag-item'>{cast.actors}</span>
+            })}
           </div>
           <div className='details-tags details-person'>
             <span className='tags-label'>Genres:</span>
-            <span className='tag-item'>Crime,</span>
-            <span className='tag-item'>Mystery,</span>
-            <span className='tag-item'>Drama</span>
+            {movieData.slice(0, 1).map((genre) => {
+              return <span className='tag-item'>{genre.category}</span>
+            })}
           </div>
           <div className='details-tags details-person'>
-            <span className='tags-label'>This film is:</span>
-            <span className='tag-item'>Dark</span>
+            <span className='tags-label'>Director:</span>
+            {movieData.slice(0, 1).map((director) => {
+              return <span className='tag-item'>{director.director}</span>
+            })}
           </div>
         </div>
       </div>

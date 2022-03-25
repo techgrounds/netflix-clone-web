@@ -1,4 +1,6 @@
-.background {
+@import '../../assets/scss/mixins';
+
+.modal-background {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.466);
@@ -6,20 +8,56 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 10000;
+  z-index: 1000;
+  overflow-y: auto;
 }
 
 .modal-container {
-  width: 1200px;
-  height: 1300px;
+  width: 90vw;
+  height: 95vh;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   z-index: 10;
   position: relative;
   border-radius: 10px;
   background: var(--black);
+  @include breakpoint(sm) {
+    font-size: 1.1rem;
+  }
+  @include breakpoint(lg) {
+    width: 90vw;
+  }
+  @include breakpoint(xlg) {
+    width: 60vw;
+  }
 }
 
-.close-button {
+.modal-header {
+  overflow: hidden;
+  position: relative;
+}
+
+.modal-description {
+  background-color: #181818;
+  position: relative;
+}
+
+.modal-details {
+  padding: 0 3em;
+}
+
+.modal-suggestions {
+  padding: 0 3em;
+  background-color: #181818;
+  position: relative;
+  opacity: 1;
+}
+
+.modal-footer {
+  padding: 0 3rem;
+  background-color: #181818;
+}
+
+.modal-close-button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,8 +70,4 @@
   top: 20px;
   right: 20px;
   z-index: 10;
-}
-
-.details-container {
-  padding: 0 3em;
 }

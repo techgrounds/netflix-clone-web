@@ -57,36 +57,36 @@ const HomeHero = () => {
               <div className='trailer-overlay overlay'></div>
               <div className='home-hero-overlay overlay'></div>
             </div>
-            <div className='fill-container'>
+            <div className='home-hero-fill-container'>
               <div className='home-hero-info'>
                 <div className='logo-and-text'>
                   <div className='title-wrapper'>
-                    {newMovieData.map((movieDetail, index) => {
-                      return <h2 key={index}>{movieDetail.title}</h2>
+                    {newMovieData.map((movieTitle) => {
+                      return <h2>{movieTitle.title}</h2>
                     })}
                   </div>
                   <div className='info-wrapper'>
-                    {newMovieData.map((movieDetail, index) => {
-                      return <p key={index}>{movieDetail.description}</p>
+                    {newMovieData.map((movieDescription) => {
+                      return <p>{movieDescription.description}</p>
                     })}
                   </div>
-                  <div className='button-wrapper button-layer'>
-                    <button className='home-hero-button home-hero-play-button'>
-                      <div className='home-hero-button-icon'>
+                  <div className='button-wrapper'>
+                    <button className='home-hero-button home-hero-play-button has-icon has-label'>
+                      <div className='button-icon'>
                         <IconPlayBlack />
                       </div>
                       <div style={{ width: '1rem' }}></div>
-                      <span>Play</span>
+                      <span className='button-text'>Play</span>
                     </button>
                     <button
-                      className='home-hero-button home-hero-info-button'
+                      className='home-hero-button home-hero-info-button has-icon has-label'
                       onClick={openModal}
                     >
-                      <div className='home-hero-button-icon'>
+                      <div className='button-icon'>
                         <IconInfo />
                       </div>
                       <div style={{ width: '1rem' }}></div>
-                      <span>More Info</span>
+                      <span className='button-text'>More Info</span>
                     </button>
                   </div>
                 </div>
