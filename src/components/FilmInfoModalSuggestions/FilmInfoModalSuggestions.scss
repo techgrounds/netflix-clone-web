@@ -9,12 +9,16 @@
 
 .suggestions-container {
   display: grid;
-  grid-gap: 1em;
+  row-gap: 4ch;
+  column-gap: 1ch;
   align-items: stretch;
   justify-items: stretch;
   grid-template-columns: repeat(2, 1fr);
   @include breakpoint(md) {
     grid-template-columns: repeat(3, 1fr);
+  }
+  @include breakpoint(lg) {
+    row-gap: 3ch;
   }
 }
 
@@ -55,7 +59,10 @@
 
 .suggestions-description {
   background-color: #2f2f2f;
-  min-height: 50%;
+  min-height: 80%;
+  @include breakpoint(lg) {
+    min-height: 45%;
+  }
 }
 
 .suggestions-top {
@@ -69,6 +76,10 @@
   padding: 0 1em 1em;
   margin: 0;
   color: #d2d2d2;
+
+  p {
+    font-size: 1.1rem;
+  }
 }
 
 .suggestions-first-line {

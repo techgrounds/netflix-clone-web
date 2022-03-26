@@ -6,7 +6,7 @@ import { IconLike } from '../Icons/IconLike'
 import { IconDisLike } from '../Icons/IconDisLike'
 
 const FilmInfoModalVideo = () => {
-  const newMovieData = movieData.slice(0, 1)
+  const movie = movieData[0]
 
   return (
     <>
@@ -16,15 +16,9 @@ const FilmInfoModalVideo = () => {
       <div className='header-overlay'></div>
       <div className='header-container'>
         <div className='header-description'>
-          {newMovieData.map((movieDetail, index) => {
-            return (
-              <h2 key={index} className='header-title'>
-                {movieDetail.title}
-              </h2>
-            )
-          })}
+          <h2 className='header-title'>{movie.title}</h2>
           <div className='header-button-container'>
-            <button className='header-play-button has-icon has-label'>
+            <button className='header-play-button has-label'>
               <div className='button-icon'>
                 <IconPlayBlack />
               </div>

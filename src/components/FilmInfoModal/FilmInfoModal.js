@@ -6,22 +6,22 @@ import FilmInfoModalDetails from '../FilmInfoModalDetails/FilmInfoModalDetails'
 import FilmInfoModalSuggestions from '../FilmInfoModalSuggestions/FilmInfoModalSuggestions'
 import FilmInfoModalFooter from '../FilmInfoModalFooter/FilmInfoModalFooter'
 
-const FilmInfoModal = ({ showModal, setShowModal }) => {
+const FilmInfoModal = ({ isModalVisible, setIsModalVisible }) => {
   const modalRef = useRef()
 
   const closeModal = (event) => {
     if (modalRef.current === event.target) {
-      setShowModal(false)
+      setIsModalVisible(false)
     }
   }
 
   const keyPress = useCallback(
     (event) => {
-      if (event.key === 'Escape' && showModal) {
-        setShowModal(false)
+      if (event.key === 'Escape' && isModalVisible) {
+        setIsModalVisible(false)
       }
     },
-    [setShowModal, showModal]
+    [setIsModalVisible, isModalVisible]
   )
 
   useEffect(() => {
@@ -30,16 +30,16 @@ const FilmInfoModal = ({ showModal, setShowModal }) => {
   }, [keyPress])
 
   useEffect(() => {
-    if (showModal === true) {
+    if (isModalVisible === true) {
       document.body.style.overflow = 'hidden'
     } else {
       document.body.style.overflow = 'unset'
     }
-  }, [showModal])
+  }, [isModalVisible])
 
   return (
     <>
-      {showModal ? (
+      {isModalVisible ? (
         <div onClick={closeModal} ref={modalRef} className='modal-background'>
           <div className='modal-container'>
             <div className='modal-header'>
@@ -56,8 +56,7 @@ const FilmInfoModal = ({ showModal, setShowModal }) => {
             <div className='modal-footer'>
               <FilmInfoModalFooter />
             </div>
-
-            <button className='modal-close-button'>
+            <button className='modal-close-button' onClick={closeModal}>
               <IconClose />
             </button>
           </div>

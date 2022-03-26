@@ -3,8 +3,11 @@ import { IconAdd } from '../Icons/IconAdd'
 import { IconLike } from '../Icons/IconLike'
 import { IconDisLike } from '../Icons/IconDisLike'
 import movieData from '../../movies.json'
+import FilmInfoModalDetailsItem from '../FilmInfoModalDetailsItem/FilmInfoModalDetailsItem'
 
 const FilmInfoModalDetails = () => {
+  const movie = movieData[0]
+
   return (
     <>
       <div className='details-wrapper'>
@@ -26,33 +29,18 @@ const FilmInfoModalDetails = () => {
             <span>2h 15m</span>
           </div>
           <div style={{ marginBottom: '1em' }}></div>
-          {movieData.slice(0, 1).map((movieDetail, index) => {
-            return (
-              <p className='details-description' key={index}>
-                {movieDetail.description}
-              </p>
-            )
-          })}
+          <p className='details-description'>{movie.description}</p>
         </div>
         <div className='details-right'>
-          <div className='details-tags details-person'>
-            <span className='tags-label'>Cast:</span>
-            {movieData.slice(0, 1).map((cast) => {
-              return <span className='tag-item'>{cast.actors}</span>
-            })}
-          </div>
-          <div className='details-tags details-person'>
-            <span className='tags-label'>Genres:</span>
-            {movieData.slice(0, 1).map((genre) => {
-              return <span className='tag-item'>{genre.category}</span>
-            })}
-          </div>
-          <div className='details-tags details-person'>
-            <span className='tags-label'>Director:</span>
-            {movieData.slice(0, 1).map((director) => {
-              return <span className='tag-item'>{director.director}</span>
-            })}
-          </div>
+          <FilmInfoModalDetailsItem tagLabel='Cast' tagItem={movie.actors} />
+          <FilmInfoModalDetailsItem
+            tagLabel='Genres'
+            tagItem={movie.category}
+          />
+          <FilmInfoModalDetailsItem
+            tagLabel='Director'
+            tagItem={movie.director}
+          />
         </div>
       </div>
     </>
