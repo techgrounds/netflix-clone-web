@@ -1,0 +1,94 @@
+@import '../../assets/scss/mixins';
+
+.header-video {
+  width: 100%;
+  overflow: hidden;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.header-container {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.header-overlay {
+  background: linear-gradient(to top, #181818, transparent 50%);
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.header-description {
+  width: 40%;
+  position: absolute;
+  bottom: 8%;
+  left: 3em;
+  @include breakpoint(sm) {
+    bottom: 5%;
+  }
+}
+
+.header-title {
+  font-size: 3rem;
+  width: 100%;
+  @include breakpoint(lg) {
+    font-size: 6.57rem;
+  }
+}
+
+.header-button-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1em;
+  min-height: 2em;
+  margin: 0.25em;
+}
+
+.header-play-button {
+  align-items: center;
+  appearance: none;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  opacity: 1;
+  padding: 0.8rem;
+  &:hover {
+    background-color: rgb(214, 214, 214);
+  }
+}
+
+.has-icon {
+  padding-left: 2rem;
+  padding-right: 2.4rem;
+}
+
+.header-button-icon {
+  align-items: center;
+  appearance: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  opacity: 1;
+  padding: 0.8rem;
+  position: relative;
+  border-radius: 50%;
+  border: 2px solid rgb(255, 255, 255);
+  border-color: rgba(255, 255, 255, 0.5);
+  border-width: 2px;
+  background-color: rgba(42, 42, 42, 0.6);
+  min-width: 32px;
+  min-height: 32px;
+  max-width: 42px;
+  max-height: 42px;
+  color: var(--white);
+  &:hover {
+    border-color: var(--white);
+    border-width: 3px;
+  }
+}
