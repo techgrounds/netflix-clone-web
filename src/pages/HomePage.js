@@ -10,9 +10,9 @@ const HomePage = () => {
     <>
       <Navbar />
       <HomeHero />
-      <Lane zIndex={0}/>
-      <Lane zIndex={0}/>
-      <Lane  zIndex={0}/>
+      <Lane/>
+      <Lane/>
+      <Lane/>
       <FooterBrowserPage />
     </>
   );

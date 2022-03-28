@@ -1,12 +1,11 @@
-import { useEffect, useState } from "react";
 import useWindowSize from "./WindowSize";
 
-export const  LaneItem = ({ children, setStateZIndex }) => {
+export const  LaneItem = ({ children, updateRef }) => {
     const size = useWindowSize()
     return (
         <div className="laneItem"
-            onMouseEnter={() => setStateZIndex(1)}
-            onMouseLeave={() => setStateZIndex(0)}
+            onMouseEnter={() => updateRef(1)}
+            onMouseLeave={() => updateRef(0)}
             style={{height: `${size.itemHeight}vw`, width: `${size.itemWidth}vw`}}>
             {children}
         </div>
