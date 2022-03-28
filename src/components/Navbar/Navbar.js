@@ -82,17 +82,7 @@ const Navbar = () => {
                       Genres
                     </NavLink>
                   </li>
-                  <li className="sub-menu-item">
-                    <NavLink
-                      to="/search"
-                      className={({ isActive }) =>
-                        isActive ? activeClassName : undefined
-                      }
-                    >
-                      Search
-                      {/* Films */}
-                    </NavLink>
-                  </li>
+
                   {/* <li className="sub-menu-item">
                     <NavLink to="/home"
                        className={({ isActive }) =>
@@ -134,17 +124,7 @@ const Navbar = () => {
               Genres
             </NavLink>
           </li>
-          <li className="navigation-tab">
-            <NavLink
-              to="/search"
-              className={({ isActive }) =>
-                isActive ? activeClassName : undefined
-              }
-            >
-              {/* Films */}
-              Search
-            </NavLink>
-          </li>
+
           {/* <li className="navigation-tab">
             <NavLink to="/home"
                className={({ isActive }) =>
