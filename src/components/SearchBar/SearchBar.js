@@ -1,5 +1,4 @@
 import React, { useState, useRef } from 'react';
-<<<<<<< HEAD
 import useOutsideClick from '../../hooks/useOutsideClick';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -7,8 +6,6 @@ import {
   changeSearchInputValue,
   clearSearchInputValue,
 } from '../../redux/search/search.actions';
-=======
->>>>>>> development
 
 import { IconSearch } from '../Icons/IconSearch';
 
@@ -19,7 +16,6 @@ export default function SearchBar() {
   const [searchInput, setSearchInput] = useState('');
   const searchbarRef = useRef();
   const searchInputRef = useRef();
-<<<<<<< HEAD
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -29,8 +25,6 @@ export default function SearchBar() {
       setSearchInputToggle(false);
     }
   });
-=======
->>>>>>> development
 
   const handleSearchInputToggle = () => {
     searchInputRef.current.focus();
