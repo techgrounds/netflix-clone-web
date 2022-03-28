@@ -4,12 +4,13 @@ import { IconPlayBlack } from '../Icons/IconPlayBlack'
 import { IconAdd } from '../Icons/IconAdd'
 import { IconLike } from '../Icons/IconLike'
 import { IconDisLike } from '../Icons/IconDisLike'
+import ReactTooltip from 'react-tooltip'
 
-const FilmInfoModalVideo = ({ ref }) => {
+const FilmInfoModalVideo = () => {
   const movie = movieData[0]
 
   return (
-    <section ref={ref}>
+    <>
       <video autoPlay loop muted className='header-video'>
         <source src={require(`../../assets/videos/homehero.mp4`)} />
       </video>
@@ -23,26 +24,85 @@ const FilmInfoModalVideo = ({ ref }) => {
                 <IconPlayBlack />
               </div>
               <div style={{ width: '0.5rem' }}></div>
-              <span className='button-text'>Play</span>
+              <span className='home-hero-button-text'>Play</span>
             </button>
             <div className='header-button-container'>
-              <button className='header-button-icon-wrapper header-add-button'>
-                <div className='home-hero-button-icon'>
+              <button
+                className='header-icon-wrapper header-add-button'
+                data-tip
+                data-for='add'
+              >
+                <div className='header-button-icon'>
                   <IconAdd />
                 </div>
+                <ReactTooltip
+                  id='add'
+                  className='tool-tip'
+                  place='top'
+                  type='light'
+                >
+                  Add to My List
+                </ReactTooltip>
               </button>
             </div>
             <div className='header-button-container'>
-              <button className='header-button-icon-wrapper header-like-button'>
-                <div className='home-hero-button-icon'>
+              <button className='like-button header-icon-wrapper'>
+                <div className='header-button-icon'>
                   <IconLike />
+                </div>
+                <div className='rating-button-wrapper'>
+                  <button
+                    className='dislike-button rating-button'
+                    data-tip
+                    data-for='dislike'
+                  >
+                    <IconDisLike />
+                  </button>
+                  <ReactTooltip
+                    id='dislike'
+                    className='tool-tip'
+                    place='top'
+                    type='light'
+                  >
+                    Not For Me
+                  </ReactTooltip>
+                  <button
+                    className='like-button rating-button'
+                    data-tip
+                    data-for='like'
+                  >
+                    <IconLike />
+                  </button>
+                  <ReactTooltip
+                    id='like'
+                    className='tool-tip'
+                    place='top'
+                    type='light'
+                  >
+                    I Like This
+                  </ReactTooltip>
+                  <button
+                    className='lovelike-button rating-button'
+                    data-tip
+                    data-for='love'
+                  >
+                    <IconLike />
+                  </button>
+                  <ReactTooltip
+                    id='love'
+                    className='tool-tip'
+                    place='top'
+                    type='light'
+                  >
+                    Love This!
+                  </ReactTooltip>
                 </div>
               </button>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </>
   )
 }
 

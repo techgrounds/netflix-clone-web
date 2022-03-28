@@ -23,15 +23,24 @@
   color: #46d369;
   margin-right: 0.5rem;
   font-size: 0.9rem;
+  @include breakpoint(sm) {
+    font-size: 1rem;
+  }
 }
 
 .release-title {
   margin-right: 0.5rem;
   font-size: 0.9rem;
+  @include breakpoint(md) {
+    font-size: 1rem;
+  }
 }
 
 .duration-title {
   font-size: 0.9rem;
+  @include breakpoint(md) {
+    font-size: 1rem;
+  }
 }
 
 .details-icons {
@@ -68,4 +77,7 @@
 .details-description {
   line-height: 27px;
   font-size: 0.9rem;
+  @include breakpoint(md) {
+    font-size: 1rem;
+  }
 }

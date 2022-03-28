@@ -14,7 +14,6 @@
   align-items: stretch;
   justify-items: stretch;
   grid-template-columns: repeat(2, 1fr);
-
   @include breakpoint(md) {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -58,13 +57,16 @@
   right: 5%;
   white-space: nowrap;
   font-size: 0.8rem;
+  @include breakpoint(md) {
+    font-size: 1rem;
+  }
 }
 
 .suggestions-description {
   background-color: #2f2f2f;
-  min-height: 80%;
+  min-height: 70%;
   @include breakpoint(md) {
-    height: 55%;
+    height: 60%;
   }
   @include breakpoint(lg) {
     min-height: 45%;
@@ -82,9 +84,11 @@
   padding: 0 1em 1em;
   margin: 0;
   color: #d2d2d2;
-
   p {
-    font-size: 0.797rem;
+    font-size: 0.8rem;
+    @include breakpoint(md) {
+      font-size: 1rem;
+    }
   }
 }
 
@@ -98,6 +102,9 @@
 .suggestions-year {
   margin-left: 0.5rem;
   font-size: 0.8rem;
+  @include breakpoint(md) {
+    font-size: 1rem;
+  }
 }
 
 .suggestions-second-line {

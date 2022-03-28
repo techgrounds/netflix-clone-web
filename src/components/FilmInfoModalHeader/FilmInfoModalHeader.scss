@@ -67,7 +67,7 @@
   }
 }
 
-.header-button-icon-wrapper {
+.header-icon-wrapper {
   align-items: center;
   appearance: none;
   cursor: pointer;
@@ -97,4 +97,55 @@
   justify-content: center;
   height: 1.2rem;
   width: 1.2rem;
+}
+
+.tool-tip {
+  font-weight: bold;
+}
+
+.like-button {
+  transition: all 250ms ease-in-out;
+  &:hover {
+    .rating-button-wrapper {
+      display: flex;
+    }
+  }
+}
+
+.rating-button-wrapper {
+  position: absolute;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #232323;
+  color: #a9a9a9;
+  display: none;
+  transition: all 250ms ease-in-out;
+  &:hover {
+    width: 12rem;
+    height: 3rem;
+    border-radius: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.281);
+    .dislike-button {
+      transform: translateX(-100%);
+      margin-right: 3rem;
+    }
+    .lovelike-button {
+      transform: translateX(100%);
+      margin-left: 3rem;
+    }
+  }
+
+  .rating-button {
+    position: absolute;
+    transition: all 250ms ease-in-out;
+    border: none;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    &:hover {
+      position: relative;
+      border-radius: 50%;
+      border: none;
+    }
+  }
 }
