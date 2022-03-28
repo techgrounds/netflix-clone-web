@@ -15,22 +15,25 @@ const Lane = ({ children }) => {
     const [startSwitch, setStartSwitch] = useState(0);
     const [animationState, setAnimationState] = useState(true);
 
-    // const [stateZIndex, setStateZIndex] = useState(0);
-
-       const stateZIndex = useRef(0)
-       const updateRef = (number) => {
-         console.log('UPDATE', stateZIndex.current)
-         stateZIndex.current = number
-        }
-
-    //    useImperativeHandle(stateZIndex)
+    const zIndexRef = useRef();
+    const updateZIndexRef = (number) => {
+         zIndexRef.current.style.zIndex= number
+        };
 
     const keyedMovies = movies.map(movie => {movie.key = uuidv4()
         return movie} )
     const midLane = movies && keyedMovies.map((movie) => {
         return (
-        <LaneItem key={movie.key} updateRef={updateRef} >
-            <div className="miniModal"><MiniModal/></div>
+        <LaneItem key={movie.key} updateZIndexRef={updateZIndexRef}>
+            <div className="miniModal"
+
+            style={
+                {height: `${size.itemHeight}vw`, width: `${size.itemWidth}vw`}
+                // :
+            // {height: `${size.itemHeight * 2.5}vw`, width: `${size.itemWidth * 2}vw`}
+            // }`}
+            }
+            ><MiniModal/></div>
             <img
             src={require(`../../assets/mockup_images/${movie.id}`)}
             alt={movie.title}
@@ -78,10 +81,8 @@ const Lane = ({ children }) => {
         onSwipedRight: () => updateIndexNext(activeIndex - size.length)
     })
 
-    console.log("state z: ",stateZIndex.current)
-
     return (
-        <div className="laneContainer" style={{zIndex: stateZIndex.current}} onMouseEnter={() => stateZIndex.current = 1} onMouseLeave={() => stateZIndex.current =0}>
+        <div className="laneContainer" style={{zIndex: 0}} ref={zIndexRef}>
         <div className="lane"
         style={{
                 height: `${size.itemHeight*1.4}vw`}}
@@ -104,7 +105,8 @@ const Lane = ({ children }) => {
             <div className="indicators">
                 <button className={`${ (startSwitch) === 0 ? "indicator_inactive indicator_prev" : "indicator indicator_prev"}`}
                     style={{height: `${size.itemHeight}vw`, width: "5vw", top: `-${size.itemHeight}vw`}}
-                    onClick={() => {updateIndexPrev(activeIndex - size.length)}}>
+                    onClick={() => {
+                        if (startSwitch === 1) updateIndexPrev(activeIndex - size.length)}}>
                     <IconArrowLeft/>
                 </button>
 
