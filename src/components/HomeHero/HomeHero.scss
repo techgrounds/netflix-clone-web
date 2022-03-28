@@ -102,13 +102,16 @@
 .home-hero-info {
   position: absolute;
   top: 0;
-  bottom: 45%;
+  bottom: 20%;
   left: 4%;
   width: 36%;
   z-index: 10;
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
+  @include breakpoint(sm) {
+    bottom: 45%;
+  }
 }
 
 .logo-and-text {
@@ -117,7 +120,6 @@
 
 .title-wrapper {
   position: relative;
-  margin-bottom: 1.2vw;
   font-size: 4vw;
   text-shadow: 2px 2px 4px var(--black);
 }
@@ -149,11 +151,13 @@
   display: flex;
   justify-content: center;
   opacity: 1;
-  padding: 0.8rem;
   user-select: none;
   margin-right: 1rem;
-  @include breakpoint(lg) {
-    padding: 1.7rem;
+  @include breakpoint(sm) {
+    padding: 0.8rem;
+  }
+  @include breakpoint(xlg) {
+    padding: 1.5rem;
   }
 }
 
@@ -181,18 +185,39 @@
 }
 
 .has-icon {
-  padding-left: 2rem;
-  padding-right: 2.4rem;
+  padding-left: 0.5rem;
+  padding-right: 1rem;
+  @include breakpoint(sm) {
+    padding-left: 1rem;
+    padding-right: 1.3rem;
+  }
+  @include breakpoint(xlg) {
+    padding-left: 2rem;
+    padding-right: 2.3rem;
+  }
 }
 
-.button-icon {
+.home-hero-button-icon {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 1.4rem;
+  width: 1.4rem;
+  @include breakpoint(sm) {
+    height: 2rem;
+    width: 2rem;
+  }
 }
 
-.button-text {
+.home-hero-button-text {
   font-family: inherit;
-  font-size: 1.2rem;
-  font-weight: bold;
+  font-size: 1rem;
+  font-weight: 600;
+  font-size: 1rem;
+  @include breakpoint(sm) {
+    font-size: 1.2rem;
+  }
+  @include breakpoint(xlg) {
+    font-size: 1.38rem;
+  }
 }

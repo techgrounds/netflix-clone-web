@@ -2,11 +2,11 @@ import movieData from '../../movies.json'
 import './FilmInfoModalFooter.scss'
 import FilmInfoModalDetailsItem from '../FilmInfoModalDetailsItem/FilmInfoModalDetailsItem'
 
-const FilmInfoModalFooter = () => {
+const FilmInfoModalFooter = ({ ref }) => {
   const movie = movieData[0]
 
   return (
-    <div className='modal-footer-container'>
+    <section className='modal-footer-container' ref={ref}>
       <div className='modal-footer-header'>
         <h2>{movie.title}</h2>
       </div>
@@ -18,7 +18,7 @@ const FilmInfoModalFooter = () => {
           tagItem={movie.director}
         />
       </div>
-    </div>
+    </section>
   )
 }
 

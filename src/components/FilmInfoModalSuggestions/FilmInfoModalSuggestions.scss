@@ -14,6 +14,7 @@
   align-items: stretch;
   justify-items: stretch;
   grid-template-columns: repeat(2, 1fr);
+
   @include breakpoint(md) {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -34,6 +35,7 @@
 .suggestions-image {
   position: relative;
   overflow: hidden;
+  background-color: #2f2f2f;
   &::before {
     content: '';
     position: absolute;
@@ -55,11 +57,15 @@
   top: 5%;
   right: 5%;
   white-space: nowrap;
+  font-size: 0.8rem;
 }
 
 .suggestions-description {
   background-color: #2f2f2f;
   min-height: 80%;
+  @include breakpoint(md) {
+    height: 55%;
+  }
   @include breakpoint(lg) {
     min-height: 45%;
   }
@@ -78,20 +84,20 @@
   color: #d2d2d2;
 
   p {
-    font-size: 1.1rem;
+    font-size: 0.797rem;
   }
 }
 
 .suggestions-first-line {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
 }
 
 .suggestions-year {
-  margin-top: 0.3rem;
   margin-left: 0.5rem;
+  font-size: 0.8rem;
 }
 
 .suggestions-second-line {

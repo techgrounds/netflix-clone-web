@@ -22,10 +22,16 @@
 .match-title {
   color: #46d369;
   margin-right: 0.5rem;
+  font-size: 0.9rem;
 }
 
 .release-title {
   margin-right: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.duration-title {
+  font-size: 0.9rem;
 }
 
 .details-icons {
@@ -36,9 +42,11 @@
 
 .details-button {
   background: none;
-  border: 2px solid var(--white);
+  border: 1px solid var(--white);
   border-radius: 50%;
   padding: 0.1rem;
+  height: 1.5rem;
+  width: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,5 +67,5 @@
 
 .details-description {
   line-height: 27px;
-  font-size: 18px;
+  font-size: 0.9rem;
 }

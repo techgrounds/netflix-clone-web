@@ -26,7 +26,7 @@ const FilmInfoModalDetails = () => {
                 <IconDisLike />
               </button>
             </div>
-            <span>2h 15m</span>
+            <span className='duration-title'>2h 15m</span>
           </div>
           <div style={{ marginBottom: '1em' }}></div>
           <p className='details-description'>{movie.description}</p>

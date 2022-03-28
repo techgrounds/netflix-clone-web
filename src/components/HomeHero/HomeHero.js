@@ -10,11 +10,7 @@ const HomeHero = () => {
   const element = useRef()
   const selector = gsap.utils.selector(element)
   const timeline = useRef()
-  const [isModalVisible, setIsModalVisible] = useState(false)
-
-  const openModal = () => {
-    setIsModalVisible(true)
-  }
+  const modalRef = useRef()
 
   useEffect(() => {
     timeline.current = gsap
@@ -65,31 +61,28 @@ const HomeHero = () => {
                 </div>
                 <div className='button-wrapper'>
                   <button className='home-hero-button home-hero-play-button has-icon has-label'>
-                    <div className='button-icon'>
+                    <div className='home-hero-button-icon'>
                       <IconPlayBlack />
                     </div>
-                    <div style={{ width: '1rem' }}></div>
-                    <span className='button-text'>Play</span>
+                    <div style={{ width: '0.5rem' }}></div>
+                    <span className='home-hero-button-text'>Play</span>
                   </button>
                   <button
                     className='home-hero-button home-hero-info-button has-icon has-label'
-                    onClick={openModal}
+                    onClick={() => modalRef.current.open()}
                   >
-                    <div className='button-icon'>
+                    <div className='home-hero-button-icon'>
                       <IconInfo />
                     </div>
-                    <div style={{ width: '1rem' }}></div>
-                    <span className='button-text'>More Info</span>
+                    <div style={{ width: '0.5rem' }}></div>
+                    <span className='home-hero-button-text'>More Info</span>
                   </button>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <FilmInfoModal
-          isModalVisible={isModalVisible}
-          setIsModalVisible={setIsModalVisible}
-        />
+        <FilmInfoModal ref={modalRef} />
       </div>
     </div>
   )

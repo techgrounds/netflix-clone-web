@@ -13,7 +13,7 @@ const FilmInfoModalSuggestions = () => {
   }
 
   return (
-    <>
+    <section>
       <h3 className='suggestions-title'>More Like This</h3>
       <div className='suggestions-container collapsed'>
         {movieData.slice(0, amountVisible).map(({ id, description }) => (
@@ -36,7 +36,7 @@ const FilmInfoModalSuggestions = () => {
                   <div className='suggestions-year'>1996</div>
                 </div>
                 <div className='suggestions-second-line'>
-                  <button className='details-button details-like-button'>
+                  <button className='details-button '>
                     <IconAdd />
                   </button>
                 </div>
@@ -53,7 +53,7 @@ const FilmInfoModalSuggestions = () => {
           <IconSearch />
         </button>
       </div>
-    </>
+    </section>
   )
 }
 

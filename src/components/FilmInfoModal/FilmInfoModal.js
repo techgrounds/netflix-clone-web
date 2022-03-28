@@ -1,21 +1,29 @@
 import './FilmInfoModal.scss'
 import { IconClose } from '../Icons/IconClose'
-import { useRef, useEffect, useCallback } from 'react'
+import {
+  useEffect,
+  useCallback,
+  forwardRef,
+  useImperativeHandle,
+  useState,
+} from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import FilmInfoModalHeader from '../FilmInfoModalHeader/FilmInfoModalHeader'
 import FilmInfoModalDetails from '../FilmInfoModalDetails/FilmInfoModalDetails'
 import FilmInfoModalSuggestions from '../FilmInfoModalSuggestions/FilmInfoModalSuggestions'
 import FilmInfoModalFooter from '../FilmInfoModalFooter/FilmInfoModalFooter'
 
-const FilmInfoModal = ({ isModalVisible, setIsModalVisible }) => {
-  const modalRef = useRef()
+const FilmInfoModal = forwardRef((props, ref) => {
+  const [isModalVisible, setIsModalVisible] = useState(false)
 
-  const closeModal = (event) => {
-    if (modalRef.current === event.target) {
-      setIsModalVisible(false)
+  useImperativeHandle(ref, () => {
+    return {
+      open: () => setIsModalVisible(true),
+      close: () => setIsModalVisible(false),
     }
-  }
+  })
 
-  const keyPress = useCallback(
+  const handleKeyPress = useCallback(
     (event) => {
       if (event.key === 'Escape' && isModalVisible) {
         setIsModalVisible(false)
@@ -25,9 +33,9 @@ const FilmInfoModal = ({ isModalVisible, setIsModalVisible }) => {
   )
 
   useEffect(() => {
-    document.addEventListener('keydown', keyPress)
-    return () => document.removeEventListener('keydown', keyPress)
-  }, [keyPress])
+    document.addEventListener('keydown', handleKeyPress)
+    return () => document.removeEventListener('keydown', handleKeyPress)
+  }, [handleKeyPress])
 
   useEffect(() => {
     if (isModalVisible === true) {
@@ -38,32 +46,71 @@ const FilmInfoModal = ({ isModalVisible, setIsModalVisible }) => {
   }, [isModalVisible])
 
   return (
-    <>
-      {isModalVisible ? (
-        <div onClick={closeModal} ref={modalRef} className='modal-background'>
-          <div className='modal-container'>
-            <div className='modal-header'>
-              <FilmInfoModalHeader />
-            </div>
-            <div className='modal-description'>
-              <div className='modal-details'>
-                <FilmInfoModalDetails />
+    <AnimatePresence>
+      {isModalVisible && (
+        <motion.div
+          initial={{
+            opacity: 0,
+          }}
+          animate={{
+            opacity: 1,
+            transition: {
+              duration: 0.6,
+            },
+          }}
+          exit={{
+            opacity: 0,
+            transition: {
+              delay: 0.2,
+            },
+          }}
+          className='modal-background'
+        >
+          <motion.div
+            initial={{
+              scale: 0,
+            }}
+            animate={{
+              scale: 1,
+              transition: {
+                duration: 0.6,
+              },
+            }}
+            exit={{
+              scale: 0,
+              transition: {
+                delay: 0.2,
+              },
+            }}
+            className='modal-container'
+          >
+            <div className='modal-content'>
+              <div className='modal-header'>
+                <FilmInfoModalHeader />
               </div>
-              <div className='modal-suggestions'>
-                <FilmInfoModalSuggestions />
+              <div className='modal-description'>
+                <div className='modal-details'>
+                  <FilmInfoModalDetails />
+                </div>
+                <div className='modal-suggestions'>
+                  <FilmInfoModalSuggestions />
+                </div>
               </div>
+              <div className='modal-footer'>
+                <FilmInfoModalFooter />
+              </div>
+              <button
+                className='modal-close-button'
+                onClick={() => setIsModalVisible(false)}
+              >
+                <IconClose />
+              </button>
             </div>
-            <div className='modal-footer'>
-              <FilmInfoModalFooter />
-            </div>
-            <button className='modal-close-button' onClick={closeModal}>
-              <IconClose />
-            </button>
-          </div>
-        </div>
-      ) : null}
-    </>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   )
-}
+})
 
 export default FilmInfoModal
