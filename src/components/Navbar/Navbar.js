@@ -1,16 +1,16 @@
-import "./Navbar.scss";
-import { useState, useRef } from "react";
-import { NavLink } from "react-router-dom";
-import SearchBar from "../SearchBar/SearchBar";
-import { useOnClickOutside } from "./ClickOutsideHook";
+import './Navbar.scss';
+import { useState, useRef } from 'react';
+import { NavLink } from 'react-router-dom';
+import SearchBar from '../SearchBar/SearchBar';
+import { useOnClickOutside } from './ClickOutsideHook';
 
 //icons
-import { NetflixLogo } from "../Logos/NetflixLogo";
-import { IconNotification } from "../Icons/IconNotification";
-import { IconCaretDown } from "../Icons/IconCaretDown";
-import { IconPencil } from "../Icons/IconPencil";
-import { IconAccount } from "../Icons/IconAccount";
-import { IconQuestion } from "../Icons/IconQuestion";
+import { NetflixLogo } from '../Logos/NetflixLogo';
+import { IconNotification } from '../Icons/IconNotification';
+import { IconCaretDown } from '../Icons/IconCaretDown';
+import { IconPencil } from '../Icons/IconPencil';
+import { IconAccount } from '../Icons/IconAccount';
+import { IconQuestion } from '../Icons/IconQuestion';
 
 const Navbar = () => {
   const [dropdown, setDropdown] = useState(false);
@@ -36,7 +36,7 @@ const Navbar = () => {
     !notifications ? setNotifications(true) : setNotifications(false);
   };
 
-  let activeClassName = "active-bold";
+  let activeClassName = 'active-bold';
 
   useOnClickOutside(node, () => setDropdown(false));
   useOnClickOutside(point, () => setIsClicked(false));
@@ -44,7 +44,7 @@ const Navbar = () => {
 
   return (
     <header>
-      <nav className={isScrolled ? "navbar scrolled" : "navbar"}>
+      <nav className={isScrolled ? 'navbar scrolled' : 'navbar'}>
         <NavLink to="/" className="logo-link">
           <picture>
             <NetflixLogo />
@@ -110,7 +110,7 @@ const Navbar = () => {
                 </ul>
               </div>
             ) : (
-              ""
+              ''
             )}
           </li>
           <li className="navigation-tab current active">
@@ -180,7 +180,7 @@ const Navbar = () => {
                 <div className="notifications-icon">
                   <IconNotification />
                 </div>
-                {notifications ? <div className="callout-arrow"></div> : ""}
+                {notifications ? <div className="callout-arrow"></div> : ''}
               </button>
               {notifications ? (
                 <div className="sub-menu">
@@ -210,7 +210,7 @@ const Navbar = () => {
                                 </div>
                                 <div className="notifications-age">
                                   <span className="relative-tim">
-                                    {" "}
+                                    {' '}
                                     2 days ago
                                   </span>
                                 </div>
@@ -267,7 +267,7 @@ const Navbar = () => {
                                 </div>
                                 <div className="notifications-age">
                                   <span className="relative-tim">
-                                    {" "}
+                                    {' '}
                                     4 days ago
                                   </span>
                                 </div>
@@ -280,7 +280,7 @@ const Navbar = () => {
                   </ul>
                 </div>
               ) : (
-                ""
+                ''
               )}
             </span>
           </div>
@@ -296,7 +296,7 @@ const Navbar = () => {
                     />
                   </span>
                 </NavLink>
-                <span className={isClicked ? "caret rotate" : " caret"}>
+                <span className={isClicked ? 'caret rotate' : ' caret'}>
                   <IconCaretDown />
                 </span>
               </button>
@@ -401,7 +401,7 @@ const Navbar = () => {
                   </ul>
                 </div>
               ) : (
-                ""
+                ''
               )}
             </div>
           </div>
