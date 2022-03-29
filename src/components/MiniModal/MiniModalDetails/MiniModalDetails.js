@@ -1,11 +1,9 @@
-import React from "react";
 import "./MiniModalDetails.scss";
-
 import { IconAdd } from "../../Icons/IconAdd";
-import { IconLike } from "../../Icons/IconLike";
-import { IconDisLike } from "../../Icons/IconDisLike";
 import { IconPlayBlack } from "../../Icons/IconPlayBlack";
 import { IconArrowDown } from "../../Icons/IconArrowDown";
+
+import RatingButton from "../RatingButton";
 
 const MiniModalDetails = () => {
   return (
@@ -18,20 +16,7 @@ const MiniModalDetails = () => {
           <button className="add-button">
             <IconAdd />
           </button>
-          <button className="like-button">
-            <IconLike />
-            <div className="rating-button-wrapper">
-              <button className="dislike-button rating-button">
-                <IconDisLike />
-              </button>
-              <button className="like-button rating-button">
-                <IconLike />
-              </button>
-              <button className="lovelike-button rating-button">
-                <IconLike />
-              </button>
-            </div>
-          </button>
+          <RatingButton />
         </div>
         <div className="right-content">
           <button className="moreInfo-button">

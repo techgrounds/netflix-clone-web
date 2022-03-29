@@ -34,6 +34,7 @@
 }
 
 .left-content {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -73,58 +74,61 @@
   }
 }
 
-.like-button {
-  transition: all 250ms ease-in-out;
-  &:hover {
-    .rating-button-wrapper {
-      display: flex;
-    }
-  }
-}
+// .like-button {
+//   transition: all 250ms ease-in-out;
+//   &:hover {
+//     .rating-button-wrapper {
+//       display: flex;
+   
+//     }
+//   }
+// }
 
-.rating-button-wrapper {
-  position: absolute;
-  justify-content:center;
-  align-items: center;
-  border-radius: 23px;
-  padding:6px;
-  background-color: #232323;
-  color: #a9a9a9;
-  display:none;
-  transition: all 250ms ease-in-out;
-  height:10%;
-  width: 10%;
+// .rating-button-wrapper {
+//   position: absolute;
+//   justify-content:center;
+//   align-items: center;
+//   border-radius: 23px;
+//   padding:6px;
+//   background-color: #232323;
+//   color: #a9a9a9;
+//   // display:none;
+//   visibility: collapse;
+//   transition: all 250ms ease-in-out;
+//   height:10%;
+//   width: 10%;
 
-  &:hover{
-      width: 25%;
+//   &:hover{
+//       width: 25%;
+    
 
 
 
-      .dislike-button{
-          transform:translateX(-100%);
-      }
-      .lovelike-button{
-          transform:translateX(100%);
-      }
-  }
+//       .dislike-button{
+//           transform:translateX(-100%);
+//       }
+//       .lovelike-button{
+//           transform:translateX(100%);
+//       }
+//   }
   
 
 
-  .rating-button {
-    position: absolute;
-    transition: all 250ms ease-in-out;
-    border:none;
-    padding:2px;
+//   .rating-button {
+//     position: absolute;
+//     transition: all 250ms ease-in-out;
+//     border:none;
+//     padding:2px;
    
 
-    border: none;
-    &:hover {
-    position: relative;
-    border:none;
-      background-color: #303030;
+//     border: none;
+//     &:hover {
+//     position: relative;
+//     border:none;
+//       background-color: #303030;
 
-    }
-  }
+//     }
+//   }
 
 
-}
+// }

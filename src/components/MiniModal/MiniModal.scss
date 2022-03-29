@@ -1,5 +1,4 @@
 .modal {
-  // border: 1px solid red;
   width: 341px;
   height: 333px;
   border-radius: 10px;
@@ -7,23 +6,16 @@
   flex-direction: column;
   overflow: hidden;
   position: relative;
-
-  // box-shadow: 6px 6px 1px 1px rgba(34, 34, 34, 0.514);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.281);
 
   &:hover {
     position: absolute;
   }
 }
 
-.visible {
-  visibility: visible;
-}
-
 .top-container {
-  // background:magenta;
-  //TODO add color
+  //TODO add color variable
   background: #1b1b1b;
-
   height: 100%;
   width: 100%;
   position: relative;
@@ -48,7 +40,5 @@
   justify-content: space-evenly;
   align-items: flex-start;
   overflow: hidden;
-
-
   z-index: 2;
 }
