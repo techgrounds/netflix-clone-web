@@ -1,35 +1,25 @@
 .modal {
+  //test width and height
+  // width: 341px;
+  // height: 333px;
+  //
   width: 100%;
   height: 100%;
-  // margin: 5em auto;
-  border-radius: 10px;
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  // outline:1px double rgba(34, 34, 34, 0.514);
-  // outline-offset: 3px;
-
-  // background:#222;
-
-  // visibility: hidden;
-
-  // z-index:100;
-  // position: relative;
-
-  // box-shadow: 6px 6px 1px 1px rgba(34, 34, 34, 0.514);
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.281);
 
   // &:hover {
   //   position: absolute;
   // }
 }
 
-.visible {
-  visibility: visible;
-}
-
 .top-container {
-  // background:magenta;
-  background: #222;
+  //TODO add color variable
+  background: #1b1b1b;
   height: 100%;
   width: 100%;
   position: relative;
@@ -46,13 +36,13 @@
 
 .bottom-container {
   padding: 0 1em;
-  background: #222;
+  background: #1b1b1b;
   height: 100%;
-  color: white;
+  color: var(--white);
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: flex-start;
-  z-index: 23;
   overflow: hidden;
+  z-index: 2;
 }

@@ -3,9 +3,11 @@ import { IconAdd } from '../Icons/IconAdd'
 import { IconLike } from '../Icons/IconLike'
 import { IconDisLike } from '../Icons/IconDisLike'
 import movieData from '../../movies.json'
+import FilmInfoModalDetailsItem from '../FilmInfoModalDetailsItem/FilmInfoModalDetailsItem'
 
 const FilmInfoModalDetails = () => {
-  const newMovieData = movieData.slice(0, 1)
+  const movie = movieData[0]
+
   return (
     <>
       <div className='details-wrapper'>
@@ -24,35 +26,21 @@ const FilmInfoModalDetails = () => {
                 <IconDisLike />
               </button>
             </div>
-            <span>2h 15m</span>
+            <span className='duration-title'>2h 15m</span>
           </div>
           <div style={{ marginBottom: '1em' }}></div>
-          {newMovieData.map((movieDetail, index) => {
-            return (
-              <p className='details-title' key={index}>
-                {movieDetail.description}
-              </p>
-            )
-          })}
+          <p className='details-description'>{movie.description}</p>
         </div>
         <div className='details-right'>
-          <div className='details-tags details-person'>
-            <span className='tags-label'>Cast:</span>
-            <span className='tag-item'>Morgan Freeman,</span>
-            <span className='tag-item'>Brad Pitt,</span>
-            <span className='tag-item'>Gwyneth Paltrow,</span>
-            <span className='tag-item'>Kevin Spacey</span>
-          </div>
-          <div className='details-tags details-person'>
-            <span className='tags-label'>Genres:</span>
-            <span className='tag-item'>Crime,</span>
-            <span className='tag-item'>Mystery,</span>
-            <span className='tag-item'>Drama</span>
-          </div>
-          <div className='details-tags details-person'>
-            <span className='tags-label'>This film is:</span>
-            <span className='tag-item'>Dark</span>
-          </div>
+          <FilmInfoModalDetailsItem tagLabel='Cast' tagItem={movie.actors} />
+          <FilmInfoModalDetailsItem
+            tagLabel='Genres'
+            tagItem={movie.category}
+          />
+          <FilmInfoModalDetailsItem
+            tagLabel='Director'
+            tagItem={movie.director}
+          />
         </div>
       </div>
     </>

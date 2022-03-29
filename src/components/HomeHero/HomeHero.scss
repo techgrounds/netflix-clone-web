@@ -5,7 +5,6 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 85vh;
 }
 
 .home-hero-row {
@@ -92,7 +91,7 @@
   opacity: 1;
 }
 
-.fill-container {
+.home-hero-fill-container {
   top: 0;
   bottom: 0;
   right: 0;
@@ -103,13 +102,16 @@
 .home-hero-info {
   position: absolute;
   top: 0;
-  bottom: 45%;
+  bottom: 20%;
   left: 4%;
   width: 36%;
   z-index: 10;
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
+  @include breakpoint(sm) {
+    bottom: 45%;
+  }
 }
 
 .logo-and-text {
@@ -118,7 +120,6 @@
 
 .title-wrapper {
   position: relative;
-  margin-bottom: 1.2vw;
   font-size: 4vw;
   text-shadow: 2px 2px 4px var(--black);
 }
@@ -141,30 +142,22 @@
   line-height: 88%;
 }
 
-.button-layer {
-  position: relative;
-  z-index: 10;
-}
-
 .home-hero-button {
-  cursor: pointer;
-  border-radius: 4px;
-  opacity: 1;
-  border: 0;
-  display: flex;
   align-items: center;
+  appearance: none;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
   justify-content: center;
-  padding: 0.15rem 2rem 0.15rem 1rem;
+  opacity: 1;
+  user-select: none;
   margin-right: 1rem;
-  font-size: 0.9rem;
-  font-family: 'NetflixSansMedium';
   @include breakpoint(sm) {
-    padding: 0.7rem 2rem 0.7rem 0.7rem;
-    font-size: 1.1rem;
+    padding: 0.8rem;
   }
   @include breakpoint(xlg) {
-    font-size: 1.47rem;
-    padding: 0.7rem 2.5rem 0.7rem 1.5rem;
+    padding: 1.5rem;
   }
 }
 
@@ -186,6 +179,45 @@
   }
 }
 
+.has-label {
+  min-height: 32px;
+  max-height: 42px;
+}
+
+.has-icon {
+  padding-left: 0.5rem;
+  padding-right: 1rem;
+  @include breakpoint(sm) {
+    padding-left: 1rem;
+    padding-right: 1.3rem;
+  }
+  @include breakpoint(xlg) {
+    padding-left: 2rem;
+    padding-right: 2.3rem;
+  }
+}
+
 .home-hero-button-icon {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 1.4rem;
+  width: 1.4rem;
+  @include breakpoint(sm) {
+    height: 2rem;
+    width: 2rem;
+  }
+}
+
+.home-hero-button-text {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  font-size: 1rem;
+  @include breakpoint(sm) {
+    font-size: 1.2rem;
+  }
+  @include breakpoint(xlg) {
+    font-size: 1.38rem;
+  }
 }

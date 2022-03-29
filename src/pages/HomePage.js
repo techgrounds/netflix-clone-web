@@ -15,7 +15,7 @@ const HomePage = () => {
       <Lane/>
       <FooterBrowserPage />
     </>
-  );
-};
+  )
+}
 
-export default HomePage;
+export default HomePage

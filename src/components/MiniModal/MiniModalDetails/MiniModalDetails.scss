@@ -1,77 +1,51 @@
-
-.details-icons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.details-button {
-  background: none;
-  border: 2px solid var(--white);
-  border-radius: 50%;
-  padding: 0.1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-}
-
-.details-add-button {
-  margin-right: 0.5rem;
-}
-
-.details-like-button {
-  margin-right: 0.5rem;
-}
-
-.details-dislike-button {
-  margin-right: 0.5rem;
-}
-
-
 .minimodal-button-wrapper {
   display: flex;
   justify-content: space-between;
   width: 100%;
 
-  .play-button{
-    background-color:white;
-    &:hover{
-      background-color: red;
-    };
+  .play-button {
+    background-color: var(--white);
+    border: 1px solid var(--black);
+
+    &:hover {
+      border: 1px solid var(--black);
+    }
   }
   button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: transparent;
-    border: 2px solid var(--white);
+    border: 2px solid var(--whiteOpacity);
     border-radius: 50%;
-    padding: 1em;
-  
-    &:hover{
-      cursor: pointer;
+    padding: 6px;
+    color: var(--white);
+
+    svg {
+      font-size: 0.6em;
+      fill: var(--white);
     }
 
-    svg{
-      font-size:0.8em;
-      margin:0;
-      padding:0;
+    &:hover {
+      cursor: pointer;
+      border: 2px solid var(--white);
     }
   }
 }
 
-
 .left-content {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   // border:1px solid white;
-  width: 60%;
+  width: 35%;
 }
 
 .right-content {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  color: white;
 }
 
 .info-container {
@@ -79,10 +53,82 @@
   display: flex;
   justify-content: space-between;
   width: 80%;
+  color: var(--white);
 }
 
+.match {
+  color: #46d369;
+}
 .tag-container {
   display: flex;
   justify-content: space-between;
-  width: 60%;
+  width: 80%;
+
+  color: var(--whiteOpacity);
 }
+.tag-item-mini {
+  color: var(--white);
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+// .like-button {
+//   transition: all 250ms ease-in-out;
+//   &:hover {
+//     .rating-button-wrapper {
+//       display: flex;
+   
+//     }
+//   }
+// }
+
+// .rating-button-wrapper {
+//   position: absolute;
+//   justify-content:center;
+//   align-items: center;
+//   border-radius: 23px;
+//   padding:6px;
+//   background-color: #232323;
+//   color: #a9a9a9;
+//   // display:none;
+//   visibility: collapse;
+//   transition: all 250ms ease-in-out;
+//   height:10%;
+//   width: 10%;
+
+//   &:hover{
+//       width: 25%;
+    
+
+
+
+//       .dislike-button{
+//           transform:translateX(-100%);
+//       }
+//       .lovelike-button{
+//           transform:translateX(100%);
+//       }
+//   }
+  
+
+
+//   .rating-button {
+//     position: absolute;
+//     transition: all 250ms ease-in-out;
+//     border:none;
+//     padding:2px;
+   
+
+//     border: none;
+//     &:hover {
+//     position: relative;
+//     border:none;
+//       background-color: #303030;
+
+//     }
+//   }
+
+
+// }
