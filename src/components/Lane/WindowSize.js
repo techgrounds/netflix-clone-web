@@ -29,11 +29,19 @@ function useWindowSize() {
         : window.innerWidth < 1400 ? 10.8
         : 9;
     }
+    function setModalDistance() {
+      return window.innerWidth < 500 ? 46
+        : window.innerWidth < 800 ? 31
+        : window.innerWidth < 1100 ? 23
+        : window.innerWidth < 1400 ? 19
+        : 16;
+    }
     function handleResize() {
       setWindowSize({
         length: setLaneLength(),
         itemHeight: setLaneItemHeight(),
         itemWidth: setLaneItemWidth(),
+        modalDistance: setModalDistance(),
       });
     }
 

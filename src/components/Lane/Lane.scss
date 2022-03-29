@@ -55,10 +55,19 @@
     overflow: hidden;
     &:hover{
         .miniModal {
-        opacity: 1;
-        pointer-events: all;}
+            opacity: 1;
+            pointer-events: all;
+            }
+        .leftModal {
+            left: calc(15vw + 3.5px)
+            /// itemwidth + 3.5px
+            }
+        .rightModal {
+            right: calc(-10vw - 14px)
+            /// (itemwidth-5vw) - ((size.lenght - 2) * 3.5)
+            }
+        }
     }
-}
 .laneNameButton {
     display: flex;
     align-items: center;

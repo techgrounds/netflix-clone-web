@@ -14,41 +14,27 @@ const Lane = ({ children }) => {
     const [activeIndex, setActiveIndex] = useState(1);
     const [startSwitch, setStartSwitch] = useState(0);
     const [animationState, setAnimationState] = useState(true);
-    const modalRef = useRef()
     const zIndexRef = useRef();
-    const updateModalHeightRef = (number) => {modalRef.current.style.height = number};
-    const updateModalWidthRef = (number) => {modalRef.current.style.width = number};
+    const laneRef = useRef();
     const updateZIndexRef = (number) => {zIndexRef.current.style.zIndex= number};
     const keyedMovies = movies.map(movie => {movie.key = uuidv4()
-        return movie} )
-    const MiniModalHeight=`${size.itemHeight * 2.5}vw`
-    const MiniModalWidth= `${size.itemWidth * 1.5}vw`
-    const midLane = movies && keyedMovies.map((movie) => {
+            return movie} )
+    const midLane = movies && keyedMovies.map((movie, index) => {
+        const leftIndex = (keyedMovies.length - size.length + activeIndex - 1) % keyedMovies.length;
+        const rightIndex = leftIndex + (size.length - 1)
         return (
-        <LaneItem key={movie.key}
-        updateZIndexRef={updateZIndexRef}
-        updateModalHeightRef={updateModalHeightRef}
-        updateModalWidthRef={updateModalWidthRef}
-        >
-            <div
-                ref={modalRef}
-                className="miniModal"
-                onMouseEnter={() => {
-                    modalRef.current.style.height =`${updateModalHeightRef * 2.5}vw`
-                    modalRef.current.style.width = `${size.itemWidth * 1.5}vw`
-                }}
-                onMouseLeave={() => {
-                    modalRef.current.style.height = `${size.itemHeight}vw`
-                    modalRef.current.style.width = `${size.itemWidth}vw`
-                }}
-                style={{height: `${MiniModalHeight}`, width: `${MiniModalWidth}`}}
-            ><MiniModal/></div>
-            <img
-            src={require(`../../assets/mockup_images/${movie.id}`)}
-            alt={movie.title}
-            className="movie-image"/>
-        </LaneItem>)
-        })
+            <LaneItem key={movie.key}
+            updateZIndexRef={updateZIndexRef}>
+            <div className={`miniModal ${index === leftIndex ? 'leftModal' : index === rightIndex ? 'rightModal' : 'not'}`}
+            style={{height: `${size.itemHeight * 2.5}vw`, width: `${size.itemWidth * 1.5}vw`}}>
+                <MiniModal/>
+            </div>
+            <img src={require(`../../assets/mockup_images/${movie.id}`)}
+                alt={movie.title}
+                className="movie-image"/>
+            </LaneItem>
+        )
+    })
     const arrayFromFirstLane = midLane.filter((movie, index) => index < (size.length+1))
     const arrayFromLastLane = midLane.filter((movie, index) => index >= keyedMovies.length - (size.length+1))
     const fullLaneLenght = arrayFromLastLane.length + midLane.length + arrayFromFirstLane.length;
@@ -58,8 +44,7 @@ const Lane = ({ children }) => {
       await sleep(800);
       if (activeIndex > fullLaneLenght - 1 - size.length * 2) {
             setAnimationState(false);
-            setActiveIndex(
-            size.length + 2 + (size.length - (fullLaneLenght - activeIndex))
+            setActiveIndex(size.length + 2 + (size.length - (fullLaneLenght - activeIndex))
             )
         }
     }
@@ -67,13 +52,8 @@ const Lane = ({ children }) => {
     await sleep(800);
     if (activeIndex < arrayFromLastLane.length + size.length) {
       if (startSwitch > 0) {
-        setAnimationState(false);
-        setActiveIndex(
-          fullLaneLenght -
-            1 -
-            (size.length +
-              arrayFromFirstLane.length -
-              (size.length - (size.length - activeIndex)))
+            setAnimationState(false);
+            setActiveIndex( fullLaneLenght -1 - (size.length + arrayFromFirstLane.length - (size.length - (size.length - activeIndex)))
         );
       }
     }
@@ -99,9 +79,7 @@ const Lane = ({ children }) => {
     <div className='laneContainer' style={{ zIndex: 0 }} ref={zIndexRef}>
       <div
         className='lane'
-        style={{
-          height: `${size.itemHeight * 1.4}vw`,
-        }}>
+        style={{ height: `${size.itemHeight * 1.33}vw`}}>
         <div className='laneName'>
           Lane
           <button className='laneNameButton'>
@@ -110,14 +88,13 @@ const Lane = ({ children }) => {
           </button>
         </div>
 
-        <div
-          id='MovingLane'
-          className='inner'
+        <div className='inner'
           {...handlers}
           style={{
             transform: `translateX(-${activeIndex * size.itemWidth}vw)`,
             transition: `${animationState ? ' transform 0.8s' : 'undefined'}`,
-          }}>
+          }}
+          ref={laneRef}>
           {arrayFromLastLane}
           {midLane}
           {arrayFromFirstLane}
