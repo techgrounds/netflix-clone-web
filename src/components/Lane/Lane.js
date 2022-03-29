@@ -14,19 +14,33 @@ const Lane = ({ children }) => {
     const [activeIndex, setActiveIndex] = useState(1);
     const [startSwitch, setStartSwitch] = useState(0);
     const [animationState, setAnimationState] = useState(true);
+    // const [loadMiniModalMovie, setLoadMiniModalMovie] = useState(false);
     const zIndexRef = useRef();
     const laneRef = useRef();
+    const mMMovieRef = useRef();
     const updateZIndexRef = (number) => {zIndexRef.current.style.zIndex= number};
+    const updateMMMovieRef = (state) => {mMMovieRef.current = state};
+    console.log(mMMovieRef.current)
     const keyedMovies = movies.map(movie => {movie.key = uuidv4()
             return movie} )
+
     const midLane = movies && keyedMovies.map((movie, index) => {
         const leftIndex = (keyedMovies.length - size.length + activeIndex - 1) % keyedMovies.length;
         const rightIndex = leftIndex + (size.length - 1)
+
         return (
             <LaneItem key={movie.key}
-            updateZIndexRef={updateZIndexRef}>
-            <div className={`miniModal ${index === leftIndex ? 'leftModal' : index === rightIndex ? 'rightModal' : 'not'}`}
-            style={{height: `${size.itemHeight * 2.5}vw`, width: `${size.itemWidth * 1.5}vw`}}>
+            updateZIndexRef={updateZIndexRef}
+            updateMMMovieRef={updateMMMovieRef}
+            >
+            <div className="miniModal"
+            style={{
+                height: `${size.itemHeight * 2.5}vw`,
+                width: `${size.itemWidth * 1.5}vw`,
+                transform: `${index === leftIndex ? `translateX(${ 5 }vw)` :
+                index === rightIndex ? `translateX(-${ 5 }vw)` :
+                ''}`
+            }}>
                 <MiniModal/>
             </div>
             <img src={require(`../../assets/mockup_images/${movie.id}`)}

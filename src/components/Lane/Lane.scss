@@ -55,16 +55,8 @@
     overflow: hidden;
     &:hover{
         .miniModal {
-            opacity: 1;
+            display: flex;
             pointer-events: all;
-            }
-        .leftModal {
-            left: calc(15vw + 3.5px)
-            /// itemwidth + 3.5px
-            }
-        .rightModal {
-            right: calc(-10vw - 14px)
-            /// (itemwidth-5vw) - ((size.lenght - 2) * 3.5)
             }
         }
     }
@@ -152,7 +144,7 @@
 .miniModal {
     position: absolute;
     z-index: 1;
-    opacity: 0;
+    display: none;
     transition: 0.5s;
     cursor: pointer;
     pointer-events: none;
