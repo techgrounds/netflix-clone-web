@@ -3,13 +3,18 @@ import MiniModalDetails from "./MiniModalDetails";
 
 import Video from "./Video";
 
-const MiniModal = () => {
+const MiniModal = ({loadMovie}) => {
   const youtubeId = "65xa8TG2G8o";
 
   return (
     <div className="modal">
       <div className="top-container">
-        <Video youtubeId={youtubeId} />
+      
+{loadMovie &&
+<Video youtubeId={youtubeId} />
+
+}
+
         <div className="video-title">INVENTING ANNA</div>
       </div>
       <div className="bottom-container">
