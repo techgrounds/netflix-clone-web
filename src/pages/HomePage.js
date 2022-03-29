@@ -9,7 +9,7 @@ const HomePage = () => {
   return (
     <>
       <Navbar/>
-      <HomeHero />
+      <HomeHero/>
       <Lane/>
       <Lane/>
       <Lane/>
