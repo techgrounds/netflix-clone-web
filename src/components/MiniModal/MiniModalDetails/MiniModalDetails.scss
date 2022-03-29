@@ -36,6 +36,9 @@
 
   .play-button{
     background-color:white;
+    &:hover{
+      background-color: red;
+    };
   }
   button {
     background: transparent;

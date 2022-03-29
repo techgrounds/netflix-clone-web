@@ -53,6 +53,11 @@
     color: var(--white);
     border-radius: 8px;
     overflow: hidden;
+    &:hover{
+        .miniModal {
+        opacity: 1;
+        pointer-events: all;}
+    }
 }
 .laneNameButton {
     display: flex;
@@ -63,6 +68,7 @@
     stroke: var(--white);
     stroke-width: 4;
     opacity: 0;
+    cursor: pointer;;
 }
 .laneNameButtonOpened{
     display: flex;
@@ -139,8 +145,7 @@
     z-index: 1;
     opacity: 0;
     transition: 0.5s;
-    &:hover{
-            opacity: 1;
-            /// onclick toevoegen in js. onclick opent film direct. 2 sec pauze (sleep) open modal//
-    }
+    // box-shadow:  1px 5px 5px var(--black);
+    cursor: pointer;
+    pointer-events: none;
 }

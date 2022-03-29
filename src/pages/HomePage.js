@@ -8,7 +8,7 @@ import "../components/Lane/Lane.scss";
 const HomePage = () => {
   return (
     <>
-      <Navbar />
+      <Navbar/>
       <HomeHero />
       <Lane/>
       <Lane/>

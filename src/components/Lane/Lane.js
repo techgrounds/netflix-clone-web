@@ -1,4 +1,4 @@
-import React, { useImperativeHandle, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { useSwipeable } from "react-swipeable";
 import { IconArrowRight } from "../Icons/IconArrowRight";
 import { IconArrowLeft } from "../Icons/IconArrowLeft";
@@ -14,25 +14,34 @@ const Lane = ({ children }) => {
     const [activeIndex, setActiveIndex] = useState(1);
     const [startSwitch, setStartSwitch] = useState(0);
     const [animationState, setAnimationState] = useState(true);
-
+    const modalRef = useRef()
     const zIndexRef = useRef();
-    const updateZIndexRef = (number) => {
-         zIndexRef.current.style.zIndex= number
-        };
-
+    const updateModalHeightRef = (number) => {modalRef.current.style.height = number};
+    const updateModalWidthRef = (number) => {modalRef.current.style.width = number};
+    const updateZIndexRef = (number) => {zIndexRef.current.style.zIndex= number};
     const keyedMovies = movies.map(movie => {movie.key = uuidv4()
         return movie} )
+    const MiniModalHeight=`${size.itemHeight * 2.5}vw`
+    const MiniModalWidth= `${size.itemWidth * 1.5}vw`
     const midLane = movies && keyedMovies.map((movie) => {
         return (
-        <LaneItem key={movie.key} updateZIndexRef={updateZIndexRef}>
-            <div className="miniModal"
-
-            style={
-                {height: `${size.itemHeight}vw`, width: `${size.itemWidth}vw`}
-                // :
-            // {height: `${size.itemHeight * 2.5}vw`, width: `${size.itemWidth * 2}vw`}
-            // }`}
-            }
+        <LaneItem key={movie.key}
+        updateZIndexRef={updateZIndexRef}
+        updateModalHeightRef={updateModalHeightRef}
+        updateModalWidthRef={updateModalWidthRef}
+        >
+            <div
+                ref={modalRef}
+                className="miniModal"
+                onMouseEnter={() => {
+                    modalRef.current.style.height =`${updateModalHeightRef * 2.5}vw`
+                    modalRef.current.style.width = `${size.itemWidth * 1.5}vw`
+                }}
+                onMouseLeave={() => {
+                    modalRef.current.style.height = `${size.itemHeight}vw`
+                    modalRef.current.style.width = `${size.itemWidth}vw`
+                }}
+                style={{height: `${MiniModalHeight}`, width: `${MiniModalWidth}`}}
             ><MiniModal/></div>
             <img
             src={require(`../../assets/mockup_images/${movie.id}`)}
@@ -40,7 +49,6 @@ const Lane = ({ children }) => {
             className="movie-image"/>
         </LaneItem>)
         })
-
     const arrayFromFirstLane = midLane.filter((movie, index) => index < (size.length+1))
     const arrayFromLastLane = midLane.filter((movie, index) => index >= keyedMovies.length - (size.length+1))
     const fullLaneLenght = arrayFromLastLane.length + midLane.length + arrayFromFirstLane.length;
@@ -74,13 +82,11 @@ const Lane = ({ children }) => {
         setActiveIndex(newIndex);
         checkIndexPrev(newIndex);
         animationStateOn();
-        setStartSwitch(1);
     }
     const handlers = useSwipeable({
         onSwipedLeft: () => updateIndexPrev(activeIndex + size.length),
         onSwipedRight: () => updateIndexNext(activeIndex - size.length)
     })
-
     return (
         <div className="laneContainer" style={{zIndex: 0}} ref={zIndexRef}>
         <div className="lane"
