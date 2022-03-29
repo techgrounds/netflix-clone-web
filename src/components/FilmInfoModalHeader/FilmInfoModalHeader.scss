@@ -23,10 +23,10 @@
 }
 
 .header-description {
-  width: 40%;
   position: absolute;
   bottom: 8%;
   left: 3em;
+  width: 40%;
   @include breakpoint(sm) {
     bottom: 5%;
   }
@@ -36,13 +36,13 @@
   font-size: 3rem;
   width: 100%;
   @include breakpoint(lg) {
-    font-size: 6.57rem;
+    font-size: 5.57rem;
   }
 }
 
 .header-button-container {
-  display: flex;
   align-items: center;
+  display: flex;
   margin-bottom: 1em;
   min-height: 2em;
   margin: 0.25em;
@@ -57,23 +57,23 @@
   display: flex;
   justify-content: center;
   opacity: 1;
-  padding: 0.8rem;
+  padding: 1rem;
+  margin-right: 0.25em;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  font-size: 1.1rem;
   &:hover {
     background-color: rgb(214, 214, 214);
   }
 }
 
-.has-icon {
-  padding-left: 2rem;
-  padding-right: 2.4rem;
-}
-
-.header-button-icon {
+.header-icon-wrapper {
   align-items: center;
   appearance: none;
   cursor: pointer;
   display: flex;
   justify-content: center;
+  align-items: center;
   opacity: 1;
   padding: 0.8rem;
   position: relative;
@@ -82,13 +82,70 @@
   border-color: rgba(255, 255, 255, 0.5);
   border-width: 2px;
   background-color: rgba(42, 42, 42, 0.6);
-  min-width: 32px;
-  min-height: 32px;
-  max-width: 42px;
-  max-height: 42px;
+  height: 2.5rem;
+  width: 2.5rem;
   color: var(--white);
   &:hover {
     border-color: var(--white);
     border-width: 3px;
+  }
+}
+
+.header-button-icon {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 1.2rem;
+  width: 1.2rem;
+}
+
+.tool-tip {
+  font-weight: bold;
+}
+
+.like-button {
+  transition: all 250ms ease-in-out;
+  &:hover {
+    .rating-button-wrapper {
+      display: flex;
+    }
+  }
+}
+
+.rating-button-wrapper {
+  position: absolute;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #232323;
+  color: #a9a9a9;
+  display: none;
+  transition: all 250ms ease-in-out;
+  &:hover {
+    width: 12rem;
+    height: 3rem;
+    border-radius: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.281);
+    .dislike-button {
+      transform: translateX(-100%);
+      margin-right: 3rem;
+    }
+    .lovelike-button {
+      transform: translateX(100%);
+      margin-left: 3rem;
+    }
+  }
+
+  .rating-button {
+    position: absolute;
+    transition: all 250ms ease-in-out;
+    border: none;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    &:hover {
+      position: relative;
+      border-radius: 50%;
+      border: none;
+    }
   }
 }
