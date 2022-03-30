@@ -1,0 +1,150 @@
+@import '../../assets/scss/mixins';
+
+.suggestions-title {
+  font-weight: 700;
+  font-size: 1.57rem;
+  margin-top: 48px;
+  margin-bottom: 20px;
+}
+
+.suggestions-container {
+  display: grid;
+  row-gap: 4ch;
+  column-gap: 1ch;
+  align-items: stretch;
+  justify-items: stretch;
+  grid-template-columns: repeat(2, 1fr);
+  @include breakpoint(md) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @include breakpoint(lg) {
+    row-gap: 3ch;
+  }
+}
+
+.suggestions-container.collapsed {
+  overflow: hidden;
+}
+
+.suggestions-item {
+  margin: 0.1em;
+  height: 100%;
+}
+
+.suggestions-image {
+  position: relative;
+  overflow: hidden;
+  background-color: #2f2f2f;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(
+      198deg,
+      rgba(0, 0, 0, 0.9) 0,
+      rgba(24, 24, 24, 0.5) 20%,
+      transparent 28%
+    );
+  }
+}
+
+.suggestions-duration {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  white-space: nowrap;
+  font-size: 0.8rem;
+  @include breakpoint(md) {
+    font-size: 1rem;
+  }
+}
+
+.suggestions-description {
+  background-color: #2f2f2f;
+  min-height: 70%;
+  @include breakpoint(md) {
+    height: 60%;
+  }
+  @include breakpoint(lg) {
+    min-height: 45%;
+  }
+}
+
+.suggestions-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em;
+}
+
+.suggestions-bottom {
+  padding: 0 1em 1em;
+  margin: 0;
+  color: #d2d2d2;
+  p {
+    font-size: 0.8rem;
+    @include breakpoint(md) {
+      font-size: 1rem;
+    }
+  }
+}
+
+.suggestions-first-line {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.suggestions-year {
+  margin-left: 0.5rem;
+  font-size: 0.8rem;
+  @include breakpoint(md) {
+    font-size: 1rem;
+  }
+}
+
+.suggestions-second-line {
+  position: relative;
+}
+
+.suggestions-divider {
+  position: relative;
+  width: 100%;
+  border-bottom: 2px solid #404040;
+  display: flex;
+  justify-content: center;
+  box-shadow: none;
+  margin: auto;
+}
+
+.suggestions-divider.collapsed {
+  background-image: linear-gradient(
+    to top,
+    #181818 0,
+    rgba(24, 24, 24, 0.7) 20%,
+    rgba(24, 24, 24, 0.4) 30%,
+    transparent 50%
+  );
+}
+
+.suggestions-button {
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  color: white;
+  border-width: 2px;
+  background-color: rgba(42, 42, 42, 0.6);
+  border-color: rgba(255, 255, 255, 0.5);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  transform: translateY(50%);
+}

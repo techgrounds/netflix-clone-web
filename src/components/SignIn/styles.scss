@@ -1,3 +1,5 @@
+@import '../../assets/scss/mixins';
+
 .container {
   position: relative;
   background-blend-mode: multiply;
@@ -10,6 +12,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @include breakpoint(lg) {
+    min-height: 80vh;
+  }
 
   button {
     padding: 0.6rem;
