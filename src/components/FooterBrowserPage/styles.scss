@@ -1,15 +1,16 @@
 .member-footer {
-  max-width: 980px;
-  margin: 1.25rem auto 0;
-  padding: 0 4%;
-  font-family: 'NetflixSansLight', sans-serif;
-  color: var(--gray);
-  background-color: var(--black);
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
+    max-width: 980px;
+    position: relative;
+    margin: 2.5rem auto;
+    padding: 0 4%;
+    font-family: "NetflixSansLight", sans-serif;
+    color:var(--gray);
+    background-color: var(--black);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .footer-links {

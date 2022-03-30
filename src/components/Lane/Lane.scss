@@ -1,161 +1,197 @@
 @import "../../assets/scss/mixins";
 
 .laneContainer {
-    pointer-events: none;
-    position: relative;
-    overflow: hidden;
-    top: 200px;
-    padding: 5.5em 0;
-    margin-bottom: -150px;
+  border: 1px solid red;
+
+  pointer-events: none;
+  position: relative;
+  overflow: hidden;
+  top: 200px;
+  padding: 15vh 0;
+  margin-bottom: -250px;
 }
 .lane {
-    position: relative;
-    pointer-events: auto;
-    padding-left: 5vw;
-    &:hover{
-        .pageIndicator_container{
-            opacity: 1;
-        }
-        .laneNameButton {
-            opacity: 1;
-        }
+  position: relative;
+  pointer-events: auto;
+  padding-left: 5vw;
+  &:hover {
+    .pageIndicator_container {
+      opacity: 1;
     }
+    .laneNameButton {
+      opacity: 1;
+    }
+  }
 }
 .laneName {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-    font-size: 1.4em;
-    font-family: NetflixSansBold;
-    left: 4px;
-    &:hover{
-        .laneNameButtonOpened {
-        opacity: 1;
-        width: 100%
-        }
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  font-size: 1.4em;
+  font-family: NetflixSansBold;
+  left: 4px;
+  &:hover {
+    .laneNameButtonOpened {
+      opacity: 1;
+      width: 100%;
     }
+  }
 }
 .movie-image {
-    position: relative;
-    min-height: 100%;
-    min-width: 100%;
+  position: relative;
+  min-height: 100%;
+  min-width: 100%;
 }
 .inner {
-    white-space: nowrap;
+  white-space: nowrap;
 }
 .laneItem {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(----transparent);
-    border: 3.5px solid  var(--transparent);
-    color: var(--white);
-    border-radius: 8px;
-    overflow: hidden;
-    &:hover{
-        .miniModal {
-            opacity: 1;
-            pointer-events: all;
-            }
-        .leftModal {
-            left: calc(15vw + 3.5px)
-            /// itemwidth + 3.5px
-            }
-        .rightModal {
-            right: calc(-10vw - 14px)
-            /// (itemwidth-5vw) - ((size.lenght - 2) * 3.5)
-            }
-        }
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(----transparent);
+  border: 3.5px solid var(--transparent);
+  color: var(--white);
+  border-radius: 8px;
+  overflow: hidden;
+  &:hover {
+    .miniModal {
+      opacity: 1;
+      pointer-events: all;
+      transform: scale(1);
+      transition: 0.25s ease-out;
+      transition-delay: 0.5s;
     }
-.laneNameButton {
-    display: flex;
-    align-items: center;
-    background: none;
-    border: none;
-    font-size: 0.4em;
-    stroke: var(--white);
-    stroke-width: 4;
-    opacity: 0;
-    cursor: pointer;;
+    .leftModal {
+      opacity: 1;
+      pointer-events: all;
+      transform: scale(1) translateX(5vw);
+      transition: 0.5s;
+      transition-delay: 0.5s;
+    }
+    .rightModal {
+      opacity: 1;
+      pointer-events: all;
+      transform: scale(1) translateX(-5vw);
+      transition: 0.5s;
+      transition-delay: 0.5s;
+    }
+  }
 }
-.laneNameButtonOpened{
-    display: flex;
-    align-items: center;
-    margin-left: 1vw;
-    background: none;
-    border: none;
-    white-space: nowrap;
-    color: var(--white);
-    font-size: 1.5em;
-    font-family: NetflixSansBold;
-    overflow: hidden;
-    width: 0;
-    transition: 0.6s;
-    opacity: 0;
+.laneNameButton {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  font-size: 0.4em;
+  stroke: var(--white);
+  stroke-width: 4;
+  opacity: 0;
+  cursor: pointer;
+}
+.laneNameButtonOpened {
+  display: flex;
+  align-items: center;
+  margin-left: 1vw;
+  background: none;
+  border: none;
+  white-space: nowrap;
+  color: var(--white);
+  font-size: 1.5em;
+  font-family: NetflixSansBold;
+  overflow: hidden;
+  width: 0;
+  transition: 0.6s;
+  opacity: 0;
 }
 .indicator {
-    font-size: 1vw;
-    border: none;
-    border-radius: 6px;
-    background-color: var(--black);
-    opacity: 0.5;
-    position: relative;
-    svg{opacity: 0;}
-    cursor: pointer;
-    &:hover {
-        svg{opacity: 1;}
+  font-size: 1vw;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--black);
+  opacity: 0.5;
+  position: relative;
+  svg {
+    opacity: 0;
+  }
+  cursor: pointer;
+  &:hover {
+    svg {
+      opacity: 1;
     }
+  }
 }
 .indicator_inactive {
-    position: relative;
-    border: none;
-    border-radius: 6px;
-    background-color: var(--black);
-    z-index: 1;
-    svg{opacity: 0;
-    }
+  position: relative;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--black);
+  transform: scale(1.1);
+  z-index: 1;
+  svg {
+    opacity: 0;
+  }
 }
 .indicators {
-    position: relative;
+  position: relative;
 }
 .indicator_prev {
-    left: calc(-5vw - 2px);
-    stroke: var(--white);
-    stroke-width: 2;
+  left: calc(-5vw - 2px);
+  stroke: var(--white);
+  stroke-width: 2;
 }
 .indicator_next {
-    right: -85vw;
-    stroke: var(--white);
-    stroke-width: 2;
+  right: -85vw;
+  stroke: var(--white);
+  stroke-width: 2;
 }
 .pageIndicator_container {
-    opacity: 1;
-    position: relative;
-    display: flex;
-    justify-content: flex-end;
-    width: calc(90vw - 4px);
-    height: 20px;
-    // border: 1px solid yellow;
+  opacity: 1;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  width: calc(90vw - 4px);
+  height: 20px;
+  // border: 1px solid yellow;
 }
 .pageIndicator {
-    // border: 1px solid orangered;
-    width: 0.8vw;
-    height: 2px;
-    border: none;
-    margin: 1px;
-    background-color: var(--gray);
+  // border: 1px solid orangered;
+  width: 0.8vw;
+  height: 2px;
+  border: none;
+  margin: 1px;
+  background-color: var(--gray);
 }
 .active_pageIndicatior {
-    background-color: var(--smokewhite);
+  background-color: var(--smokewhite);
 }
 .miniModal {
-    position: absolute;
-    z-index: 1;
-    opacity: 0;
-    transition: 0.5s;
-    cursor: pointer;
-    pointer-events: none;
-    border-radius: 8px;
-  
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
+  transform: scale(0.7) translateY(7.8vw);
+
+  cursor: pointer;
+  pointer-events: none;
+  border-radius: 8px;
+}
+
+.leftModal {
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
+  transform: scale(0.4) translateX(5vw);
+  cursor: pointer;
+  pointer-events: none;
+  border-radius: 8px;
+}
+.rightModal {
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
+  transform: scale(0.4) translateX(-5vw);
+  cursor: pointer;
+  pointer-events: none;
+  border-radius: 8px;
 }

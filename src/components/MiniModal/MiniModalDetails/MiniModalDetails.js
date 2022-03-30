@@ -27,7 +27,6 @@ const changeIcon = () => {
           </button>
           <button className="add-button"  onClick={() => changeIcon()}>
            {isChecked ?
-           
            <IconCheck />:
            <IconAdd />
           }

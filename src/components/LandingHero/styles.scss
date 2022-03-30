@@ -87,6 +87,7 @@
     height: 800px;
     background-blend-mode: none;
     background: transparent;
+    background-repeat: no-repeat;
     &::before {
       content: '';
       position: absolute;
