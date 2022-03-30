@@ -40,8 +40,8 @@ const Lane = ({ children }) => {
                 index === rightIndex ? `translateX(-${ 5 }vw)` :
                 ''}`
             }}>
-                {/* <MiniModal/> */}
-            </div>
+                 <MiniModal moviePoster={movie.id} movieTitle={movie.title}/>
+git stau            </div>
             <img src={require(`../../assets/mockup_images/${movie.id}`)}
                 alt={movie.title}
                 className="movie-image"/>
