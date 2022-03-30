@@ -55,11 +55,27 @@
     overflow: hidden;
     &:hover{
         .miniModal {
-            display: flex;
+            opacity: 1;
             pointer-events: all;
-            }
+            transform: scale(1.0);
+            transition: 0.5s;
+            transition-delay: 0.5s;}
+        .leftModal {
+            opacity: 1;
+            pointer-events: all;
+            transform: scale(1.0) translateX(5vw);
+            transition: 0.5s;
+            transition-delay: 0.5s;
+        }
+        .rightModal {
+            opacity: 1;
+            pointer-events: all;
+            transform: scale(1.0) translateX(-5vw);
+            transition: 0.5s;
+            transition-delay: 0.5s;
         }
     }
+}
 .laneNameButton {
     display: flex;
     align-items: center;
@@ -104,6 +120,7 @@
     border: none;
     border-radius: 6px;
     background-color: var(--black);
+    transform: scale(1.1);
     z-index: 1;
     svg{opacity: 0;
     }
@@ -144,10 +161,30 @@
 .miniModal {
     position: absolute;
     z-index: 1;
-    display: none;
-    transition: 0.5s;
+    opacity: 0;
+    transform: scale(0.4);
     cursor: pointer;
     pointer-events: none;
     border-radius: 8px;
-  
+}
+
+.leftModal {
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+    transform: scale(0.4) 
+                translateX(5vw)
+                ;
+    cursor: pointer;
+    pointer-events: none;
+    border-radius: 8px;
+}
+.rightModal {
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+    transform: scale(0.4)  translateX(-5vw);
+    cursor: pointer;
+    pointer-events: none;
+    border-radius: 8px;
 }

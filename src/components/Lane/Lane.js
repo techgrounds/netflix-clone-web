@@ -22,26 +22,24 @@ const Lane = ({ children }) => {
     const updateMMMovieRef = (state) => {mMMovieRef.current = state};
     const keyedMovies = movies.map(movie => {movie.key = uuidv4()
             return movie} )
-
     const midLane = movies && keyedMovies.map((movie, index) => {
         const leftIndex = (keyedMovies.length - size.length + activeIndex - 1) % keyedMovies.length;
         const rightIndex = leftIndex + (size.length - 1)
-
         return (
             <LaneItem key={movie.key}
             updateZIndexRef={updateZIndexRef}
             updateMMMovieRef={updateMMMovieRef}
             >
-            <div className="miniModal"
+            <div className={`${index === leftIndex ? 'leftModal' : index === rightIndex ? 'rightModal' : 'miniModal'}`}
             style={{
                 height: `${size.itemHeight * 2.5}vw`,
                 width: `${size.itemWidth * 1.5}vw`,
-                transform: `${index === leftIndex ? `translateX(${ 5 }vw)` :
-                index === rightIndex ? `translateX(-${ 5 }vw)` :
-                ''}`
+                // transform: `${index === leftIndex ? `translateX(${ 5 }vw)  scale(0.4)`:
+                // index === rightIndex ? `translateX(-${ 5 }vw)  scale(0.4)` :
+                // ''}`
             }}>
                  <MiniModal moviePoster={movie.id} movieTitle={movie.title}/>
-git stau            </div>
+                 </div>
             <img src={require(`../../assets/mockup_images/${movie.id}`)}
                 alt={movie.title}
                 className="movie-image"/>
