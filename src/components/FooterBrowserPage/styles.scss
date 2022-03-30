@@ -1,6 +1,7 @@
 .member-footer {
     max-width: 980px;
-    margin: 1.25rem auto 0;
+    position: relative;
+    margin: 2.5rem auto;
     padding: 0 4%;
     font-family: "NetflixSansLight", sans-serif;
     color:var(--gray);
@@ -13,65 +14,65 @@
 }
 
 .footer-links {
-    font-size: 0.813rem;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    margin: 0 0 rem 0;
-    padding: 0;
-    text-decoration: none;
+  font-size: 0.813rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin: 0 0 rem 0;
+  padding: 0;
+  text-decoration: none;
 }
 
 .social-links {
-    display: flex;
-    margin-bottom: 1em;
+  display: flex;
+  margin-bottom: 1em;
 }
 
 .social-links a {
-    text-decoration: none;
-    cursor: pointer;
-    color: #fff;
-    margin-right: 0.938rem;
+  text-decoration: none;
+  cursor: pointer;
+  color: #fff;
+  margin-right: 0.938rem;
 }
 
-.footer-link-wrapper  {
-    list-style-type: none;
-    flex: 0 0 50%;
-    margin-bottom: 1em;
+.footer-link-wrapper {
+  list-style-type: none;
+  flex: 0 0 50%;
+  margin-bottom: 1em;
 }
 
 .member-footer,
 .footer-service {
-    margin-bottom: 1.25rem;
+  margin-bottom: 1.25rem;
 }
 
 .service-code-btn {
-    background: transparent;
-    color: grey;
-    border: solid 1px grey;
-    padding: 0.5em;
-    margin-bottom: 20px;
+  background: transparent;
+  color: grey;
+  border: solid 1px grey;
+  padding: 0.5em;
+  margin-bottom: 20px;
 }
 
 .footer-copyright {
-    font-size: 11px;
-    margin-bottom: 1.25rem;
+  font-size: 11px;
+  margin-bottom: 1.25rem;
 }
 
 /* Desktop */
 @media (min-width: 600px) {
-    .member-footer {
-        display: block;
-        position: static;
-    }
-    .footer-links {
-        display: flex;
-        flex-direction: row;
-    }
-    .footer-link-wrapper  {
-        list-style-type: none;
-        flex: 0 0 25%;
-        margin-bottom: 1em;
-    }
+  .member-footer {
+    display: block;
+    position: static;
+  }
+  .footer-links {
+    display: flex;
+    flex-direction: row;
+  }
+  .footer-link-wrapper {
+    list-style-type: none;
+    flex: 0 0 25%;
+    margin-bottom: 1em;
+  }
 }

@@ -4,9 +4,10 @@ import { IconPlayBlack } from '../Icons/IconPlayBlack'
 import { IconAdd } from '../Icons/IconAdd'
 import { IconLike } from '../Icons/IconLike'
 import { IconDisLike } from '../Icons/IconDisLike'
+import ReactTooltip from 'react-tooltip'
 
 const FilmInfoModalVideo = () => {
-  const newMovieData = movieData.slice(0, 1)
+  const movie = movieData[0]
 
   return (
     <>
@@ -16,39 +17,85 @@ const FilmInfoModalVideo = () => {
       <div className='header-overlay'></div>
       <div className='header-container'>
         <div className='header-description'>
-          {newMovieData.map((movieDetail, index) => {
-            return (
-              <h2 key={index} className='header-title'>
-                {movieDetail.title}
-              </h2>
-            )
-          })}
+          <h2 className='header-title'>{movie.title}</h2>
           <div className='header-button-container'>
-            <button className='header-play-button has-icon has-label'>
-              <div className='button-icon'>
+            <button className='header-play-button has-label'>
+              <div className='home-hero-button-icon'>
                 <IconPlayBlack />
               </div>
               <div style={{ width: '0.5rem' }}></div>
-              <span className='button-text'>Play</span>
+              <span className='home-hero-button-text'>Play</span>
             </button>
             <div className='header-button-container'>
-              <button className='header-button-icon header-add-button'>
-                <div className='button-icon'>
+              <button
+                className='header-icon-wrapper header-add-button'
+                data-tip
+                data-for='add'
+              >
+                <div className='header-button-icon'>
                   <IconAdd />
                 </div>
+                <ReactTooltip
+                  id='add'
+                  className='tool-tip'
+                  place='top'
+                  type='light'
+                >
+                  Add to My List
+                </ReactTooltip>
               </button>
             </div>
             <div className='header-button-container'>
-              <button className='header-button-icon header-like-button'>
-                <div className='button-icon'>
+              <button className='like-button header-icon-wrapper'>
+                <div className='header-button-icon'>
                   <IconLike />
                 </div>
-              </button>
-            </div>
-            <div className='header-button-container'>
-              <button className='header-button-icon header-dislike-button'>
-                <div className='button-icon'>
-                  <IconDisLike />
+                <div className='rating-button-wrapper'>
+                  <button
+                    className='dislike-button rating-button'
+                    data-tip
+                    data-for='dislike'
+                  >
+                    <IconDisLike />
+                  </button>
+                  <ReactTooltip
+                    id='dislike'
+                    className='tool-tip'
+                    place='top'
+                    type='light'
+                  >
+                    Not For Me
+                  </ReactTooltip>
+                  <button
+                    className='like-button rating-button'
+                    data-tip
+                    data-for='like'
+                  >
+                    <IconLike />
+                  </button>
+                  <ReactTooltip
+                    id='like'
+                    className='tool-tip'
+                    place='top'
+                    type='light'
+                  >
+                    I Like This
+                  </ReactTooltip>
+                  <button
+                    className='lovelike-button rating-button'
+                    data-tip
+                    data-for='love'
+                  >
+                    <IconLike />
+                  </button>
+                  <ReactTooltip
+                    id='love'
+                    className='tool-tip'
+                    place='top'
+                    type='light'
+                  >
+                    Love This!
+                  </ReactTooltip>
                 </div>
               </button>
             </div>

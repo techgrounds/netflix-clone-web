@@ -1,26 +1,26 @@
 import './FilmInfoModalSuggestions.scss'
 import { IconSearch } from '../Icons/IconSearch'
-import { useState, useEffect, useRef } from 'react'
+import { useState } from 'react'
 import { IconLike } from '../Icons/IconLike'
 import { IconAdd } from '../Icons/IconAdd'
 import movieData from '../../movies.json'
 
 const FilmInfoModalSuggestions = () => {
-  const [visible, setVisible] = useState(6)
+  const [amountVisible, setAmountVisible] = useState(6)
 
   const showMoreItems = () => {
-    setVisible((prevValue) => prevValue + 3)
+    setAmountVisible((peviousValue) => peviousValue + 3)
   }
 
   return (
-    <>
+    <section>
       <h3 className='suggestions-title'>More Like This</h3>
       <div className='suggestions-container collapsed'>
-        {movieData.slice(0, visible).map((movieDetail, index) => (
-          <div className='suggestions-item' key={index}>
+        {movieData.slice(0, amountVisible).map(({ id, description }) => (
+          <div className='suggestions-item' key={id}>
             <div className='suggestions-image'>
               <img
-                src={require(`../../assets/mockup_images/${movieDetail.id}`)}
+                src={require(`../../assets/mockup_images/${id}`)}
                 alt='suggestion'
               />
               <span className='suggestions-duration'>1h 6m</span>
@@ -36,13 +36,13 @@ const FilmInfoModalSuggestions = () => {
                   <div className='suggestions-year'>1996</div>
                 </div>
                 <div className='suggestions-second-line'>
-                  <button className='details-button details-like-button'>
+                  <button className='details-button '>
                     <IconAdd />
                   </button>
                 </div>
               </div>
               <div className='suggestions-bottom'>
-                <p>{movieDetail.description}</p>
+                <p>{description}</p>
               </div>
             </div>
           </div>
@@ -53,7 +53,7 @@ const FilmInfoModalSuggestions = () => {
           <IconSearch />
         </button>
       </div>
-    </>
+    </section>
   )
 }
 
