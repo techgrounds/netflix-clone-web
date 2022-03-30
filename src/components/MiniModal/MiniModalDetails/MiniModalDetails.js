@@ -1,11 +1,23 @@
 import "./MiniModalDetails.scss";
 import { IconAdd } from "../../Icons/IconAdd";
+import { IconCheck } from "../../Icons/IconCheck";
 import { IconPlayBlack } from "../../Icons/IconPlayBlack";
 import { IconArrowDown } from "../../Icons/IconArrowDown";
+
+import {useState} from "react"
 
 import RatingButton from "../RatingButton";
 
 const MiniModalDetails = () => {
+  const [isChecked, setIsChecked] = useState(false)
+
+
+const changeIcon = () => {
+  !isChecked ? setIsChecked(true) : setIsChecked(false)
+}
+
+
+
   return (
     <>
       <div className="minimodal-button-wrapper">
@@ -13,8 +25,12 @@ const MiniModalDetails = () => {
           <button className="play-button">
             <IconPlayBlack />
           </button>
-          <button className="add-button">
-            <IconAdd />
+          <button className="add-button"  onClick={() => changeIcon()}>
+           {isChecked ?
+           
+           <IconCheck />:
+           <IconAdd />
+          }
           </button>
           <RatingButton />
         </div>

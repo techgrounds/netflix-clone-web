@@ -1,7 +1,7 @@
 .modal {
   //test width and height
-  // width: 341px;
-  // height: 333px;
+  // max-width: 341px;
+  // max-height: 333px;
   //
   width: 100%;
   height: 100%;
@@ -45,4 +45,6 @@
   align-items: flex-start;
   overflow: hidden;
   z-index: 2;
+
+
 }

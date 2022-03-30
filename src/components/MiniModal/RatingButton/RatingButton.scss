@@ -43,17 +43,17 @@
   background-color: #232323;
   color: #a9a9a9;
   display: none;
-  transition: all 250ms ease-in-out;
+  transition: all 120ms ease-in-out;
   &:hover {
-    width: 6rem;
+    width: 6.5rem;
     height: 2rem;
     border-radius: 2rem;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.281);
     .dislike-button {
-      transform: translateX(-100%);
+      transform: translateX(-50%);
     }
     .lovelike-button {
-      transform: translateX(100%);
+      transform: translateX(50%);
     }
   }
   .rating-button {
@@ -67,6 +67,8 @@
       position: relative;
       border-radius: 50%;
       border: none;
+      background-color: rgba(128, 128, 128, 0.2)
+
     }
   }
 }

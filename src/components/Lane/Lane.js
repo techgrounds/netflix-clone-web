@@ -27,7 +27,7 @@ const Lane = ({ children }) => {
             updateZIndexRef={updateZIndexRef}>
             <div className={`miniModal ${index === leftIndex ? 'leftModal' : index === rightIndex ? 'rightModal' : 'not'}`}
             style={{height: `${size.itemHeight * 2.5}vw`, width: `${size.itemWidth * 1.5}vw`}}>
-                <MiniModal/>
+                <MiniModal moviePoster={movie.id} movieTitle={movie.title}/>
             </div>
             <img src={require(`../../assets/mockup_images/${movie.id}`)}
                 alt={movie.title}
