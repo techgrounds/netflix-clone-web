@@ -13,7 +13,7 @@ const HomePage = () => {
       <Lane/>
       <Lane/>
       <Lane/>
-      <FooterBrowserPage />
+      <FooterBrowserPage/>
     </>
   )
 }

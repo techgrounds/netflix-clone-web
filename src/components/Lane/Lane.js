@@ -6,24 +6,23 @@ import { v4 as uuidv4 } from "uuid";
 import { LaneItem } from "../../components/Lane/LaneItem";
 import movies from "../../movies.json";
 import useWindowSize from "./WindowSize";
-import MiniModal from "../MiniModal/MiniModal";
 import "./Lane.scss";
 
 const Lane = ({ children }) => {
   const size = useWindowSize();
+  console.log(size.length)
   const [activeIndex, setActiveIndex] = useState(1);
   const [startSwitch, setStartSwitch] = useState(0);
   const [animationState, setAnimationState] = useState(true);
-  // const [loadMiniModalMovie, setLoadMiniModalMovie] = useState(false);
   const zIndexRef = useRef();
   const laneRef = useRef();
-  const mMMovieRef = useRef();
   const updateZIndexRef = (number) => {
     zIndexRef.current.style.zIndex = number;
   };
-
-  console.log("render");
-
+  const startIndex = () => {
+    setActiveIndex(size.length+1)
+  }
+  
   const keyedMovies = movies.map((movie) => {
     movie.key = uuidv4();
     return movie;
@@ -104,7 +103,8 @@ const Lane = ({ children }) => {
 
   return (
     <div className="laneContainer" style={{ zIndex: 0 }} ref={zIndexRef}>
-      <div className="lane" style={{ height: `${size.itemHeight * 1.33}vw` }}>
+      <div className="lane" style={{ height: `${size.itemHeight * 1.33}vw` }}
+      {...handlers}>
         <div className="laneName">
           Lane
           <button className="laneNameButton">
@@ -115,7 +115,6 @@ const Lane = ({ children }) => {
 
         <div
           className="inner"
-          {...handlers}
           style={{
             transform: `translateX(-${activeIndex * size.itemWidth}vw)`,
             transition: `${animationState ? " transform 0.8s" : "undefined"}`,
@@ -164,8 +163,9 @@ const Lane = ({ children }) => {
             className="pageIndicator_container"
             style={{ top: `-${size.itemHeight * 2.1}vw` }}
           >
-            {React.Children.map(children, (child, index) => {
-              if (index % size.length === 1)
+            {movies.map((child, index) => {
+              // console.log(index % size.length === 1)
+              if (index % size.length === 1) 
                 return (
                   <button
                     className={`${
