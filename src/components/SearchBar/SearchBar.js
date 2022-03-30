@@ -1,4 +1,11 @@
 import React, { useState, useRef } from 'react';
+import useOutsideClick from '../../hooks/useOutsideClick';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import {
+  changeSearchInputValue,
+  clearSearchInputValue,
+} from '../../redux/search/search.actions';
 
 import { IconSearch } from '../Icons/IconSearch';
 
@@ -9,6 +16,15 @@ export default function SearchBar() {
   const [searchInput, setSearchInput] = useState('');
   const searchbarRef = useRef();
   const searchInputRef = useRef();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  useOutsideClick(searchbarRef, () => {
+    if (searchInputToggle) {
+      setSearchInput('');
+      setSearchInputToggle(false);
+    }
+  });
 
   const handleSearchInputToggle = () => {
     searchInputRef.current.focus();
@@ -17,11 +33,19 @@ export default function SearchBar() {
 
   const clearSearchInputToggle = () => {
     setSearchInput('');
+    dispatch(clearSearchInputValue());
+    navigate('/home');
   };
 
   const handleSearchInput = (event) => {
     const { value } = event.target;
     setSearchInput(value);
+    dispatch(changeSearchInputValue(value));
+
+    if (value.length > 0) {
+      navigate(`/search?q=${value}`);
+      //dispatch(fetchSearchResultsAsync(value))
+    } else navigate('/home');
   };
 
   return (
