@@ -17,6 +17,10 @@ const Lane = ({ children }) => {
     const zIndexRef = useRef();
     const laneRef = useRef();
     const updateZIndexRef = (number) => {zIndexRef.current.style.zIndex= number};
+
+
+  console.log("render")
+
     const keyedMovies = movies.map(movie => {movie.key = uuidv4()
             return movie} )
     const midLane = movies && keyedMovies.map((movie, index) => {
@@ -24,15 +28,14 @@ const Lane = ({ children }) => {
         const rightIndex = leftIndex + (size.length - 1)
         return (
             <LaneItem key={movie.key}
-            updateZIndexRef={updateZIndexRef}>
-            <div className={`miniModal ${index === leftIndex ? 'leftModal' : index === rightIndex ? 'rightModal' : 'not'}`}
-            style={{height: `${size.itemHeight * 2.5}vw`, width: `${size.itemWidth * 1.5}vw`}}>
-                <MiniModal moviePoster={movie.id} movieTitle={movie.title}/>
-            </div>
-            <img src={require(`../../assets/mockup_images/${movie.id}`)}
-                alt={movie.title}
-                className="movie-image"/>
-            </LaneItem>
+            updateZIndexRef={updateZIndexRef}
+            movie={movie}
+            leftIndex={leftIndex}
+            rightIndex={rightIndex}
+            index={index}
+          
+            />
+   
         )
     })
     const arrayFromFirstLane = midLane.filter((movie, index) => index < (size.length+1))
@@ -79,7 +82,8 @@ const Lane = ({ children }) => {
     <div className='laneContainer' style={{ zIndex: 0 }} ref={zIndexRef}>
       <div
         className='lane'
-        style={{ height: `${size.itemHeight * 1.33}vw`}}>
+        style={{ height: `${size.itemHeight * 1.33}vw`}}
+        >
         <div className='laneName'>
           Lane
           <button className='laneNameButton'>

@@ -7,17 +7,18 @@ const MiniModal = ({ loadMovie, moviePoster, movieTitle }) => {
   const youtubeId = "65xa8TG2G8o";
 
   return (
-    <div className="modal">
+    <>
+  <div className="modal">
       <div className="top-container">
-        {loadMovie ? (
+        {/* {loadMovie ? (
           <Video youtubeId={youtubeId} />
-        ) : (
+        ) : ( */}
           <img
             src={require(`../../assets/mockup_images/${moviePoster}`)}
             alt={moviePoster}
             className="movie-poster"
           />
-        )}
+        {/* )} */}
 
         <div className="video-title">{movieTitle}</div>
       </div>
@@ -25,6 +26,7 @@ const MiniModal = ({ loadMovie, moviePoster, movieTitle }) => {
         <MiniModalDetails />
       </div>
     </div>
+    </>
   );
 };
 
