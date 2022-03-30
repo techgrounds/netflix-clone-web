@@ -20,7 +20,6 @@ const Lane = ({ children }) => {
     const mMMovieRef = useRef();
     const updateZIndexRef = (number) => {zIndexRef.current.style.zIndex= number};
     const updateMMMovieRef = (state) => {mMMovieRef.current = state};
-    console.log(mMMovieRef.current)
     const keyedMovies = movies.map(movie => {movie.key = uuidv4()
             return movie} )
 
@@ -41,7 +40,7 @@ const Lane = ({ children }) => {
                 index === rightIndex ? `translateX(-${ 5 }vw)` :
                 ''}`
             }}>
-                <MiniModal/>
+                {/* <MiniModal/> */}
             </div>
             <img src={require(`../../assets/mockup_images/${movie.id}`)}
                 alt={movie.title}
@@ -49,6 +48,7 @@ const Lane = ({ children }) => {
             </LaneItem>
         )
     })
+
     const arrayFromFirstLane = midLane.filter((movie, index) => index < (size.length+1))
     const arrayFromLastLane = midLane.filter((movie, index) => index >= keyedMovies.length - (size.length+1))
     const fullLaneLenght = arrayFromLastLane.length + midLane.length + arrayFromFirstLane.length;
