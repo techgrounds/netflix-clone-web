@@ -8,7 +8,7 @@ import { IconDisLike } from "../../Icons/IconDisLike";
 const RatingButton = () => {
   return (
     <>
-      <button className="like-button like-icon-wrapper">
+      <div className="like-button like-icon-wrapper">
         <div className="like-button-icon">
           <IconLike />
         </div>
@@ -54,7 +54,7 @@ const RatingButton = () => {
             Love This!
           </ReactTooltip>
         </div>
-      </button>
+      </div>
     </>
   );
 };
