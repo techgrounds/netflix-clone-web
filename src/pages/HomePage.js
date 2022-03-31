@@ -13,6 +13,12 @@ const HomePage = () => {
       <Lane/>
       <Lane/>
       <Lane/>
+      <Lane/>
+      <Lane/>
+      <Lane/>
+      <Lane/>
+      <Lane/>
+      <Lane/>
       <FooterBrowserPage/>
     </>
   )

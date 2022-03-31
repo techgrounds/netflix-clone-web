@@ -28,8 +28,7 @@ const MiniModal = ({
       onComplete: () => setActive(false),
     });
   };
-
-  console.log("render");
+  
   return (
     <>
       <div
