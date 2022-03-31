@@ -4,7 +4,7 @@ import { IconPlayBlack } from '../Icons/IconPlayBlack'
 import { IconAdd } from '../Icons/IconAdd'
 import { IconLike } from '../Icons/IconLike'
 import { IconDisLike } from '../Icons/IconDisLike'
-import ReactTooltip from 'react-tooltip'
+import { ButtonRoundDarkTooltip } from '../ButtonRound/ButtonRound'
 
 const FilmInfoModalVideo = () => {
   const movie = movieData[0]
@@ -27,77 +27,41 @@ const FilmInfoModalVideo = () => {
               <span className='home-hero-button-text'>Play</span>
             </button>
             <div className='header-button-container'>
-              <button
-                className='header-icon-wrapper header-add-button'
-                data-tip
-                data-for='add'
-              >
-                <div className='header-button-icon'>
-                  <IconAdd />
+              <div className='header-icon-wrapper'>
+                <div className='header-add-button'>
+                  <div className='like-button'>
+                    <ButtonRoundDarkTooltip tooltiptext='Add to My List'>
+                      <IconAdd />
+                    </ButtonRoundDarkTooltip>
+                  </div>
                 </div>
-                <ReactTooltip
-                  id='add'
-                  className='tool-tip'
-                  place='top'
-                  type='light'
-                >
-                  Add to My List
-                </ReactTooltip>
-              </button>
+              </div>
             </div>
             <div className='header-button-container'>
-              <button className='like-button header-icon-wrapper'>
+              <div className='like-button header-icon-wrapper '>
                 <div className='header-button-icon'>
-                  <IconLike />
+                  <ButtonRoundDarkTooltip tooltiptext='I Like This'>
+                    <IconLike />
+                  </ButtonRoundDarkTooltip>
                 </div>
                 <div className='rating-button-wrapper'>
-                  <button
-                    className='dislike-button rating-button'
-                    data-tip
-                    data-for='dislike'
-                  >
-                    <IconDisLike />
-                  </button>
-                  <ReactTooltip
-                    id='dislike'
-                    className='tool-tip'
-                    place='top'
-                    type='light'
-                  >
-                    Not For Me
-                  </ReactTooltip>
-                  <button
-                    className='like-button rating-button'
-                    data-tip
-                    data-for='like'
-                  >
-                    <IconLike />
-                  </button>
-                  <ReactTooltip
-                    id='like'
-                    className='tool-tip'
-                    place='top'
-                    type='light'
-                  >
-                    I Like This
-                  </ReactTooltip>
-                  <button
-                    className='lovelike-button rating-button'
-                    data-tip
-                    data-for='love'
-                  >
-                    <IconLike />
-                  </button>
-                  <ReactTooltip
-                    id='love'
-                    className='tool-tip'
-                    place='top'
-                    type='light'
-                  >
-                    Love This!
-                  </ReactTooltip>
+                  <div className='dislike-button rating-button'>
+                    <ButtonRoundDarkTooltip tooltiptext='Not For Me'>
+                      <IconDisLike />
+                    </ButtonRoundDarkTooltip>
+                  </div>
+                  <div className='like-button rating-button'>
+                    <ButtonRoundDarkTooltip tooltiptext='I Like This!'>
+                      <IconLike />
+                    </ButtonRoundDarkTooltip>
+                  </div>
+                  <div className='lovelike-button rating-button'>
+                    <ButtonRoundDarkTooltip tooltiptext='  Love This!'>
+                      <IconLike />
+                    </ButtonRoundDarkTooltip>
+                  </div>
                 </div>
-              </button>
+              </div>
             </div>
           </div>
         </div>

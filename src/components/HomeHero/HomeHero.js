@@ -10,7 +10,11 @@ const HomeHero = () => {
   const element = useRef()
   const selector = gsap.utils.selector(element)
   const timeline = useRef()
-  const modalRef = useRef()
+  const [isModalVisible, setIsModalVisible] = useState(false)
+
+  const openModal = () => {
+    setIsModalVisible(true)
+  }
 
   useEffect(() => {
     timeline.current = gsap
@@ -69,7 +73,7 @@ const HomeHero = () => {
                   </button>
                   <button
                     className='home-hero-button home-hero-info-button has-icon has-label'
-                    onClick={() => modalRef.current.open()}
+                    onClick={openModal}
                   >
                     <div className='home-hero-button-icon'>
                       <IconInfo />
@@ -82,7 +86,10 @@ const HomeHero = () => {
             </div>
           </div>
         </div>
-        <FilmInfoModal ref={modalRef} />
+        <FilmInfoModal
+          isModalVisible={isModalVisible}
+          setIsModalVisible={setIsModalVisible}
+        />
       </div>
     </div>
   )
