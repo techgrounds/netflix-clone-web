@@ -32,15 +32,14 @@ const FilmInfoModalDetails = () => {
           <p className='details-description'>{movie.description}</p>
         </div>
         <div className='details-right'>
-          {}
           <FilmInfoModalDetailsItem tagLabel='Cast' tagItem={movie.actors} />
           <FilmInfoModalDetailsItem
             tagLabel='Genres'
             tagItem={movie.category}
           />
           <FilmInfoModalDetailsItem
-            tagLabel='Director'
-            tagItem={movie.director}
+            tagLabel='This film is'
+            tagItem={movie.category}
           />
         </div>
       </div>
