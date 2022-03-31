@@ -18,16 +18,19 @@ const Lane = ({ children }) => {
   const updateZIndexRef = (number) => {
     zIndexRef.current.style.zIndex = number;
   };
-  if (activeIndex == -1) {setActiveIndex(7)}
   const keyedMovies = movies.map((movie) => {
     movie.key = uuidv4();
     return movie;
   });
+
+  if (activeIndex == -1) {setActiveIndex(7)}
+
   const midLane =
     movies &&
     keyedMovies.map((movie, index) => {
       // if (activeIndex == -1) {setActiveIndex(size.length +1)}
       // if (activeIndex == -1) {setActiveIndex(7)}
+      console.log("size.lenght +1: ",size.length +1)
       const leftIndex =
         (keyedMovies.length - size.length + activeIndex - 1) %
         keyedMovies.length;
