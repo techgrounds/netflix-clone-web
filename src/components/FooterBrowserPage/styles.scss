@@ -1,12 +1,12 @@
 .member-footer {
-    max-width: 100%;
+    width: 100%;
     position: relative;
-    margin: 2.5rem auto;
-    padding: 0 4%;
+    margin: 0 auto;
+    padding:2% 5%;
     font-family: "NetflixSansLight", sans-serif;
     color:var(--gray);
     background-color: var(--black);
-    display: flex;
+    display: block;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
@@ -24,7 +24,7 @@
 
 .social-links {
   display: flex;
-  margin-bottom: 1em;
+  margin: 1em 0 0;
 }
 
 .social-links a {
@@ -62,8 +62,10 @@
 @media (min-width: 600px) {
   .member-footer {
     display: flex;
+    margin: 0 auto;
     position: relative;
-    max-width: 60%;
+    justify-content: center;
+    width: 100%;
   }
   .footer-links {
     display: flex;
