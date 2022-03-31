@@ -22,7 +22,10 @@ const Lane = ({ children }) => {
     movie.key = uuidv4();
     return movie;
   });
-
+  
+  const sleep = (milliseconds) => {
+    return new Promise((resolve) => setTimeout(resolve, milliseconds));
+  };
   const midLane =
     movies &&
     keyedMovies.map((movie, index) => {
@@ -38,6 +41,7 @@ const Lane = ({ children }) => {
           leftIndex={leftIndex}
           rightIndex={rightIndex}
           index={index}
+          sleep={sleep}
         />
       );
     });
@@ -49,9 +53,6 @@ const Lane = ({ children }) => {
   );
   const fullLaneLenght =
     arrayFromLastLane.length + midLane.length + arrayFromFirstLane.length;
-  const sleep = (milliseconds) => {
-    return new Promise((resolve) => setTimeout(resolve, milliseconds));
-  };
   const animationStateOn = () => {
     setAnimationState(true);
   };

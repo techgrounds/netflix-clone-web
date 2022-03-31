@@ -1,6 +1,7 @@
 import useWindowSize from "./WindowSize";
-import { useState } from "react";
+import { useState,useEffect,useRef } from "react";
 import MiniModal from "../MiniModal";
+import gsap from "gsap"
 
 export const LaneItem = ({
   updateZIndexRef,
@@ -8,16 +9,36 @@ export const LaneItem = ({
   leftIndex,
   rightIndex,
   index,
+  sleep
 }) => {
   const size = useWindowSize();
 
   const [loadMovie, setLoadMovie] = useState(false);
 
+const modalRef = useRef();
+
+useEffect(() => {
+  const modal = modalRef.current;
+
+  const timeline = gsap.timeline({default: { ease:"power4Out" , paused:true}})
+
+  timeline.fromTo(modal, {scale:0.7, opacity:0, y:"5vw"}, { delay:0.5,duration: 2, scale:1 ,opacity:1,y:0})
+
+
+}, [loadMovie])
+
+
+
+
+
+
   return (
     <div
+
+      
       className="laneItem"
       style={{ height: `${size.itemHeight}vw`, width: `${size.itemWidth}vw` }}
-      onMouseEnter={() => {
+      onMouseEnter={  () => {
         updateZIndexRef(999);
         setLoadMovie(true);
       }}
@@ -27,6 +48,7 @@ export const LaneItem = ({
       }}
     >
 { loadMovie &&     <div
+ref={modalRef}
         className={`miniModal
                  ${
                    index === leftIndex

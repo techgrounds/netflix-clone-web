@@ -19,7 +19,7 @@ const MiniModal = ({
   const [start, setStart] = useState(false);
 
   const remove = () => {
-    setStart(true);
+
     gsap.to(boxRef.current, {
       opacity: 0,
       duration: 2,
@@ -27,27 +27,39 @@ const MiniModal = ({
       ease: "power4",
       onComplete: () => setActive(false),
     });
+
+
+
+    
   };
+
+  
+
+
+
+
   return (
     <>
       <div
         className="modal"
-        onMouseEnter={remove}
+        onMouseEnter={() => {remove(); setStart(true) }}
         onMouseLeave={() => {
           setLoadMovie(false);
+          setActive(true)
+          setStart(false)
         }}
       >
         <div className="top-container">
-          {/* {start && <Video youtubeId={youtubeId} />} */}
-
-          {active && (
+          {start && <Video youtubeId={youtubeId} />}
+{/* 
+          {active && ( */}
             <img
               ref={boxRef}
               src={require(`../../assets/mockup_images/${moviePoster}`)}
               alt={moviePoster}
               className="movie-poster"
             />
-          )}
+          {/* )} */}
 
           <div className="video-title">{movieTitle}</div>
         </div>
