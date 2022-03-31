@@ -8,14 +8,25 @@ const FilmInfoModalFooter = ({ ref }) => {
   return (
     <section className='modal-footer-container' ref={ref}>
       <div className='modal-footer-header'>
-        <h2>{movie.title}</h2>
+        <h2 className='modal-footer-title'>
+          <span>About</span> {movie.title}
+        </h2>
       </div>
       <div className='modal-footer-details'>
-        <FilmInfoModalDetailsItem tagLabel='Cast' tagItem={movie.actors} />
-        <FilmInfoModalDetailsItem tagLabel='Genres' tagItem={movie.category} />
         <FilmInfoModalDetailsItem
           tagLabel='Director'
           tagItem={movie.director}
+        />
+        <FilmInfoModalDetailsItem tagLabel='Cast' tagItem={movie.actors} />
+        <FilmInfoModalDetailsItem tagLabel='Writer' tagItem={movie.director} />
+        <FilmInfoModalDetailsItem tagLabel='Genres' tagItem={movie.category} />
+        <FilmInfoModalDetailsItem
+          tagLabel='This Film is'
+          tagItem={movie.category}
+        />
+        <FilmInfoModalDetailsItem
+          tagLabel='Maturity Rating'
+          tagItem={movie.category}
         />
       </div>
     </section>

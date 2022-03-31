@@ -53,8 +53,11 @@
 }
 
 .modal-footer {
-  padding: 0 3rem;
   background-color: #181818;
+  padding: 0 0.5em;
+  @include breakpoint(sm) {
+    padding: 0 3em;
+  }
 }
 
 .modal-close-button {
