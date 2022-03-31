@@ -70,30 +70,6 @@
   color: var(--white);
   border-radius: 8px;
   overflow: hidden;
-
-  // &:hover {
-  //   .miniModal {
-  //     opacity: 1;
-  //     pointer-events: all;
-  //     transform: scale(1);
-  //     transition: 0.25s ease-out;
-  //     transition-delay: 0.5s;
-  //   }
-  //   .leftModal {
-  //     opacity: 1;
-  //     pointer-events: all;
-  //     transform: scale(1) translateX(5vw);
-  //     transition: 0.5s;
-  //     transition-delay: 0.5s;
-  //   }
-  //   .rightModal {
-  //     opacity: 1;
-  //     pointer-events: all;
-  //     transform: scale(1) translateX(-5vw);
-  //     transition: 0.5s;
-  //     transition-delay: 0.5s;
-  //   }
-  // }
 }
 .laneNameButton {
   display: flex;
@@ -160,14 +136,12 @@
   stroke: var(--white);
   stroke-width: 2;
   pointer-events: auto;
- 
 }
 .indicator_next {
   right: -85vw;
   stroke: var(--white);
   stroke-width: 2;
   pointer-events: auto;
- 
 }
 .pageIndicator_container {
   opacity: 1;

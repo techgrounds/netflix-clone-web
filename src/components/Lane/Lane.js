@@ -162,10 +162,11 @@ const Lane = ({ children }) => {
             className="pageIndicator_container"
             style={{ top: `-${size.itemHeight * 2.1}vw` }}
           >
-            {movies.map((child, index) => {
+            {keyedMovies.map((movie, index) => {
               if (index % size.length === 1)
                 return (
                   <button
+                    key={movie.key}
                     className={`${
                       index === activeIndex - size.length
                         ? "active_pageIndicatior pageIndicator"

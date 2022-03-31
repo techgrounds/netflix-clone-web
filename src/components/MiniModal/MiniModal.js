@@ -28,7 +28,7 @@ const MiniModal = ({
       onComplete: () => setActive(false),
     });
   };
-  
+
   return (
     <>
       <div
@@ -39,7 +39,7 @@ const MiniModal = ({
         }}
       >
         <div className="top-container">
-          {/* {start && <Video youtubeId={youtubeId} />} */}
+          {start && <Video youtubeId={youtubeId} />}
 
           {active && (
             <img
