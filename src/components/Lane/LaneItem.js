@@ -43,13 +43,11 @@ export const LaneItem = ({
 
         onMouseEnter={() => {
           updateZIndexRef(1);
-          console.log("enter modal")
-          // setLoadMovie(true);
+
         }}
         onMouseLeave={() => {
           updateZIndexRef(0);
-          console.log("leave modal")
-          // setLoadMovie(false);
+
         }}
 
 

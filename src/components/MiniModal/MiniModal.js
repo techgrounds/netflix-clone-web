@@ -29,7 +29,6 @@ const MiniModal = ({
     });
   };
 
-  console.log("render");
   return (
     <>
       <div
