@@ -5,6 +5,7 @@ const FilmInfoModalDetailsItem = ({ tagLabel, tagItem }) => {
     <section>
       <div className='details-tags'>
         <span className='tags-label'>{tagLabel}:</span>
+
         <span className='tag-item'>{tagItem}</span>
       </div>
     </section>

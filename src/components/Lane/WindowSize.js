@@ -6,7 +6,6 @@ function useWindowSize() {
     itemHeight: undefined,
     itemWidth: undefined,
   });
-
   useEffect(() => {
     function setLaneLength() {
       return window.innerWidth < 500 ? 2
@@ -29,12 +28,20 @@ function useWindowSize() {
         : window.innerWidth < 1400 ? 10.8
         : 9;
     }
-
-    function handleResize() {
+    function setModalDistance() {
+      return window.innerWidth < 500 ? 46
+        : window.innerWidth < 800 ? 31
+        : window.innerWidth < 1100 ? 23
+        : window.innerWidth < 1400 ? 19
+        : 16;
+    }
+    const startIndex = setLaneLength()
+      function handleResize() {
       setWindowSize({
         length: setLaneLength(),
         itemHeight: setLaneItemHeight(),
         itemWidth: setLaneItemWidth(),
+        modalDistance: setModalDistance(),
       });
     }
 
