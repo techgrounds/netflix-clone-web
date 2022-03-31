@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState,useEffect } from "react";
 import { useSwipeable } from "react-swipeable";
 import { IconArrowRight } from "../Icons/IconArrowRight";
 import { IconArrowLeft } from "../Icons/IconArrowLeft";
@@ -13,8 +13,7 @@ const Lane = ({ children }) => {
   const size = useWindowSize();
   const [activeIndex, setActiveIndex] = useState(1);
   const [startSwitch, setStartSwitch] = useState(0);
-  const [animationState, setAnimationState] = useState(true);
-  // const [loadMiniModalMovie, setLoadMiniModalMovie] = useState(false);
+  const [animationState, setAnimationState] = useState(false);
   const zIndexRef = useRef();
   const laneRef = useRef();
   const mMMovieRef = useRef();
@@ -22,8 +21,11 @@ const Lane = ({ children }) => {
     zIndexRef.current.style.zIndex = number;
   };
 
-  console.log("render");
 
+
+
+ 
+  
   const keyedMovies = movies.map((movie) => {
     movie.key = uuidv4();
     return movie;
@@ -31,6 +33,7 @@ const Lane = ({ children }) => {
   const midLane =
     movies &&
     keyedMovies.map((movie, index) => {
+ 
       const leftIndex =
         (keyedMovies.length - size.length + activeIndex - 1) %
         keyedMovies.length;

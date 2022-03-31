@@ -23,10 +23,10 @@ export const LaneItem = ({
       }}
       onMouseLeave={() => {
         updateZIndexRef(0);
-        setLoadMovie(false);
+        // setLoadMovie(false);
       }}
     >
-      <div
+{ loadMovie &&     <div
         className={`miniModal
                  ${
                    index === leftIndex
@@ -40,15 +40,32 @@ export const LaneItem = ({
           height: `${size.itemHeight * 2.5}vw`,
           width: `${size.itemWidth * 1.5}vw`,
         }}
+
+        onMouseEnter={() => {
+          updateZIndexRef(1);
+          console.log("enter modal")
+          // setLoadMovie(true);
+        }}
+        onMouseLeave={() => {
+          updateZIndexRef(0);
+          console.log("leave modal")
+          // setLoadMovie(false);
+        }}
+
+
       >
         {loadMovie && (
           <MiniModal
+        
             loadMovie={loadMovie}
             moviePoster={movie.id}
             movieTitle={movie.title}
+            setLoadMovie={setLoadMovie}
+            updateZIndexRef={updateZIndexRef}
           />
         )}
-      </div>
+      </div>}
+
       <img
         src={require(`../../assets/mockup_images/${movie.id}`)}
         alt={movie.title}
