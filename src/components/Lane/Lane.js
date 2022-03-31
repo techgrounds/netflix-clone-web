@@ -10,19 +10,15 @@ import "./Lane.scss";
 
 const Lane = ({ children }) => {
   const size = useWindowSize();
-  console.log(size.length)
-  const [activeIndex, setActiveIndex] = useState(1);
+  const [activeIndex, setActiveIndex] = useState(-1);
   const [startSwitch, setStartSwitch] = useState(0);
-  const [animationState, setAnimationState] = useState(true);
+  const [animationState, setAnimationState] = useState(false);
   const zIndexRef = useRef();
   const laneRef = useRef();
   const updateZIndexRef = (number) => {
     zIndexRef.current.style.zIndex = number;
   };
-  const startIndex = () => {
-    setActiveIndex(size.length+1)
-  }
-  
+  if (activeIndex == -1) {setActiveIndex(7)}
   const keyedMovies = movies.map((movie) => {
     movie.key = uuidv4();
     return movie;
@@ -30,6 +26,8 @@ const Lane = ({ children }) => {
   const midLane =
     movies &&
     keyedMovies.map((movie, index) => {
+      // if (activeIndex == -1) {setActiveIndex(size.length +1)}
+      // if (activeIndex == -1) {setActiveIndex(7)}
       const leftIndex =
         (keyedMovies.length - size.length + activeIndex - 1) %
         keyedMovies.length;
@@ -45,7 +43,6 @@ const Lane = ({ children }) => {
         />
       );
     });
-
   const arrayFromFirstLane = midLane.filter(
     (movie, index) => index < size.length + 1
   );
@@ -164,8 +161,7 @@ const Lane = ({ children }) => {
             style={{ top: `-${size.itemHeight * 2.1}vw` }}
           >
             {movies.map((child, index) => {
-              // console.log(index % size.length === 1)
-              if (index % size.length === 1) 
+              if (index % size.length === 1)
                 return (
                   <button
                     className={`${

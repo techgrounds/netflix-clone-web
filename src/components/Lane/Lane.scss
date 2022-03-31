@@ -6,7 +6,6 @@
     overflow: hidden;
     top: 200px;
     padding: 5.5em 0;
-    margin-bottom: -150px;
     @include breakpoint(sm) {
       padding: 5.5em 0;
       margin-bottom: -150px;
@@ -24,7 +23,6 @@
       margin-bottom: -250px;
     }
   }
-
 .lane {
   position: relative;
   pointer-events: auto;

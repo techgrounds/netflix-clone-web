@@ -6,7 +6,6 @@ function useWindowSize() {
     itemHeight: undefined,
     itemWidth: undefined,
   });
-
   useEffect(() => {
     function setLaneLength() {
       return window.innerWidth < 500 ? 2
@@ -36,7 +35,8 @@ function useWindowSize() {
         : window.innerWidth < 1400 ? 19
         : 16;
     }
-    function handleResize() {
+    const startIndex = setLaneLength()
+      function handleResize() {
       setWindowSize({
         length: setLaneLength(),
         itemHeight: setLaneItemHeight(),
