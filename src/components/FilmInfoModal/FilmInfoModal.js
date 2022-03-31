@@ -1,25 +1,19 @@
 import './FilmInfoModal.scss'
 import { IconClose } from '../Icons/IconClose'
-import {
-  useEffect,
-  useCallback,
-  forwardRef,
-  useImperativeHandle,
-  useState,
-} from 'react'
+import { useEffect, useCallback, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import useOutsideClick from '../../hooks/useOutsideClick'
 import FilmInfoModalHeader from '../FilmInfoModalHeader/FilmInfoModalHeader'
 import FilmInfoModalDetails from '../FilmInfoModalDetails/FilmInfoModalDetails'
 import FilmInfoModalSuggestions from '../FilmInfoModalSuggestions/FilmInfoModalSuggestions'
 import FilmInfoModalFooter from '../FilmInfoModalFooter/FilmInfoModalFooter'
 
-const FilmInfoModal = forwardRef((props, ref) => {
-  const [isModalVisible, setIsModalVisible] = useState(false)
+const FilmInfoModal = ({ isModalVisible, setIsModalVisible }) => {
+  const modalQuit = useRef()
 
-  useImperativeHandle(ref, () => {
-    return {
-      open: () => setIsModalVisible(true),
-      close: () => setIsModalVisible(false),
+  useOutsideClick(modalQuit, () => {
+    if (isModalVisible) {
+      setIsModalVisible(false)
     }
   })
 
@@ -36,14 +30,6 @@ const FilmInfoModal = forwardRef((props, ref) => {
     document.addEventListener('keydown', handleKeyPress)
     return () => document.removeEventListener('keydown', handleKeyPress)
   }, [handleKeyPress])
-
-  useEffect(() => {
-    if (isModalVisible === true) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = 'unset'
-    }
-  }, [isModalVisible])
 
   return (
     <AnimatePresence>
@@ -83,6 +69,7 @@ const FilmInfoModal = forwardRef((props, ref) => {
               },
             }}
             className='modal-container'
+            ref={modalQuit}
           >
             <div className='modal-content'>
               <div className='modal-header'>
@@ -111,6 +98,6 @@ const FilmInfoModal = forwardRef((props, ref) => {
       )}
     </AnimatePresence>
   )
-})
+}
 
 export default FilmInfoModal

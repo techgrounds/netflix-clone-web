@@ -10,11 +10,11 @@ export const ButtonRoundDark = ({children}) => {
   );
 };
 
-export const ButtonRoundDarkTooltip = ({children}) => {
+export const ButtonRoundDarkTooltip = ({children, tooltiptext}) => {
   return (
     <>
       <button className="buttonRound buttonDark buttonTooltip">
-        <span className="tooltipText">tooltiptext</span>
+        <span className="tooltipText">{tooltiptext}</span>
         {children}
       </button>
     </>

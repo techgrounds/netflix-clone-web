@@ -1,8 +1,9 @@
 import './FilmInfoModalSuggestions.scss'
-import { IconSearch } from '../Icons/IconSearch'
 import { useState } from 'react'
-import { IconLike } from '../Icons/IconLike'
+import { IconKijkWijzer16 } from '../Icons/IconKijkWijzer16'
 import { IconAdd } from '../Icons/IconAdd'
+import { IconArrowDown } from '../Icons/IconArrowDown'
+import { ButtonRoundDarkTooltip } from '../ButtonRound/ButtonRound'
 import movieData from '../../movies.json'
 
 const FilmInfoModalSuggestions = () => {
@@ -29,16 +30,16 @@ const FilmInfoModalSuggestions = () => {
               <div className='suggestions-top'>
                 <div className='suggestions-first-line'>
                   <div className='suggestions-icon'>
-                    <button className='details-button details-like-button'>
-                      <IconLike />
+                    <button className='details-button'>
+                      <IconKijkWijzer16 />
                     </button>
                   </div>
                   <div className='suggestions-year'>1996</div>
                 </div>
                 <div className='suggestions-second-line'>
-                  <button className='details-button '>
+                  <ButtonRoundDarkTooltip tooltiptext='Add to My List'>
                     <IconAdd />
-                  </button>
+                  </ButtonRoundDarkTooltip>
                 </div>
               </div>
               <div className='suggestions-bottom'>
@@ -49,9 +50,14 @@ const FilmInfoModalSuggestions = () => {
         ))}
       </div>
       <div className='suggestions-divider collapsed'>
-        <button className='suggestions-button' onClick={showMoreItems}>
-          <IconSearch />
-        </button>
+        <div
+          className='suggestions-button'
+          onClick={() => showMoreItems((prevProps) => !prevProps)}
+        >
+          <ButtonRoundDarkTooltip tooltiptext='Show more'>
+            <IconArrowDown />
+          </ButtonRoundDarkTooltip>
+        </div>
       </div>
     </section>
   )
