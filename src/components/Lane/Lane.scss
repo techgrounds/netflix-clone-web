@@ -4,8 +4,8 @@
   pointer-events: none;
   position: relative;
   overflow: hidden;
-  top: 200px;
   padding: 5.5em 0;
+  top: -120px;
   margin-bottom: -150px;
 
   @include breakpoint(sm) {
@@ -70,6 +70,7 @@
   color: var(--white);
   border-radius: 8px;
   overflow: hidden;
+
   // &:hover {
   //   .miniModal {
   //     opacity: 1;
@@ -142,6 +143,7 @@
   border: none;
   border-radius: 6px;
   background-color: var(--black);
+  opacity: 0;
   transform: scale(1.1);
   z-index: 1;
   svg {

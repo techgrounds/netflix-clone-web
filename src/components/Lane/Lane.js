@@ -10,7 +10,7 @@ import "./Lane.scss";
 
 const Lane = ({ children }) => {
   const size = useWindowSize();
-  const [activeIndex, setActiveIndex] = useState(-1);
+  const [activeIndex, setActiveIndex] = useState(0);
   const [startSwitch, setStartSwitch] = useState(0);
   const [animationState, setAnimationState] = useState(false);
   const zIndexRef = useRef();
@@ -23,14 +23,9 @@ const Lane = ({ children }) => {
     return movie;
   });
 
-  if (activeIndex == -1) {setActiveIndex(7)}
-
   const midLane =
     movies &&
     keyedMovies.map((movie, index) => {
-      // if (activeIndex == -1) {setActiveIndex(size.length +1)}
-      // if (activeIndex == -1) {setActiveIndex(7)}
-      console.log("size.lenght +1: ",size.length +1)
       const leftIndex =
         (keyedMovies.length - size.length + activeIndex - 1) %
         keyedMovies.length;
@@ -85,7 +80,12 @@ const Lane = ({ children }) => {
     }
   };
   const updateIndexNext = (newIndex) => {
-    setActiveIndex(newIndex);
+    if (startSwitch === 0) {
+      setActiveIndex(newIndex + size.length + 1);
+    }
+   else {
+      setActiveIndex(newIndex)
+    }
     checkIndexNext(newIndex);
     animationStateOn();
     setStartSwitch(1);
@@ -94,7 +94,6 @@ const Lane = ({ children }) => {
     setActiveIndex(newIndex);
     checkIndexPrev(newIndex);
     animationStateOn();
-    setStartSwitch(1);
   };
   const handlers = useSwipeable({
     onSwipedLeft: () => updateIndexPrev(activeIndex + size.length),
@@ -121,7 +120,7 @@ const Lane = ({ children }) => {
           }}
           ref={laneRef}
         >
-          {arrayFromLastLane}
+          {startSwitch > 0 && arrayFromLastLane}
           {midLane}
           {arrayFromFirstLane}
         </div>
@@ -139,7 +138,7 @@ const Lane = ({ children }) => {
               top: `-${size.itemHeight}vw`,
             }}
             onClick={() => {
-              if (startSwitch === 1) updateIndexPrev(activeIndex - size.length);
+             updateIndexPrev(activeIndex - size.length);
             }}
           >
             <IconArrowLeft />

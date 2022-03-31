@@ -18,7 +18,7 @@ export const LaneItem = ({
       className="laneItem"
       style={{ height: `${size.itemHeight}vw`, width: `${size.itemWidth}vw` }}
       onMouseEnter={() => {
-        updateZIndexRef(1);
+        updateZIndexRef(999);
         setLoadMovie(true);
       }}
       onMouseLeave={() => {
@@ -42,7 +42,7 @@ export const LaneItem = ({
         }}
 
         onMouseEnter={() => {
-          updateZIndexRef(1);
+          updateZIndexRef(999);
 
         }}
         onMouseLeave={() => {
@@ -54,7 +54,6 @@ export const LaneItem = ({
       >
         {loadMovie && (
           <MiniModal
-        
             loadMovie={loadMovie}
             moviePoster={movie.id}
             movieTitle={movie.title}
