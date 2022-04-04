@@ -8,12 +8,12 @@ const Video = ({ youtubeId }) => {
   const startTime = "start=5";
   const endTime = "&end=20";
   //auto play and mute needs to be set together for chrome
-  const autoPlay = "&autoplay=0";
+  const autoPlay = "&autoplay=1";
   const mute = "&mute=1";
   const loop = `&playlist=${youtubeId}&loop=1`;
   const modestBranding = "&modestbranding=1&showinfo=0&fs=0&iv_load_policy=3";
 
-  const embedUrl = `https://www.youtube.com/embed/${youtubeId}?${startTime}${endTime}${autoPlay}${mute}${loop}${modestBranding}`;
+  const embedUrl = `https://www.youtube-nocookie.com/embed/${youtubeId}?${startTime}${endTime}${autoPlay}${mute}${loop}${modestBranding}`;
 
   return (
     <div className="video-container">

@@ -1,28 +1,30 @@
 @import "../../assets/scss/mixins";
 
 .laneContainer {
-    pointer-events: none;
-    position: relative;
-    overflow: hidden;
-    top: 200px;
+  pointer-events: none;
+  position: relative;
+  overflow: hidden;
+  padding: 5.5em 0;
+  top: -120px;
+  margin-bottom: -150px;
+
+  @include breakpoint(sm) {
     padding: 5.5em 0;
-    @include breakpoint(sm) {
-      padding: 5.5em 0;
-      margin-bottom: -150px;
-    }
-    @include breakpoint(md) {
-      padding: 7.25em 0;
-      margin-bottom: -200px;
-    }
-    @include breakpoint(lg) {
-      padding: 9em 0;
-      margin-bottom: -250px;
-    }
-    @include breakpoint(xlg) {
-      padding: 10.25em 0;
-      margin-bottom: -250px;
-    }
+    margin-bottom: -150px;
   }
+  @include breakpoint(md) {
+    padding: 7.25em 0;
+    margin-bottom: -200px;
+  }
+  @include breakpoint(lg) {
+    padding: 9em 0;
+    margin-bottom: -250px;
+  }
+  @include breakpoint(xlg) {
+    padding: 10.25em 0;
+    margin-bottom: -300px;
+  }
+}
 .lane {
   position: relative;
   pointer-events: auto;
@@ -68,29 +70,6 @@
   color: var(--white);
   border-radius: 8px;
   overflow: hidden;
-  &:hover {
-    .miniModal {
-      opacity: 1;
-      pointer-events: all;
-      transform: scale(1);
-      transition: 0.25s ease-out;
-      transition-delay: 0.5s;
-    }
-    .leftModal {
-      opacity: 1;
-      pointer-events: all;
-      transform: scale(1) translateX(60px);
-      transition: 0.25s ease-out;
-      transition-delay: 0.5s;
-    }
-    .rightModal {
-      opacity: 1;
-      pointer-events: all;
-      transform: scale(1) translateX(-60px);
-      transition: 0.25s ease-out;
-      transition-delay: 0.5s;
-    }
-  }
 }
 .laneNameButton {
   display: flex;
@@ -140,6 +119,7 @@
   border: none;
   border-radius: 6px;
   background-color: var(--black);
+  opacity: 0;
   transform: scale(1.1);
   z-index: 1;
   svg {
@@ -148,16 +128,20 @@
 }
 .indicators {
   position: relative;
+  pointer-events: none;
+
 }
 .indicator_prev {
   left: calc(-5vw - 2px);
   stroke: var(--white);
   stroke-width: 2;
+  pointer-events: auto;
 }
 .indicator_next {
   right: -85vw;
   stroke: var(--white);
   stroke-width: 2;
+  pointer-events: auto;
 }
 .pageIndicator_container {
   opacity: 1;
@@ -166,6 +150,7 @@
   justify-content: flex-end;
   width: calc(90vw - 4px);
   height: 20px;
+  z-index: -1;
 }
 .pageIndicator {
   width: 0.8vw;
@@ -179,28 +164,24 @@
 }
 .miniModal {
   position: absolute;
-  z-index: 1;
-  opacity: 0;
-  transform: scale(0.7) translateY(5vw);
+  z-index: 10;
+  opacity: 1;
   cursor: pointer;
-  pointer-events: none;
   border-radius: 8px;
 }
 .leftModal {
   position: absolute;
   z-index: 1;
-  opacity: 0;
-  transform: scale(0.4) translateX(60px) translateY(5vw);
+  opacity: 1;
+ transform:translateX(60px);
   cursor: pointer;
-  pointer-events: none;
   border-radius: 8px;
 }
 .rightModal {
   position: absolute;
   z-index: 1;
-  opacity: 0;
-  transform: scale(0.4) translateX(-60px) translateY(5vw);
+  opacity: 1;
+  transform: translateX(-60px);
   cursor: pointer;
-  pointer-events: none;
   border-radius: 8px;
 }
