@@ -25,10 +25,11 @@
 .header-description {
   position: absolute;
   bottom: 8%;
-  left: 3em;
+  left: 0.4rem;
   width: 40%;
   @include breakpoint(sm) {
     bottom: 5%;
+    left: 3em;
   }
 }
 
@@ -41,7 +42,6 @@
 }
 
 .header-button-container {
-  align-items: center;
   display: flex;
   margin-bottom: 1em;
   min-height: 2em;
@@ -88,19 +88,8 @@
   &:hover {
     border-color: var(--white);
     border-width: 3px;
+    background-color: rgba(109, 109, 110, 0.562);
   }
-}
-
-.header-button-icon {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  height: 1.2rem;
-  width: 1.2rem;
-}
-
-.tool-tip {
-  font-weight: bold;
 }
 
 .like-button {
@@ -120,32 +109,31 @@
   color: #a9a9a9;
   display: none;
   transition: all 250ms ease-in-out;
+  padding: 2rem 6rem;
   &:hover {
-    width: 12rem;
-    height: 3rem;
     border-radius: 2rem;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.281);
     .dislike-button {
       transform: translateX(-100%);
-      margin-right: 3rem;
+      margin-right: 5rem;
     }
     .lovelike-button {
       transform: translateX(100%);
-      margin-left: 3rem;
+      margin-left: 5rem;
     }
   }
+}
 
-  .rating-button {
-    position: absolute;
-    transition: all 250ms ease-in-out;
+.rating-button {
+  position: absolute;
+  transition: all 250ms ease-in-out;
+  border: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  &:hover {
+    position: relative;
+    border-radius: 50%;
     border: none;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    &:hover {
-      position: relative;
-      border-radius: 50%;
-      border: none;
-    }
   }
 }

@@ -1,7 +1,7 @@
 import './FilmInfoModalDetails.scss'
-import { IconAdd } from '../Icons/IconAdd'
-import { IconLike } from '../Icons/IconLike'
-import { IconDisLike } from '../Icons/IconDisLike'
+import { IconKijkWijzer16 } from '../Icons/IconKijkWijzer16'
+import { IconKijkWijzerGeweld } from '../Icons/IconKijkWijzerGeweld'
+import { IconKijkWijzerGrof } from '../Icons/IconKijkWijzerGrof'
 import movieData from '../../movies.json'
 import FilmInfoModalDetailsItem from '../FilmInfoModalDetailsItem/FilmInfoModalDetailsItem'
 
@@ -17,13 +17,13 @@ const FilmInfoModalDetails = () => {
             <span className='release-title'>1995</span>
             <div className='details-icons'>
               <button className='details-button details-add-button'>
-                <IconAdd />
+                <IconKijkWijzer16 />
               </button>
               <button className='details-button details-like-button'>
-                <IconLike />
+                <IconKijkWijzerGeweld />
               </button>
               <button className='details-button details-dislike-button'>
-                <IconDisLike />
+                <IconKijkWijzerGrof />
               </button>
             </div>
             <span className='duration-title'>2h 15m</span>
@@ -38,8 +38,8 @@ const FilmInfoModalDetails = () => {
             tagItem={movie.category}
           />
           <FilmInfoModalDetailsItem
-            tagLabel='Director'
-            tagItem={movie.director}
+            tagLabel='This film is'
+            tagItem={movie.category}
           />
         </div>
       </div>

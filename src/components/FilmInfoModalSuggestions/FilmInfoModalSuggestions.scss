@@ -9,16 +9,18 @@
 
 .suggestions-container {
   display: grid;
-  row-gap: 4ch;
+  row-gap: 1ch;
   column-gap: 1ch;
   align-items: stretch;
   justify-items: stretch;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
+  @include breakpoint(sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
   @include breakpoint(md) {
     grid-template-columns: repeat(3, 1fr);
-  }
-  @include breakpoint(lg) {
-    row-gap: 3ch;
+    row-gap: 2ch;
+    column-gap: 2ch;
   }
 }
 
@@ -29,6 +31,7 @@
 .suggestions-item {
   margin: 0.1em;
   height: 100%;
+  overflow: hidden;
 }
 
 .suggestions-image {
@@ -64,13 +67,7 @@
 
 .suggestions-description {
   background-color: #2f2f2f;
-  min-height: 70%;
-  @include breakpoint(md) {
-    height: 60%;
-  }
-  @include breakpoint(lg) {
-    min-height: 45%;
-  }
+  height: 100%;
 }
 
 .suggestions-top {
@@ -107,6 +104,28 @@
   }
 }
 
+.suggestions-details-button {
+  background: none;
+  border: 1px solid var(--white);
+  border-radius: 50%;
+  padding: 0.1rem;
+  height: 1.5rem;
+  width: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  &:hover {
+    border-color: var(--white);
+    border-width: 2px;
+    background-color: rgba(109, 109, 110, 0.562);
+  }
+  @include breakpoint(md) {
+    height: 2rem;
+    width: 2rem;
+  }
+}
+
 .suggestions-second-line {
   position: relative;
 }
@@ -133,17 +152,10 @@
 
 .suggestions-button {
   background-color: transparent;
-  border: 2px solid rgba(255, 255, 255, 0.7);
-  color: white;
-  border-width: 2px;
-  background-color: rgba(42, 42, 42, 0.6);
-  border-color: rgba(255, 255, 255, 0.5);
-  width: 50px;
-  height: 50px;
+  border: none;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50%;
   position: absolute;
   bottom: 0;
   transform: translateY(50%);

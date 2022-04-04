@@ -3,9 +3,9 @@
 .details-wrapper {
   position: relative;
   width: 100%;
-  display: grid;
-  column-gap: 2em;
-  @include breakpoint(sm) {
+  @include breakpoint(md) {
+    display: grid;
+    column-gap: 2em;
     grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
   }
 }
@@ -51,15 +51,18 @@
 
 .details-button {
   background: none;
-  border: 1px solid var(--white);
+  border: none;
   border-radius: 50%;
-  padding: 0.1rem;
   height: 1.5rem;
   width: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  @include breakpoint(md) {
+    height: 2rem;
+    width: 2rem;
+  }
 }
 
 .details-add-button {
@@ -79,5 +82,8 @@
   font-size: 0.9rem;
   @include breakpoint(md) {
     font-size: 1rem;
+  }
+  @include breakpoint(lg) {
+    font-size: 1.2rem;
   }
 }
