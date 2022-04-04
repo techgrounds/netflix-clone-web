@@ -2,7 +2,8 @@
     width: 100%;
     position: relative;
     margin: 0 auto;
-    padding:2% 5%;
+    padding:2% calc(5vw + 4px);
+    // padding-left: 5vw;
     font-family: "NetflixSansLight", sans-serif;
     color:var(--gray);
     background-color: var(--black);
@@ -24,7 +25,7 @@
 
 .social-links {
   display: flex;
-  margin: 1em 0 0;
+  margin: 1em 0 0 -1.2em;
 }
 
 .social-links a {
@@ -50,7 +51,7 @@
   color: grey;
   border: solid 1px grey;
   padding: 0.5em;
-  margin-bottom: 20px;
+  margin-bottom: 2em;
 }
 
 .footer-copyright {
@@ -65,7 +66,9 @@
     margin: 0 auto;
     position: relative;
     justify-content: center;
-    width: 100%;
+    width: 70%;
+    margin: 0 auto;
+    // border: 2px solid pink;
   }
   .footer-links {
     display: flex;
