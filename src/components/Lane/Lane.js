@@ -26,9 +26,9 @@ const Lane = ({ children }) => {
   const midLane =
     movies &&
     keyedMovies.map((movie, index) => {
-      const leftIndex =
+      const leftIndex = startSwitch > 0 ?
         (keyedMovies.length - size.length + activeIndex - 1) %
-        keyedMovies.length;
+        keyedMovies.length : 0;
       const rightIndex = leftIndex + (size.length - 1);
       return (
         <LaneItem

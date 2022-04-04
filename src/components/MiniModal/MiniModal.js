@@ -3,8 +3,7 @@ import MiniModalDetails from "./MiniModalDetails";
 import gsap from "gsap";
 
 import Video from "./Video";
-
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 
 const MiniModal = ({
   setLoadMovie,
@@ -13,12 +12,11 @@ const MiniModal = ({
   updateZIndexRef,
 }) => {
   const youtubeId = "65xa8TG2G8o";
-
   const boxRef = useRef();
   const [active, setActive] = useState(true);
   const [start, setStart] = useState(false);
 
-  const remove = () => {
+  const remove = async () => {
     setStart(true);
     gsap.to(boxRef.current, {
       opacity: 0,
