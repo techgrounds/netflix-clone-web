@@ -21,7 +21,7 @@ const HomePage = () => {
       <HomeHero />
       {allMovies?.map((movieSet) => {
         console.log('MOVIESET', movieSet);
-        return <Lane />;
+        return <Lane laneTitle={movieSet.category} movies={movieSet.results} />;
       })}
 
       <FooterBrowserPage />
