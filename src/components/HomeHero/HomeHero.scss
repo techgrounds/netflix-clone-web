@@ -17,7 +17,13 @@
   touch-action: pan-y;
   margin-bottom: 20px;
   background-color: #000;
-  padding-bottom: 40%;
+  padding-bottom: 50%;
+  @include breakpoint(lg) {
+    padding-bottom: 45%;
+  }
+  @include breakpoint(xlg) {
+    padding-bottom: 40%;
+  }
 }
 
 .home-hero-container {
@@ -95,7 +101,7 @@
   top: 0;
   bottom: 25%;
   left: 4%;
-  width: 36%;
+  width: 40%;
   z-index: 10;
   display: flex;
   justify-content: flex-end;
@@ -105,18 +111,8 @@
   }
 }
 
-.logo-and-text {
-  width: 100%;
-}
-
-.title-wrapper {
-  position: relative;
-  font-size: 4vw;
-  text-shadow: 2px 2px 4px var(--black);
-}
-
 .info-wrapper {
-  color: #fff;
+  color: var(--white);
   font-weight: 400;
   line-height: normal;
   width: 100%;
@@ -143,13 +139,12 @@
   justify-content: center;
   opacity: 1;
   user-select: none;
-  margin-right: 1rem;
+  margin-right: 0.5rem;
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
   @include breakpoint(sm) {
-    padding: 0.8rem;
-  }
-  @include breakpoint(xlg) {
-    padding: 1.5rem;
-    width: 13rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
   }
 }
 
@@ -171,21 +166,26 @@
   }
 }
 
-.has-label {
-  min-height: 32px;
-  max-height: 42px;
-}
-
 .has-icon {
   padding-left: 0.5rem;
   padding-right: 1rem;
-  @include breakpoint(sm) {
-    padding-left: 1rem;
-    padding-right: 1.3rem;
+  @include breakpoint(md) {
+    padding-left: 1.5rem;
+    padding-right: 2rem;
   }
-  @include breakpoint(xlg) {
+  @include breakpoint(lg) {
     padding-left: 2rem;
-    padding-right: 2.3rem;
+    padding-right: 3rem;
+  }
+}
+
+.breadcrumb {
+  width: 0.5rem;
+  @include breakpoint(md) {
+    width: 0.8rem;
+  }
+  @include breakpoint(lg) {
+    width: 1rem;
   }
 }
 
@@ -193,9 +193,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 1.4rem;
-  width: 1.4rem;
-  @include breakpoint(sm) {
+  height: 1.5rem;
+  width: 1.5rem;
+  @include breakpoint(md) {
+    height: 1.8rem;
+    width: 1.8rem;
+  }
+  @include breakpoint(lg) {
     height: 2rem;
     width: 2rem;
   }
@@ -205,11 +209,11 @@
   font-family: inherit;
   font-size: 1rem;
   font-weight: 600;
-  font-size: 1rem;
-  @include breakpoint(sm) {
-    font-size: 1.2rem;
+  font-size: 0.8rem;
+  @include breakpoint(md) {
+    font-size: 1rem;
   }
-  @include breakpoint(xlg) {
-    font-size: 1.38rem;
+  @include breakpoint(lg) {
+    font-size: 1.367rem;
   }
 }

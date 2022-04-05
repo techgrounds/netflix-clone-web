@@ -12,21 +12,34 @@ export const LaneItem = ({
   const size = useWindowSize();
 
   const [loadMovie, setLoadMovie] = useState(false);
+  const [hovered, setHovered] = useState(0);
+  const sleep = (milliseconds) => {
+    return new Promise((resolve) => setTimeout(resolve, milliseconds));
+  };
 
   return (
     <div
       className="laneItem"
       style={{ height: `${size.itemHeight}vw`, width: `${size.itemWidth}vw` }}
       onMouseEnter={() => {
-        updateZIndexRef(1);
-        setLoadMovie(true);
-      }}
+        setHovered(1);
+        console.log('hovered: ',hovered);
+        // await sleep(1000);
+        //   if (hovered === true) {
+        //    updateZIndexRef(999);
+        //    setLoadMovie(true);
+        //    console.log('enter')
+        //  }
+        }
+      }
       onMouseLeave={() => {
+        setHovered(false)
         updateZIndexRef(0);
         setLoadMovie(false);
+        console.log('leave')
       }}
     >
-      <div
+{ loadMovie &&     <div
         className={`miniModal
                  ${
                    index === leftIndex
@@ -40,15 +53,29 @@ export const LaneItem = ({
           height: `${size.itemHeight * 2.5}vw`,
           width: `${size.itemWidth * 1.5}vw`,
         }}
+
+        onMouseEnter={() => {
+          updateZIndexRef(999);
+          // setLoadMovie(true);
+        }}
+        onMouseLeave={() => {
+          updateZIndexRef(0);
+          // setLoadMovie(false);
+        }}
+
+
       >
         {loadMovie && (
           <MiniModal
             loadMovie={loadMovie}
             moviePoster={movie.id}
             movieTitle={movie.title}
+            setLoadMovie={setLoadMovie}
+            updateZIndexRef={updateZIndexRef}
           />
         )}
-      </div>
+      </div>}
+
       <img
         src={require(`../../assets/mockup_images/${movie.id}`)}
         alt={movie.title}

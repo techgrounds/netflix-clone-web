@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState,useEffect } from "react";
 import { useSwipeable } from "react-swipeable";
 import { IconArrowRight } from "../Icons/IconArrowRight";
 import { IconArrowLeft } from "../Icons/IconArrowLeft";
@@ -10,7 +10,7 @@ import "./Lane.scss";
 
 const Lane = ({ children }) => {
   const size = useWindowSize();
-  const [activeIndex, setActiveIndex] = useState(-1);
+  const [activeIndex, setActiveIndex] = useState(0);
   const [startSwitch, setStartSwitch] = useState(0);
   const [animationState, setAnimationState] = useState(false);
   const zIndexRef = useRef();
@@ -18,19 +18,17 @@ const Lane = ({ children }) => {
   const updateZIndexRef = (number) => {
     zIndexRef.current.style.zIndex = number;
   };
-  if (activeIndex == -1) {setActiveIndex(7)}
   const keyedMovies = movies.map((movie) => {
     movie.key = uuidv4();
     return movie;
   });
+
   const midLane =
     movies &&
     keyedMovies.map((movie, index) => {
-      // if (activeIndex == -1) {setActiveIndex(size.length +1)}
-      // if (activeIndex == -1) {setActiveIndex(7)}
-      const leftIndex =
+      const leftIndex = startSwitch > 0 ?
         (keyedMovies.length - size.length + activeIndex - 1) %
-        keyedMovies.length;
+        keyedMovies.length : 0;
       const rightIndex = leftIndex + (size.length - 1);
       return (
         <LaneItem
@@ -82,7 +80,12 @@ const Lane = ({ children }) => {
     }
   };
   const updateIndexNext = (newIndex) => {
-    setActiveIndex(newIndex);
+    if (startSwitch === 0) {
+      setActiveIndex(newIndex + size.length + 1);
+    }
+   else {
+      setActiveIndex(newIndex)
+    }
     checkIndexNext(newIndex);
     animationStateOn();
     setStartSwitch(1);
@@ -91,7 +94,6 @@ const Lane = ({ children }) => {
     setActiveIndex(newIndex);
     checkIndexPrev(newIndex);
     animationStateOn();
-    setStartSwitch(1);
   };
   const handlers = useSwipeable({
     onSwipedLeft: () => updateIndexPrev(activeIndex + size.length),
@@ -118,7 +120,7 @@ const Lane = ({ children }) => {
           }}
           ref={laneRef}
         >
-          {arrayFromLastLane}
+          {startSwitch > 0 && arrayFromLastLane}
           {midLane}
           {arrayFromFirstLane}
         </div>
@@ -136,7 +138,7 @@ const Lane = ({ children }) => {
               top: `-${size.itemHeight}vw`,
             }}
             onClick={() => {
-              if (startSwitch === 1) updateIndexPrev(activeIndex - size.length);
+             updateIndexPrev(activeIndex - size.length);
             }}
           >
             <IconArrowLeft />
@@ -160,10 +162,11 @@ const Lane = ({ children }) => {
             className="pageIndicator_container"
             style={{ top: `-${size.itemHeight * 2.1}vw` }}
           >
-            {movies.map((child, index) => {
+            {keyedMovies.map((movie, index) => {
               if (index % size.length === 1)
                 return (
                   <button
+                    key={movie.key}
                     className={`${
                       index === activeIndex - size.length
                         ? "active_pageIndicatior pageIndicator"
