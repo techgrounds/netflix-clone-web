@@ -1,12 +1,13 @@
 .member-footer {
-    max-width: 100%;
+    width: 100%;
     position: relative;
-    margin: 2.5rem auto;
-    padding: 0 4%;
+    margin: 0 auto;
+    padding:2% calc(5vw + 4px);
+    // padding-left: 5vw;
     font-family: "NetflixSansLight", sans-serif;
     color:var(--gray);
     background-color: var(--black);
-    display: flex;
+    display: block;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
@@ -24,7 +25,7 @@
 
 .social-links {
   display: flex;
-  margin-bottom: 1em;
+  margin: 1em 0 0 -1.2em;
 }
 
 .social-links a {
@@ -50,7 +51,7 @@
   color: grey;
   border: solid 1px grey;
   padding: 0.5em;
-  margin-bottom: 20px;
+  margin-bottom: 2em;
 }
 
 .footer-copyright {
@@ -62,8 +63,11 @@
 @media (min-width: 600px) {
   .member-footer {
     display: flex;
+    margin: 0 auto;
     position: relative;
-    max-width: 60%;
+    justify-content: center;
+    width: 70%;
+    margin: 0 auto;
   }
   .footer-links {
     display: flex;
