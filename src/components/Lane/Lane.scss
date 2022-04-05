@@ -11,20 +11,22 @@
   @include breakpoint(sm) {
     padding: 5.5em 0;
     margin-bottom: -150px;
-    top: -80px
+    top: -80px;
   }
   @include breakpoint(md) {
     padding: 7.25em 0;
     margin-bottom: -200px;
-    top: -100px
+    top: -140px;
   }
   @include breakpoint(lg) {
     padding: 9em 0;
     margin-bottom: -250px;
+    top: -200px;
   }
   @include breakpoint(xlg) {
     padding: 10.25em 0;
     margin-bottom: -300px;
+    top: -250px;
   }
 }
 .lane {
@@ -169,8 +171,7 @@
   z-index: 10;
   cursor: pointer;
   border-radius: 8px;
-  animation: miniModalGrow 2100ms ease-in-out;
-  // transition: ease-in-out;
+  animation: miniModalGrow 1200ms;
 }
 .leftModal {
   position: absolute;
@@ -178,7 +179,7 @@
   transform:translateX(60px);
   cursor: pointer;
   border-radius: 8px;
-  animation: miniModalGrowLeft 2100ms;
+  animation: miniModalGrowLeft 1200ms;
 }
 .rightModal {
   position: absolute;
@@ -186,18 +187,18 @@
   transform: translateX(-60px);
   cursor: pointer;
   border-radius: 8px;
-  animation: miniModalGrowRight 2100ms;
+  animation: miniModalGrowRight 1200ms;
 }
 
 @keyframes miniModalGrowRight{
   0% {
-    transform: translateX(-30px) scale(0.7);
+    transform: scale(0.65) translateY(5vw);
     opacity: 0;}
-  70% {
-    transform: translateX(-30px) scale(0.7);
+  80% {
+    transform: scale(0.65) translateY(5vw);
     opacity: 0;}
-  71% {
-    transform: translateX(-30px) scale(0.7);
+  81% {
+    transform: scale(0.65) translateY(5vw);
     opacity: 1;}
   100% {
     transform: translateX(-60px) scale(1);
@@ -206,13 +207,13 @@
 
 @keyframes miniModalGrowLeft {
   0% {
-    transform: translateX(30px) scale(0.7);
+    transform: scale(0.65) translateY(5vw);
     opacity: 0;}
-  70% {
-    transform: translateX(30px) scale(0.7);
+  80% {
+    transform: scale(0.65) translateY(5vw);
     opacity: 0;}
-  71% {
-    transform: translateX(30px) scale(0.7);
+  81% {
+    transform: scale(0.65) translateY(5vw);
     opacity: 1;}
   100% {
     transform: translateX(60px) scale(1);
@@ -222,13 +223,13 @@
 
 @keyframes miniModalGrow{
   0% {
-    transform: scale(0.7);
+    transform: scale(0.65);
     opacity: 0;}
-  70% {
-    transform: scale(0.7);
+  80% {
+    transform: scale(0.65) translateY(5vw);
     opacity: 0;}
-  71% {
-    transform: scale(0.7);
+  81% {
+    transform: scale(0.65) translateY(5vw);
     opacity: 1;}
   100% {
     transform: scale(1);
