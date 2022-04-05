@@ -179,6 +179,11 @@ picture {
   object-fit: cover;
   border-radius: 5%;
 }
+.custom-profile-icon {
+  height: 2.7em;
+  width: auto;
+  border: .5px solid var(--gray);
+}
 
 .navigation-menu {
   .sub-menu {

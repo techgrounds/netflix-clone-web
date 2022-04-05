@@ -9,16 +9,19 @@ import requests from '../requests';
 const HomePage = () => {
   return (
     <>
-      <Navbar />
-      <HomeHero />
-      <Lane title="Tranding Now" fetchUrl={requests.fetchTrending} />
-      <Lane
-        title="Netflix Originals"
-        fetchUrl={requests.fetchNetflixOriginals}
-      />
-      <Lane title="Action Movies" fetchUrl={requests.fetchActionMovies} />
-      <Lane title="Horror Movies" fetchUrl={requests.fetchHorrorMovies} />
-      <FooterBrowserPage />
+
+      <Navbar/>
+      <HomeHero/>
+      <Lane/>
+      <Lane/>
+      <Lane/>
+      <Lane/>
+      <Lane/>
+      <Lane/>
+      <Lane/>
+      <Lane/>
+      <Lane/>
+      <FooterBrowserPage/>
     </>
   );
 };
