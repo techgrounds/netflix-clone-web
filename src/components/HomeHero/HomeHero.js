@@ -14,9 +14,7 @@ const HomeHero = () => {
   const timeline = useRef()
   const selector = gsap.utils.selector(element)
   const [isModalVisible, setIsModalVisible] = useState(false)
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false)
-
-  const movie = movieData[3]
+  const [isVideoPlaying, setIsVideoPlaying] = useState(true)
 
   const youtubeId = '65xa8TG2G8o'
 
@@ -32,7 +30,7 @@ const HomeHero = () => {
         selector('.title-wrapper'),
         {
           duration: 2,
-          delay: 15,
+          delay: 25,
           ease: 'power4.out',
           yPercent: '40',
           scale: 0.8,
@@ -44,7 +42,7 @@ const HomeHero = () => {
         selector('.info-wrapper'),
         {
           opacity: 0,
-          delay: 15,
+          delay: 25,
           ease: 'power4',
         },
         'start'

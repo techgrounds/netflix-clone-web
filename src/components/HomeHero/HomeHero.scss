@@ -146,6 +146,10 @@
     padding-top: 0.3rem;
     padding-bottom: 0.3rem;
   }
+  @include breakpoint(lg) {
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+  }
 }
 
 .home-hero-play-button {

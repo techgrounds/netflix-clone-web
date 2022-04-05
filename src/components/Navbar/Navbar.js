@@ -11,6 +11,7 @@ import { IconCaretDown } from '../Icons/IconCaretDown';
 import { IconPencil } from '../Icons/IconPencil';
 import { IconAccount } from '../Icons/IconAccount';
 import { IconQuestion } from '../Icons/IconQuestion';
+import AristoCatflix from '../../assets/images/aristoCatflix.jpg';
 
 const Navbar = () => {
   const [dropdown, setDropdown] = useState(false);
@@ -317,9 +318,10 @@ const Navbar = () => {
                         <NavLink to="" className="profile-link">
                           <div className="avatar-wrapper">
                             <img
-                              className="profile-icon"
-                              src="https://occ-0-1368-769.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABbme8JMz4rEKFJhtzpOKWFJ_6qX-0y5wwWyYvBhWS0VKFLa289dZ5zvRBggmFVWVPL2AAYE8xevD4jjLZjWumNo.png?r=a41"
-                              alt=""
+                              className="profile-icon custom-profile-icon"
+                              src={AristoCatflix}
+                              alt="aristoCatflix"
+                              height='12px'
                             />
                           </div>
                           <span className="profile-name">Jens</span>
