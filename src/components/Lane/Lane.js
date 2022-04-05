@@ -8,7 +8,7 @@ import movies from "../../movies.json";
 import useWindowSize from "./WindowSize";
 import "./Lane.scss";
 
-const Lane = ({ children }) => {
+const Lane = () => {
   const size = useWindowSize();
   const [activeIndex, setActiveIndex] = useState(0);
   const [startSwitch, setStartSwitch] = useState(0);
