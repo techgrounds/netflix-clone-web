@@ -18,6 +18,8 @@ const searchReducer = (state = initialState, action) => {
         ...state,
         inputValue: '',
       };
+    default:
+      return state;
   }
 };
 
