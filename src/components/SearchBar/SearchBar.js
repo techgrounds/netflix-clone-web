@@ -5,7 +5,6 @@ import { useDispatch } from 'react-redux';
 import {
   changeSearchInputValue,
   clearSearchInputValue,
-  fetchSearchResultsAsync,
 } from '../../redux/search/search.actions';
 
 import { IconSearch } from '../Icons/IconSearch';
@@ -45,7 +44,7 @@ export default function SearchBar() {
 
     if (value.length > 0) {
       navigate(`/search?q=${value}`);
-      dispatch(fetchSearchResultsAsync(value));
+      //dispatch(fetchSearchResultsAsync(value))
     } else navigate('/home');
   };
 
