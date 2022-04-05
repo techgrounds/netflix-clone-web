@@ -1,6 +1,6 @@
-import useWindowSize from "./WindowSize";
-import { useState } from "react";
-import MiniModal from "../MiniModal";
+import useWindowSize from './WindowSize';
+import { useState } from 'react';
+import MiniModal from '../MiniModal';
 
 export const LaneItem = ({
   updateZIndexRef,
@@ -43,10 +43,10 @@ export const LaneItem = ({
         className={`miniModal
                  ${
                    index === leftIndex
-                     ? "leftModal"
+                     ? 'leftModal'
                      : index === rightIndex
-                     ? "rightModal"
-                     : "not"
+                     ? 'rightModal'
+                     : 'not'
                  }
                  `}
         style={{

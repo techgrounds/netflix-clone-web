@@ -1,20 +1,59 @@
-import './HomeHero.scss'
-import { useEffect, useRef, useState } from 'react'
-import { IconInfo } from '../Icons/IconInfo'
-import { IconPlayBlack } from '../Icons/IconPlayBlack'
-import { gsap } from 'gsap'
-import movieData from '../../movies.json'
-import FilmInfoModal from '../FilmInfoModal/FilmInfoModal'
+import './HomeHero.scss';
+import { useEffect, useRef, useState } from 'react';
+import { IconInfo } from '../Icons/IconInfo';
+import { IconPlayBlack } from '../Icons/IconPlayBlack';
+import { gsap } from 'gsap';
+import movieData from '../../movies.json';
+import FilmInfoModal from '../FilmInfoModal/FilmInfoModal';
+
+//movieDB
+import axios from '../../axiosInstance';
+import requests from '../../requests';
+import { motionValue } from 'framer-motion';
 
 const HomeHero = () => {
-  const element = useRef()
-  const selector = gsap.utils.selector(element)
-  const timeline = useRef()
-  const [isModalVisible, setIsModalVisible] = useState(false)
+  const element = useRef();
+  const selector = gsap.utils.selector(element);
+  const timeline = useRef();
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const [movie, setMovie] = useState([]);
 
   const openModal = () => {
-    setIsModalVisible(true)
-  }
+    setIsModalVisible(true);
+  };
+
+  //movieDB
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const request = await axios.get(requests.fetchNetflixOriginals);
+        console.log('REQUEST', request.data);
+        const randomMovieSet = Math.floor(
+          Math.random() * (request.data.length - 1) + 1
+        );
+
+        console.log('random movie set number', randomMovieSet);
+
+        const movies = request.data[randomMovieSet].results;
+
+        const selectRandomMovie = Math.floor(Math.random() * movies.length - 1);
+
+        console.log('random movie number', selectRandomMovie);
+
+        const movie = movies[selectRandomMovie];
+
+        setMovie(movie);
+
+        console.log('MOVIE', movie);
+
+        return request;
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchData();
+  }, []);
 
   useEffect(() => {
     timeline.current = gsap
@@ -40,17 +79,23 @@ const HomeHero = () => {
           ease: 'power4',
         },
         'start'
-      )
-  }, [selector])
+      );
+  }, [selector]);
 
   return (
     <div className='home-hero'>
       <div className='home-hero-row'>
         <div className='home-hero-container' ref={element}>
-          <div className='home-hero-trailer-wrapper'>
-            <video autoPlay loop muted className='home-hero-trailer'>
+          <div
+            className='home-hero-trailer-wrapper'
+            style={{
+              backgroundSize: 'cover',
+              backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
+              backgroundPosition: 'center center',
+            }}>
+            {/* <video autoPlay loop muted className='home-hero-trailer'>
               <source src={require(`../../assets/videos/homehero.mp4`)} />
-            </video>
+            </video> */}
             <div className='trailer-overlay overlay'></div>
             <div className='home-hero-overlay overlay'></div>
           </div>
@@ -58,10 +103,12 @@ const HomeHero = () => {
             <div className='home-hero-info'>
               <div className='logo-and-text'>
                 <div className='title-wrapper'>
-                  <h2>{movieData[0].title}</h2>
+                  {/* <h2>{movieData[0].title}</h2> */}
+                  <h2>{movie?.title || movie?.name || movie?.original_name}</h2>
                 </div>
                 <div className='info-wrapper'>
-                  <p>{movieData[0].description}</p>
+                  {/* <p>{movieData[0].description}</p> */}
+                  <p>{movie?.overview}</p>
                 </div>
                 <div className='button-wrapper'>
                   <button className='home-hero-button home-hero-play-button has-icon has-label'>
@@ -73,8 +120,7 @@ const HomeHero = () => {
                   </button>
                   <button
                     className='home-hero-button home-hero-info-button has-icon has-label'
-                    onClick={openModal}
-                  >
+                    onClick={openModal}>
                     <div className='home-hero-button-icon'>
                       <IconInfo />
                     </div>
@@ -92,7 +138,7 @@ const HomeHero = () => {
         />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default HomeHero
+export default HomeHero;

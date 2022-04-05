@@ -8,6 +8,6 @@ const persistCongig = {
   storage,
 };
 
-const rootReducer = combineReducers(searchReducer);
+const rootReducer = combineReducers({ search: searchReducer });
 
 export default persistReducer(persistCongig, rootReducer);

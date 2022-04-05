@@ -1,3 +1,4 @@
+
 import React, { useRef, useState,useEffect } from "react";
 import { useSwipeable } from "react-swipeable";
 import { IconArrowRight } from "../Icons/IconArrowRight";
@@ -18,6 +19,7 @@ const Lane = ({ children }) => {
   const updateZIndexRef = (number) => {
     zIndexRef.current.style.zIndex = number;
   };
+
   const keyedMovies = movies.map((movie) => {
     movie.key = uuidv4();
     return movie;
@@ -30,6 +32,7 @@ const Lane = ({ children }) => {
         (keyedMovies.length - size.length + activeIndex - 1) %
         keyedMovies.length : 0;
       const rightIndex = leftIndex + (size.length - 1);
+
       return (
         <LaneItem
           key={movie.key}
@@ -102,8 +105,11 @@ const Lane = ({ children }) => {
 
   return (
     <div className="laneContainer" style={{ zIndex: 0 }} ref={zIndexRef}>
-      <div className="lane" style={{ height: `${size.itemHeight * 1.33}vw` }}
-      {...handlers}>
+      <div
+        className="lane"
+        style={{ height: `${size.itemHeight * 1.33}vw` }}
+        {...handlers}
+      >
         <div className="laneName">
           Lane
           <button className="laneNameButton">
@@ -116,7 +122,7 @@ const Lane = ({ children }) => {
           className="inner"
           style={{
             transform: `translateX(-${activeIndex * size.itemWidth}vw)`,
-            transition: `${animationState ? " transform 0.8s" : "undefined"}`,
+            transition: `${animationState ? ' transform 0.8s' : 'undefined'}`,
           }}
           ref={laneRef}
         >
@@ -129,12 +135,12 @@ const Lane = ({ children }) => {
           <button
             className={`${
               startSwitch === 0
-                ? "indicator_inactive indicator_prev"
-                : "indicator indicator_prev"
+                ? 'indicator_inactive indicator_prev'
+                : 'indicator indicator_prev'
             }`}
             style={{
               height: `${size.itemHeight}vw`,
-              width: "5vw",
+              width: '5vw',
               top: `-${size.itemHeight}vw`,
             }}
             onClick={() => {
@@ -148,7 +154,7 @@ const Lane = ({ children }) => {
             className="indicator indicator_next"
             style={{
               height: `${size.itemHeight}vw`,
-              width: "5vw",
+              width: '5vw',
               top: `-${size.itemHeight}vw`,
             }}
             onClick={() => {
@@ -169,8 +175,8 @@ const Lane = ({ children }) => {
                     key={movie.key}
                     className={`${
                       index === activeIndex - size.length
-                        ? "active_pageIndicatior pageIndicator"
-                        : "pageIndicator"
+                        ? 'active_pageIndicatior pageIndicator'
+                        : 'pageIndicator'
                     }`}
                   />
                 );
