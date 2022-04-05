@@ -1,35 +1,35 @@
-import './FilmInfoModal.scss';
-import { IconClose } from '../Icons/IconClose';
-import { useEffect, useCallback, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import useOutsideClick from '../../hooks/useOutsideClick';
-import FilmInfoModalHeader from '../FilmInfoModalHeader/FilmInfoModalHeader';
-import FilmInfoModalDetails from '../FilmInfoModalDetails/FilmInfoModalDetails';
-import FilmInfoModalSuggestions from '../FilmInfoModalSuggestions/FilmInfoModalSuggestions';
-import FilmInfoModalFooter from '../FilmInfoModalFooter/FilmInfoModalFooter';
+import './FilmInfoModal.scss'
+import { IconClose } from '../Icons/IconClose'
+import { useEffect, useCallback, useRef } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import useOutsideClick from '../../hooks/useOutsideClick'
+import FilmInfoModalHeader from '../FilmInfoModalHeader/FilmInfoModalHeader'
+import FilmInfoModalDetails from '../FilmInfoModalDetails/FilmInfoModalDetails'
+import FilmInfoModalSuggestions from '../FilmInfoModalSuggestions/FilmInfoModalSuggestions'
+import FilmInfoModalFooter from '../FilmInfoModalFooter/FilmInfoModalFooter'
 
 const FilmInfoModal = ({ isModalVisible, setIsModalVisible }) => {
-  const modalQuit = useRef();
+  const modalQuit = useRef()
 
   useOutsideClick(modalQuit, () => {
     if (isModalVisible) {
-      setIsModalVisible(false);
+      setIsModalVisible(false)
     }
-  });
+  })
 
   const handleKeyPress = useCallback(
     (event) => {
       if (event.key === 'Escape' && isModalVisible) {
-        setIsModalVisible(false);
+        setIsModalVisible(false)
       }
     },
     [setIsModalVisible, isModalVisible]
-  );
+  )
 
   useEffect(() => {
-    document.addEventListener('keydown', handleKeyPress);
-    return () => document.removeEventListener('keydown', handleKeyPress);
-  }, [handleKeyPress]);
+    document.addEventListener('keydown', handleKeyPress)
+    return () => document.removeEventListener('keydown', handleKeyPress)
+  }, [handleKeyPress])
 
   return (
     <AnimatePresence>
@@ -50,7 +50,7 @@ const FilmInfoModal = ({ isModalVisible, setIsModalVisible }) => {
               delay: 0.2,
             },
           }}
-          className="modal-background"
+          className='modal-background'
         >
           <motion.div
             initial={{
@@ -68,26 +68,26 @@ const FilmInfoModal = ({ isModalVisible, setIsModalVisible }) => {
                 delay: 0.2,
               },
             }}
-            className="modal-container"
+            className='modal-container'
             ref={modalQuit}
           >
-            <div className="modal-content">
-              <div className="modal-header">
+            <div className='modal-content'>
+              <div className='modal-header'>
                 <FilmInfoModalHeader />
               </div>
-              <div className="modal-description">
-                <div className="modal-details">
+              <div className='modal-description'>
+                <div className='modal-details'>
                   <FilmInfoModalDetails />
                 </div>
-                <div className="modal-suggestions">
+                <div className='modal-suggestions'>
                   <FilmInfoModalSuggestions />
                 </div>
               </div>
-              <div className="modal-footer">
+              <div className='modal-footer'>
                 <FilmInfoModalFooter />
               </div>
               <button
-                className="modal-close-button"
+                className='modal-close-button'
                 onClick={() => setIsModalVisible(false)}
               >
                 <IconClose />
@@ -97,7 +97,7 @@ const FilmInfoModal = ({ isModalVisible, setIsModalVisible }) => {
         </motion.div>
       )}
     </AnimatePresence>
-  );
-};
+  )
+}
 
-export default FilmInfoModal;
+export default FilmInfoModal
