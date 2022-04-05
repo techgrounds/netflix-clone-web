@@ -35,7 +35,7 @@ function useWindowSize() {
         : window.innerWidth < 1400 ? 19
         : 16;
     }
-    const startIndex = setLaneLength()
+    // const startIndex = setLaneLength()
       function handleResize() {
       setWindowSize({
         length: setLaneLength(),

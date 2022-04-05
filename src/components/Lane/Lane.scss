@@ -11,10 +11,12 @@
   @include breakpoint(sm) {
     padding: 5.5em 0;
     margin-bottom: -150px;
+    top: -80px
   }
   @include breakpoint(md) {
     padding: 7.25em 0;
     margin-bottom: -200px;
+    top: -100px
   }
   @include breakpoint(lg) {
     padding: 9em 0;
@@ -165,23 +167,70 @@
 .miniModal {
   position: absolute;
   z-index: 10;
-  opacity: 1;
   cursor: pointer;
   border-radius: 8px;
+  animation: miniModalGrow 2100ms ease-in-out;
+  // transition: ease-in-out;
 }
 .leftModal {
   position: absolute;
   z-index: 1;
-  opacity: 1;
- transform:translateX(60px);
+  transform:translateX(60px);
   cursor: pointer;
   border-radius: 8px;
+  animation: miniModalGrowLeft 2100ms;
 }
 .rightModal {
   position: absolute;
   z-index: 1;
-  opacity: 1;
   transform: translateX(-60px);
   cursor: pointer;
   border-radius: 8px;
+  animation: miniModalGrowRight 2100ms;
+}
+
+@keyframes miniModalGrowRight{
+  0% {
+    transform: translateX(-30px) scale(0.7);
+    opacity: 0;}
+  70% {
+    transform: translateX(-30px) scale(0.7);
+    opacity: 0;}
+  75% {
+    transform: translateX(-30px) scale(0.7);
+    opacity: 1;}
+  100% {
+    transform: translateX(-60px) scale(1);
+  }
+}
+
+@keyframes miniModalGrowLeft {
+  0% {
+    transform: translateX(30px) scale(0.7);
+    opacity: 0;}
+  70% {
+    transform: translateX(30px) scale(0.7);
+    opacity: 0;}
+  75% {
+    transform: translateX(30px) scale(0.7);
+    opacity: 1;}
+  100% {
+    transform: translateX(60px) scale(1);
+  }
+}
+
+
+@keyframes miniModalGrow{
+  0% {
+    transform: scale(0.7);
+    opacity: 0;}
+  70% {
+    transform: scale(0.7);
+    opacity: 0;}
+  75% {
+    transform: scale(0.7);
+    opacity: 1;}
+  100% {
+    transform: scale(1);
+  }
 }
