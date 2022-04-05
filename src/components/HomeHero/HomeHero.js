@@ -26,23 +26,31 @@ const HomeHero = () => {
   //movieDB
   useEffect(() => {
     async function fetchData() {
-      const request = await axios.get(requests.fetchNetflixOriginals);
-      console.log(request);
-      // const movieData = request.data;
-      // console.log(movieData);
-      // setMovie(
-      //   request.data.results[
-      //     Math.floor(Math.random() * request.data.results.length)
-      //   ]
-      // );
+      try {
+        const request = await axios.get(requests.fetchNetflixOriginals);
+        console.log('REQUEST', request.data);
+        const randomMovieSet = Math.floor(
+          Math.random() * (request.data.length - 1) + 1
+        );
 
-      setMovie(
-        request.data[Math.floor(Math.random() * request.data.length - 1) + 1]
-      );
+        console.log('random movie set number', randomMovieSet);
 
-      console.log('MOVIE', movie.results);
+        const movies = request.data[randomMovieSet].results;
 
-      return request;
+        const selectRandomMovie = Math.floor(Math.random() * movies.length - 1);
+
+        console.log('random movie number', selectRandomMovie);
+
+        const movie = movies[selectRandomMovie];
+
+        setMovie(movie);
+
+        console.log('MOVIE', movie);
+
+        return request;
+      } catch (error) {
+        console.log(error);
+      }
     }
     fetchData();
   }, []);
@@ -75,51 +83,49 @@ const HomeHero = () => {
   }, [selector]);
 
   return (
-    <div className="home-hero">
-      <div className="home-hero-row">
-        <div className="home-hero-container" ref={element}>
+    <div className='home-hero'>
+      <div className='home-hero-row'>
+        <div className='home-hero-container' ref={element}>
           <div
-            className="home-hero-trailer-wrapper"
+            className='home-hero-trailer-wrapper'
             style={{
               backgroundSize: 'cover',
               backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
               backgroundPosition: 'center center',
-            }}
-          >
+            }}>
             {/* <video autoPlay loop muted className='home-hero-trailer'>
               <source src={require(`../../assets/videos/homehero.mp4`)} />
             </video> */}
-            <div className="trailer-overlay overlay"></div>
-            <div className="home-hero-overlay overlay"></div>
+            <div className='trailer-overlay overlay'></div>
+            <div className='home-hero-overlay overlay'></div>
           </div>
-          <div className="home-hero-fill-container">
-            <div className="home-hero-info">
-              <div className="logo-and-text">
-                <div className="title-wrapper">
+          <div className='home-hero-fill-container'>
+            <div className='home-hero-info'>
+              <div className='logo-and-text'>
+                <div className='title-wrapper'>
                   {/* <h2>{movieData[0].title}</h2> */}
                   <h2>{movie?.title || movie?.name || movie?.original_name}</h2>
                 </div>
-                <div className="info-wrapper">
+                <div className='info-wrapper'>
                   {/* <p>{movieData[0].description}</p> */}
                   <p>{movie?.overview}</p>
                 </div>
-                <div className="button-wrapper">
-                  <button className="home-hero-button home-hero-play-button has-icon has-label">
-                    <div className="home-hero-button-icon">
+                <div className='button-wrapper'>
+                  <button className='home-hero-button home-hero-play-button has-icon has-label'>
+                    <div className='home-hero-button-icon'>
                       <IconPlayBlack />
                     </div>
                     <div style={{ width: '0.5rem' }}></div>
-                    <span className="home-hero-button-text">Play</span>
+                    <span className='home-hero-button-text'>Play</span>
                   </button>
                   <button
-                    className="home-hero-button home-hero-info-button has-icon has-label"
-                    onClick={openModal}
-                  >
-                    <div className="home-hero-button-icon">
+                    className='home-hero-button home-hero-info-button has-icon has-label'
+                    onClick={openModal}>
+                    <div className='home-hero-button-icon'>
                       <IconInfo />
                     </div>
                     <div style={{ width: '0.5rem' }}></div>
-                    <span className="home-hero-button-text">More Info</span>
+                    <span className='home-hero-button-text'>More Info</span>
                   </button>
                 </div>
               </div>
