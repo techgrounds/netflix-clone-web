@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'https://api.themoviedb.org/3/',
+  baseURL: 'https://afternoon-oasis-79606.herokuapp.com',
 });
 
 export default instance;
