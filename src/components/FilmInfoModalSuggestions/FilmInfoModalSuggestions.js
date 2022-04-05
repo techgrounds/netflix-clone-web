@@ -54,7 +54,7 @@ const FilmInfoModalSuggestions = () => {
           className='suggestions-button'
           onClick={() => showMoreItems((prevProps) => !prevProps)}
         >
-          <ButtonRoundDarkTooltip tooltiptext='Show more'>
+          <ButtonRoundDarkTooltip tooltiptext='Show More'>
             <IconArrowDown />
           </ButtonRoundDarkTooltip>
         </div>

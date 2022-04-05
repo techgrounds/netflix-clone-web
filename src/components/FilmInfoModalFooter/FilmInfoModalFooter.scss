@@ -10,10 +10,21 @@
   margin-bottom: 20px;
 }
 
+.modal-footer-title {
+  font-size: 2rem;
+  span {
+    font-weight: 100;
+  }
+}
+
 .modal-footer-item {
   font-size: 14px;
   line-height: 20px;
   margin: 0.5em;
   margin-left: 0;
   word-break: break-word;
+}
+
+.kijk-wijzer {
+  display: flex;
 }

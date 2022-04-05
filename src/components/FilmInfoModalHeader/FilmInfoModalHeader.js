@@ -5,15 +5,18 @@ import { IconAdd } from '../Icons/IconAdd'
 import { IconLike } from '../Icons/IconLike'
 import { IconDisLike } from '../Icons/IconDisLike'
 import { ButtonRoundDarkTooltip } from '../ButtonRound/ButtonRound'
+import Video from '../MiniModal/Video'
 
-const FilmInfoModalVideo = () => {
+const FilmInfoModalVideo = ({ isVideoPlaying }) => {
   const movie = movieData[0]
+
+  const youtubeId = '65xa8TG2G8o'
 
   return (
     <>
-      <video autoPlay loop muted className='header-video'>
-        <source src={require(`../../assets/videos/homehero.mp4`)} />
-      </video>
+      <div className='header-video'>
+        {!isVideoPlaying && <Video youtubeId={youtubeId} />}
+      </div>
       <div className='header-overlay'></div>
       <div className='header-container'>
         <div className='header-description'>

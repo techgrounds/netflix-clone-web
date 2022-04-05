@@ -36,28 +36,19 @@
   bottom: 0;
 }
 
-.home-hero-trailer {
-  position: absolute;
-  background-position: center center;
-  background-size: cover;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-  opacity: 1;
-  transition: opacity 0.4s cubic-bezier(0.665, 0.235, 0.265, 0.8) 0s;
-}
-
 .trailer-overlay {
   background: linear-gradient(
     77deg,
     rgba(0, 0, 0, 0.6) 0,
     rgba(0, 0, 0, 0) 85%
   );
+  background-position: center center;
   position: absolute;
+  background-size: cover;
   top: 0;
   left: 0;
   right: 26.09%;
+  width: 100%;
   bottom: 0;
   opacity: 1;
   transition: opacity 0.5s;
@@ -85,7 +76,7 @@
   background-repeat: repeat-x;
   background-color: transparent;
   width: 100%;
-  height: 14.7vw;
+  height: 19vw;
   top: auto;
   bottom: -1px;
   opacity: 1;

@@ -83,11 +83,11 @@
 @media only screen and (min-width: 950px) and (max-width: 1449px),
   only screen and (min-width: 1450px) {
   .hero-container {
-    top: -65px;
-    height: 800px;
+    height: 900px;
     background-blend-mode: none;
     background: transparent;
     background-repeat: no-repeat;
+    background-size: cover;
     &::before {
       content: '';
       position: absolute;

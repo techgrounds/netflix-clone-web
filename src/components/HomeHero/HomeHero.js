@@ -5,12 +5,18 @@ import { IconPlayBlack } from '../Icons/IconPlayBlack'
 import { gsap } from 'gsap'
 import movieData from '../../movies.json'
 import FilmInfoModal from '../FilmInfoModal/FilmInfoModal'
+import Video from '../MiniModal/Video'
 
 const HomeHero = () => {
   const element = useRef()
-  const selector = gsap.utils.selector(element)
   const timeline = useRef()
+  const selector = gsap.utils.selector(element)
   const [isModalVisible, setIsModalVisible] = useState(false)
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false)
+
+  const movie = movieData[0]
+
+  const youtubeId = '65xa8TG2G8o'
 
   const openModal = () => {
     setIsModalVisible(true)
@@ -23,8 +29,8 @@ const HomeHero = () => {
       .to(
         selector('.title-wrapper'),
         {
-          duration: 1.5,
-          delay: 5,
+          duration: 2,
+          delay: 15,
           ease: 'power4.out',
           yPercent: '100',
           scale: 0.8,
@@ -36,7 +42,7 @@ const HomeHero = () => {
         selector('.info-wrapper'),
         {
           opacity: 0,
-          delay: 5,
+          delay: 15,
           ease: 'power4',
         },
         'start'
@@ -48,9 +54,15 @@ const HomeHero = () => {
       <div className='home-hero-row'>
         <div className='home-hero-container' ref={element}>
           <div className='home-hero-trailer-wrapper'>
-            <video autoPlay loop muted className='home-hero-trailer'>
-              <source src={require(`../../assets/videos/homehero.mp4`)} />
-            </video>
+            {!isVideoPlaying ? (
+              <Video youtubeId={youtubeId} />
+            ) : (
+              <img
+                src={require(`../../assets/mockup_images/${movie.id}`)}
+                className='home-hero-trailer'
+                alt={movie.id}
+              />
+            )}
             <div className='trailer-overlay overlay'></div>
             <div className='home-hero-overlay overlay'></div>
           </div>
@@ -58,10 +70,10 @@ const HomeHero = () => {
             <div className='home-hero-info'>
               <div className='logo-and-text'>
                 <div className='title-wrapper'>
-                  <h2>{movieData[0].title}</h2>
+                  <h2>{movie.title}</h2>
                 </div>
                 <div className='info-wrapper'>
-                  <p>{movieData[0].description}</p>
+                  <p>{movie.description}</p>
                 </div>
                 <div className='button-wrapper'>
                   <button className='home-hero-button home-hero-play-button has-icon has-label'>
@@ -73,7 +85,10 @@ const HomeHero = () => {
                   </button>
                   <button
                     className='home-hero-button home-hero-info-button has-icon has-label'
-                    onClick={openModal}
+                    onClick={() => {
+                      openModal()
+                      setIsVideoPlaying(true)
+                    }}
                   >
                     <div className='home-hero-button-icon'>
                       <IconInfo />

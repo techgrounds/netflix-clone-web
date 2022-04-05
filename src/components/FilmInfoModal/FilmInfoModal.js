@@ -88,7 +88,9 @@ const FilmInfoModal = ({ isModalVisible, setIsModalVisible }) => {
               </div>
               <button
                 className='modal-close-button'
-                onClick={() => setIsModalVisible(false)}
+                onClick={() => {
+                  setIsModalVisible(false)
+                }}
               >
                 <IconClose />
               </button>

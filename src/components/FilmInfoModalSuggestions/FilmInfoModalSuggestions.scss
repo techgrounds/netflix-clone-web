@@ -9,7 +9,7 @@
 
 .suggestions-container {
   display: grid;
-  row-gap: 4ch;
+  row-gap: 1ch;
   column-gap: 1ch;
   align-items: stretch;
   justify-items: stretch;
@@ -19,9 +19,8 @@
   }
   @include breakpoint(md) {
     grid-template-columns: repeat(3, 1fr);
-  }
-  @include breakpoint(lg) {
-    row-gap: 3ch;
+    row-gap: 2ch;
+    column-gap: 2ch;
   }
 }
 
@@ -32,6 +31,7 @@
 .suggestions-item {
   margin: 0.1em;
   height: 100%;
+  overflow: hidden;
 }
 
 .suggestions-image {
@@ -67,13 +67,7 @@
 
 .suggestions-description {
   background-color: #2f2f2f;
-  min-height: 80%;
-  @include breakpoint(sm) {
-    min-height: 50%;
-  }
-  @include breakpoint(md) {
-    min-height: 70%;
-  }
+  height: 100%;
 }
 
 .suggestions-top {

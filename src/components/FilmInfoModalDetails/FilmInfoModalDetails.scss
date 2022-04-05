@@ -49,38 +49,13 @@
   align-items: center;
 }
 
-.details-button {
-  background: none;
-  border: none;
-  border-radius: 50%;
-  height: 1.5rem;
-  width: 1.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  @include breakpoint(md) {
-    height: 2rem;
-    width: 2rem;
-  }
-}
-
-.details-add-button {
-  margin-right: 0.5rem;
-}
-
-.details-like-button {
-  margin-right: 0.5rem;
-}
-
-.details-dislike-button {
-  margin-right: 0.5rem;
-}
-
 .details-description {
   line-height: 27px;
   font-size: 0.9rem;
   @include breakpoint(md) {
     font-size: 1rem;
+  }
+  @include breakpoint(lg) {
+    font-size: 1.2rem;
   }
 }

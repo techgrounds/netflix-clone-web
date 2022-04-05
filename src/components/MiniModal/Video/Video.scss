@@ -1,3 +1,5 @@
+@import '../../../assets/scss/mixins';
+
 .video-container {
   position: relative;
   //Note: To find the container aspect ratio, use this formula: height ÷ width = aspect ratio.
@@ -8,7 +10,7 @@
   overflow: hidden;
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     inset: 0;
     z-index: 3;
@@ -16,8 +18,16 @@
     height: 100%;
     opacity: 0;
   }
-  margin: -0.4em 0;
-
+  margin: -0.3em 0;
+  @include breakpoint(sm) {
+    margin: -1em 0;
+  }
+  @include breakpoint(md) {
+    margin: -1.2em 0;
+  }
+  @include breakpoint(lg) {
+    margin: -3em 0;
+  }
   width: 100%;
   height: auto;
 }
