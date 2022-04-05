@@ -1,12 +1,12 @@
-import React, { useRef, useState } from "react";
-import { useSwipeable } from "react-swipeable";
-import { IconArrowRight } from "../Icons/IconArrowRight";
-import { IconArrowLeft } from "../Icons/IconArrowLeft";
-import { v4 as uuidv4 } from "uuid";
-import { LaneItem } from "../../components/Lane/LaneItem";
-import movies from "../../movies.json";
-import useWindowSize from "./WindowSize";
-import "./Lane.scss";
+import React, { useRef, useState } from 'react';
+import { useSwipeable } from 'react-swipeable';
+import { IconArrowRight } from '../Icons/IconArrowRight';
+import { IconArrowLeft } from '../Icons/IconArrowLeft';
+import { v4 as uuidv4 } from 'uuid';
+import { LaneItem } from '../../components/Lane/LaneItem';
+import movies from '../../movies.json';
+import useWindowSize from './WindowSize';
+import './Lane.scss';
 
 const Lane = ({ children }) => {
   const size = useWindowSize();
@@ -18,7 +18,9 @@ const Lane = ({ children }) => {
   const updateZIndexRef = (number) => {
     zIndexRef.current.style.zIndex = number;
   };
-  if (activeIndex == -1) {setActiveIndex(7)}
+  if (activeIndex == -1) {
+    setActiveIndex(7);
+  }
   const keyedMovies = movies.map((movie) => {
     movie.key = uuidv4();
     return movie;
@@ -32,6 +34,7 @@ const Lane = ({ children }) => {
         (keyedMovies.length - size.length + activeIndex - 1) %
         keyedMovies.length;
       const rightIndex = leftIndex + (size.length - 1);
+
       return (
         <LaneItem
           key={movie.key}
@@ -100,8 +103,11 @@ const Lane = ({ children }) => {
 
   return (
     <div className="laneContainer" style={{ zIndex: 0 }} ref={zIndexRef}>
-      <div className="lane" style={{ height: `${size.itemHeight * 1.33}vw` }}
-      {...handlers}>
+      <div
+        className="lane"
+        style={{ height: `${size.itemHeight * 1.33}vw` }}
+        {...handlers}
+      >
         <div className="laneName">
           Lane
           <button className="laneNameButton">
@@ -114,7 +120,7 @@ const Lane = ({ children }) => {
           className="inner"
           style={{
             transform: `translateX(-${activeIndex * size.itemWidth}vw)`,
-            transition: `${animationState ? " transform 0.8s" : "undefined"}`,
+            transition: `${animationState ? ' transform 0.8s' : 'undefined'}`,
           }}
           ref={laneRef}
         >
@@ -127,12 +133,12 @@ const Lane = ({ children }) => {
           <button
             className={`${
               startSwitch === 0
-                ? "indicator_inactive indicator_prev"
-                : "indicator indicator_prev"
+                ? 'indicator_inactive indicator_prev'
+                : 'indicator indicator_prev'
             }`}
             style={{
               height: `${size.itemHeight}vw`,
-              width: "5vw",
+              width: '5vw',
               top: `-${size.itemHeight}vw`,
             }}
             onClick={() => {
@@ -146,7 +152,7 @@ const Lane = ({ children }) => {
             className="indicator indicator_next"
             style={{
               height: `${size.itemHeight}vw`,
-              width: "5vw",
+              width: '5vw',
               top: `-${size.itemHeight}vw`,
             }}
             onClick={() => {
@@ -166,8 +172,8 @@ const Lane = ({ children }) => {
                   <button
                     className={`${
                       index === activeIndex - size.length
-                        ? "active_pageIndicatior pageIndicator"
-                        : "pageIndicator"
+                        ? 'active_pageIndicatior pageIndicator'
+                        : 'pageIndicator'
                     }`}
                   />
                 );

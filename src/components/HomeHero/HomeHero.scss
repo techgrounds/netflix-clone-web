@@ -38,8 +38,8 @@
 
 .home-hero-trailer {
   position: absolute;
-  background-position: center center;
-  background-size: cover;
+  // background-position: center center;
+  // background-size: cover;
   left: 0;
   top: 0;
   bottom: 0;
@@ -122,6 +122,9 @@
   position: relative;
   font-size: 4vw;
   text-shadow: 2px 2px 4px var(--black);
+
+  //z
+  width: 50vw;
 }
 
 .info-wrapper {
@@ -133,10 +136,16 @@
   text-shadow: 2px 2px 4px var(--black);
   margin-top: 0.1vw;
   margin: 0.5vw 0 0 0;
+
+  width: 50vw;
 }
 
 .button-wrapper {
-  margin-top: 1.5vw;
+  //z
+  margin-top: 3.5vw;
+
+  // margin-top: 3.5vw;
+
   white-space: nowrap;
   display: flex;
   line-height: 88%;
