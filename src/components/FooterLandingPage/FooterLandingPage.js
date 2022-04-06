@@ -5,7 +5,7 @@ import { IconCaretDown } from "../Icons/IconCaretDown";
 
 function FooterLandingPage() {
   return (
-    <div className="card-container">
+    // <div className="card-container">
       <footer className="footer-landingpage-wrapper">
         <div className="footer-content">
           <p className="footer-top">
@@ -74,7 +74,7 @@ function FooterLandingPage() {
                 htmlFor="lang-switcher-select"
                 className="ui-label"
               ></label>
-              <div className="selectArrowGlobe">
+            <div className="selectArrowGlobe-footerlandingpage">
                 <IconWorld />
                 <select
                   className="ui-select"
@@ -91,7 +91,7 @@ function FooterLandingPage() {
           <p>Neflix Netherlands</p>
         </div>
       </footer>
-    </div>
+    // </div>
   );
 }
 
