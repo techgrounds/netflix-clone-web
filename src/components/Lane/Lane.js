@@ -2,14 +2,13 @@ import React, { useRef, useState, useEffect } from 'react';
 import { useSwipeable } from 'react-swipeable';
 import { IconArrowRight } from '../Icons/IconArrowRight';
 import { IconArrowLeft } from '../Icons/IconArrowLeft';
-import { v4 as uuidv4 } from 'uuid';
 import { LaneItem } from '../../components/Lane/LaneItem';
 import movies from '../../movies.json';
 import useWindowSize from './WindowSize';
 
 import './Lane.scss';
 
-const Lane = ({ laneTitle, movies2 }) => {
+const Lane = ({ laneTitle, movies }) => {
   const size = useWindowSize();
   const [activeIndex, setActiveIndex] = useState(0);
   const [startSwitch, setStartSwitch] = useState(0);
@@ -19,37 +18,13 @@ const Lane = ({ laneTitle, movies2 }) => {
   const updateZIndexRef = (number) => {
     zIndexRef.current.style.zIndex = number;
   };
-  // const keyedMovies = movies.map((movie) => {
-  //   movie.key = uuidv4();
-  //   // console.log('MOVIE INSIDED KEYED', movie);
-  //   return movie;
-  // });
 
-  const keyedMovies2 = movies2
-    .map((movie) => {
-      // console.log(
-      //   `https://image.tmdb.org/t/p/original${
-      //     movie.backdrop_path || movie.poster_path
-      //   }`
-      // );
-      if (movie.backdrop_path === undefined) return;
-
-      return {
-        key: uuidv4(),
-        title: movie.title,
-        id: movie.backdrop_path,
-      };
-    })
-    .filter((value) => value !== undefined);
-
-  console.log('KEYED', keyedMovies2);
   const midLane =
     movies &&
-    keyedMovies2.map((movie, index) => {
+    movies.map((movie, index) => {
       const leftIndex =
         startSwitch > 0
-          ? (keyedMovies2.length - size.length + activeIndex - 1) %
-            keyedMovies2.length
+          ? (movies.length - size.length + activeIndex - 1) % movies.length
           : 0;
       const rightIndex = leftIndex + (size.length - 1);
       return (
@@ -67,7 +42,7 @@ const Lane = ({ laneTitle, movies2 }) => {
     (movie, index) => index < size.length + 1
   );
   const arrayFromLastLane = midLane.filter(
-    (movie, index) => index >= keyedMovies2.length - (size.length + 1)
+    (movie, index) => index >= movies.length - (size.length + 1)
   );
   const fullLaneLenght =
     arrayFromLastLane.length + midLane.length + arrayFromFirstLane.length;
@@ -122,34 +97,32 @@ const Lane = ({ laneTitle, movies2 }) => {
   });
 
   return (
-    <div className="laneContainer" style={{ zIndex: 0 }} ref={zIndexRef}>
+    <div className='laneContainer' style={{ zIndex: 0 }} ref={zIndexRef}>
       <div
-        className="lane"
+        className='lane'
         style={{ height: `${size.itemHeight * 1.33}vw` }}
-        {...handlers}
-      >
-        <div className="laneName">
+        {...handlers}>
+        <div className='laneName'>
           {laneTitle}
-          <button className="laneNameButton">
-            <div className="laneNameButtonOpened">Explore all </div>
+          <button className='laneNameButton'>
+            <div className='laneNameButtonOpened'>Explore all </div>
             <IconArrowRight />
           </button>
         </div>
 
         <div
-          className="inner"
+          className='inner'
           style={{
             transform: `translateX(-${activeIndex * size.itemWidth}vw)`,
             transition: `${animationState ? ' transform 0.8s' : 'undefined'}`,
           }}
-          ref={laneRef}
-        >
+          ref={laneRef}>
           {startSwitch > 0 && arrayFromLastLane}
           {midLane}
           {arrayFromFirstLane}
         </div>
 
-        <div className="indicators">
+        <div className='indicators'>
           <button
             className={`${
               startSwitch === 0
@@ -163,13 +136,12 @@ const Lane = ({ laneTitle, movies2 }) => {
             }}
             onClick={() => {
               updateIndexPrev(activeIndex - size.length);
-            }}
-          >
+            }}>
             <IconArrowLeft />
           </button>
 
           <button
-            className="indicator indicator_next"
+            className='indicator indicator_next'
             style={{
               height: `${size.itemHeight}vw`,
               width: '5vw',
@@ -177,16 +149,14 @@ const Lane = ({ laneTitle, movies2 }) => {
             }}
             onClick={() => {
               updateIndexNext(activeIndex + size.length);
-            }}
-          >
+            }}>
             <IconArrowRight />
           </button>
 
           <div
-            className="pageIndicator_container"
-            style={{ top: `-${size.itemHeight * 2.1}vw` }}
-          >
-            {keyedMovies2.map((movie, index) => {
+            className='pageIndicator_container'
+            style={{ top: `-${size.itemHeight * 2.1}vw` }}>
+            {movies.map((movie, index) => {
               if (index % size.length === 1)
                 return (
                   <button

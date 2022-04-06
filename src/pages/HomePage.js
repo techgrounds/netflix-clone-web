@@ -6,11 +6,25 @@ import Lane from '../components/Lane/Lane';
 import '../components/Lane/Lane.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchMoviesResultsAsync } from '../redux/movies/movies.actions';
+import { v4 as uuidv4 } from 'uuid';
 
 const HomePage = () => {
-  const allMovies = useSelector((state) => state.movies.allMovies);
-  console.log('ALLMOVIES', allMovies);
   const dispatch = useDispatch();
+  const allMoviesSelector = useSelector((state) => state.movies.allMovies);
+  const allMovies = allMoviesSelector?.map((movieSet) => {
+    return movieSet.results
+      .map((movie) =>
+        !movie.backdrop_path
+          ? undefined
+          : {
+              key: uuidv4(),
+              title: movie.title,
+              id: movie.backdrop_path,
+            }
+      )
+      .filter((x) => x);
+  });
+
   useEffect(() => {
     dispatch(fetchMoviesResultsAsync());
   }, []);
@@ -18,16 +32,9 @@ const HomePage = () => {
     <>
       <Navbar />
       <HomeHero />
-      {allMovies?.map((movieSet, i) => {
-        console.log('MOVIESET', i);
-        // if (i === 1) return;
-
+      {allMovies?.map((movieSet) => {
         return (
-          <Lane
-            laneTitle={'lane title'}
-            movies2={movieSet.results}
-            key={Math.random()}
-          />
+          <Lane laneTitle={'lane title'} movies={movieSet} key={uuidv4()} />
         );
       })}
 
