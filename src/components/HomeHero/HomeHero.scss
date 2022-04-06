@@ -99,16 +99,13 @@
 .home-hero-info {
   position: absolute;
   top: 0;
-  bottom: 25%;
+  bottom: 35%;
   left: 4%;
   width: 40%;
   z-index: 10;
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
-  @include breakpoint(sm) {
-    bottom: 30%;
-  }
 }
 
 .info-wrapper {
