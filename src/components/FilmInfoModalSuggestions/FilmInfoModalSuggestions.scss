@@ -9,16 +9,22 @@
 
 .suggestions-container {
   display: grid;
-  row-gap: 1ch;
-  column-gap: 1ch;
+  row-gap: 2ch;
   align-items: stretch;
   justify-items: stretch;
+  position: relative;
   grid-template-columns: repeat(1, 1fr);
-  @include breakpoint(sm) {
-    grid-template-columns: repeat(2, 1fr);
-  }
   @include breakpoint(md) {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 1ch;
+    column-gap: 1ch;
+  }
+  @include breakpoint(lg) {
     grid-template-columns: repeat(3, 1fr);
+    row-gap: 1ch;
+    column-gap: 1ch;
+  }
+  @include breakpoint(xlg) {
     row-gap: 2ch;
     column-gap: 2ch;
   }
@@ -30,14 +36,17 @@
 
 .suggestions-item {
   margin: 0.1em;
-  height: 100%;
+  border-radius: 0.25em;
+  min-height: 22em;
+  cursor: pointer;
+  line-height: 1.2;
   overflow: hidden;
 }
 
 .suggestions-image {
   position: relative;
-  overflow: hidden;
   background-color: #2f2f2f;
+  overflow: hidden;
   &::before {
     content: '';
     position: absolute;
@@ -67,19 +76,19 @@
 
 .suggestions-description {
   background-color: #2f2f2f;
-  height: 100%;
+  min-height: 100%;
 }
 
 .suggestions-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1em;
+  padding: 1em 2em;
+  position: relative;
 }
 
 .suggestions-bottom {
-  padding: 0 1em 1em;
-  margin: 0;
+  padding: 0 2em 2em;
   color: #d2d2d2;
   p {
     font-size: 0.8rem;
@@ -94,6 +103,8 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  padding: 0;
+  min-width: unset;
 }
 
 .suggestions-year {
@@ -128,6 +139,7 @@
 
 .suggestions-second-line {
   position: relative;
+  display: block;
 }
 
 .suggestions-divider {

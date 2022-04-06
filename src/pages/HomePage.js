@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import HomeHero from '../components/HomeHero/HomeHero';
 import FooterBrowserPage from '../components/FooterBrowserPage/FooterBrowserPage';
 import Navbar from '../components/Navbar/Navbar';
@@ -9,6 +9,7 @@ import { fetchMoviesResultsAsync } from '../redux/movies/movies.actions';
 import { v4 as uuidv4 } from 'uuid';
 
 const HomePage = () => {
+  const [isVideoPlaying, setIsVideoPlaying] = useState(true);
   const dispatch = useDispatch();
   const allMoviesSelector = useSelector((state) => state.movies.allMovies);
 
@@ -19,7 +20,10 @@ const HomePage = () => {
   return (
     <>
       <Navbar />
-      <HomeHero />
+      <HomeHero
+        setIsVideoPlaying={setIsVideoPlaying}
+        isVideoPlaying={isVideoPlaying}
+      />
       {allMoviesSelector?.map((movieSet) => {
         // console.log('SET', movieSet);
 
@@ -27,7 +31,6 @@ const HomePage = () => {
           <Lane laneTitle={'lane title'} movies={movieSet} key={uuidv4()} />
         );
       })}
-
       <FooterBrowserPage />
     </>
   );

@@ -8,7 +8,7 @@ import { ButtonRoundDarkTooltip } from '../ButtonRound/ButtonRound'
 import Video from '../MiniModal/Video'
 
 const FilmInfoModalVideo = ({ isVideoPlaying }) => {
-  const movie = movieData[0]
+  const movie = movieData[1]
 
   const youtubeId = '65xa8TG2G8o'
 
@@ -22,23 +22,17 @@ const FilmInfoModalVideo = ({ isVideoPlaying }) => {
         <div className='header-description'>
           <h2 className='header-title'>{movie.title}</h2>
           <div className='header-button-container'>
-            <button className='home-hero-button home-hero-play-button has-icon'>
-              <div className='home-hero-button-icon'>
+            <button className='header-play-button'>
+              <div className='header-play-button-icon'>
                 <IconPlayBlack />
               </div>
-              <div className='breadcrumb'></div>
+              <div style={{ width: '0.5rem' }}></div>
               <span className='home-hero-button-text'>Play</span>
             </button>
             <div className='header-button-container'>
-              <div className='header-icon-wrapper'>
-                <div className='header-add-button'>
-                  <div className='like-button'>
-                    <ButtonRoundDarkTooltip tooltiptext='Add to My List'>
-                      <IconAdd />
-                    </ButtonRoundDarkTooltip>
-                  </div>
-                </div>
-              </div>
+              <ButtonRoundDarkTooltip tooltiptext='Add to My List'>
+                <IconAdd />
+              </ButtonRoundDarkTooltip>
             </div>
             <div className='header-button-container'>
               <div className='like-button header-icon-wrapper '>

@@ -4,7 +4,7 @@ import FilmInfoModalDetailsItem from '../FilmInfoModalDetailsItem/FilmInfoModalD
 import FilmInfoModalKijkWijzer from '../FilmInfoModalKijkWijzer/FilmInfoModalKijkWijzer'
 
 const FilmInfoModalFooter = ({ ref }) => {
-  const movie = movieData[0]
+  const movie = movieData[1]
 
   return (
     <section className='modal-footer-container' ref={ref}>
