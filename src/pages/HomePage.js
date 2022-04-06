@@ -18,12 +18,12 @@ const HomePage = () => {
       <Navbar />
       <HomeHero />
       {allMovies?.map((movieSet) => {
-        console.log('MOVIESET', movieSet);
+        // console.log('MOVIESET', movieSet);
         return (
           <Lane
-            laneTitle={movieSet.category}
-            movies={movieSet.results}
-            id={movieSet.id}
+            laneTitle={'lane title'}
+            movies2={movieSet.results}
+            key={Math.random()}
           />
         );
       })}
