@@ -8,6 +8,9 @@
     column-gap: 2em;
     grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
   }
+  @include breakpoint(lg) {
+    column-gap: 5em;
+  }
 }
 
 .details-left {

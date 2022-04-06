@@ -28,8 +28,11 @@
   @include breakpoint(sm) {
     font-size: 1.1rem;
   }
-  @include breakpoint(lg) {
-    width: 60vw;
+  @include breakpoint(md) {
+    width: 80vw;
+  }
+  @include breakpoint(xlg) {
+    width: 55vw;
   }
 }
 
@@ -76,4 +79,8 @@
   top: 20px;
   right: 20px;
   z-index: 5000;
+  @include breakpoint(lg) {
+    width: 2.6rem;
+    height: 2.6rem;
+  }
 }

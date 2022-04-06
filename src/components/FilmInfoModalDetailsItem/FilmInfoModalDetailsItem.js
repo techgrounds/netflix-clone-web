@@ -1,6 +1,9 @@
 import './FilmInfoModalDetailsItem.scss'
+import movieData from '../../movies.json'
 
 const FilmInfoModalDetailsItem = ({ tagLabel, tagItem }) => {
+  const movie = movieData[1]
+
   return (
     <section>
       <div className='details-tags'>
