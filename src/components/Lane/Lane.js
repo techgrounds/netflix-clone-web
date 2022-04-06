@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { useSwipeable } from 'react-swipeable';
 import { IconArrowRight } from '../Icons/IconArrowRight';
 import { IconArrowLeft } from '../Icons/IconArrowLeft';
@@ -6,17 +6,10 @@ import { v4 as uuidv4 } from 'uuid';
 import { LaneItem } from '../../components/Lane/LaneItem';
 import movies from '../../movies.json';
 import useWindowSize from './WindowSize';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { fetchMoviesResultsAsync } from '../redux/movies/movies.actions';
 
 import './Lane.scss';
 
 const Lane = ({ laneTitle, movies2 }) => {
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(fetchMoviesResultsAsync());
-  // }, []);
-  // console.log(movies2);
   const size = useWindowSize();
   const [activeIndex, setActiveIndex] = useState(0);
   const [startSwitch, setStartSwitch] = useState(0);
@@ -26,28 +19,29 @@ const Lane = ({ laneTitle, movies2 }) => {
   const updateZIndexRef = (number) => {
     zIndexRef.current.style.zIndex = number;
   };
-  const keyedMovies = movies.map((movie) => {
-    movie.key = uuidv4();
-    // console.log('MOVIE INSIDED KEYED', movie);
-    return movie;
-  });
+  // const keyedMovies = movies.map((movie) => {
+  //   movie.key = uuidv4();
+  //   // console.log('MOVIE INSIDED KEYED', movie);
+  //   return movie;
+  // });
 
   const keyedMovies2 = movies2
-    .map((movie, i) => {
+    .map((movie) => {
       // console.log(
       //   `https://image.tmdb.org/t/p/original${
       //     movie.backdrop_path || movie.poster_path
       //   }`
       // );
-      if (i < 18) {
-        return {
-          key: uuidv4(),
-          title: movie.title,
-          id: movie.backdrop_path || movie.poster_path,
-        };
-      }
+      if (movie.backdrop_path === undefined) return;
+
+      return {
+        key: uuidv4(),
+        title: movie.title,
+        id: movie.backdrop_path,
+      };
     })
-    .filter((x) => x !== undefined);
+    .filter((value) => value !== undefined);
+
   console.log('KEYED', keyedMovies2);
   const midLane =
     movies &&
@@ -73,7 +67,7 @@ const Lane = ({ laneTitle, movies2 }) => {
     (movie, index) => index < size.length + 1
   );
   const arrayFromLastLane = midLane.filter(
-    (movie, index) => index >= keyedMovies.length - (size.length + 1)
+    (movie, index) => index >= keyedMovies2.length - (size.length + 1)
   );
   const fullLaneLenght =
     arrayFromLastLane.length + midLane.length + arrayFromFirstLane.length;
@@ -135,7 +129,7 @@ const Lane = ({ laneTitle, movies2 }) => {
         {...handlers}
       >
         <div className="laneName">
-          Lane
+          {laneTitle}
           <button className="laneNameButton">
             <div className="laneNameButtonOpened">Explore all </div>
             <IconArrowRight />

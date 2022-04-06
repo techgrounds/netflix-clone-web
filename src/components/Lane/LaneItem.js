@@ -71,6 +71,13 @@ export const LaneItem = ({
         src={`https://image.tmdb.org/t/p/original${movie.id}`}
         alt={movie.title}
         className="movie-image"
+        style={{
+          width: '0',
+          height: '0',
+          objectFit: 'contain',
+          // backgroundColor: 'green',
+          // display: 'none',
+        }}
       />
     </div>
   );

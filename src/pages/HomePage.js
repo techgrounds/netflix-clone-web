@@ -9,6 +9,7 @@ import { fetchMoviesResultsAsync } from '../redux/movies/movies.actions';
 
 const HomePage = () => {
   const allMovies = useSelector((state) => state.movies.allMovies);
+  console.log('ALLMOVIES', allMovies);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchMoviesResultsAsync());
@@ -17,8 +18,10 @@ const HomePage = () => {
     <>
       <Navbar />
       <HomeHero />
-      {allMovies?.map((movieSet) => {
-        // console.log('MOVIESET', movieSet);
+      {allMovies?.map((movieSet, i) => {
+        console.log('MOVIESET', i);
+        // if (i === 1) return;
+
         return (
           <Lane
             laneTitle={'lane title'}
