@@ -1,9 +1,7 @@
 import './FilmInfoModalDetails.scss'
-import { IconKijkWijzer16 } from '../Icons/IconKijkWijzer16'
-import { IconKijkWijzerGeweld } from '../Icons/IconKijkWijzerGeweld'
-import { IconKijkWijzerGrof } from '../Icons/IconKijkWijzerGrof'
 import movieData from '../../movies.json'
 import FilmInfoModalDetailsItem from '../FilmInfoModalDetailsItem/FilmInfoModalDetailsItem'
+import FilmInfoModalKijkWijzer from '../FilmInfoModalKijkWijzer/FilmInfoModalKijkWijzer'
 
 const FilmInfoModalDetails = () => {
   const movie = movieData[0]
@@ -16,15 +14,7 @@ const FilmInfoModalDetails = () => {
             <span className='match-title'>97% Match</span>
             <span className='release-title'>1995</span>
             <div className='details-icons'>
-              <button className='details-button details-add-button'>
-                <IconKijkWijzer16 />
-              </button>
-              <button className='details-button details-like-button'>
-                <IconKijkWijzerGeweld />
-              </button>
-              <button className='details-button details-dislike-button'>
-                <IconKijkWijzerGrof />
-              </button>
+              <FilmInfoModalKijkWijzer />
             </div>
             <span className='duration-title'>2h 15m</span>
           </div>

@@ -1,6 +1,7 @@
 import useWindowSize from "./WindowSize";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import MiniModal from "../MiniModal";
+import "../Lane/Lane.scss";
 
 export const LaneItem = ({
   updateZIndexRef,
@@ -10,37 +11,37 @@ export const LaneItem = ({
   index,
 }) => {
   const size = useWindowSize();
-
   const [loadMovie, setLoadMovie] = useState(false);
-  const [hovered, setHovered] = useState(0);
+  const [hovered, setHovered] = useState(false);
   const sleep = (milliseconds) => {
     return new Promise((resolve) => setTimeout(resolve, milliseconds));
   };
+
+  useEffect(async () => {
+    if (hovered) {
+      updateZIndexRef(999);
+      setLoadMovie(true);
+    }
+    if (!hovered) {
+      updateZIndexRef(0);
+      setLoadMovie(false);
+    }
+  },[hovered]);
 
   return (
     <div
       className="laneItem"
       style={{ height: `${size.itemHeight}vw`, width: `${size.itemWidth}vw` }}
       onMouseEnter={() => {
-        setHovered(1);
-        console.log('hovered: ',hovered);
-        // await sleep(1000);
-        //   if (hovered === true) {
-        //    updateZIndexRef(999);
-        //    setLoadMovie(true);
-        //    console.log('enter')
-        //  }
-        }
-      }
+        setHovered(true);
+      }}
       onMouseLeave={() => {
-        setHovered(false)
-        updateZIndexRef(0);
-        setLoadMovie(false);
-        console.log('leave')
+        setHovered(false);
       }}
     >
-{ loadMovie &&     <div
-        className={`miniModal
+      {loadMovie && (
+        <div
+          className={`miniModal
                  ${
                    index === leftIndex
                      ? "leftModal"
@@ -49,32 +50,21 @@ export const LaneItem = ({
                      : "not"
                  }
                  `}
-        style={{
-          height: `${size.itemHeight * 2.5}vw`,
-          width: `${size.itemWidth * 1.5}vw`,
-        }}
-
-        onMouseEnter={() => {
-          updateZIndexRef(999);
-          // setLoadMovie(true);
-        }}
-        onMouseLeave={() => {
-          updateZIndexRef(0);
-          // setLoadMovie(false);
-        }}
-
-
-      >
-        {loadMovie && (
-          <MiniModal
-            loadMovie={loadMovie}
-            moviePoster={movie.id}
-            movieTitle={movie.title}
-            setLoadMovie={setLoadMovie}
-            updateZIndexRef={updateZIndexRef}
-          />
-        )}
-      </div>}
+          style={{
+              height: `${size.itemHeight * 2.5}vw`,
+              width: `${size.itemWidth * 1.5}vw`}}
+        >
+          {loadMovie && (
+            <MiniModal
+              loadMovie={loadMovie}
+              moviePoster={movie.id}
+              movieTitle={movie.title}
+              setLoadMovie={setLoadMovie}
+              updateZIndexRef={updateZIndexRef}
+            />
+          )}
+        </div>
+      )}
 
       <img
         src={require(`../../assets/mockup_images/${movie.id}`)}

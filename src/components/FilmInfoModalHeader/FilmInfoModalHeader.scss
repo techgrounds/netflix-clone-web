@@ -12,6 +12,7 @@
   top: 0;
   height: 100%;
   width: 100%;
+  z-index: 500;
 }
 
 .header-overlay {
@@ -46,25 +47,6 @@
   margin-bottom: 1em;
   min-height: 2em;
   margin: 0.25em;
-}
-
-.header-play-button {
-  align-items: center;
-  appearance: none;
-  border: 0;
-  border-radius: 4px;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  opacity: 1;
-  padding: 1rem;
-  margin-right: 0.25em;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  font-size: 1.1rem;
-  &:hover {
-    background-color: rgb(214, 214, 214);
-  }
 }
 
 .header-icon-wrapper {

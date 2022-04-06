@@ -8,12 +8,17 @@ import FilmInfoModalDetails from '../FilmInfoModalDetails/FilmInfoModalDetails'
 import FilmInfoModalSuggestions from '../FilmInfoModalSuggestions/FilmInfoModalSuggestions'
 import FilmInfoModalFooter from '../FilmInfoModalFooter/FilmInfoModalFooter'
 
-const FilmInfoModal = ({ isModalVisible, setIsModalVisible }) => {
+const FilmInfoModal = ({
+  isModalVisible,
+  setIsModalVisible,
+  setIsVideoPlaying,
+}) => {
   const modalQuit = useRef()
 
   useOutsideClick(modalQuit, () => {
     if (isModalVisible) {
       setIsModalVisible(false)
+      setIsVideoPlaying(true)
     }
   })
 
@@ -21,9 +26,10 @@ const FilmInfoModal = ({ isModalVisible, setIsModalVisible }) => {
     (event) => {
       if (event.key === 'Escape' && isModalVisible) {
         setIsModalVisible(false)
+        setIsVideoPlaying(true)
       }
     },
-    [setIsModalVisible, isModalVisible]
+    [setIsModalVisible, isModalVisible, setIsVideoPlaying]
   )
 
   useEffect(() => {
@@ -88,7 +94,10 @@ const FilmInfoModal = ({ isModalVisible, setIsModalVisible }) => {
               </div>
               <button
                 className='modal-close-button'
-                onClick={() => setIsModalVisible(false)}
+                onClick={() => {
+                  setIsModalVisible(false)
+                  setIsVideoPlaying(true)
+                }}
               >
                 <IconClose />
               </button>

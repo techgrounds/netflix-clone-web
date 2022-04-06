@@ -1,7 +1,6 @@
 import "./MiniModal.scss";
 import MiniModalDetails from "./MiniModalDetails";
 import gsap from "gsap";
-
 import Video from "./Video";
 import { useState, useRef } from "react";
 
@@ -15,7 +14,6 @@ const MiniModal = ({
   const boxRef = useRef();
   const [active, setActive] = useState(true);
   const [start, setStart] = useState(false);
-
   const remove = async () => {
     setStart(true);
     gsap.to(boxRef.current, {

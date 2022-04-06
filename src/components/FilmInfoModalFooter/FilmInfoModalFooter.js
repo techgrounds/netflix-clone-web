@@ -1,6 +1,7 @@
 import movieData from '../../movies.json'
 import './FilmInfoModalFooter.scss'
 import FilmInfoModalDetailsItem from '../FilmInfoModalDetailsItem/FilmInfoModalDetailsItem'
+import FilmInfoModalKijkWijzer from '../FilmInfoModalKijkWijzer/FilmInfoModalKijkWijzer'
 
 const FilmInfoModalFooter = ({ ref }) => {
   const movie = movieData[0]
@@ -24,10 +25,10 @@ const FilmInfoModalFooter = ({ ref }) => {
           tagLabel='This Film is'
           tagItem={movie.category}
         />
-        <FilmInfoModalDetailsItem
-          tagLabel='Maturity Rating'
-          tagItem={movie.category}
-        />
+        <div className='kijk-wijzer'>
+          <FilmInfoModalDetailsItem tagLabel='Maturity Rating' />
+          <FilmInfoModalKijkWijzer />
+        </div>
       </div>
     </section>
   )

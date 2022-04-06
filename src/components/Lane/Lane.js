@@ -1,4 +1,4 @@
-import React, { useRef, useState,useEffect } from "react";
+import React, { useRef, useState } from "react";
 import { useSwipeable } from "react-swipeable";
 import { IconArrowRight } from "../Icons/IconArrowRight";
 import { IconArrowLeft } from "../Icons/IconArrowLeft";
