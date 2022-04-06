@@ -58,7 +58,7 @@ export const LaneItem = ({
           {loadMovie && (
             <MiniModal
               loadMovie={loadMovie}
-              moviePoster={`https://image.tmdb.org/t/p/original${movie.id}`}
+              moviePoster={`https://image.tmdb.org/t/p/original${movie.image}`}
               movieTitle={movie.title}
               setLoadMovie={setLoadMovie}
               updateZIndexRef={updateZIndexRef}
@@ -68,7 +68,7 @@ export const LaneItem = ({
       )}
 
       <img
-        src={`https://image.tmdb.org/t/p/original${movie.id}`}
+        src={`https://image.tmdb.org/t/p/original${movie.image}`}
         alt={movie.title}
         className="movie-image"
         style={{

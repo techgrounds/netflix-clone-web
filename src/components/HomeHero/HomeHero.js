@@ -59,7 +59,7 @@ const HomeHero = () => {
             className="home-hero-trailer-wrapper"
             style={{
               backgroundSize: 'cover',
-              backgroundImage: `url("https://image.tmdb.org/t/p/original${movie?.backdrop_path}")`,
+              backgroundImage: `url("https://image.tmdb.org/t/p/original${movie?.image}")`,
               backgroundPosition: 'center center',
             }}
           >

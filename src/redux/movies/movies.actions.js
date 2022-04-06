@@ -39,7 +39,7 @@ export const fetchMoviesResultsAsync = () => {
                 : {
                     key: uuidv4(),
                     title: movie.title,
-                    id: movie.backdrop_path,
+                    image: movie.backdrop_path,
                   }
             )
             .filter((x) => x);
