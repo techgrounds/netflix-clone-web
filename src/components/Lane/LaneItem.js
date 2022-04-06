@@ -1,7 +1,7 @@
-import useWindowSize from "./WindowSize";
-import { useState, useEffect, useRef } from "react";
-import MiniModal from "../MiniModal";
-import "../Lane/Lane.scss";
+import useWindowSize from './WindowSize';
+import { useState, useEffect, useRef } from 'react';
+import MiniModal from '../MiniModal';
+import '../Lane/Lane.scss';
 
 export const LaneItem = ({
   updateZIndexRef,
@@ -26,7 +26,7 @@ export const LaneItem = ({
       updateZIndexRef(0);
       setLoadMovie(false);
     }
-  },[hovered]);
+  }, [hovered]);
 
   return (
     <div
@@ -44,20 +44,21 @@ export const LaneItem = ({
           className={`miniModal
                  ${
                    index === leftIndex
-                     ? "leftModal"
+                     ? 'leftModal'
                      : index === rightIndex
-                     ? "rightModal"
-                     : "not"
+                     ? 'rightModal'
+                     : 'not'
                  }
                  `}
           style={{
-              height: `${size.itemHeight * 2.5}vw`,
-              width: `${size.itemWidth * 1.5}vw`}}
+            height: `${size.itemHeight * 2.5}vw`,
+            width: `${size.itemWidth * 1.5}vw`,
+          }}
         >
           {loadMovie && (
             <MiniModal
               loadMovie={loadMovie}
-              moviePoster={movie.id}
+              moviePoster={`https://image.tmdb.org/t/p/original${movie.image}`}
               movieTitle={movie.title}
               setLoadMovie={setLoadMovie}
               updateZIndexRef={updateZIndexRef}
@@ -67,9 +68,16 @@ export const LaneItem = ({
       )}
 
       <img
-        src={require(`../../assets/mockup_images/${movie.id}`)}
+        src={`https://image.tmdb.org/t/p/original${movie.image}`}
         alt={movie.title}
         className="movie-image"
+        style={{
+          width: '0',
+          height: '0',
+          objectFit: 'contain',
+          // backgroundColor: 'green',
+          // display: 'none',
+        }}
       />
     </div>
   );

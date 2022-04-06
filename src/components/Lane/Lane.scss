@@ -1,4 +1,4 @@
-@import "../../assets/scss/mixins";
+@import '../../assets/scss/mixins';
 
 .laneContainer {
   pointer-events: none;
@@ -16,7 +16,7 @@
   @include breakpoint(md) {
     padding: 7.25em 0;
     margin-bottom: -200px;
-    top: -140px;
+    top: -100px;
   }
   @include breakpoint(lg) {
     padding: 9em 0;
@@ -134,7 +134,6 @@
 .indicators {
   position: relative;
   pointer-events: none;
-
 }
 .indicator_prev {
   left: calc(-5vw - 2px);
@@ -181,7 +180,7 @@
 .leftModal {
   position: absolute;
   z-index: 1;
-  transform:translateX(60px);
+  transform: translateX(60px);
   cursor: pointer;
   border-radius: 8px;
   animation: miniModalGrowLeft 1000ms;
@@ -195,7 +194,7 @@
   animation: miniModalGrowRight 1000ms;
 }
 
-@keyframes miniModalGrowRight{
+@keyframes miniModalGrowRight {
   0% {
     transform: scale(0.65) translateY(5vw);
     opacity: 0;}

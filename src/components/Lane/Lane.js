@@ -1,14 +1,14 @@
-import React, { useRef, useState } from "react";
-import { useSwipeable } from "react-swipeable";
-import { IconArrowRight } from "../Icons/IconArrowRight";
-import { IconArrowLeft } from "../Icons/IconArrowLeft";
-import { v4 as uuidv4 } from "uuid";
-import { LaneItem } from "../../components/Lane/LaneItem";
-import movies from "../../movies.json";
-import useWindowSize from "./WindowSize";
-import "./Lane.scss";
+import React, { useRef, useState, useEffect } from 'react';
+import { useSwipeable } from 'react-swipeable';
+import { IconArrowRight } from '../Icons/IconArrowRight';
+import { IconArrowLeft } from '../Icons/IconArrowLeft';
+import { LaneItem } from '../../components/Lane/LaneItem';
+// import movies from '../../movies.json';
+import useWindowSize from './WindowSize';
 
-const Lane = () => {
+import './Lane.scss';
+
+const Lane = ({ laneTitle, movies }) => {
   const size = useWindowSize();
   const [activeIndex, setActiveIndex] = useState(0);
   const [startSwitch, setStartSwitch] = useState(0);
@@ -18,17 +18,14 @@ const Lane = () => {
   const updateZIndexRef = (number) => {
     zIndexRef.current.style.zIndex = number;
   };
-  const keyedMovies = movies.map((movie) => {
-    movie.key = uuidv4();
-    return movie;
-  });
 
   const midLane =
     movies &&
-    keyedMovies.map((movie, index) => {
-      const leftIndex = startSwitch > 0 ?
-        (keyedMovies.length - size.length + activeIndex - 1) %
-        keyedMovies.length : 0;
+    movies.map((movie, index) => {
+      const leftIndex =
+        startSwitch > 0
+          ? (movies.length - size.length + activeIndex - 1) % movies.length
+          : 0;
       const rightIndex = leftIndex + (size.length - 1);
       return (
         <LaneItem
@@ -45,7 +42,7 @@ const Lane = () => {
     (movie, index) => index < size.length + 1
   );
   const arrayFromLastLane = midLane.filter(
-    (movie, index) => index >= keyedMovies.length - (size.length + 1)
+    (movie, index) => index >= movies.length - (size.length + 1)
   );
   const fullLaneLenght =
     arrayFromLastLane.length + midLane.length + arrayFromFirstLane.length;
@@ -82,9 +79,8 @@ const Lane = () => {
   const updateIndexNext = (newIndex) => {
     if (startSwitch === 0) {
       setActiveIndex(newIndex + size.length + 1);
-    }
-   else {
-      setActiveIndex(newIndex)
+    } else {
+      setActiveIndex(newIndex);
     }
     checkIndexNext(newIndex);
     animationStateOn();
@@ -101,76 +97,74 @@ const Lane = () => {
   });
 
   return (
-    <div className="laneContainer" style={{ zIndex: 0 }} ref={zIndexRef}>
-      <div className="lane" style={{ height: `${size.itemHeight * 1.33}vw` }}
-      {...handlers}>
-        <div className="laneName">
-          Lane
-          <button className="laneNameButton">
-            <div className="laneNameButtonOpened">Explore all </div>
+    <div className='laneContainer' style={{ zIndex: 0 }} ref={zIndexRef}>
+      <div
+        className='lane'
+        style={{ height: `${size.itemHeight * 1.33}vw` }}
+        {...handlers}>
+        <div className='laneName'>
+          {laneTitle}
+          <button className='laneNameButton'>
+            <div className='laneNameButtonOpened'>Explore all </div>
             <IconArrowRight />
           </button>
         </div>
 
         <div
-          className="inner"
+          className='inner'
           style={{
             transform: `translateX(-${activeIndex * size.itemWidth}vw)`,
-            transition: `${animationState ? " transform 0.8s" : "undefined"}`,
+            transition: `${animationState ? ' transform 0.8s' : 'undefined'}`,
           }}
-          ref={laneRef}
-        >
+          ref={laneRef}>
           {startSwitch > 0 && arrayFromLastLane}
           {midLane}
           {arrayFromFirstLane}
         </div>
 
-        <div className="indicators">
+        <div className='indicators'>
           <button
             className={`${
               startSwitch === 0
-                ? "indicator_inactive indicator_prev"
-                : "indicator indicator_prev"
+                ? 'indicator_inactive indicator_prev'
+                : 'indicator indicator_prev'
             }`}
             style={{
               height: `${size.itemHeight}vw`,
-              width: "5vw",
+              width: '5vw',
               top: `-${size.itemHeight}vw`,
             }}
             onClick={() => {
-             updateIndexPrev(activeIndex - size.length);
-            }}
-          >
+              updateIndexPrev(activeIndex - size.length);
+            }}>
             <IconArrowLeft />
           </button>
 
           <button
-            className="indicator indicator_next"
+            className='indicator indicator_next'
             style={{
               height: `${size.itemHeight}vw`,
-              width: "5vw",
+              width: '5vw',
               top: `-${size.itemHeight}vw`,
             }}
             onClick={() => {
               updateIndexNext(activeIndex + size.length);
-            }}
-          >
+            }}>
             <IconArrowRight />
           </button>
 
           <div
-            className="pageIndicator_container"
-            style={{ top: `-${size.itemHeight * 2.1}vw` }}
-          >
-            {keyedMovies.map((movie, index) => {
+            className='pageIndicator_container'
+            style={{ top: `-${size.itemHeight * 2.1}vw` }}>
+            {movies.map((movie, index) => {
               if (index % size.length === 1)
                 return (
                   <button
                     key={movie.key}
                     className={`${
                       index === activeIndex - size.length
-                        ? "active_pageIndicatior pageIndicator"
-                        : "pageIndicator"
+                        ? 'active_pageIndicatior pageIndicator'
+                        : 'pageIndicator'
                     }`}
                   />
                 );
