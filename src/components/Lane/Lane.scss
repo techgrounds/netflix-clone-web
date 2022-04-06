@@ -61,6 +61,8 @@
   position: relative;
   min-height: 100%;
   min-width: 100%;
+  object-fit: contain;
+  overflow: hidden;
 }
 .inner {
   white-space: nowrap;
@@ -112,6 +114,7 @@
   }
   cursor: pointer;
   &:hover {
+    opacity: 0.8;
     svg {
       opacity: 1;
     }
@@ -138,16 +141,16 @@
   stroke: var(--white);
   stroke-width: 2;
   pointer-events: auto;
-  border-radius: 0px 6px 6px 0px;
-  transform:  translateX(-0vw) translateY(0.2vw);
+  border-radius: 0px 2px 2px 0px;
+  transform:  translateY(0.7vh);
 }
 .indicator_next {
   right: -85vw;
   stroke: var(--white);
   stroke-width: 2;
   pointer-events: auto;
-  border-radius:  6px 0px 0px 6px;
-  transform:  translateX(0.2vw) translateY(0.2vw);
+  border-radius:  2px 0px 0px 2px;
+  transform:  translateX(0.2vw) translateY(0.7vh);
 }
 .pageIndicator_container {
   opacity: 1;
@@ -173,7 +176,7 @@
   z-index: 10;
   cursor: pointer;
   border-radius: 8px;
-  animation: miniModalGrow 1200ms;
+  animation: miniModalGrow 1000ms;
 }
 .leftModal {
   position: absolute;
@@ -181,7 +184,7 @@
   transform:translateX(60px);
   cursor: pointer;
   border-radius: 8px;
-  animation: miniModalGrowLeft 1200ms;
+  animation: miniModalGrowLeft 1000ms;
 }
 .rightModal {
   position: absolute;
@@ -189,7 +192,7 @@
   transform: translateX(-60px);
   cursor: pointer;
   border-radius: 8px;
-  animation: miniModalGrowRight 1200ms;
+  animation: miniModalGrowRight 1000ms;
 }
 
 @keyframes miniModalGrowRight{
