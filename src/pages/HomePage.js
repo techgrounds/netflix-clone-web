@@ -19,7 +19,13 @@ const HomePage = () => {
       <HomeHero />
       {allMovies?.map((movieSet) => {
         console.log('MOVIESET', movieSet);
-        return <Lane laneTitle={movieSet.category} movies={movieSet.results} />;
+        return (
+          <Lane
+            laneTitle={movieSet.category}
+            movies={movieSet.results}
+            id={movieSet.id}
+          />
+        );
       })}
 
       <FooterBrowserPage />

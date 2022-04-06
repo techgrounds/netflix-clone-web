@@ -27,15 +27,17 @@ export const fetchMoviesResultsAsync = () => {
 
     try {
       const request = await axios.get(requests.fetchDiscover);
-      console.log('REQUEST', request.data);
 
-      dispatch(fetchMoviesResultsSuccess(request.data));
-
-      const randomMovieSet = Math.floor(
-        Math.random() * (request.data.length - 1) + 1
+      const allMoviesExcluding = request.data.filter((x, i) =>
+        i ? true : false
       );
 
-      const movies = request.data[randomMovieSet].results;
+      dispatch(fetchMoviesResultsSuccess(allMoviesExcluding));
+
+      const randomMovieSet =
+        Math.floor(Math.random() * (allMoviesExcluding.length - 1)) + 1;
+
+      const movies = allMoviesExcluding[randomMovieSet].results;
 
       const selectRandomMovie = Math.floor(Math.random() * movies.length - 1);
 
