@@ -9,7 +9,7 @@ export const LaneItem = ({
   leftIndex,
   rightIndex,
   index,
-}) => {
+  }) => {
   const size = useWindowSize();
   const [loadMovie, setLoadMovie] = useState(false);
   const [hovered, setHovered] = useState(false);
@@ -75,10 +75,11 @@ export const LaneItem = ({
           width: '0',
           height: '0',
           objectFit: 'contain',
-          // backgroundColor: 'green',
-          // display: 'none',
         }}
       />
+      <div className='laneItemTitle'
+      style={{width: `${size.itemWidth * 0.9}vw`, overflow: `hidden` }}
+      >{movie.title}</div>
     </div>
   );
 };

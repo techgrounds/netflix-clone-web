@@ -12,6 +12,8 @@ const HomePage = () => {
   const dispatch = useDispatch();
   const allMoviesSelector = useSelector((state) => state.movies.allMovies);
 
+  console.log(allMoviesSelector)
+
   useEffect(() => {
     dispatch(fetchMoviesResultsAsync());
   }, []);
@@ -21,8 +23,6 @@ const HomePage = () => {
       <Navbar />
       <HomeHero />
       {allMoviesSelector?.map((movieSet) => {
-        // console.log('SET', movieSet);
-
         return (
           <Lane laneTitle={'lane title'} movies={movieSet} key={uuidv4()} />
         );

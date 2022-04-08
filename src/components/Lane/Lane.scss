@@ -74,8 +74,16 @@
   background-color: var(----transparent);
   border: 3.5px solid var(--transparent);
   color: var(--white);
-  border-radius: 8px;
+  border-radius: 6%;
   overflow: hidden;
+}
+.laneItemTitle{
+  position: absolute;
+  bottom: 10%;
+  text-shadow: 1px 1px black;
+  color: var (--smokewhite);
+  opacity: 0.7;
+  font-size: 0.8vw;
 }
 .laneNameButton {
   display: flex;
@@ -121,15 +129,7 @@
   }
 }
 .indicator_inactive {
-  position: relative;
-  border: none;
-  border-radius: 6px;
-  background-color: var(--black);
   opacity: 0;
-  z-index: 1;
-  svg {
-    opacity: 0;
-  }
 }
 .indicators {
   position: relative;
@@ -140,7 +140,7 @@
   stroke: var(--white);
   stroke-width: 2;
   pointer-events: auto;
-  border-radius: 0px 2px 2px 0px;
+  border-radius: 0 3% 3% 0;
   transform:  translateY(0.7vh);
 }
 .indicator_next {
@@ -148,7 +148,7 @@
   stroke: var(--white);
   stroke-width: 2;
   pointer-events: auto;
-  border-radius:  2px 0px 0px 2px;
+  border-radius:  3% 0 0 3%;
   transform:  translateX(0.2vw) translateY(0.7vh);
 }
 .pageIndicator_container {
@@ -174,7 +174,6 @@
   position: absolute;
   z-index: 10;
   cursor: pointer;
-  border-radius: 8px;
   animation: miniModalGrow 1000ms;
 }
 .leftModal {
@@ -182,7 +181,6 @@
   z-index: 1;
   transform: translateX(60px);
   cursor: pointer;
-  border-radius: 8px;
   animation: miniModalGrowLeft 1000ms;
 }
 .rightModal {
@@ -190,7 +188,6 @@
   z-index: 1;
   transform: translateX(-60px);
   cursor: pointer;
-  border-radius: 8px;
   animation: miniModalGrowRight 1000ms;
 }
 
