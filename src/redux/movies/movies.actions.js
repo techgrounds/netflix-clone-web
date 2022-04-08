@@ -28,10 +28,8 @@ export const fetchMoviesResultsAsync = () => {
 
     try {
       const request = await axios.get(requests.fetchDiscover);
-
-      const allMoviesExcluding = request.data
-        .filter((x, i) => (i ? true : false))
-        .map((movieSet) => {
+console.log(request.data)
+      const allMovies = request.data.map((movieSet) => {
           return movieSet.results
             .map((movie) =>
               !movie.backdrop_path
@@ -45,11 +43,11 @@ export const fetchMoviesResultsAsync = () => {
             .filter((x) => x);
         });
 
-      dispatch(fetchMoviesResultsSuccess(allMoviesExcluding));
+      dispatch(fetchMoviesResultsSuccess(allMovies));
 
       const randomMovieSet =
-        Math.floor(Math.random() * (allMoviesExcluding.length - 1)) + 1;
-      const movies = allMoviesExcluding[randomMovieSet];
+        Math.floor(Math.random() * (allMovies.length - 1)) + 1;
+      const movies = allMovies[randomMovieSet];
 
       const selectRandomMovie = Math.floor(Math.random() * movies.length - 1);
 

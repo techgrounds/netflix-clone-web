@@ -14,6 +14,11 @@
   justify-items: stretch;
   position: relative;
   grid-template-columns: repeat(1, 1fr);
+  @include breakpoint(sm) {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 1ch;
+    column-gap: 1ch;
+  }
   @include breakpoint(md) {
     grid-template-columns: repeat(2, 1fr);
     row-gap: 1ch;

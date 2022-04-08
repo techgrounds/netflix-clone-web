@@ -7,7 +7,6 @@
   padding: 5.5em 0;
   top: -120px;
   margin-bottom: -150px;
-
   @include breakpoint(sm) {
     padding: 5.5em 0;
     margin-bottom: -150px;
@@ -23,8 +22,8 @@
     margin-bottom: -250px;
   }
   @include breakpoint(xlg) {
-    padding: 10.25em 0;
-    margin-bottom: -300px;
+    padding: 13em 0;
+    margin-bottom: -350px;
   }
 }
 .lane {

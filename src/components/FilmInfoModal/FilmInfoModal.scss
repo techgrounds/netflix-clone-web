@@ -29,7 +29,7 @@
     font-size: 1.1rem;
   }
   @include breakpoint(md) {
-    width: 80vw;
+    width: 60vw;
   }
   @include breakpoint(xlg) {
     width: 55vw;
