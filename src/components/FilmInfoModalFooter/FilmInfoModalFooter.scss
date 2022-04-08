@@ -1,3 +1,5 @@
+@import '../../assets/scss/mixins';
+
 .modal-footer-container {
   background-color: #181818;
   padding-bottom: 2em;
@@ -5,13 +7,15 @@
 
 .modal-footer-header {
   font-weight: 400;
-  font-size: 24px;
   padding-top: 48px;
   margin-bottom: 20px;
 }
 
 .modal-footer-title {
-  font-size: 2rem;
+  font-size: 1.6rem;
+  @include breakpoint(md) {
+    font-size: 2rem;
+  }
   span {
     font-weight: 100;
   }
@@ -25,6 +29,6 @@
   word-break: break-word;
 }
 
-.kijk-wijzer {
+.modal-footer-kijk-wijzer {
   display: flex;
 }

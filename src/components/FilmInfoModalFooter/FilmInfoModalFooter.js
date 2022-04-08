@@ -4,7 +4,10 @@ import FilmInfoModalDetailsItem from '../FilmInfoModalDetailsItem/FilmInfoModalD
 import FilmInfoModalKijkWijzer from '../FilmInfoModalKijkWijzer/FilmInfoModalKijkWijzer'
 
 const FilmInfoModalFooter = ({ ref }) => {
-  const movie = movieData[0]
+  const movie = movieData[1]
+
+  const { actors } = movieData[1]
+  const seperatedActors = actors.split(',')
 
   return (
     <section className='modal-footer-container' ref={ref}>
@@ -18,14 +21,23 @@ const FilmInfoModalFooter = ({ ref }) => {
           tagLabel='Director'
           tagItem={movie.director}
         />
-        <FilmInfoModalDetailsItem tagLabel='Cast' tagItem={movie.actors} />
+        <div className='details-tags'>
+          <span className='tags-label'>Cast:</span>
+          {seperatedActors.map((actor, id) => {
+            return (
+              <span className='tag-item' key={id}>
+                {actor},
+              </span>
+            )
+          })}
+        </div>
         <FilmInfoModalDetailsItem tagLabel='Writer' tagItem={movie.director} />
         <FilmInfoModalDetailsItem tagLabel='Genres' tagItem={movie.category} />
         <FilmInfoModalDetailsItem
           tagLabel='This Film is'
           tagItem={movie.category}
         />
-        <div className='kijk-wijzer'>
+        <div className='modal-footer-kijk-wijzer'>
           <FilmInfoModalDetailsItem tagLabel='Maturity Rating' />
           <FilmInfoModalKijkWijzer />
         </div>

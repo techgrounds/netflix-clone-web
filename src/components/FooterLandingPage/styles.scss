@@ -6,11 +6,12 @@
   font-family: 'NetflixSansRegular', sans-serif;
   color: var(--gray);
   background-color: var(--black);
+  flex-shrink: 0;
 }
 
 .footer-top {
   margin: 1.5rem 0;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .footer-top-call {
@@ -22,8 +23,8 @@
   flex-direction: row;
   flex-wrap: wrap;
   align-items: flex-start;
-  // font-size: 1rem;
   margin: 0 0 0.875em 0;
+  font-size: 0.813rem;
 }
 
 .item-footer-link {
@@ -35,27 +36,25 @@
   margin-top: 0.5em;
 }
 
-.selectArrowGlobe {
+.selectArrowGlobe-footerlandingpage {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between; 
+  justify-content: space-evenly; 
   height: 4em;
   width: 13em;
   color: var(--gray);
   border: solid 1px var(--gray);
   border-radius: 4px;
   margin-bottom: 20px;
-  padding: 0.5rem;
+  padding: 0;
   svg {
-    height: 80%;
-    width: auto;
+    width: 1rem;
   }
   .ui-select {
     background: transparent;
     height: 80%;
     margin: 1em;
-    font-size: 1.2rem;
     outline: none;
     color: var(--gray);
     border: none;
@@ -67,26 +66,26 @@
 
 
 /* Desktop */
-@media (min-width: 1200px) {
+@media (min-width: 700px) {
   .footer-landingpage-wrapper {
-    max-width: 70%;
     display: flex;
     justify-content: center;
   }
 
+  .footer-content {
+    padding-left: 10%;
+  }
+
   .footer-top {
   margin: 1.2rem 0;
-  font-size: 1.5rem;
   }
 
   .box-footer-links {
-    display: flex;
-    flex-direction: row;
-    font-size: 1.2rem;
+    font-size: 0.813rem;
   }
+
   .item-footer-link {
     list-style-type: none;
     flex: 0 0 25%;
-    margin-bottom: 1em;
   }
 }

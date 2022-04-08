@@ -4,13 +4,16 @@ import FilmInfoModalDetailsItem from '../FilmInfoModalDetailsItem/FilmInfoModalD
 import FilmInfoModalKijkWijzer from '../FilmInfoModalKijkWijzer/FilmInfoModalKijkWijzer'
 
 const FilmInfoModalDetails = () => {
-  const movie = movieData[0]
+  const movie = movieData[1]
+
+  const { actors } = movieData[1]
+  const seperatedActors = actors.split(',')
 
   return (
     <>
-      <div className='details-wrapper'>
-        <div className='details-left'>
-          <div className='first-line'>
+      <div className='modal-details-wrapper'>
+        <div className='modal-details-left'>
+          <div className='modal-details-first-line'>
             <span className='match-title'>97% Match</span>
             <span className='release-title'>1995</span>
             <div className='details-icons'>
@@ -19,17 +22,26 @@ const FilmInfoModalDetails = () => {
             <span className='duration-title'>2h 15m</span>
           </div>
           <div style={{ marginBottom: '1em' }}></div>
-          <p className='details-description'>{movie.description}</p>
+          <p className='modal-details-description'>{movie.description}</p>
         </div>
         <div className='details-right'>
-          <FilmInfoModalDetailsItem tagLabel='Cast' tagItem={movie.actors} />
+          <div className='details-tags'>
+            <span className='tags-label'>Cast:</span>
+            {seperatedActors.map((actor, id) => {
+              return (
+                <span className='tag-item' key={id}>
+                  {actor},
+                </span>
+              )
+            })}
+          </div>
           <FilmInfoModalDetailsItem
             tagLabel='Genres'
             tagItem={movie.category}
           />
           <FilmInfoModalDetailsItem
-            tagLabel='This film is'
-            tagItem={movie.category}
+            tagLabel='Director'
+            tagItem={movie.director}
           />
         </div>
       </div>

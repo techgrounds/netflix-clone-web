@@ -1,6 +1,6 @@
 @import '../../assets/scss/mixins';
 
-.details-wrapper {
+.modal-details-wrapper {
   position: relative;
   width: 100%;
   @include breakpoint(md) {
@@ -8,13 +8,16 @@
     column-gap: 2em;
     grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
   }
+  @include breakpoint(lg) {
+    column-gap: 5em;
+  }
 }
 
-.details-left {
+.modal-details-left {
   margin: 0.8em 0;
 }
 
-.first-line {
+.modal-details-first-line {
   display: flex;
   align-items: center;
 }
@@ -49,7 +52,7 @@
   align-items: center;
 }
 
-.details-description {
+.modal-details-description {
   line-height: 27px;
   font-size: 0.9rem;
   @include breakpoint(md) {
@@ -57,5 +60,33 @@
   }
   @include breakpoint(lg) {
     font-size: 1.2rem;
+  }
+}
+
+// ------------------
+
+.details-tags {
+  font-size: 0.8rem;
+  line-height: 20px;
+  margin: 0.5em;
+  margin-left: 0;
+  padding-bottom: 0.5rem;
+  @include breakpoint(md) {
+    font-size: 0.9rem;
+  }
+}
+
+.tags-label {
+  color: #777;
+  margin-right: 0.3rem;
+}
+
+.tag-item {
+  color: #ddd;
+  margin: 0;
+  cursor: pointer;
+  margin-right: 0.3rem;
+  &:hover {
+    border-bottom: 1px solid #ddd;
   }
 }

@@ -18,6 +18,7 @@
     height: 100%;
     opacity: 0;
   }
+<<<<<<< HEAD
 //   margin: -0.3em 0;
 //   @include breakpoint(sm) {
 //     margin: -1em 0;
@@ -30,6 +31,21 @@
 //   }
 
   margin: -1.8% 0;
+=======
+  // margin: -0.3em 0;
+  // @include breakpoint(sm) {
+  //   margin: -1em 0;
+  // }
+  // @include breakpoint(md) {
+  //   margin: -1.2em 0;
+  // }
+  // @include breakpoint(lg) {
+  //   margin: -3em 0;
+  // }
+//wes small update
+  margin: -1.8% 0;
+//
+>>>>>>> b04a9e79a91151576ba5a9d2be915d6be1de7451
   width: 100%;
   height: auto;
 }

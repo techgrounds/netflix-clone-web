@@ -27,7 +27,6 @@
   position: absolute;
   bottom: 8%;
   left: 0.4rem;
-  width: 40%;
   @include breakpoint(sm) {
     bottom: 5%;
     left: 3em;
@@ -35,18 +34,52 @@
 }
 
 .header-title {
-  font-size: 3rem;
+  font-size: 2rem;
   width: 100%;
   @include breakpoint(lg) {
-    font-size: 5.57rem;
+    font-size: 4.57rem;
   }
 }
 
 .header-button-container {
   display: flex;
-  margin-bottom: 1em;
-  min-height: 2em;
-  margin: 0.25em;
+  align-items: center;
+}
+
+.header-play-button {
+  align-items: center;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  user-select: none;
+  margin-right: 0.5rem;
+  padding-right: 1.5rem;
+  height: 2rem;
+  &:hover {
+    background-color: rgb(214, 214, 214);
+  }
+  @include breakpoint(md) {
+    height: 2.4rem;
+  }
+}
+
+.header-play-button-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-left: 1rem;
+  @include breakpoint(md) {
+    height: 1.8rem;
+    width: 1.8rem;
+  }
+  @include breakpoint(lg) {
+    height: 2rem;
+    width: 2rem;
+  }
 }
 
 .header-icon-wrapper {
@@ -56,30 +89,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 1;
-  padding: 0.8rem;
   position: relative;
-  border-radius: 50%;
-  border: 2px solid rgb(255, 255, 255);
-  border-color: rgba(255, 255, 255, 0.5);
-  border-width: 2px;
-  background-color: rgba(42, 42, 42, 0.6);
-  height: 2.5rem;
-  width: 2.5rem;
   color: var(--white);
   &:hover {
     border-color: var(--white);
     border-width: 3px;
-    background-color: rgba(109, 109, 110, 0.562);
-  }
-}
-
-.like-button {
-  transition: all 250ms ease-in-out;
-  &:hover {
-    .rating-button-wrapper {
-      display: flex;
-    }
   }
 }
 
