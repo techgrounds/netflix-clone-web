@@ -4,16 +4,16 @@ import FilmInfoModalDetailsItem from '../FilmInfoModalDetailsItem/FilmInfoModalD
 import FilmInfoModalKijkWijzer from '../FilmInfoModalKijkWijzer/FilmInfoModalKijkWijzer'
 
 const FilmInfoModalDetails = () => {
+  const movie = movieData[1]
+
   const { actors } = movieData[1]
   const seperatedActors = actors.split(',')
 
-  const movie = movieData[1]
-
   return (
     <>
-      <div className='details-wrapper'>
-        <div className='details-left'>
-          <div className='first-line'>
+      <div className='modal-details-wrapper'>
+        <div className='modal-details-left'>
+          <div className='modal-details-first-line'>
             <span className='match-title'>97% Match</span>
             <span className='release-title'>1995</span>
             <div className='details-icons'>
@@ -22,7 +22,7 @@ const FilmInfoModalDetails = () => {
             <span className='duration-title'>2h 15m</span>
           </div>
           <div style={{ marginBottom: '1em' }}></div>
-          <p className='details-description'>{movie.description}</p>
+          <p className='modal-details-description'>{movie.description}</p>
         </div>
         <div className='details-right'>
           <div className='details-tags'>

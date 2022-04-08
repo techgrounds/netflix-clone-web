@@ -8,27 +8,19 @@
 }
 
 .home-hero-row {
-  position: relative;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   user-select: none;
   touch-action: pan-y;
   margin-bottom: 20px;
-  background-color: #000;
+  background-color: var(--black);
   padding-bottom: 50%;
-  @include breakpoint(lg) {
-    padding-bottom: 45%;
-  }
-  @include breakpoint(xlg) {
+  @include breakpoint(sm) {
     padding-bottom: 40%;
   }
 }
 
 .home-hero-container {
   position: absolute;
-  background-color: #000;
+  background-color: var(--black);
   width: 100%;
   height: 56.25vw;
   z-index: 0;
@@ -99,13 +91,19 @@
 .home-hero-info {
   position: absolute;
   top: 0;
-  bottom: 35%;
+  bottom: 30%;
   left: 4%;
   width: 40%;
   z-index: 10;
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
+  @include breakpoint(md) {
+    bottom: 40%;
+  }
+  @include breakpoint(lg) {
+    bottom: 35%;
+  }
 }
 
 .info-wrapper {
@@ -140,12 +138,16 @@
   padding-top: 0.1rem;
   padding-bottom: 0.1rem;
   @include breakpoint(sm) {
-    padding-top: 0.3rem;
-    padding-bottom: 0.3rem;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+  }
+  @include breakpoint(md) {
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
   }
   @include breakpoint(lg) {
-    padding-top: 0.6rem;
-    padding-bottom: 0.6rem;
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
   }
 }
 
@@ -173,8 +175,8 @@
   padding-left: 0.5rem;
   padding-right: 1rem;
   @include breakpoint(md) {
-    padding-left: 1.5rem;
-    padding-right: 2rem;
+    padding-left: 1.2rem;
+    padding-right: 1.8rem;
   }
   @include breakpoint(lg) {
     padding-left: 2rem;
@@ -218,5 +220,84 @@
   }
   @include breakpoint(lg) {
     font-size: 1.367rem;
+  }
+}
+
+.home-hero-buttton-component {
+  position: absolute;
+  right: 0;
+  bottom: 23%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  @include breakpoint(sm) {
+    bottom: 1%;
+  }
+  @include breakpoint(md) {
+    bottom: 15%;
+  }
+  @include breakpoint(lg) {
+    bottom: 8%;
+  }
+}
+
+.home-hero-volume-button-wrapper {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  position: relative;
+  margin: 0 1.1vw 0 0;
+}
+
+.home-hero-volume-button {
+  align-items: center;
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid var(--white);
+  color: var(--white);
+  cursor: pointer;
+  display: flex;
+  font-size: 0.5rem;
+  justify-content: center;
+  opacity: 1;
+  padding: 0.2rem;
+  position: relative;
+  user-select: none;
+  will-change: background-color, color;
+  word-break: break-word;
+  white-space: nowrap;
+  border-radius: 50%;
+  border: 2px solid var(--white);
+  @include breakpoint(sm) {
+    font-size: 0.8rem;
+    padding: 0.5rem;
+  }
+  @include breakpoint(lg) {
+    font-size: 1.2rem;
+  }
+  &:hover {
+    background-color: var(--midgrey);
+    border: 2px solid var(--white);
+  }
+}
+
+.home-hero-maturity-rating {
+  border: solid 3px var(--white);
+  border-style: none none none solid;
+  background-color: rgba(51, 51, 51, 0.6);
+  font-size: 1.1vw;
+  padding: 0.5vw 3.5vw 0.5vw 0.8vw;
+  display: flex;
+  align-items: center;
+  height: 2.4vw;
+  box-sizing: border-box;
+  @include breakpoint(md) {
+    font-size: 1.8vw;
+    height: 4vw;
+  }
+  @include breakpoint(lg) {
+    font-size: 1.1vw;
+    height: 2.4vw;
   }
 }
