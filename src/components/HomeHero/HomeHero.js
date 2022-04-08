@@ -1,24 +1,25 @@
-import './HomeHero.scss';
-import { useEffect, useRef, useState } from 'react';
-import { IconInfo } from '../Icons/IconInfo';
-import { IconPlayBlack } from '../Icons/IconPlayBlack';
+import './HomeHero.scss'
+import { useEffect, useRef } from 'react'
+import { IconInfo } from '../Icons/IconInfo'
+import { IconPlayBlack } from '../Icons/IconPlayBlack'
 import { IconVolumeMute } from '../Icons/IconVolumeMute'
 import { IconKijkWijzer16 } from '../Icons/IconKijkWijzer16'
-import { gsap } from 'gsap';
-import FilmInfoModal from '../FilmInfoModal/FilmInfoModal';
-import Video from '../MiniModal/Video';
-import billboardHeroTitle from '../../assets/hero-img/billboard-title.webp';
-import billboardHeroImg from '../../assets/hero-img/billboard.webp';
-import { useSelector } from 'react-redux';
+import { gsap } from 'gsap'
+import FilmInfoModal from '../FilmInfoModal/FilmInfoModal'
+import Video from '../MiniModal/Video'
+import billboardHeroTitle from '../../assets/hero-img/billboard-title.webp'
+import billboardHeroImg from '../../assets/hero-img/billboard.webp'
+import { useSelector } from 'react-redux'
 
-const HomeHero = ({ setIsVideoPlaying,
+const HomeHero = ({
+  setIsVideoPlaying,
   isVideoPlaying,
   setIsModalVisible,
-  isModalVisible, }) => {
-  const element = useRef();
-  const timeline = useRef();
-  const selector = gsap.utils.selector(element);
-  // const [isModalVisible, setIsModalVisible] = useState(false);
+  isModalVisible,
+}) => {
+  const element = useRef()
+  const timeline = useRef()
+  const selector = gsap.utils.selector(element)
 
   const movie = useSelector((state) => state.movies.movie);
 

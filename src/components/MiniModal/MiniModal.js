@@ -8,12 +8,12 @@ const MiniModal = ({
   setLoadMovie,
   moviePoster,
   movieTitle,
-  updateZIndexRef,
 }) => {
   const youtubeId = '65xa8TG2G8o';
   const boxRef = useRef();
   const [active, setActive] = useState(true);
   const [start, setStart] = useState(false);
+
   const remove = async () => {
     setStart(true);
     gsap.to(boxRef.current, {

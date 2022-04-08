@@ -21,14 +21,13 @@ const HomePage = () => {
   return (
     <>
       <Navbar />
-      <HomeHero
-        setIsVideoPlaying={setIsVideoPlaying}
-        isVideoPlaying={isVideoPlaying}
-        isModalVisible={isModalVisible}
-        setIsModalVisible={setIsModalVisible}
-      />
+       <HomeHero
+       setIsVideoPlaying={setIsVideoPlaying}
+       isVideoPlaying={isVideoPlaying}
+       isModalVisible={isModalVisible}
+       setIsModalVisible={setIsModalVisible}
+     />
       {allMoviesSelector?.map((movieSet) => {
-
         return (
           <Lane laneTitle={'lane title'} movies={movieSet} key={uuidv4()} />
         );

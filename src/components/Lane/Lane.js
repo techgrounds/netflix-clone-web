@@ -3,9 +3,7 @@ import { useSwipeable } from 'react-swipeable';
 import { IconArrowRight } from '../Icons/IconArrowRight';
 import { IconArrowLeft } from '../Icons/IconArrowLeft';
 import { LaneItem } from '../../components/Lane/LaneItem';
-import movies from '../../movies.json';
 import useWindowSize from './WindowSize';
-
 import './Lane.scss';
 
 const Lane = ({ laneTitle, movies }) => {
