@@ -6,7 +6,7 @@ import Lane from '../components/Lane/Lane'
 import '../components/Lane/Lane.scss'
 
 const HomePage = () => {
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false)
+  const [isVideoPlaying, setIsVideoPlaying] = useState(true)
   const [isModalVisible, setIsModalVisible] = useState(false)
 
   return (
