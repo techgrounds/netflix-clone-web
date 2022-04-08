@@ -46,10 +46,9 @@ export const fetchMoviesResultsAsync = () => {
         });
 
       dispatch(fetchMoviesResultsSuccess(allMoviesExcluding));
-      // console.log('ALL MOVIES EX', allMoviesExcluding);
+
       const randomMovieSet =
         Math.floor(Math.random() * (allMoviesExcluding.length - 1)) + 1;
-      // console.log('RANDOM MOVIE', randomMovieSet);
       const movies = allMoviesExcluding[randomMovieSet];
 
       const selectRandomMovie = Math.floor(Math.random() * movies.length - 1);
