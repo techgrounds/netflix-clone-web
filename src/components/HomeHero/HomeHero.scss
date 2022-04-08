@@ -16,6 +16,9 @@
   @include breakpoint(sm) {
     padding-bottom: 40%;
   }
+  @include breakpoint(lg) {
+    padding-bottom: 38%;
+  }
 }
 
 .home-hero-container {
@@ -238,7 +241,7 @@
     bottom: 15%;
   }
   @include breakpoint(lg) {
-    bottom: 8%;
+    bottom: 3%;
   }
 }
 
