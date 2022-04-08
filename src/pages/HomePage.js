@@ -28,7 +28,6 @@ const HomePage = () => {
         setIsModalVisible={setIsModalVisible}
       />
       {allMoviesSelector?.map((movieSet) => {
-        // console.log('SET', movieSet);
 
         return (
           <Lane laneTitle={'lane title'} movies={movieSet} key={uuidv4()} />
