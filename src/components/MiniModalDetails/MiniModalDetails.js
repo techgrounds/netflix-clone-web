@@ -1,6 +1,7 @@
 import './MiniModalDetails.scss'
 import { IconPlayBlack } from '../Icons/IconPlayBlack'
 import { IconArrowDown } from '../Icons/IconArrowDown'
+import { IconKijkWijzer16 } from '../Icons/IconKijkWijzer16'
 
 import { useState } from 'react'
 
@@ -34,9 +35,10 @@ const MiniModalDetails = () => {
         </div>
       </div>
       <div className='info-container'>
-        <span className='match'>Match 98%</span>
-        <span className='year'>2022</span>
-        <span className='maturity-rating'>🔞</span>
+        <span className='match'>98% Match</span>
+        <span className='maturity-rating'>
+          <IconKijkWijzer16 />
+        </span>
         <span className='duration'>1h 46m</span>
         <span className='feature-badge'>HD</span>
       </div>

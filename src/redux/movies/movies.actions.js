@@ -30,31 +30,35 @@ export const fetchMoviesResultsAsync = () => {
       const request = await axios.get(requests.fetchDiscover);
 console.log(request.data)
 const allMovies = []
+
 Object.entries(request.data).forEach(([key, value]) => {
   let filteredMovies = value.categoryDetails.map((movie) => {
-    return {
+  
+  return {
       id: uuidv4(),
       title: movie.title,
-      // desc: movie.overview,
       image: movie.backdropUrls[0],
       imageHR: movie.backdropUrls[1],
       poster: movie.posterUrls[0],
       trailer: movie.trailerUrl
     }
 
-  })
+  }
+  ).filter(movie => movie.trailer)
+  console.log("ALL MOVIES", allMovies)
+
+  let editedGenre = key.split('Movies')[0].charAt(0).toUpperCase() + key.split('Movies')[0].slice(1)
+
+
   allMovies.push({
-    genre: key,
+    genre: editedGenre,
     movies: filteredMovies
   })
   
 })
+
 console.log('ALL', allMovies)
-// {
-//   key: uuidv4(),
-//   title: movie.title,
-//   image: movie.backdrop_path,
-// }
+
       dispatch(fetchMoviesResultsSuccess(allMovies));
 
       const randomMovieSet =
@@ -72,3 +76,13 @@ console.log('ALL', allMovies)
     }
   };
 };
+
+/////////////
+//REMOVE NULL FROM LINK!
+    // let backdropUrl = movie.backdropUrls[0].split('null')
+    // if (backdropUrl[1] === '') {
+    //   backdropUrl = 'https://image.tmdb.org/t/p/w300/hph1RMsL4223xyqxfEx3OXodf5E.jpg'
+    // } else {
+    //   backdropUrl = movie.backdropUrls[0]
+    // }
+
