@@ -8,18 +8,22 @@ const MiniModal = ({
   setLoadMovie,
   moviePoster,
   movieTitle,
+  trailer
 }) => {
-  const youtubeId = '65xa8TG2G8o';
+  const youtubeId = trailer.substr(32);
   const boxRef = useRef();
   const [active, setActive] = useState(true);
   const [start, setStart] = useState(false);
+
+  console.log("trailer path: ", trailer)
+  console.log("trailer id: ", youtubeId)
 
   const remove = async () => {
     setStart(true);
     gsap.to(boxRef.current, {
       opacity: 0,
       duration: 2,
-      delay: 4,
+      delay: 5,
       ease: 'power4',
       onComplete: () => setActive(false),
     });
