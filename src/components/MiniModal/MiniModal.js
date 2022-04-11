@@ -1,26 +1,26 @@
-import "./MiniModal.scss";
-import MiniModalDetails from "./MiniModalDetails";
-import gsap from "gsap";
-import Video from "./Video";
-import { useState, useRef } from "react";
+import './MiniModal.scss';
+import MiniModalDetails from './MiniModalDetails';
+import gsap from 'gsap';
+import Video from './Video';
+import { useState, useRef } from 'react';
 
 const MiniModal = ({
   setLoadMovie,
   moviePoster,
   movieTitle,
-  updateZIndexRef,
 }) => {
-  const youtubeId = "65xa8TG2G8o";
+  const youtubeId = '65xa8TG2G8o';
   const boxRef = useRef();
   const [active, setActive] = useState(true);
   const [start, setStart] = useState(false);
+
   const remove = async () => {
     setStart(true);
     gsap.to(boxRef.current, {
       opacity: 0,
       duration: 2,
       delay: 4,
-      ease: "power4",
+      ease: 'power4',
       onComplete: () => setActive(false),
     });
   };
@@ -40,7 +40,7 @@ const MiniModal = ({
           {active && (
             <img
               ref={boxRef}
-              src={require(`../../assets/mockup_images/${moviePoster}`)}
+              src={moviePoster}
               alt={moviePoster}
               className="movie-poster"
             />

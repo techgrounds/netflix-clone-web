@@ -20,6 +20,7 @@
   @include breakpoint(lg) {
     padding: 9em 0;
     margin-bottom: -250px;
+    top: -200px;
   }
   @include breakpoint(xlg) {
     padding: 13em 0;
@@ -58,6 +59,8 @@
   position: relative;
   min-height: 100%;
   min-width: 100%;
+  object-fit: contain;
+  overflow: hidden;
 }
 .inner {
   white-space: nowrap;
@@ -69,8 +72,16 @@
   background-color: var(----transparent);
   border: 3.5px solid var(--transparent);
   color: var(--white);
-  border-radius: 8px;
+  border-radius: 6%;
   overflow: hidden;
+}
+.laneItemTitle{
+  position: absolute;
+  bottom: 10%;
+  text-shadow: 1px 1px black;
+  color: var (--smokewhite);
+  opacity: 0.7;
+  font-size: 0.8vw;
 }
 .laneNameButton {
   display: flex;
@@ -101,7 +112,6 @@
 .indicator {
   font-size: 1vw;
   border: none;
-  border-radius: 6px;
   background-color: var(--black);
   opacity: 0.5;
   position: relative;
@@ -110,22 +120,14 @@
   }
   cursor: pointer;
   &:hover {
+    opacity: 0.8;
     svg {
       opacity: 1;
     }
   }
 }
 .indicator_inactive {
-  position: relative;
-  border: none;
-  border-radius: 6px;
-  background-color: var(--black);
   opacity: 0;
-  transform: scale(1.1);
-  z-index: 1;
-  svg {
-    opacity: 0;
-  }
 }
 .indicators {
   position: relative;
@@ -136,12 +138,16 @@
   stroke: var(--white);
   stroke-width: 2;
   pointer-events: auto;
+  border-radius: 0 3% 3% 0;
+  transform:  translateY(0.7vh);
 }
 .indicator_next {
   right: -85vw;
   stroke: var(--white);
   stroke-width: 2;
   pointer-events: auto;
+  border-radius:  3% 0 0 3%;
+  transform:  translateX(0.2vw) translateY(0.7vh);
 }
 .pageIndicator_container {
   opacity: 1;
@@ -166,40 +172,33 @@
   position: absolute;
   z-index: 10;
   cursor: pointer;
-  border-radius: 8px;
-  animation: miniModalGrow 2100ms ease-in-out;
-  // transition: ease-in-out;
+  animation: miniModalGrow 1000ms;
 }
 .leftModal {
   position: absolute;
   z-index: 1;
   transform: translateX(60px);
   cursor: pointer;
-  border-radius: 8px;
-  animation: miniModalGrowLeft 2100ms;
+  animation: miniModalGrowLeft 1000ms;
 }
 .rightModal {
   position: absolute;
   z-index: 1;
   transform: translateX(-60px);
   cursor: pointer;
-  border-radius: 8px;
-  animation: miniModalGrowRight 2100ms;
+  animation: miniModalGrowRight 1000ms;
 }
 
 @keyframes miniModalGrowRight {
   0% {
-    transform: translateX(-30px) scale(0.7);
-    opacity: 0;
-  }
-  70% {
-    transform: translateX(-30px) scale(0.7);
-    opacity: 0;
-  }
-  71% {
-    transform: translateX(-30px) scale(0.7);
-    opacity: 1;
-  }
+    transform: scale(0.65) translateY(5vw);
+    opacity: 0;}
+  80% {
+    transform: scale(0.65) translateY(5vw);
+    opacity: 0;}
+  81% {
+    transform: scale(0.65) translateY(5vw);
+    opacity: 1;}
   100% {
     transform: translateX(-60px) scale(1);
   }
@@ -207,35 +206,29 @@
 
 @keyframes miniModalGrowLeft {
   0% {
-    transform: translateX(30px) scale(0.7);
-    opacity: 0;
-  }
-  70% {
-    transform: translateX(30px) scale(0.7);
-    opacity: 0;
-  }
-  71% {
-    transform: translateX(30px) scale(0.7);
-    opacity: 1;
-  }
+    transform: scale(0.65) translateY(5vw);
+    opacity: 0;}
+  80% {
+    transform: scale(0.65) translateY(5vw);
+    opacity: 0;}
+  81% {
+    transform: scale(0.65) translateY(5vw);
+    opacity: 1;}
   100% {
     transform: translateX(60px) scale(1);
   }
 }
 
-@keyframes miniModalGrow {
+@keyframes miniModalGrow{
   0% {
-    transform: scale(0.7);
-    opacity: 0;
-  }
-  70% {
-    transform: scale(0.7);
-    opacity: 0;
-  }
-  71% {
-    transform: scale(0.7);
-    opacity: 1;
-  }
+    transform: scale(0.65);
+    opacity: 0;}
+  80% {
+    transform: scale(0.65) translateY(5vw);
+    opacity: 0;}
+  81% {
+    transform: scale(0.65) translateY(5vw);
+    opacity: 1;}
   100% {
     transform: scale(1);
   }

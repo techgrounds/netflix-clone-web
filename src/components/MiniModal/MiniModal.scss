@@ -1,20 +1,12 @@
 .modal {
-  //test width and height
-  // max-width: 341px;
-  // max-height: 333px;
-  //
   width: 100%;
   height: 100%;
-  border-radius: 8px;
+  border-radius: 3%;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   position: relative;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.281);
-
-  // &:hover {
-  //   position: absolute;
-  // }
+  box-shadow: 1px 20px 20px rgba(0, 0, 0, 0.5);
 }
 
 .top-container {
