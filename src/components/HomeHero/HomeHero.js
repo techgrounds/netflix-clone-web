@@ -77,19 +77,19 @@ const HomeHero = ({
           <div className='home-hero-fill-container'>
             <div className='home-hero-info'>
               <div className='title-wrapper'>
-                {/* <h2>{movie?.title || movie?.name || movie?.original_name}</h2> */}
-                <img
+                <h2>{movie?.title || movie?.name || movie?.original_name}</h2>
+                {/* <img
                   src={billboardHeroTitle}
                   alt='Abstract: The Art of Design'
-                />
+                /> */}
               </div>
               <div className='info-wrapper'>
-                {/* <p>{movie?.overview}</p> */}
-                <p>
+                <p>{movie?.desc}</p>
+                {/* <p>
                   Step inside the minds of the most innovative designers in a
                   variety of disciplines and learn how design impacts every
                   aspect of life.
-                </p>
+                </p> */}
               </div>
               <div className='button-wrapper'>
                 <button className='home-hero-button home-hero-play-button has-icon'>

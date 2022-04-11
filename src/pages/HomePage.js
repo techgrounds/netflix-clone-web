@@ -11,7 +11,6 @@ import { v4 as uuidv4 } from 'uuid'
 const HomePage = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(true)
   const [isModalVisible, setIsModalVisible] = useState(false)
-
   const dispatch = useDispatch()
   const allMoviesSelector = useSelector((state) => state.movies.allMovies)
 
