@@ -29,31 +29,44 @@ export const fetchMoviesResultsAsync = () => {
     try {
       const request = await axios.get(requests.fetchDiscover);
 console.log(request.data)
-      const allMovies = request.data.map((movieSet) => {
-          return movieSet.results
-            .map((movie) =>
-              !movie.backdrop_path
-                ? undefined
-                : {
-                    key: uuidv4(),
-                    title: movie.title,
-                    image: movie.backdrop_path,
-                  }
-            )
-            .filter((x) => x);
-        });
+const allMovies = []
+Object.entries(request.data).forEach(([key, value]) => {
+  let filteredMovies = value.categoryDetails.map((movie) => {
+    return {
+      id: uuidv4(),
+      title: movie.title,
+      // desc: movie.overview,
+      image: movie.backdropUrls[0],
+      imageHR: movie.backdropUrls[1],
+      poster: movie.posterUrls[0],
+      trailer: movie.trailerUrl
+    }
 
+  })
+  allMovies.push({
+    genre: key,
+    movies: filteredMovies
+  })
+  
+})
+console.log('ALL', allMovies)
+// {
+//   key: uuidv4(),
+//   title: movie.title,
+//   image: movie.backdrop_path,
+// }
       dispatch(fetchMoviesResultsSuccess(allMovies));
 
       const randomMovieSet =
         Math.floor(Math.random() * (allMovies.length - 1)) + 1;
-      const movies = allMovies[randomMovieSet];
+      const movies = allMovies[randomMovieSet].movies;
 
       const selectRandomMovie = Math.floor(Math.random() * movies.length - 1);
 
       const singleMovie = movies[selectRandomMovie];
 
       dispatch(fetchSingleMovie(singleMovie));
+
     } catch (err) {
       dispatch(fetchMoviesResultsFailure(err.message));
     }
