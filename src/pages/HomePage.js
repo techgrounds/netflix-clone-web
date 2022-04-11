@@ -32,7 +32,11 @@ const HomePage = () => {
      />
       {allMoviesSelector?.map((movieSet) => {
         return (
-          <Lane laneTitle={movieSet.genre} movies={movieSet.movies} trailer={movieSet.trailer} key={uuidv4()} />
+          <Lane 
+            laneTitle={movieSet.genre} 
+            movies={movieSet.movies} 
+            trailer={movieSet.trailer} 
+            key={uuidv4()} />
         );
       })}
       <FooterBrowserPage />

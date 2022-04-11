@@ -16,6 +16,7 @@ const HomeHero = ({
   isVideoPlaying,
   setIsModalVisible,
   isModalVisible,
+  trailer
 }) => {
   const element = useRef()
   const timeline = useRef()
@@ -23,7 +24,7 @@ const HomeHero = ({
 
   const movie = useSelector((state) => state.movies.movie);
 
-  const youtubeId = '65xa8TG2G8o';
+  // const youtubeId = trailer.substr(32);
 
   const openModal = () => {
     setIsModalVisible(true);
@@ -69,7 +70,7 @@ const HomeHero = ({
             }}
           >
             {/* {isVideoPlaying ? (
-              <Video trailer = {movie?.trailerUrl} />
+              <Video trailer = {youtubeId} />
             ) : (
               <img
                 src={billboardHeroImg}
