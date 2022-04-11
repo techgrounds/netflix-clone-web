@@ -90,7 +90,7 @@ const HomeHero = ({
                 /> */}
               </div>
               <div className="info-wrapper">
-                <p>{movie?.overview}</p>
+                <p>{movie?.desc}</p>
                 {/* <p>
                   Step inside the minds of the most innovative designers in a
                   variety of disciplines and learn how design impacts every

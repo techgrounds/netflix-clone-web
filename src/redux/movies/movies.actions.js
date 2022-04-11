@@ -37,6 +37,7 @@ Object.entries(request.data).forEach(([key, value]) => {
   return {
       id: uuidv4(),
       title: movie.title,
+      desc: movie.overview,
       image: movie.backdropUrls[0],
       imageHR: movie.backdropUrls[1],
       poster: movie.posterUrls[0],
