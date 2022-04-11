@@ -20,6 +20,7 @@ import Janou from '../../assets/images/janou.jpg'
 import Miki from '../../assets/images/miki.jpg'
 import Alfi from '../../assets/images/alfiya.jpg'
 import Wesley from '../../assets/images/wesley.jpg'
+import Carolyn from '../../assets/images/carolyn.webp'
 
 const Navbar = () => {
   const [dropdown, setDropdown] = useState(false);
@@ -304,6 +305,20 @@ const Navbar = () => {
                             />
                           </div>
                           <span className="profile-name">Miki</span>
+                        </NavLink>
+                      </div>
+                    </li>
+                    <li className="sub-menu-item profile">
+                      <div>
+                        <NavLink to="" className="profile-link">
+                          <div className="avatar-wrapper">
+                            <img
+                              className="profile-icon custom-profile-icon"
+                              src={Carolyn}
+                              alt="Carolyn"
+                            />
+                          </div>
+                          <span className="profile-name">Carolyn</span>
                         </NavLink>
                       </div>
                     </li>
