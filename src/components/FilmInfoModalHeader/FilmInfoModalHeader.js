@@ -1,10 +1,9 @@
 import './FilmInfoModalHeader.scss'
 import movieData from '../../movies.json'
 import { IconPlayBlack } from '../Icons/IconPlayBlack'
-import { IconAdd } from '../Icons/IconAdd'
-import { ButtonRoundDarkTooltip } from '../ButtonRound/ButtonRound'
 import MiniModalVideo from '../MiniModalVideo/MiniModalVideo'
 import ButtonRating from '../ButtonRating/ButtonRating'
+import ButtonAdd from '../ButtonAdd/ButtonAdd'
 
 const FilmInfoModalVideo = ({ isVideoPlaying }) => {
   const movie = movieData[1]
@@ -29,9 +28,7 @@ const FilmInfoModalVideo = ({ isVideoPlaying }) => {
               <span className='home-hero-button-text'>Play</span>
             </button>
             <div className='header-button-container'>
-              <ButtonRoundDarkTooltip tooltiptext='Add to My List'>
-                <IconAdd />
-              </ButtonRoundDarkTooltip>
+              <ButtonAdd />
             </div>
             <div className='header-button-container'>
               <ButtonRating />
