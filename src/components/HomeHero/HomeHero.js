@@ -69,7 +69,7 @@ const HomeHero = ({
             }}
           >
             {/* {isVideoPlaying ? (
-              <Video youtubeId={youtubeId} />
+              <Video trailer = {movie?.trailerUrl} />
             ) : (
               <img
                 src={billboardHeroImg}
