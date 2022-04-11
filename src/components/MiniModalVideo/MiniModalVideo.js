@@ -1,7 +1,7 @@
 import React from 'react'
-import './Video.scss'
+import './MiniModalVideo.scss'
 
-const Video = ({ youtubeId }) => {
+const MiniModalVideo = ({ youtubeId }) => {
   //optional
   const removeControls = '&controls=0'
   //TODO useEffect need to rerender to update start and end time every time  when its hovered
@@ -23,10 +23,9 @@ const Video = ({ youtubeId }) => {
         className='video-content'
         loading='lazy'
         allow='autoplay'
-        title='trailer'
-      ></iframe>
+        title='trailer'></iframe>
     </div>
   )
 }
 
-export default Video
+export default MiniModalVideo
