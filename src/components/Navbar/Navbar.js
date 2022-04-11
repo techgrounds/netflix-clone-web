@@ -11,7 +11,16 @@ import { IconCaretDown } from '../Icons/IconCaretDown';
 import { IconPencil } from '../Icons/IconPencil';
 import { IconAccount } from '../Icons/IconAccount';
 import { IconQuestion } from '../Icons/IconQuestion';
-import AristoCatflix from '../../assets/images/aristoCatflix.jpg';
+import Jens from '../../assets/images/jens.jpg';
+import Zico from '../../assets/images/zico.jpg'
+import Michael from '../../assets/images/michael.jpg'
+import Roibin from '../../assets/images/roibin.png'
+import Fatos from '../../assets/images/fatos.webp'
+import Janou from '../../assets/images/janou.jpg'
+import Miki from '../../assets/images/miki.jpg'
+import Alfi from '../../assets/images/alfiya.jpg'
+import Wesley from '../../assets/images/wesley.jpg'
+import Carolyn from '../../assets/images/carolyn.webp'
 
 const Navbar = () => {
   const [dropdown, setDropdown] = useState(false);
@@ -290,9 +299,9 @@ const Navbar = () => {
                         <NavLink to="" className="profile-link">
                           <div className="avatar-wrapper">
                             <img
-                              className="profile-icon"
-                              src="https://occ-0-1368-769.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABbme8JMz4rEKFJhtzpOKWFJ_6qX-0y5wwWyYvBhWS0VKFLa289dZ5zvRBggmFVWVPL2AAYE8xevD4jjLZjWumNo.png?r=a41"
-                              alt=""
+                              className="profile-icon custom-profile-icon"
+                              src={Miki}
+                              alt="Miki"
                             />
                           </div>
                           <span className="profile-name">Miki</span>
@@ -304,9 +313,23 @@ const Navbar = () => {
                         <NavLink to="" className="profile-link">
                           <div className="avatar-wrapper">
                             <img
-                              className="profile-icon"
-                              src="https://occ-0-1368-769.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABbme8JMz4rEKFJhtzpOKWFJ_6qX-0y5wwWyYvBhWS0VKFLa289dZ5zvRBggmFVWVPL2AAYE8xevD4jjLZjWumNo.png?r=a41"
-                              alt=""
+                              className="profile-icon custom-profile-icon"
+                              src={Carolyn}
+                              alt="Carolyn"
+                            />
+                          </div>
+                          <span className="profile-name">Carolyn</span>
+                        </NavLink>
+                      </div>
+                    </li>
+                    <li className="sub-menu-item profile">
+                      <div>
+                        <NavLink to="" className="profile-link">
+                          <div className="avatar-wrapper">
+                            <img
+                              className="profile-icon custom-profile-icon"
+                              src={Janou}
+                              alt="Janou"
                             />
                           </div>
                           <span className="profile-name">Janou</span>
@@ -319,8 +342,8 @@ const Navbar = () => {
                           <div className="avatar-wrapper">
                             <img
                               className="profile-icon custom-profile-icon"
-                              src={AristoCatflix}
-                              alt="aristoCatflix"
+                              src={Jens}
+                              alt="Jens"
                               height='12px'
                             />
                           </div>
@@ -332,13 +355,86 @@ const Navbar = () => {
                       <div>
                         <NavLink to="" className="profile-link">
                           <div className="avatar-wrapper">
-                            <img
-                              className="profile-icon"
-                              src="https://occ-0-1368-769.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABbme8JMz4rEKFJhtzpOKWFJ_6qX-0y5wwWyYvBhWS0VKFLa289dZ5zvRBggmFVWVPL2AAYE8xevD4jjLZjWumNo.png?r=a41"
-                              alt=""
+                          <img
+                              className="profile-icon custom-profile-icon"
+                              src={Michael}
+                              alt="Michael"
                             />
                           </div>
                           <span className="profile-name">Michael</span>
+                        </NavLink>
+                      </div>
+                    </li>
+                    <li className="sub-menu-item profile">
+                      <div>
+                        <NavLink to="" className="profile-link">
+                          <div className="avatar-wrapper">
+                          <img
+                              className="profile-icon custom-profile-icon"
+                              src={Roibin}
+                              alt="Roibin"
+                            />
+                          </div>
+                          <span className="profile-name">Roibin</span>
+                        </NavLink>
+                      </div>
+                    </li>
+                    <li className="sub-menu-item profile">
+                      <div>
+                        <NavLink to="" className="profile-link">
+                          <div className="avatar-wrapper">
+                          <img
+                              className="profile-icon custom-profile-icon"
+                              src={Fatos}
+                              alt="Fatos"
+                            />
+                          </div>
+                          <span className="profile-name">Fatos</span>
+                        </NavLink>
+                      </div>
+                    </li>
+                    <li className="sub-menu-item profile">
+                      <div>
+                        <NavLink to="" className="profile-link">
+                          <div className="avatar-wrapper">
+                            
+                            <img
+                              className="profile-icon custom-profile-icon"
+                              src={Zico}
+                              alt="Zico"
+                            />
+                          </div>
+                          <span className="profile-name">Zico</span>
+                        </NavLink>
+                      </div>
+                    </li>
+                    <li className="sub-menu-item profile">
+                      <div>
+                        <NavLink to="" className="profile-link">
+                          <div className="avatar-wrapper">
+                            
+                            <img
+                              className="profile-icon custom-profile-icon"
+                              src={Alfi}
+                              alt="Alfi"
+                            />
+                          </div>
+                          <span className="profile-name">Alfi</span>
+                        </NavLink>
+                      </div>
+                    </li>
+                    <li className="sub-menu-item profile">
+                      <div>
+                        <NavLink to="" className="profile-link">
+                          <div className="avatar-wrapper">
+                            
+                            <img
+                              className="profile-icon custom-profile-icon"
+                              src={Wesley}
+                              alt="Wesley"
+                            />
+                          </div>
+                          <span className="profile-name">Wesley</span>
                         </NavLink>
                       </div>
                     </li>
