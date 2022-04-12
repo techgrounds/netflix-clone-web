@@ -1,8 +1,7 @@
-import { searchActionTypes } from './search.types';
-import requests from '../../requests';
-import axios from '../../axiosInstance';
-import { transformMovieData } from '../movies/movies.helpers';
-import { isCompositeComponentWithType } from 'react-dom/test-utils';
+import { searchActionTypes } from "./search.types";
+import requests from "../../requests";
+import axios from "../../axiosInstance";
+import { transformMovieData } from "../movies/movies.helpers";
 
 export const changeSearchInputValue = (inputValue) => ({
   type: searchActionTypes.CHANGE_SEARCH_INPUT_VALUE,
@@ -44,7 +43,6 @@ export const searchMoviesResultsAsync = () => {
       };
 
       const moviesWithoutDuplicates = removeDuplicates(allMoviesSearchable);
-      // console.log(moviesWithoutDuplicates);
 
       dispatch(searchMoviesResults(moviesWithoutDuplicates));
     } catch (err) {

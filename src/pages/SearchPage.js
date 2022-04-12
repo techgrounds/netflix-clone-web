@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import FooterBrowserPage from '../components/FooterBrowserPage/FooterBrowserPage';
-import { useDispatch, useSelector } from 'react-redux';
-import { searchMoviesResultsAsync } from '../redux/search/search.actions';
-import Lane from '../components/Lane/Lane';
+import React, { useEffect } from "react";
+import FooterBrowserPage from "../components/FooterBrowserPage/FooterBrowserPage";
+import { useDispatch, useSelector } from "react-redux";
+import { searchMoviesResultsAsync } from "../redux/search/search.actions";
+import Lane from "../components/Lane/Lane";
 
 const SearchPage = () => {
   const dispatch = useDispatch();
@@ -18,19 +18,32 @@ const SearchPage = () => {
 
   useEffect(() => {
     dispatch(searchMoviesResultsAsync());
-  }, []);
-
-  console.log('filtered arr', filteredArray);
-
+  }, [dispatch]);
+  console.log("SEARCH INPUT", searchInput);
+  // console.log("filtered arr", filteredArray);
+  // console.log("ALL RESULTS", allSearchResults);
   return (
     <>
-      <div style={{ paddingTop: '200px' }}>
-        <Lane
-          laneTitle={'Search Results'}
-          movies={filteredArray}
-          key={filteredArray.toString()}
-        />
-      </div>
+      {filteredArray && filteredArray.length > 0 ? (
+        <div style={{ paddingTop: "200px" }}>
+          <Lane
+            laneTitle={"Search Results"}
+            movies={filteredArray}
+            key={filteredArray.toString()}
+          />
+        </div>
+      ) : (
+        <h2
+          style={{
+            paddingTop: "200px",
+            textAlign: "center",
+            marginBottom: "100px",
+          }}
+        >
+          Sorry, we searched everywhere but we did not found any movie with that
+          title.
+        </h2>
+      )}
 
       <FooterBrowserPage />
     </>
