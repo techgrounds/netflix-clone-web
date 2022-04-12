@@ -2,6 +2,7 @@ import './HomeHero.scss'
 import { useEffect, useRef } from 'react'
 import { useSelector } from 'react-redux'
 import { gsap } from 'gsap'
+import TextTruncate from 'react-text-truncate'
 
 import { IconInfo } from '../Icons/IconInfo'
 import { IconPlayBlack } from '../Icons/IconPlayBlack'
@@ -11,11 +12,15 @@ import { IconKijkWijzer16 } from '../Icons/IconKijkWijzer16'
 import FilmInfoModal from '../FilmInfoModal/FilmInfoModal'
 import MiniModalVideo from '../MiniModalVideo/MiniModalVideo'
 
+import billboardHeroTitle from '../../assets/hero-img/billboard-title.webp'
+import billboardHeroImg from '../../assets/hero-img/billboard.webp'
+
 const HomeHero = ({
   setIsVideoPlaying,
   isVideoPlaying,
   setIsModalVisible,
   isModalVisible,
+  trailer,
 }) => {
   const element = useRef()
   const timeline = useRef()
@@ -76,14 +81,14 @@ const HomeHero = ({
           <div className='home-hero-fill-container'>
             <div className='home-hero-info'>
               <div className='title-wrapper'>
-                <h2>{movie?.title || movie?.name || movie?.original_name}</h2>
-                {/* <img
+                {/* <h2>{movie?.title || movie?.name || movie?.original_name}</h2> */}
+                <img
                   src={billboardHeroTitle}
                   alt='Abstract: The Art of Design'
-                /> */}
+                />
               </div>
               <div className='info-wrapper'>
-                <p>{movie?.desc}</p>
+                <TextTruncate line={3} text={movie?.desc} />
                 {/* <p>
                   Step inside the minds of the most innovative designers in a
                   variety of disciplines and learn how design impacts every
