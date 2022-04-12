@@ -1,7 +1,7 @@
-import useWindowSize from './WindowSize';
-import { useState, useEffect } from 'react';
-import MiniModal from '../MiniModal';
-import '../Lane/Lane.scss';
+import useWindowSize from './WindowSize'
+import { useState, useEffect, useRef } from 'react'
+import MiniModal from '../MiniModal/MiniModal'
+import '../Lane/Lane.scss'
 
 
 export const LaneItem = ({
@@ -16,26 +16,26 @@ export const LaneItem = ({
   const [hovered, setHovered] = useState(false);
   const [moreInfo, setMoreInfo] = useState(false);
   const sleep = (milliseconds) => {
-    return new Promise((resolve) => setTimeout(resolve, milliseconds));
-  };
+    return new Promise((resolve) => setTimeout(resolve, milliseconds))
+  }
 
   useEffect(async () => {
     if (hovered) {
-      updateZIndexRef(999);
-      setLoadMovie(true);
+      updateZIndexRef(999)
+      setLoadMovie(true)
     }
     if (!hovered) {
-      updateZIndexRef(0);
-      setLoadMovie(false);
+      updateZIndexRef(0)
+      setLoadMovie(false)
     }
-  }, [hovered]);
+  }, [hovered])
 
   return (
     <div
-      className="laneItem"
+      className='laneItem'
       style={{ height: `${size.itemHeight}vw`, width: `${size.itemWidth}vw` }}
       onMouseEnter={() => {
-        setHovered(true);
+        setHovered(true)
       }}
       onMouseLeave={() => {
         setHovered(false);
@@ -81,16 +81,18 @@ export const LaneItem = ({
       <img
         src={movie.image}
         alt={movie.title}
-        className="movie-image"
+        className='movie-image'
         style={{
           width: '0',
           height: '0',
           objectFit: 'contain',
         }}
       />
-      <div className='laneItemTitle'
-      style={{width: `${size.itemWidth * 0.9}vw`, overflow: `hidden` }}
-      >{movie.title}</div>
+      <div
+        className='laneItemTitle'
+        style={{ width: `${size.itemWidth * 0.9}vw`, overflow: `hidden` }}>
+        {movie.title}
+      </div>
     </div>
-  );
-};
+  )
+}
