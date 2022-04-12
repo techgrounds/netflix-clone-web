@@ -33,6 +33,7 @@ const HomePage = () => {
             laneTitle={movieSet.genre}
             movies={movieSet.movies}
             trailer={movieSet.trailer}
+            setIsVideoPlaying={setIsVideoPlaying}
             key={uuidv4()}
           />
         )
