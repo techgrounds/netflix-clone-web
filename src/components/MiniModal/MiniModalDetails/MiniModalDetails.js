@@ -5,15 +5,13 @@ import { IconPlayBlack } from "../../Icons/IconPlayBlack";
 import { IconArrowDown } from "../../Icons/IconArrowDown";
 import { useState } from "react";
 import RatingButton from "../RatingButton";
-const MiniModalDetails = (  {setMoreInfo, moreInfo} ) => {
+const MiniModalDetails = ({ setMoreInfo, moreInfo }) => {
   const [isChecked, setIsChecked] = useState(false);
   const changeIcon = () => {
     !isChecked ? setIsChecked(true) : setIsChecked(false);
   };
-
   const openInfo = () => {
-    !moreInfo ? setMoreInfo(false) : setMoreInfo(true);
-    console.log("open info checked")
+    !moreInfo ? setMoreInfo(true) : setMoreInfo(false);
   };
 
   return (

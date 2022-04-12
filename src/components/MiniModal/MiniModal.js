@@ -1,7 +1,6 @@
 import './MiniModal.scss';
 import MiniModalDetails from './MiniModalDetails';
-import MiniModalOpened from './MiniModalOpened/MiniModalOpened';
-import gsap from 'gsap'; 
+import gsap from 'gsap';
 import Video from './Video';
 import { useState, useRef } from 'react';
 
@@ -52,7 +51,8 @@ const MiniModal = ({
           <div className="video-title">{movieTitle}</div>
         </div>
         <div className="bottom-container">
-        {moreInfo ? <MiniModalOpened /> : <MiniModalDetails setMoreInfo={setMoreInfo} moreInfo={moreInfo}/>}
+        {!moreInfo ? <MiniModalDetails setMoreInfo={setMoreInfo} moreInfo={moreInfo}/>:
+        <p>clicked</p>}
         </div>
       </div>
     </>

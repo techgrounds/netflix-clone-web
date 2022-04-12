@@ -1,5 +1,5 @@
 import useWindowSize from './WindowSize';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import MiniModal from '../MiniModal';
 import '../Lane/Lane.scss';
 
@@ -62,7 +62,6 @@ export const LaneItem = ({
               moviePoster={movie.image}
               movieTitle={movie.title}
               setLoadMovie={setLoadMovie}
-              updateZIndexRef={updateZIndexRef}
               trailer={movie.trailer}
             />
           )}
