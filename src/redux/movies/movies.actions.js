@@ -28,12 +28,12 @@ export const fetchMoviesResultsAsync = () => {
 
     try {
       const request = await axios.get(requests.fetchDiscover);
-console.log(request.data)
+// console.log(request.data)
 const allMovies = []
 
 Object.entries(request.data).forEach(([key, value]) => {
   let filteredMovies = value.categoryDetails.map((movie) => {
-  
+
   return {
       id: uuidv4(),
       title: movie.title,
@@ -45,7 +45,6 @@ Object.entries(request.data).forEach(([key, value]) => {
 
   }
   ).filter(movie => movie.trailer)
-  console.log("ALL MOVIES", allMovies)
 
   let editedGenre = key.split('Movies')[0].charAt(0).toUpperCase() + key.split('Movies')[0].slice(1)
 
@@ -54,7 +53,7 @@ Object.entries(request.data).forEach(([key, value]) => {
     genre: editedGenre,
     movies: filteredMovies
   })
-  
+
 })
 
 console.log('ALL', allMovies)

@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import MiniModal from '../MiniModal';
 import '../Lane/Lane.scss';
 
+
 export const LaneItem = ({
   updateZIndexRef,
   movie,

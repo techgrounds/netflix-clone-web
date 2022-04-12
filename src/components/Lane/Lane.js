@@ -27,7 +27,7 @@ const Lane = ({ laneTitle, movies }) => {
       const rightIndex = leftIndex + (size.length - 1);
       return (
         <LaneItem
-          key={movie.key}
+          key={movie.id}
           updateZIndexRef={updateZIndexRef}
           movie={movie}
           leftIndex={leftIndex}
@@ -158,7 +158,7 @@ const Lane = ({ laneTitle, movies }) => {
               if (index % size.length === 1)
                 return (
                   <button
-                    key={movie.key}
+                    key={movie.id}
                     className={`${
                       index === activeIndex - size.length
                         ? 'active_pageIndicatior pageIndicator'
