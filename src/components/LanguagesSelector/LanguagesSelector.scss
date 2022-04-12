@@ -1,0 +1,56 @@
+.selectContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    padding: 0.5em;
+    //padding-right: .7em;
+    background-color: var(--blackTrans);
+    font-size: 1.2em;
+    color: var(--white);
+    border: 1px solid var(--smokewhite);
+    border-radius: 3px;
+    cursor: pointer;
+    svg {
+      height: 0.6em;
+      width: auto;
+      path {
+        fill: var(--white);
+      }
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0.7em;
+      right: 0.5em;
+      height: 0.4em;
+      width: 0.6em;
+      border-top: 0.4em solid var(--white);
+      border-bottom: 0;
+      border-left: 0.3em solid transparent;
+      border-right: 0.3em solid transparent;
+    }
+    .customSelect {
+      position: relative;
+      padding: 0 1em 0 0.3em;
+      appearance: none;
+      background-color: transparent;
+      white-space: nowrap;
+      color: var(--white);
+      border: none;
+      outline: none;
+      cursor: pointer;
+      z-index: 2;
+      option {
+        position: absolute;
+        bottom: 0;
+        display: block;
+        width: 150%;
+        margin-top: 0.5em;
+        padding: 0.5em 1em 0.5em 1em;
+        background-color: var(--midgrey);
+        outline: none;
+      }
+    }
+  }
