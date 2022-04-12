@@ -16,6 +16,7 @@ const HomeHero = ({
   isVideoPlaying,
   setIsModalVisible,
   isModalVisible,
+  trailer
 }) => {
   const element = useRef()
   const timeline = useRef()
@@ -23,7 +24,7 @@ const HomeHero = ({
 
   const movie = useSelector((state) => state.movies.movie);
 
-  const youtubeId = '65xa8TG2G8o';
+  // const youtubeId = trailer.substr(32);
 
   const openModal = () => {
     setIsModalVisible(true);
@@ -69,7 +70,7 @@ const HomeHero = ({
             }}
           >
             {/* {isVideoPlaying ? (
-              <Video trailer = {movie?.trailerUrl} />
+              <Video trailer = {youtubeId} />
             ) : (
               <img
                 src={billboardHeroImg}
@@ -90,7 +91,7 @@ const HomeHero = ({
                 /> */}
               </div>
               <div className="info-wrapper">
-                <p>{movie?.overview}</p>
+                <p>{movie?.desc}</p>
                 {/* <p>
                   Step inside the minds of the most innovative designers in a
                   variety of disciplines and learn how design impacts every

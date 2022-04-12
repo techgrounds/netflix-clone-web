@@ -19,9 +19,18 @@
     }
   }
   button {
-    width: 3.8125rem;
+    width: fit-content;
     font-size: 0.9rem;
     padding: 0.4rem;
+  }
+}
+.button-container {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 1.5em;
+  width: fit-content;
+  @media only screen and (min-width: 40em) {
+    gap: 2em;
   }
 }
 @media only screen and (min-width: 950px) and (max-width: 1449px),
