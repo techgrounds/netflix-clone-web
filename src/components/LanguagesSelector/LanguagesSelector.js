@@ -1,7 +1,7 @@
 import "./LanguagesSelector.scss";
 
 import { useSelector, useDispatch } from "react-redux";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import { LangContext } from "../../redux/languages/languages.context";
 import { changeLanguage } from "../../redux/languages/languages.actions";
@@ -9,11 +9,14 @@ import { changeLanguage } from "../../redux/languages/languages.actions";
 import { IconWorld } from "../Icons/IconWorld";
 
 const LanguagesSelector = () => {
-  const currentLanguage = useSelector((state) => state.language);
+  const currentLanguage = useSelector((state) => state.language.language);
   console.log("currentLanguage: ", currentLanguage);
   const dispatch = useDispatch();
   const { language, setLanguage } = useContext(LangContext);
 
+  const handleChange = (e) => {
+    setLanguage(e.target.value);
+  };
   useEffect(() => {
     dispatch(changeLanguage(language));
   }, [language]);
@@ -23,6 +26,9 @@ const LanguagesSelector = () => {
     { code: "NL", name: "Nederlands" },
   ];
 
+  if (language === "NL") {
+    languages.reverse();
+  }
   const languageOptions = languages.map((language) => {
     return (
       <option key={language.code} value={language.code}>
@@ -37,7 +43,8 @@ const LanguagesSelector = () => {
         <IconWorld />
         <select
           className="customSelect"
-          onChange={(e) => setLanguage(e.target.value)}
+          onChange={(e) => handleChange(e)}
+          placeholder={currentLanguage}
         >
           {languageOptions}
         </select>

@@ -5,7 +5,6 @@
     justify-content: space-around;
     width: 100%;
     padding: 0.5em;
-    //padding-right: .7em;
     background-color: var(--blackTrans);
     font-size: 1.2em;
     color: var(--white);
@@ -49,6 +48,8 @@
         width: 150%;
         margin-top: 0.5em;
         padding: 0.5em 1em 0.5em 1em;
+        text-align: center;
+        line-height: 1.5em;
         background-color: var(--midgrey);
         outline: none;
       }
