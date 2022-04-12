@@ -4,7 +4,6 @@
   pointer-events: none;
   position: relative;
   overflow: hidden;
-  padding: 5.5em 0;
   top: -120px;
   margin-bottom: -150px;
   @include breakpoint(sm) {
@@ -18,9 +17,10 @@
     top: -100px;
   }
   @include breakpoint(lg) {
-    padding: 9em 0;
-    margin-bottom: -250px;
-    top: -200px;
+    padding-bottom: 50vh;
+    padding-top: 50vh;
+    margin-bottom: -95vh;
+    top: -55vh;
   }
   @include breakpoint(xlg) {
     padding: 13em 0;

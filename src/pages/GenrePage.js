@@ -19,7 +19,7 @@ const HomePage = () => {
 
   useEffect(() => {
     dispatch(fetchGenresResultsAsync());
-  }, []);
+  },[]);
 
   return (
     <>

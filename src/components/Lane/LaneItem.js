@@ -14,6 +14,7 @@ export const LaneItem = ({
   const size = useWindowSize();
   const [loadMovie, setLoadMovie] = useState(false);
   const [hovered, setHovered] = useState(false);
+  const [moreInfo, setMoreInfo] = useState(false);
   const sleep = (milliseconds) => {
     return new Promise((resolve) => setTimeout(resolve, milliseconds));
   };
@@ -38,6 +39,7 @@ export const LaneItem = ({
       }}
       onMouseLeave={() => {
         setHovered(false);
+        setMoreInfo(false);
       }}
     >
       {loadMovie && (
@@ -51,10 +53,16 @@ export const LaneItem = ({
                      : 'not'
                  }
                  `}
-          style={{
+          style={!moreInfo ? {
             height: `${size.itemHeight * 2.5}vw`,
             width: `${size.itemWidth * 1.5}vw`,
-          }}
+          } : {
+            // height:'100vh',
+            // width: '50vw',
+            height: `${size.itemHeight * 5}vw`,
+            width: `${size.itemWidth * 3}vw`,
+          }
+        }
         >
           {loadMovie && (
             <MiniModal
@@ -63,6 +71,8 @@ export const LaneItem = ({
               movieTitle={movie.title}
               setLoadMovie={setLoadMovie}
               trailer={movie.trailer}
+              moreInfo={moreInfo}
+              setMoreInfo={setMoreInfo}
             />
           )}
         </div>

@@ -1,5 +1,6 @@
 import './MiniModal.scss';
 import MiniModalDetails from './MiniModalDetails';
+import MiniModalDetailsOpen from './MiniModalDetailsOpen';
 import gsap from 'gsap';
 import Video from './Video';
 import { useState, useRef } from 'react';
@@ -8,13 +9,14 @@ const MiniModal = ({
   setLoadMovie,
   moviePoster,
   movieTitle,
-  trailer
+  trailer,
+  moreInfo,
+  setMoreInfo
 }) => {
   const youtubeId = trailer.substr(32);
   const boxRef = useRef();
   const [active, setActive] = useState(true);
   const [start, setStart] = useState(false);
-  const [moreInfo, setMoreInfo] = useState(false);
 
   const remove = async () => {
     setStart(true);
@@ -52,7 +54,7 @@ const MiniModal = ({
         </div>
         <div className="bottom-container">
         {!moreInfo ? <MiniModalDetails setMoreInfo={setMoreInfo} moreInfo={moreInfo}/>:
-        <p>clicked</p>}
+        <MiniModalDetailsOpen style=""/>}
         </div>
       </div>
     </>
