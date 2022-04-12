@@ -1,4 +1,4 @@
-@import '../../../assets/scss/mixins';
+@import '../../assets/scss/mixins';
 
 .video-container {
   position: relative;
@@ -18,16 +18,16 @@
     height: 100%;
     opacity: 0;
   }
-//   margin: -0.3em 0;
-//   @include breakpoint(sm) {
-//     margin: -1em 0;
-//   }
-//   @include breakpoint(md) {
-//     margin: -1.2em 0;
-//   }
-//   @include breakpoint(lg) {
-//     margin: -3em 0;
-//   }
+  //   margin: -0.3em 0;
+  //   @include breakpoint(sm) {
+  //     margin: -1em 0;
+  //   }
+  //   @include breakpoint(md) {
+  //     margin: -1.2em 0;
+  //   }
+  //   @include breakpoint(lg) {
+  //     margin: -3em 0;
+  //   }
 
   margin: -1.8% 0;
   width: 100%;
