@@ -1,13 +1,16 @@
+@import '../../assets/scss/mixins';
+
 .minimodal-button-wrapper {
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: 99%;
 
   .play-button {
     background-color: var(--white);
     border: 1px solid var(--black);
     width: 2.8em;
     margin-right: 0.2rem;
+
     &:hover {
       border: 1px solid var(--black);
       background-color: rgb(214, 214, 214);
@@ -42,6 +45,9 @@
   justify-content: space-between;
   align-items: center;
   width: 35%;
+  @include breakpoint(xlg) {
+    width: 0%;
+  }
 }
 
 .right-content {
@@ -56,14 +62,13 @@
   align-items: center;
   width: 80%;
   color: var(--white);
+  @include breakpoint(xlg) {
+    width: 40%;
+  }
 }
 
 .match {
   color: #46d369;
-}
-
-.maturity-rating {
-  width: 2.8em;
 }
 
 .tag-container {
@@ -72,6 +77,9 @@
   align-items: center;
   width: 80%;
   color: var(--whiteOpacity);
+  @include breakpoint(xlg) {
+    width: 40%;
+  }
 }
 
 .tag-item-mini {

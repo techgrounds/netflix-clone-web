@@ -258,7 +258,6 @@
 
 .home-hero-volume-button {
   align-items: center;
-  appearance: none;
   background-color: transparent;
   border: 2px solid var(--white);
   color: var(--white);
@@ -269,10 +268,6 @@
   opacity: 1;
   padding: 0.2rem;
   position: relative;
-  user-select: none;
-  will-change: background-color, color;
-  word-break: break-word;
-  white-space: nowrap;
   border-radius: 50%;
   @include breakpoint(sm) {
     font-size: 0.73rem;
