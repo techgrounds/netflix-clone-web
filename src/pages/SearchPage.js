@@ -1,11 +1,8 @@
-import React, { useEffect, useState } from "react";
-import Navbar from "../components/Navbar/Navbar";
-import FooterBrowserPage from "../components/FooterBrowserPage/FooterBrowserPage";
-import { useDispatch, useSelector } from "react-redux";
-import { searchMoviesResultsAsync } from "../redux/search/search.actions";
-import { useNavigate, useLocation, useHistory } from "react-router-dom";
-import Lane from "../components/Lane/Lane";
-import { v4 as uuidv4 } from "uuid";
+import React, { useEffect, useState } from 'react';
+import FooterBrowserPage from '../components/FooterBrowserPage/FooterBrowserPage';
+import { useDispatch, useSelector } from 'react-redux';
+import { searchMoviesResultsAsync } from '../redux/search/search.actions';
+import Lane from '../components/Lane/Lane';
 
 const SearchPage = () => {
   const dispatch = useDispatch();
@@ -18,18 +15,20 @@ const SearchPage = () => {
       return { ...result, title: result.title.toLowerCase() };
     })
     .filter((result) => result.title.includes(searchInput.toLowerCase()));
+
   useEffect(() => {
     dispatch(searchMoviesResultsAsync());
-    console.log("check", allSearchResults);
   }, []);
+
+  console.log('filtered arr', filteredArray);
 
   return (
     <>
-      <div style={{ paddingTop: "200px" }}>
+      <div style={{ paddingTop: '200px' }}>
         <Lane
-          laneTitle={"Search Results"}
+          laneTitle={'Search Results'}
           movies={filteredArray}
-          key={uuidv4()}
+          key={filteredArray.toString()}
         />
       </div>
 

@@ -4,19 +4,14 @@ import gsap from 'gsap';
 import Video from './Video';
 import { useState, useRef } from 'react';
 
-const MiniModal = ({
-  setLoadMovie,
-  moviePoster,
-  movieTitle,
-  trailer
-}) => {
+const MiniModal = ({ setLoadMovie, moviePoster, movieTitle, trailer }) => {
   const youtubeId = trailer.substr(32);
   const boxRef = useRef();
   const [active, setActive] = useState(true);
   const [start, setStart] = useState(false);
 
-  console.log("trailer path: ", trailer)
-  console.log("trailer id: ", youtubeId)
+  // console.log("trailer path: ", trailer)
+  // console.log("trailer id: ", youtubeId)
 
   const remove = async () => {
     setStart(true);
@@ -32,13 +27,12 @@ const MiniModal = ({
   return (
     <>
       <div
-        className="modal"
+        className='modal'
         onMouseEnter={remove}
         onMouseLeave={() => {
           setLoadMovie(false);
-        }}
-      >
-        <div className="top-container">
+        }}>
+        <div className='top-container'>
           {start && <Video youtubeId={youtubeId} />}
 
           {active && (
@@ -46,13 +40,13 @@ const MiniModal = ({
               ref={boxRef}
               src={moviePoster}
               alt={moviePoster}
-              className="movie-poster"
+              className='movie-poster'
             />
           )}
 
-          <div className="video-title">{movieTitle}</div>
+          <div className='video-title'>{movieTitle}</div>
         </div>
-        <div className="bottom-container">
+        <div className='bottom-container'>
           <MiniModalDetails />
         </div>
       </div>
