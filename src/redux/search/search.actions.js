@@ -17,50 +17,44 @@ export const searchMoviesResults = (movieData) => ({
   payload: movieData,
 });
 
-export const searchMoviesResultsAsync = async () => {
-  console.log("inside search");
+export const searchMoviesResultsAsync = () => {
+  // console.log("inside ");
 
-  // return async (dispatch) => {
-  console.log("INSIDE RETURN");
+  return async (dispatch) => {
+    try {
+      const requestDiscover = await axios.get(requests.fetchDiscover);
+      const requestGenres = await axios.get(requests.fetchGenres);
 
-  try {
-    console.log("inside try");
+      const discover = transformMovieData(requestDiscover.data);
+      const genres = transformMovieData(requestGenres.data);
 
-    const requestDiscover = await axios.get(requests.fetchDiscover);
-    const requestGenres = await axios.get(requests.fetchGenres);
+      const moviesCombined = discover.concat(genres);
 
-    const discover = transformMovieData(requestDiscover.data);
-    const genres = transformMovieData(requestGenres.data);
+      const allMoviesSearchable = moviesCombined.reduce((acc, curr) => {
+        return [...acc, ...curr.movies];
+      }, []);
 
-    const moviesCombined = discover.concat(genres);
-    console.log("COMBINED MOVIES", moviesCombined);
-
-    // accumulator => acc => beginwaarde 0, {}, []
-    // curr => currentValue => huidige loop iteratie
-    // {genre: 'eeighties', movies: []}
-
-    // const grades = [
-    //   { grade: 10 },
-    //   { grade: 20 },
-    //   { grade: 30 },
-    //   { grade: 40 },
-    //   { grade: 50 },
-    // ];
-    // const totalScores = grades.reduce((acc, curr) => {
-    //   return acc + curr.grade;
-    // }, 0);
-
-    // console.log("TOTAL", totalScores);
-
-    const allMoviesSearchable = moviesCombined.reduce((acc, curr) => {
-      return [...acc, ...curr.movies];
-    }, []);
-
-    console.log("ALL MOVIES SEARCHABLE", allMoviesSearchable);
-
-    console.log(discover, genres);
-  } catch (err) {
-    console.log(err);
-  }
+      console.log("ALL MOVIES SEARCHABLE", allMoviesSearchable);
+      dispatch(searchMoviesResults(allMoviesSearchable));
+    } catch (err) {
+      console.log(err);
+    }
+  };
 };
-//};
+
+// accumulator => acc => beginwaarde 0, {}, []
+// curr => currentValue => huidige loop iteratie
+// {genre: 'eeighties', movies: []}
+
+// const grades = [
+//   { grade: 10 },
+//   { grade: 20 },
+//   { grade: 30 },
+//   { grade: 40 },
+//   { grade: 50 },
+// ];
+// const totalScores = grades.reduce((acc, curr) => {
+//   return acc + curr.grade;
+// }, 0);
+
+// console.log("TOTAL", totalScores);

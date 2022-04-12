@@ -1,27 +1,32 @@
-import React, { useState, useRef } from 'react';
-import useOutsideClick from '../../hooks/useOutsideClick';
-import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import React, { useState, useRef, useEffect } from "react";
+import useOutsideClick from "../../hooks/useOutsideClick";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import {
   changeSearchInputValue,
   clearSearchInputValue,
-} from '../../redux/search/search.actions';
+  searchMoviesResultsAsync,
+} from "../../redux/search/search.actions";
 
-import { IconSearch } from '../Icons/IconSearch';
+import { IconSearch } from "../Icons/IconSearch";
 
-import './styles.scss';
+import "./styles.scss";
 
 export default function SearchBar() {
   const [searchInputToggle, setSearchInputToggle] = useState(false);
-  const [searchInput, setSearchInput] = useState('');
+  const [searchInput, setSearchInput] = useState("");
   const searchbarRef = useRef();
   const searchInputRef = useRef();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    searchInputRef.current.focus();
+  }, []);
+
   useOutsideClick(searchbarRef, () => {
     if (searchInputToggle) {
-      setSearchInput('');
+      setSearchInput("");
       setSearchInputToggle(false);
     }
   });
@@ -32,9 +37,9 @@ export default function SearchBar() {
   };
 
   const clearSearchInputToggle = () => {
-    setSearchInput('');
+    setSearchInput("");
     dispatch(clearSearchInputValue());
-    navigate('/home');
+    navigate("/home");
   };
 
   const handleSearchInput = (event) => {
@@ -44,8 +49,10 @@ export default function SearchBar() {
 
     if (value.length > 0) {
       navigate(`/search?q=${value}`);
-      //dispatch(fetchSearchResultsAsync(value))
-    } else navigate('/home');
+      dispatch(searchMoviesResultsAsync(value));
+    } else {
+      navigate("/home");
+    }
   };
 
   return (
@@ -53,7 +60,7 @@ export default function SearchBar() {
       <div className="searchbar-toggler" onClick={handleSearchInputToggle}>
         <span
           className={`icon-search-close ${
-            searchInputToggle && 'icon-search-close-active'
+            searchInputToggle && "icon-search-close-active"
           }`}
         >
           <IconSearch size="2em" />
@@ -65,11 +72,11 @@ export default function SearchBar() {
           onChange={handleSearchInput}
           ref={searchInputRef}
           className={`searchbar-search ${
-            searchInputToggle && 'searchbar-active'
+            searchInputToggle && "searchbar-active"
           }`}
         />
         <span
-          className={`icon-search ${searchInputToggle && 'icon-search-active'}`}
+          className={`icon-search ${searchInputToggle && "icon-search-active"}`}
         >
           <IconSearch size="2em" />
         </span>
@@ -77,7 +84,7 @@ export default function SearchBar() {
 
       <div
         className={`searchbar-clear ${
-          searchInputToggle && searchInput.length && 'typing'
+          searchInputToggle && searchInput.length && "typing"
         }`}
         onClick={clearSearchInputToggle}
       ></div>
