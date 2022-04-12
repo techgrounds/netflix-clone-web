@@ -1,20 +1,33 @@
 import './FilmInfoModalHeader.scss'
-import movieData from '../../movies.json'
+// import movieData from '../../movies.json'
 import { IconPlayBlack } from '../Icons/IconPlayBlack'
 import { IconAdd } from '../Icons/IconAdd'
 import { IconLike } from '../Icons/IconLike'
 import { IconDisLike } from '../Icons/IconDisLike'
 import { ButtonRoundDarkTooltip } from '../ButtonRound/ButtonRound'
 import Video from '../MiniModal/Video'
+import { useSelector } from 'react-redux'
 
-const FilmInfoModalVideo = ({ isVideoPlaying }) => {
-  const movie = movieData[1]
+
+
+const FilmInfoModalVideo = ({ isVideoPlaying, trailer }) => {
+  // const movie = movieData[1]
+
+  //const youtubeId = trailer.substring(32);
+
+  const movie = useSelector((state) => state.movies.movie);
 
   const youtubeId = '65xa8TG2G8o'
 
   return (
     <>
-      <div className='header-video'>
+      <div className='header-video'
+        style={{
+          backgroundSize: 'cover',
+          backgroundImage: `url("https://image.tmdb.org/t/p/original${movie?.imageHR}")`,
+          backgroundPosition: 'center center',
+        }}
+      >
         {!isVideoPlaying && <Video youtubeId={youtubeId} />}
       </div>
       <div className='header-overlay'></div>

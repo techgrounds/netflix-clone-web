@@ -1,4 +1,4 @@
-import { moviesActionTypes } from './movies.types';
+import { moviesActionTypes } from "./movies.types";
 
 const initialState = {
   allMovies: [],
@@ -21,6 +21,7 @@ const moviesReducer = (state = initialState, action) => {
         error: false,
         isLoading: false,
       };
+
     case moviesActionTypes.FETCH_SINGLE_MOVIE:
       return {
         ...state,
