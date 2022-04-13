@@ -1,10 +1,10 @@
-import React, { useRef, useState, useEffect } from 'react';
-import { useSwipeable } from 'react-swipeable';
-import { IconArrowRight } from '../Icons/IconArrowRight';
-import { IconArrowLeft } from '../Icons/IconArrowLeft';
-import { LaneItem } from '../../components/Lane/LaneItem';
-import useWindowSize from './WindowSize';
-import './Lane.scss';
+import React, { useRef, useState } from "react";
+import { useSwipeable } from "react-swipeable";
+import { IconArrowRight } from "../Icons/IconArrowRight";
+import { IconArrowLeft } from "../Icons/IconArrowLeft";
+import { LaneItem } from "../../components/Lane/LaneItem";
+import useWindowSize from "./WindowSize";
+import "./Lane.scss";
 
 const Lane = ({ laneTitle, movies, setIsVideoPlaying }) => {
   const size = useWindowSize();
@@ -96,69 +96,74 @@ const Lane = ({ laneTitle, movies, setIsVideoPlaying }) => {
   });
 
   return (
-    <div className='laneContainer' style={{ zIndex: 0 }} ref={zIndexRef}>
+    <div className="laneContainer" style={{ zIndex: 0 }} ref={zIndexRef}>
       <div
-        className='lane'
+        className="lane"
         style={{ height: `${size.itemHeight * 1.33}vw` }}
-        {...handlers}>
-        <div className='laneName'>
+        {...handlers}
+      >
+        <div className="laneName">
           {laneTitle}
-          <button className='laneNameButton'>
-            <div className='laneNameButtonOpened'>Explore all </div>
+          <button className="laneNameButton">
+            <div className="laneNameButtonOpened">Explore all </div>
             <IconArrowRight />
           </button>
         </div>
 
         <div
-          className='inner'
+          className="inner"
           style={{
             transform: `translateX(-${activeIndex * size.itemWidth}vw)`,
-            transition: `${animationState ? ' transform 0.8s' : 'undefined'}`,
+            transition: `${animationState ? " transform 0.8s" : "undefined"}`,
           }}
-          ref={laneRef}>
+          ref={laneRef}
+        >
           {startSwitch > 0 && arrayFromLastLane}
           {midLane}
-          {size.length > midLane.length && arrayFromFirstLane}
+          {movies.length > size.length && arrayFromFirstLane}
         </div>
 
-        <div className='indicators'>
+        <div className="indicators">
           <button
             className={`${
               startSwitch === 0
-                ? 'indicator_inactive indicator_prev'
-                : 'indicator indicator_prev'
+                ? "indicator_inactive indicator_prev"
+                : "indicator indicator_prev"
             }`}
             style={{
               height: `${size.itemHeight}vw`,
-              width: '5vw',
+              width: "5vw",
               top: `-${size.itemHeight}vw`,
             }}
             onClick={() => {
               updateIndexPrev(activeIndex - size.length);
-            }}>
+            }}
+          >
             <IconArrowLeft />
           </button>
 
           <button
             className={`${
-              midLane.length < size.length
+              movies.length > size.length
                 ? 'indicator_inactive indicator_next'
                 : 'indicator indicator_next'
             }`}
             style={{
               height: `${size.itemHeight}vw`,
-              width: '5vw',
+              width: "5vw",
               top: `-${size.itemHeight}vw`,
             }}
             onClick={() => {
               updateIndexNext(activeIndex + size.length);
-            }}>
+            }}
+          >
             <IconArrowRight />
           </button>
 
           <div
-            className='pageIndicator_container'
-            style={{ top: `-${size.itemHeight * 2.1}vw` }}>
+            className="pageIndicator_container"
+            style={{ top: `-${size.itemHeight * 2.1}vw` }}
+          >
             {movies.map((movie, index) => {
               if (index % size.length === 1)
                 return (
@@ -166,8 +171,8 @@ const Lane = ({ laneTitle, movies, setIsVideoPlaying }) => {
                     key={movie.id}
                     className={`${
                       index === activeIndex - size.length
-                        ? 'active_pageIndicatior pageIndicator'
-                        : 'pageIndicator'
+                        ? "active_pageIndicatior pageIndicator"
+                        : "pageIndicator"
                     }`}
                   />
                 );

@@ -1,7 +1,8 @@
-import { moviesActionTypes } from './movies.types';
-import requests from '../../requests';
-import axios from '../../axiosInstance';
-import { v4 as uuidv4 } from 'uuid';
+import { moviesActionTypes } from "./movies.types";
+import requests from "../../requests";
+import axios from "../../axiosInstance";
+import { transformMovieData } from "./movies.helpers";
+import { v4 as uuidv4 } from "uuid";
 
 export const fetchMoviesResultsRequest = () => ({
   type: moviesActionTypes.FETCH_MOVIES_RESULTS_REQUEST,
@@ -28,6 +29,7 @@ export const fetchMoviesResultsAsync = () => {
 
     try {
       const request = await axios.get(requests.fetchDiscover);
+<<<<<<< HEAD
 // console.log(request.data)
 const allMovies = []
 
@@ -58,6 +60,9 @@ Object.entries(request.data).forEach(([key, value]) => {
 })
 
 console.log('ALL', allMovies)
+=======
+      const allMovies = transformMovieData(request.data);
+>>>>>>> 90bcc308680a5b359b01969adfe6ba29857ebab9
 
       dispatch(fetchMoviesResultsSuccess(allMovies));
 
@@ -70,7 +75,6 @@ console.log('ALL', allMovies)
       const singleMovie = movies[selectRandomMovie];
 
       dispatch(fetchSingleMovie(singleMovie));
-
     } catch (err) {
       dispatch(fetchMoviesResultsFailure(err.message));
     }
@@ -79,10 +83,9 @@ console.log('ALL', allMovies)
 
 /////////////
 //REMOVE NULL FROM LINK!
-    // let backdropUrl = movie.backdropUrls[0].split('null')
-    // if (backdropUrl[1] === '') {
-    //   backdropUrl = 'https://image.tmdb.org/t/p/w300/hph1RMsL4223xyqxfEx3OXodf5E.jpg'
-    // } else {
-    //   backdropUrl = movie.backdropUrls[0]
-    // }
-
+// let backdropUrl = movie.backdropUrls[0].split('null')
+// if (backdropUrl[1] === '') {
+//   backdropUrl = 'https://image.tmdb.org/t/p/w300/hph1RMsL4223xyqxfEx3OXodf5E.jpg'
+// } else {
+//   backdropUrl = movie.backdropUrls[0]
+// }

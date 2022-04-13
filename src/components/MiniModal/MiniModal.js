@@ -21,7 +21,7 @@ const MiniModal = ({
   const [start, setStart] = useState(false)
 
   const remove = async () => {
-    setStart(true)
+    setStart(true);
     gsap.to(boxRef.current, {
       opacity: 0,
       duration: 2,
@@ -39,26 +39,27 @@ const MiniModal = ({
 
 
       onMouseLeave={() => {
-        setLoadMovie(false)
-      }}>
-      <div className='top-container'>
+        setLoadMovie(false);
+      }}
+    >
+      <div className="top-container">
         {start && <MiniModalVideo youtubeId={youtubeId} />}
         {active && (
           <img
             ref={boxRef}
             src={moviePoster}
             alt={moviePoster}
-            className='movie-poster'
+            className="movie-poster"
           />
         )}
 
-        <div className='overlay-items'>
-          <div className='video-title-wrapper'>
-            <div className='video-title'>{movieTitle}</div>
+        <div className="overlay-items">
+          <div className="video-title-wrapper">
+            <div className="video-title">{movieTitle}</div>
           </div>
 
-          <div className='volume-button-wrapper'>
-            <button className='volume-button'>
+          <div className="volume-button-wrapper">
+            <button className="volume-button">
               <IconVolumeMute />
             </button>
           </div>
@@ -69,7 +70,7 @@ const MiniModal = ({
         <MiniModalDetailsOpen />}
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default MiniModal;
