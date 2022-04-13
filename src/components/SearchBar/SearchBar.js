@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import useOutsideClick from "../../hooks/useOutsideClick";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   changeSearchInputValue,
   clearSearchInputValue,
@@ -19,10 +19,7 @@ export default function SearchBar() {
   const searchInputRef = useRef();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    searchInputRef.current.focus();
-  }, []);
+  const searchMovies = useSelector((state) => state.search.searchMovies);
 
   useOutsideClick(searchbarRef, () => {
     if (searchInputToggle) {
@@ -49,7 +46,9 @@ export default function SearchBar() {
 
     if (value.length > 0) {
       navigate(`/search?q=${value}`);
-      dispatch(searchMoviesResultsAsync(value));
+      if (!searchMovies.length) {
+        dispatch(searchMoviesResultsAsync(value));
+      }
     } else {
       navigate("/home");
     }
