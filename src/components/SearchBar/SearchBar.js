@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import useOutsideClick from "../../hooks/useOutsideClick";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   changeSearchInputValue,
   clearSearchInputValue,
@@ -10,19 +10,20 @@ import {
 
 import { IconSearch } from "../Icons/IconSearch";
 
+import { useContext } from "react";
+import { LangContext } from "../../redux/languages/languages.context";
+
 import "./styles.scss";
 
 export default function SearchBar() {
+  const { language } = useContext(LangContext);
   const [searchInputToggle, setSearchInputToggle] = useState(false);
   const [searchInput, setSearchInput] = useState("");
   const searchbarRef = useRef();
   const searchInputRef = useRef();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    searchInputRef.current.focus();
-  }, []);
+  const searchMovies = useSelector((state) => state.search.searchMovies);
 
   useOutsideClick(searchbarRef, () => {
     if (searchInputToggle) {
@@ -49,7 +50,9 @@ export default function SearchBar() {
 
     if (value.length > 0) {
       navigate(`/search?q=${value}`);
-      dispatch(searchMoviesResultsAsync(value));
+      if (!searchMovies.length) {
+        dispatch(searchMoviesResultsAsync(value));
+      }
     } else {
       navigate("/home");
     }
@@ -67,7 +70,7 @@ export default function SearchBar() {
         </span>
         <input
           type="text"
-          placeholder="Titles, persons, genres"
+          placeholder={language === "EN" ? "Titles, persons, genres" : "Titels, personen, genres"}
           value={searchInput}
           onChange={handleSearchInput}
           ref={searchInputRef}
