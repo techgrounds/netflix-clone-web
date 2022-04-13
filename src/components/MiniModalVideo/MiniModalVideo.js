@@ -2,12 +2,8 @@ import React from 'react'
 import './MiniModalVideo.scss'
 
 const MiniModalVideo = ({ youtubeId }) => {
-  //optional
   const removeControls = '&controls=0'
-  //TODO useEffect need to rerender to update start and end time every time  when its hovered
   const startTime = 'start=2'
-  // const endTime = '&end=180'
-  //auto play and mute needs to be set together for chrome
   const autoPlay = '&autoplay=1'
   const mute = '&mute=1'
   const loop = `&playlist=${youtubeId}&loop=1`

@@ -15,9 +15,6 @@ export const LaneItem = ({
   const [loadMovie, setLoadMovie] = useState(false);
   const [hovered, setHovered] = useState(false);
   const [moreInfo, setMoreInfo] = useState(false);
-  const sleep = (milliseconds) => {
-    return new Promise((resolve) => setTimeout(resolve, milliseconds))
-  }
 
   useEffect(() => {
     if (hovered) {

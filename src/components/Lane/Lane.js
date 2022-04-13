@@ -144,7 +144,7 @@ const Lane = ({ laneTitle, movies, setIsVideoPlaying }) => {
 
           <button
             className={`${
-              movies.length > size.length
+              movies.length < size.length
                 ? 'indicator_inactive indicator_next'
                 : 'indicator indicator_next'
             }`}

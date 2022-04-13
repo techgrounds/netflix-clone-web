@@ -29,40 +29,7 @@ export const fetchMoviesResultsAsync = () => {
 
     try {
       const request = await axios.get(requests.fetchDiscover);
-<<<<<<< HEAD
-// console.log(request.data)
-const allMovies = []
-
-Object.entries(request.data).forEach(([key, value]) => {
-  let filteredMovies = value.categoryDetails.map((movie) => {
-
-  return {
-      id: uuidv4(),
-      title: movie.title,
-      desc: movie.overview,
-      image: movie.backdropUrls[0],
-      imageHR: movie.backdropUrls[1],
-      poster: movie.posterUrls[0],
-      trailer: movie.trailerUrl
-    }
-
-  }
-  ).filter(movie => movie.trailer)
-
-  let editedGenre = key.split('Movies')[0].charAt(0).toUpperCase() + key.split('Movies')[0].slice(1)
-
-
-  allMovies.push({
-    genre: editedGenre,
-    movies: filteredMovies
-  })
-
-})
-
-console.log('ALL', allMovies)
-=======
       const allMovies = transformMovieData(request.data);
->>>>>>> 90bcc308680a5b359b01969adfe6ba29857ebab9
 
       dispatch(fetchMoviesResultsSuccess(allMovies));
 

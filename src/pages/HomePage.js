@@ -13,11 +13,8 @@ const HomePage = () => {
   const dispatch = useDispatch();
   const allMoviesSelector = useSelector((state) => state.movies.allMovies);
 
-<<<<<<< HEAD
-=======
   console.log(allMoviesSelector);
 
->>>>>>> 90bcc308680a5b359b01969adfe6ba29857ebab9
   useEffect(() => {
     dispatch(fetchMoviesResultsAsync());
   }, []);
