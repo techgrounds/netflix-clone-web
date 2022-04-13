@@ -1,13 +1,20 @@
-import { searchActionTypes } from './search.types';
+import { searchActionTypes } from "./search.types";
 
 const initialState = {
   search: null,
-  searchResults: [],
-  inputValue: '',
+  searchMovies: [],
+  inputValue: "",
 };
 
 const searchReducer = (state = initialState, action) => {
   switch (action.type) {
+    case searchActionTypes.SEARCH_MOVIES_RESULTS:
+      return {
+        ...state,
+        searchMovies: [...action.payload],
+        error: false,
+        isLoading: false,
+      };
     case searchActionTypes.CHANGE_SEARCH_INPUT_VALUE:
       return {
         ...state,
@@ -16,7 +23,7 @@ const searchReducer = (state = initialState, action) => {
     case searchActionTypes.CLEAR_SEARCH_INPUT_VALUE:
       return {
         ...state,
-        inputValue: '',
+        inputValue: "",
       };
     default:
       return state;
