@@ -1,23 +1,26 @@
-import React, { useEffect, useState } from "react";
-import HomeHero from "../components/HomeHero/HomeHero";
-import FooterBrowserPage from "../components/FooterBrowserPage/FooterBrowserPage";
-import Lane from "../components/Lane/Lane";
-import "../components/Lane/Lane.scss";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchMoviesResultsAsync } from "../redux/movies/movies.actions";
-import { v4 as uuidv4 } from "uuid";
+import React, { useEffect, useState } from 'react'
+import HomeHero from '../components/HomeHero/HomeHero'
+import FooterBrowserPage from '../components/FooterBrowserPage/FooterBrowserPage'
+import Lane from '../components/Lane/Lane'
+import '../components/Lane/Lane.scss'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchMoviesResultsAsync } from '../redux/movies/movies.actions'
+import { v4 as uuidv4 } from 'uuid'
 
 const HomePage = () => {
-  const [isVideoPlaying, setIsVideoPlaying] = useState(true);
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const dispatch = useDispatch();
-  const allMoviesSelector = useSelector((state) => state.movies.allMovies);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(true)
+  const [isModalVisible, setIsModalVisible] = useState(false)
 
-  console.log(allMoviesSelector);
+  const openModal = () => {
+    setIsModalVisible(true)
+  }
+
+  const dispatch = useDispatch()
+  const allMoviesSelector = useSelector((state) => state.movies.allMovies)
 
   useEffect(() => {
-    dispatch(fetchMoviesResultsAsync());
-  }, []);
+    dispatch(fetchMoviesResultsAsync())
+  }, [])
 
   return (
     <>
@@ -26,6 +29,7 @@ const HomePage = () => {
         isVideoPlaying={isVideoPlaying}
         isModalVisible={isModalVisible}
         setIsModalVisible={setIsModalVisible}
+        openModal={openModal}
       />
       {allMoviesSelector?.map((movieSet) => {
         return (
@@ -33,13 +37,15 @@ const HomePage = () => {
             laneTitle={movieSet.genre}
             movies={movieSet.movies}
             trailer={movieSet.trailer}
+            setIsVideoPlaying={setIsVideoPlaying}
+            openModal={openModal}
             key={uuidv4()}
           />
-        );
+        )
       })}
       <FooterBrowserPage />
     </>
-  );
-};
+  )
+}
 
-export default HomePage;
+export default HomePage

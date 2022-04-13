@@ -8,8 +8,9 @@ import { useState } from 'react'
 import ButtonRating from '../ButtonRating/ButtonRating'
 import ButtonAdd from '../ButtonAdd/ButtonAdd'
 import ButtonCheck from '../ButtonCheck/ButtonCheck'
+import FilmInfoModal from '../FilmInfoModal/FilmInfoModal'
 
-const MiniModalDetails = () => {
+const MiniModalDetails = ({ openModal, setIsVideoPlaying }) => {
   const [isChecked, setIsChecked] = useState(false)
 
   const changeIcon = () => {
@@ -29,7 +30,12 @@ const MiniModalDetails = () => {
           <ButtonRating />
         </div>
         <div className='right-content'>
-          <button className='moreInfo-button'>
+          <button
+            className='moreInfo-button'
+            onClick={() => {
+              openModal()
+              setIsVideoPlaying(false)
+            }}>
             <IconArrowDown />
           </button>
         </div>
@@ -47,6 +53,7 @@ const MiniModalDetails = () => {
         <span className='tag-item-mini'>Feel-Good</span>•
         <span className='tag-item-mini'>Exciting</span>
       </div>
+      <FilmInfoModal />
     </>
   )
 }

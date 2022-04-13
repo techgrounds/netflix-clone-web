@@ -21,6 +21,7 @@ const HomeHero = ({
   setIsModalVisible,
   isModalVisible,
   trailer,
+  openModal,
 }) => {
   const element = useRef()
   const timeline = useRef()
@@ -30,9 +31,9 @@ const HomeHero = ({
 
   const youtubeId = '65xa8TG2G8o'
 
-  const openModal = () => {
-    setIsModalVisible(true)
-  }
+  // const openModal = () => {
+  //   setIsModalVisible(true)
+  // }
 
   useEffect(() => {
     timeline.current = gsap
