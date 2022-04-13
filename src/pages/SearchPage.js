@@ -1,12 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import FooterBrowserPage from "../components/FooterBrowserPage/FooterBrowserPage";
-import { useDispatch, useSelector } from "react-redux";
-import { searchMoviesResultsAsync } from "../redux/search/search.actions";
+import { useSelector } from "react-redux";
+
 import Lane from "../components/Lane/Lane";
 
 const SearchPage = () => {
-  const dispatch = useDispatch();
-
   const allSearchResults = useSelector((state) => state.search.searchMovies);
   const searchInput = useSelector((state) => state.search.inputValue);
 
@@ -16,12 +14,6 @@ const SearchPage = () => {
     })
     .filter((result) => result.title.includes(searchInput.toLowerCase()));
 
-  useEffect(() => {
-    dispatch(searchMoviesResultsAsync());
-  }, [dispatch]);
-  console.log("SEARCH INPUT", searchInput);
-  // console.log("filtered arr", filteredArray);
-  // console.log("ALL RESULTS", allSearchResults);
   return (
     <>
       {filteredArray && filteredArray.length > 0 ? (
