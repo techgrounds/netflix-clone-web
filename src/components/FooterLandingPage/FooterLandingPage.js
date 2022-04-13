@@ -1,7 +1,8 @@
 import React from "react";
 import "./styles.scss";
 import { IconWorld } from "../Icons/IconWorld";
-import { IconCaretDown } from "../Icons/IconCaretDown";
+//import { IconCaretDown } from "../Icons/IconCaretDown";
+import LanguagesSelector from "../LanguagesSelector/LanguagesSelector";
 
 function FooterLandingPage() {
   return (
@@ -67,7 +68,10 @@ function FooterLandingPage() {
               <a href="">Only on Netflix</a>
             </li>
           </ul>
-
+          <div className="footerLanguageSelect">
+            <LanguagesSelector />
+          </div>
+          {/*
           <div className="container-select-lang" id="lang-switcher">
             <div data-ui-a className="container-ui">
               <label
@@ -87,7 +91,8 @@ function FooterLandingPage() {
                 </select>
               </div>
             </div>
-          </div>      
+          </div>
+  */}    
           <p>Neflix Netherlands</p>
         </div>
       </footer>
