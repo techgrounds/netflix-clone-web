@@ -10,6 +10,7 @@ import GenrePage from "./pages/GenrePage";
 import ErrorPage from "./pages/ErrorPage";
 import SearchPage from "./pages/SearchPage";
 import SignInPage from "./pages/SignInPage";
+import HeaderGenre from "./components/HeaderGenre/HeaderGenre";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
                 element={
                   <>
                     <Navbar />
+                    <HeaderGenre />
                     <GenrePage />
                   </>
                 }
