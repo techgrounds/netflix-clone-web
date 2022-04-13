@@ -4,7 +4,9 @@
     position: sticky;
     top: 68px;
     display: flex;
-    // justify-content: space-between;
+    background-color: transparent;
+    width: 100%;
+    height: 0;
 }
 
 .container-header-genre {
@@ -13,7 +15,6 @@
     width: 100%;
     color: white;
     font-family: "NetflixSansLight";
-    font-size: 80%;
     position: absolute;
     top: 0;
     right:0;
@@ -27,23 +28,22 @@
     h2 {
         font-size: 2.375rem;
     }
-    //  &.scrolled-up {
-    //     background: var(--black);
-    //     top: -68px;
-    // }
-}
 
-.navbar-genre.scrolled-up {
-    top: -68px;   
+    &.scrolled-up {
+    top: -68px;
+    transition-timing-function: ease-in-out;  
+    transition: 1s;
+    background: var(--black) 
+    }
 }
 
 .flex-grow-dropdown {
     flex: 10%;
 }
 
-.container-icons-left, .title-films {
+.container-icons-left {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .toggle-list-icon, .toggle-row-icon {
@@ -63,7 +63,11 @@
 }
 
 @media (max-width: 600px){
-    .container-header-genre {
+   .title-header-genre {
+        display: flex;
+        justify-content: space-between;
+    }
+    .container-header-genre h2 {
         display: none;
     }
 }

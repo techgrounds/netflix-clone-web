@@ -13,9 +13,11 @@ function HeaderGenre() {
     }
     return (
         <>
-            <header className='header-genrepage'>
-                <div className='container-header-genre'>
-                    <h2>Films</h2>
+            <header className= 'header-genrepage'>
+                <div className={isScrolledUp ? 'container-header-genre scrolled-up ' : 'container-header-genre'}>
+                    <div className='title-header-genre'>
+                        <h2>Films</h2>
+                    </div>                 
                     <DropDownGenres className='flexgrow-drowpdown' />
                     <div className='container-icons-left'>
                         <button className='toggle-list-icon'>
