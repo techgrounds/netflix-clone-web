@@ -1,0 +1,69 @@
+@import '../../assets/scss/mixins';
+
+.header-genrepage {
+    position: sticky;
+    top: 68px;
+    display: flex;
+    // justify-content: space-between;
+}
+
+.container-header-genre {
+    background-color: transparent;
+    // background-color: deeppink;
+    width: 100%;
+    color: white;
+    font-family: "NetflixSansLight";
+    font-size: 80%;
+    position: absolute;
+    top: 0;
+    right:0;
+    z-index: 4;
+    height: 68px;
+    padding: 0 4%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h2 {
+        font-size: 2.375rem;
+    }
+    //  &.scrolled-up {
+    //     background: var(--black);
+    //     top: -68px;
+    // }
+}
+
+.navbar-genre.scrolled-up {
+    top: -68px;   
+}
+
+.flex-grow-dropdown {
+    flex: 10%;
+}
+
+.container-icons-left, .title-films {
+    display: flex;
+    justify-content: space-between;
+}
+
+.toggle-list-icon, .toggle-row-icon {
+    width: 44px;
+    height: auto;
+    background-color: var(--whiteOpacity);
+    border: 1px solid var(--whiteOpacity);
+    padding: 2px;
+    color: var(--whiteOpacity);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    &:hover {
+        background: var(--midgrey);
+    }
+}
+
+@media (max-width: 600px){
+    .container-header-genre {
+        display: none;
+    }
+}

@@ -1,12 +1,14 @@
 .container-dropdown-genres {
     position: relative;
     font-size: 1.2rem;
-    color: var(--white);
-    height: 3rem;
+    top: 0;
+    // right: 40%;
+    display: flex;
+    height: 3rem; 
 }
 
 .dropdown-toggle-btn {
-    position: absolute;
+    // position: absolute;
     top: 0;
     left: 0;
     width: 10rem;
@@ -16,7 +18,9 @@
     justify-content: space-between;
     align-items: center;
     font-family: "NetflixSansBold", sans-serif;
+    font-size: 0.813rem;
     color: var(--white);
+    background-color:var(--black);
     border: solid 2px var(--white);
     cursor: pointer;
     svg {
@@ -36,6 +40,7 @@
     background-color: var(--black);
     border: solid 0.5px var(--gray);
     font-family: "NetflixSansRegular", sans-serif;
+    font-size: 0.813rem;
     top: 100%;
     line-height: 2em;   
     z-index: 200;
@@ -50,9 +55,10 @@
 
 @media (min-width: 600px) {
     .container-dropdown-genres {
-        display: block;
-        max-width: 20rem;
-        
+        display: flex;
+        right: 40%;
+        // margin-right: 100rem;
+        // max-width: 20rem;        
     }
     .dropdown-links {
         display: flex;

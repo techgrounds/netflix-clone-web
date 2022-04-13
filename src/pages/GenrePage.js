@@ -7,6 +7,8 @@ import '../components/Lane/Lane.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchGenresResultsAsync } from '../redux/genres/genres.actions';
 import { v4 as uuidv4 } from 'uuid';
+import HeaderGenre from '../components/HeaderGenre/HeaderGenre';
+
 
 
 const HomePage = () => {
@@ -24,6 +26,7 @@ const HomePage = () => {
   return (
     <>
       <Navbar />
+      <HeaderGenre />      
        <HomeHero
        setIsVideoPlaying={setIsVideoPlaying}
        isVideoPlaying={isVideoPlaying}
