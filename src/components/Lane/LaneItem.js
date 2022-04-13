@@ -3,7 +3,6 @@ import { useState, useEffect, useRef } from 'react'
 import MiniModal from '../MiniModal/MiniModal'
 import '../Lane/Lane.scss'
 
-
 export const LaneItem = ({
   setIsVideoPlaying,
   updateZIndexRef,
@@ -20,7 +19,7 @@ export const LaneItem = ({
     return new Promise((resolve) => setTimeout(resolve, milliseconds))
   }
 
-  useEffect(async () => {
+  useEffect(() => {
     if (hovered) {
       updateZIndexRef(999)
       setLoadMovie(true)
@@ -36,11 +35,12 @@ export const LaneItem = ({
       className='laneItem'
       style={{ height: `${size.itemHeight}vw`, width: `${size.itemWidth}vw` }}
       onMouseEnter={() => {
-        setHovered(true)
+        setHovered(true);
       }}
       onMouseLeave={() => {
         setHovered(false);
         setMoreInfo(false);
+        setIsVideoPlaying(true);
       }}
     >
       {loadMovie && (
@@ -59,7 +59,8 @@ export const LaneItem = ({
             width: `${size.itemWidth * 1.5}vw`,
           } : {
             height:'100vh',
-            width: '50vw',
+            width: '60vw',
+            animation: 'modalAnimation 450ms forwards'
           }
         }
         >

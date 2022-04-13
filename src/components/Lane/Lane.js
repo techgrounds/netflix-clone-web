@@ -118,7 +118,7 @@ const Lane = ({ laneTitle, movies, setIsVideoPlaying }) => {
           ref={laneRef}>
           {startSwitch > 0 && arrayFromLastLane}
           {midLane}
-          {arrayFromFirstLane}
+          {size.length > midLane.length && arrayFromFirstLane}
         </div>
 
         <div className='indicators'>
@@ -140,7 +140,11 @@ const Lane = ({ laneTitle, movies, setIsVideoPlaying }) => {
           </button>
 
           <button
-            className='indicator indicator_next'
+            className={`${
+              midLane.length < size.length
+                ? 'indicator_inactive indicator_next'
+                : 'indicator indicator_next'
+            }`}
             style={{
               height: `${size.itemHeight}vw`,
               width: '5vw',
