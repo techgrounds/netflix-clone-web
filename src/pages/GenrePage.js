@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import HomeHero from "../components/HomeHero/HomeHero";
 import FooterBrowserPage from "../components/FooterBrowserPage/FooterBrowserPage";
-import Navbar from "../components/Navbar/Navbar";
 import Lane from "../components/Lane/Lane";
 import "../components/Lane/Lane.scss";
 import { useDispatch, useSelector } from "react-redux";
@@ -22,7 +21,6 @@ const HomePage = () => {
 
   return (
     <>
-      {/* <Navbar /> */}
       <HomeHero
         setIsVideoPlaying={setIsVideoPlaying}
         isVideoPlaying={isVideoPlaying}

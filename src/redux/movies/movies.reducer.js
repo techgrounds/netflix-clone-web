@@ -2,7 +2,15 @@ import { moviesActionTypes } from "./movies.types";
 
 const initialState = {
   allMovies: [],
-  movie: null,
+  movie: {
+    id: 0,
+    title: "",
+    desc: "",
+    image: "",
+    imageHR: "",
+    poster: "",
+    trailer: "",
+  },
   error: null,
   isLoading: false,
 };
@@ -21,7 +29,6 @@ const moviesReducer = (state = initialState, action) => {
         error: false,
         isLoading: false,
       };
-
     case moviesActionTypes.FETCH_SINGLE_MOVIE:
       return {
         ...state,
