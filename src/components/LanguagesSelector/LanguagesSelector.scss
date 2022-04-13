@@ -3,9 +3,9 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+    height: 100%;
     width: 100%;
     padding: 0.5em;
-    //padding-right: .7em;
     background-color: var(--blackTrans);
     font-size: 1.2em;
     color: var(--white);
@@ -13,7 +13,7 @@
     border-radius: 3px;
     cursor: pointer;
     svg {
-      height: 0.6em;
+      height: 60%;
       width: auto;
       path {
         fill: var(--white);
@@ -22,8 +22,8 @@
     &::after {
       content: "";
       position: absolute;
-      top: 0.7em;
-      right: 0.5em;
+      top: 40%;
+      right: 8%;
       height: 0.4em;
       width: 0.6em;
       border-top: 0.4em solid var(--white);
@@ -49,6 +49,8 @@
         width: 150%;
         margin-top: 0.5em;
         padding: 0.5em 1em 0.5em 1em;
+        text-align: left;
+        line-height: 1.5em;
         background-color: var(--midgrey);
         outline: none;
       }
