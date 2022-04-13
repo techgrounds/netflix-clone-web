@@ -10,9 +10,13 @@ import {
 
 import { IconSearch } from "../Icons/IconSearch";
 
+import { useContext } from "react";
+import { LangContext } from "../../redux/languages/languages.context";
+
 import "./styles.scss";
 
 export default function SearchBar() {
+  const { language } = useContext(LangContext);
   const [searchInputToggle, setSearchInputToggle] = useState(false);
   const [searchInput, setSearchInput] = useState("");
   const searchbarRef = useRef();
@@ -66,7 +70,7 @@ export default function SearchBar() {
         </span>
         <input
           type="text"
-          placeholder="Titles, persons, genres"
+          placeholder={language === "EN" ? "Titles, persons, genres" : "Titels, personen, genres"}
           value={searchInput}
           onChange={handleSearchInput}
           ref={searchInputRef}
