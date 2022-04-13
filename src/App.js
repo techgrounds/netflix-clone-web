@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import Navbar from "./components/Navbar/Navbar";
 import "./assets/scss/main.scss";
 
 import { LangProvider } from "./redux/languages/languages.context";
@@ -19,11 +19,35 @@ function App() {
           <ScrollToTop>
             <Routes>
               <Route exact path="/" element={<LandingPage />} />
-              <Route exact path="/home" element={<HomePage />} />
-              <Route exact path="/genre" element={<GenrePage />} />
-              <Route exact path="/search" element={<SearchPage />} />
-              <Route exact path="/signin" element={<SignInPage />} />
-              <Route exact path="*" element={<ErrorPage />} />
+              <Route
+                path="/home"
+                element={
+                  <>
+                    <Navbar />
+                    <HomePage />
+                  </>
+                }
+              />
+              <Route
+                path="/genre"
+                element={
+                  <>
+                    <Navbar />
+                    <GenrePage />
+                  </>
+                }
+              />
+              <Route
+                path="/search"
+                element={
+                  <>
+                    <Navbar />
+                    <SearchPage />
+                  </>
+                }
+              />
+              <Route path="/signin" element={<SignInPage />} />
+              <Route path="*" element={<ErrorPage />} />
             </Routes>
           </ScrollToTop>
         </Router>
