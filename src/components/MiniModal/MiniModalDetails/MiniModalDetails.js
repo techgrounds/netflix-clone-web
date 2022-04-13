@@ -1,22 +1,17 @@
 import './MiniModalDetails.scss'
-
 import { IconPlayBlack } from '../../Icons/IconPlayBlack'
 import { IconArrowDown } from '../../Icons/IconArrowDown'
 import { IconKijkWijzer16 } from '../../Icons/IconKijkWijzer16'
-
 import { useState } from 'react'
-
 import ButtonRating from '../../ButtonRating/ButtonRating'
 import ButtonAdd from '../../ButtonAdd/ButtonAdd'
 import ButtonCheck from '../../ButtonCheck/ButtonCheck'
 
 const MiniModalDetails = ( {setMoreInfo, moreInfo }) => {
   const [isChecked, setIsChecked] = useState(false)
-
   const changeIcon = () => {
     !isChecked ? setIsChecked(true) : setIsChecked(false)
   }
-
   const openInfo = () => {
     !moreInfo ? setMoreInfo(true) : setMoreInfo(false);
   };

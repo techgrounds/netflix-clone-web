@@ -4,6 +4,7 @@ import MiniModalDetailsOpen from './MiniModalDetailsOpen';
 import gsap from 'gsap'
 import MiniModalVideo from '../MiniModalVideo/MiniModalVideo'
 import { IconVolumeMute } from '../Icons/IconVolumeMute'
+import { IconVolumeUp } from '../Icons/IconVolumeUp';
 import { useState, useRef } from 'react'
 
 const MiniModal = ({
@@ -19,13 +20,17 @@ const MiniModal = ({
   const boxRef = useRef()
   const [active, setActive] = useState(true)
   const [start, setStart] = useState(false)
+  const [muteIcon, setMuteIcon] = useState(false)
+  const switchMute = () => {
+    setMuteIcon(!muteIcon)
+  }
 
   const remove = async () => {
     setStart(true);
     gsap.to(boxRef.current, {
       opacity: 0,
       duration: 2,
-      delay: 5,
+      delay: 4,
       ease: 'power4',
       onComplete: () => setActive(false)
     })
@@ -42,8 +47,11 @@ const MiniModal = ({
         setLoadMovie(false);
       }}
     >
-      <div className="top-container">
-        {start && <MiniModalVideo youtubeId={youtubeId} />}
+      <div className="top-container" >
+        {start && <MiniModalVideo 
+        setMuteIcon={setMuteIcon}
+        muteIcon={muteIcon}
+        youtubeId={youtubeId}/>}
         {active && (
           <img
             ref={boxRef}
@@ -59,8 +67,8 @@ const MiniModal = ({
           </div>
 
           <div className="volume-button-wrapper">
-            <button className="volume-button">
-              <IconVolumeMute />
+            <button className="volume-button" onClick={switchMute}>
+              {!muteIcon ? <IconVolumeMute /> : <IconVolumeUp />}
             </button>
           </div>
         </div>

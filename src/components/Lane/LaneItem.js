@@ -16,6 +16,8 @@ export const LaneItem = ({
   const [hovered, setHovered] = useState(false);
   const [moreInfo, setMoreInfo] = useState(false);
 
+
+
   useEffect(() => {
     if (hovered) {
       updateZIndexRef(999)
@@ -70,7 +72,6 @@ export const LaneItem = ({
               trailer={movie.trailer}
               moreInfo={moreInfo}
               setMoreInfo={setMoreInfo}
-              setIsVideoPlaying={setIsVideoPlaying}
             />
           )}
         </div>

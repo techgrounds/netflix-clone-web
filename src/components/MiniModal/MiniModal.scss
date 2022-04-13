@@ -42,6 +42,8 @@
   border-radius: 50%;
   bottom: 5%;
   right: 1.25em;
+  animation: videovolumeFadeIn 6s;
+  animation-fill-mode: forwards;
 }
 
 .volume-button {
@@ -95,4 +97,10 @@
   100% {transform: scale(1) 
     translateX(calc('50vw'-50%))
   }
+}
+
+@keyframes videovolumeFadeIn {
+  0% { opacity: 0; }
+  90% { opacity: 0; }
+  100% { opacity: 0.6; }
 }
