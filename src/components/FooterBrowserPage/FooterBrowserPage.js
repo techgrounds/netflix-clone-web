@@ -15,44 +15,36 @@ function FooterBrowserPage() {
     <footer className="member-footer" role="contentinfo">
       <div className="social-links">
         <a
-          className="social-link"
           href="https://www.facebook.com/NetflixNederland"
           target="_blank"
           aria-label="facebook"
-        ></a>
-        <span className="icon-facebook">
+        >
           <IconFacebook />
-        </span>
+        </a>
 
         <a
-          className="social-link"
           href="https://www.instagram.com/NetflixNL"
           target="_blank"
           aria-label="instagram"
-        ></a>
-        <span className="icon-instagram">
+        >
           <IconInstagram />
-        </span>
+        </a>
 
         <a
-          className="social-link"
           href="https://twitter.com/NetflixNL"
           target="_blank"
           aria-label="twitter"
-        ></a>
-        <span className="icon-twitter">
+        >
           <IconTwitter />
-        </span>
+        </a>
 
         <a
-          className="social-link"
           href="https://www.youtube.com/user/netflixbenelux"
           target="_blank"
           aria-label="youtube"
-        ></a>
-        <span className="icon-youtube">
+        >
           <IconYoutube />
-        </span>
+        </a>
       </div>
       <ul className="footer-links">
         <li className="footer-link-wrapper">
