@@ -2,7 +2,6 @@ import { moviesActionTypes } from "./movies.types";
 import requests from "../../requests";
 import axios from "../../axiosInstance";
 import { transformMovieData } from "./movies.helpers";
-import { v4 as uuidv4 } from "uuid";
 
 export const fetchMoviesResultsRequest = () => ({
   type: moviesActionTypes.FETCH_MOVIES_RESULTS_REQUEST,
@@ -11,6 +10,11 @@ export const fetchMoviesResultsRequest = () => ({
 export const fetchMoviesResultsSuccess = (allMovies) => ({
   type: moviesActionTypes.FETCH_MOVIES_RESULTS_SUCCESS,
   payload: allMovies,
+});
+
+export const fetchMovieDetails = (movieDetails) => ({
+  type: moviesActionTypes.FETCH_MOVIE_DETAILS,
+  payload: movieDetails,
 });
 
 export const fetchSingleMovie = (movie) => ({
@@ -22,6 +26,24 @@ export const fetchMoviesResultsFailure = (errorMessage) => ({
   type: moviesActionTypes.FETCH_MOVIES_RESULTS_FAILURE,
   payload: errorMessage,
 });
+
+export const fetchMovieDetailsAsync = (id) => {
+  return async (dispatch) => {
+    try {
+      /// 'ID'
+      const request = await axios.get(
+        `${requests.fetchDiscover}/movie?id=634649`
+      );
+      const movieDetails = request.data;
+
+      console.log("MOVIEDETAILS", movieDetails);
+
+      dispatch(fetchMovieDetails(movieDetails));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
 
 export const fetchMoviesResultsAsync = () => {
   return async (dispatch) => {

@@ -5,7 +5,6 @@ import Lane from "../components/Lane/Lane";
 import "../components/Lane/Lane.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchGenresResultsAsync } from "../redux/genres/genres.actions";
-import { v4 as uuidv4 } from "uuid";
 
 const HomePage = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
@@ -33,7 +32,7 @@ const HomePage = () => {
             laneTitle={movieSet.genre}
             movies={movieSet.movies}
             trailer={movieSet.trailer}
-            key={uuidv4()}
+            key={movieSet.id}
           />
         );
       })}

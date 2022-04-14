@@ -1,4 +1,4 @@
-import { v4 as uuidv4 } from "uuid";
+// import { v4 as uuidv4 } from "uuid";
 
 export const transformMovieData = (moviesObject) => {
   const movies = [];
@@ -7,13 +7,15 @@ export const transformMovieData = (moviesObject) => {
     let filteredMovies = value.categoryDetails
       .map((movie) => {
         return {
-          id: uuidv4(),
+          id: movie.id,
           title: movie.title,
           desc: movie.overview,
           image: movie.backdropUrls[0],
           imageHR: movie.backdropUrls[1],
           poster: movie.posterUrls[0],
           trailer: movie.trailerUrl,
+          runtime: movie.runtime,
+          rating: movie.rating[0],
         };
       })
       .filter((movie) => movie.trailer);

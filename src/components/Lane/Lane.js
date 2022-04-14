@@ -27,7 +27,7 @@ const Lane = ({ laneTitle, movies }) => {
       const rightIndex = leftIndex + (size.length - 1);
       return (
         <LaneItem
-          key={movie.key}
+          key={movie.id}
           updateZIndexRef={updateZIndexRef}
           movie={movie}
           leftIndex={leftIndex}
