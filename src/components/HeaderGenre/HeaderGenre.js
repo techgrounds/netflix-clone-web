@@ -13,22 +13,23 @@ function HeaderGenre() {
     }
     return (
         <>
-            <header className= 'header-genrepage'>
-                <div className={isScrolledUp ? 'container-header-genre scrolled-up ' : 'container-header-genre'}>
-                    <div className='title-header-genre'>
-                        <h2>Films</h2>
-                    </div>                 
-                    <DropDownGenres className='flexgrow-drowpdown' />
-                    <div className='container-icons-left'>
-                        <button className='toggle-list-icon'>
-                            <IconList className='border-icons' />
-                        </button>
-                        <button className='toggle-row-icon'>
-                            <IconGallery />
-                        </button>
-                    </div>
+            <div className='header-genre-bg-navbar'>
+            </div>
+            <div className={isScrolledUp ? 'container-header-genre scrolled-up ' : 'container-header-genre'}>
+                <div className='title-header-genre'>
+                    <h2>Films</h2>
                 </div>
-            </header>
+                <DropDownGenres className='flexgrow-drowpdown' />
+                <div className='container-icons-left'>
+                    <button className='toggle-list-icon'>
+                        <IconList className='border-icons' />
+                    </button>
+                    <button className='toggle-row-icon'>
+                        <IconGallery />
+                    </button>
+                </div>
+            </div>
+
         </>
     )
 }
