@@ -4,6 +4,7 @@ import gsap from 'gsap'
 import MiniModalVideo from '../MiniModalVideo/MiniModalVideo'
 import { IconVolumeMute } from '../Icons/IconVolumeMute'
 import { useState, useRef } from 'react'
+import { useSelector } from 'react-redux'
 
 const MiniModal = ({
   setLoadMovie,
@@ -11,15 +12,20 @@ const MiniModal = ({
   movieTitle,
   trailer,
   openModal,
-  setIsVideoPlaying,
+  isModalVisible,
+  setIsModalVisible,
 }) => {
   const youtubeId = trailer.substr(32)
   const boxRef = useRef()
   const [active, setActive] = useState(true)
   const [start, setStart] = useState(false)
+  const movieData = useSelector((state) => state.movies.movie)
 
-  console.log('trailer path: ', trailer)
-  console.log('trailer id: ', youtubeId)
+  console.log(movieData.id)
+
+  const laneOpenModal = () => {
+    setIsModalVisible(true)
+  }
 
   const remove = async () => {
     setStart(true)
@@ -65,8 +71,14 @@ const MiniModal = ({
       </div>
       <div className='bottom-container'>
         <MiniModalDetails
+          moviePoster={moviePoster}
+          movieTitle={movieTitle}
+          trailer={trailer}
           openModal={openModal}
-          setIsVideoPlaying={setIsVideoPlaying}
+          isModalVisible={isModalVisible}
+          laneOpenModal={laneOpenModal}
+          setIsModalVisible={setIsModalVisible}
+          movieData={movieData}
         />
       </div>
     </div>

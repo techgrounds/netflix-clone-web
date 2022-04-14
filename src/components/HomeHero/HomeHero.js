@@ -1,6 +1,5 @@
 import './HomeHero.scss'
 import { useEffect, useRef } from 'react'
-import { useSelector } from 'react-redux'
 import { gsap } from 'gsap'
 import TextTruncate from 'react-text-truncate'
 
@@ -13,27 +12,18 @@ import FilmInfoModal from '../FilmInfoModal/FilmInfoModal'
 import MiniModalVideo from '../MiniModalVideo/MiniModalVideo'
 
 import billboardHeroTitle from '../../assets/hero-img/billboard-title.webp'
-import billboardHeroImg from '../../assets/hero-img/billboard.webp'
 
 const HomeHero = ({
   setIsVideoPlaying,
   isVideoPlaying,
   setIsModalVisible,
   isModalVisible,
-  trailer,
+  movieData,
   openModal,
 }) => {
   const element = useRef()
   const timeline = useRef()
   const selector = gsap.utils.selector(element)
-
-  const movie = useSelector((state) => state.movies.movie)
-
-  const youtubeId = '65xa8TG2G8o'
-
-  // const openModal = () => {
-  //   setIsModalVisible(true)
-  // }
 
   useEffect(() => {
     timeline.current = gsap
@@ -68,10 +58,10 @@ const HomeHero = ({
         <div className='home-hero-container' ref={element}>
           <div className='home-hero-trailer-wrapper'>
             {isVideoPlaying ? (
-              <MiniModalVideo youtubeId={movie.trailer.substr(32)} />
+              <MiniModalVideo youtubeId={movieData?.trailer.substr(32)} />
             ) : (
               <img
-                src={`https://image.tmdb.org/t/p/original${movie.imageHR}`}
+                src={`https://image.tmdb.org/t/p/original${movieData.imageHR}`}
                 className='home-hero-trailer'
                 alt='movie'
               />
@@ -89,12 +79,7 @@ const HomeHero = ({
                 />
               </div>
               <div className='info-wrapper'>
-                <TextTruncate line={3} text={movie?.desc} />
-                {/* <p>
-                  Step inside the minds of the most innovative designers in a
-                  variety of disciplines and learn how design impacts every
-                  aspect of life.
-                </p> */}
+                <TextTruncate line={3} text={movieData?.desc} />
               </div>
               <div className='button-wrapper'>
                 <button className='home-hero-button home-hero-play-button has-icon'>
@@ -125,6 +110,7 @@ const HomeHero = ({
           setIsModalVisible={setIsModalVisible}
           setIsVideoPlaying={setIsVideoPlaying}
           isVideoPlaying={isVideoPlaying}
+          movieData={movieData}
         />
         <div className='home-hero-buttton-component'>
           <span className='home-hero-volume-button-wrapper'>

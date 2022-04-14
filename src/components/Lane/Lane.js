@@ -6,7 +6,13 @@ import { LaneItem } from '../../components/Lane/LaneItem'
 import useWindowSize from './WindowSize'
 import './Lane.scss'
 
-const Lane = ({ laneTitle, movies, setIsVideoPlaying, openModal }) => {
+const Lane = ({
+  laneTitle,
+  movies,
+  openModal,
+  isModalVisible,
+  setIsModalVisible,
+}) => {
   const size = useWindowSize()
   const [activeIndex, setActiveIndex] = useState(0)
   const [startSwitch, setStartSwitch] = useState(0)
@@ -27,14 +33,15 @@ const Lane = ({ laneTitle, movies, setIsVideoPlaying, openModal }) => {
       const rightIndex = leftIndex + (size.length - 1)
       return (
         <LaneItem
-          key={movie.key}
+          key={movie.id}
           updateZIndexRef={updateZIndexRef}
           movie={movie}
           leftIndex={leftIndex}
           rightIndex={rightIndex}
           index={index}
-          setIsVideoPlaying={setIsVideoPlaying}
           openModal={openModal}
+          isModalVisible={isModalVisible}
+          setIsModalVisible={setIsModalVisible}
         />
       )
     })

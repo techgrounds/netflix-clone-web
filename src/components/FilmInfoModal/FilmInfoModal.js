@@ -15,6 +15,7 @@ const FilmInfoModal = ({
   isModalVisible,
   setIsModalVisible,
   setIsVideoPlaying,
+  movieData,
 }) => {
   const modalQuit = useRef()
 
@@ -80,18 +81,18 @@ const FilmInfoModal = ({
             ref={modalQuit}>
             <div className='modal-content'>
               <div className='modal-header'>
-                <FilmInfoModalHeader />
+                <FilmInfoModalHeader movieData={movieData} />
               </div>
               <div className='modal-description'>
                 <div className='modal-details'>
-                  <FilmInfoModalDetails />
+                  <FilmInfoModalDetails movieData={movieData} />
                 </div>
                 <div className='modal-suggestions'>
-                  <FilmInfoModalSuggestions />
+                  <FilmInfoModalSuggestions movieData={movieData} />
                 </div>
               </div>
               <div className='modal-footer'>
-                <FilmInfoModalFooter />
+                <FilmInfoModalFooter movieData={movieData} />
               </div>
               <button
                 className='modal-close-button'
