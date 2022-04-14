@@ -38,7 +38,7 @@ const MiniModalDetails = ({
           <button
             className='moreInfo-button'
             onClick={() => {
-              laneOpenModal(movieData.id)
+              laneOpenModal()
             }}>
             <IconArrowDown />
           </button>
