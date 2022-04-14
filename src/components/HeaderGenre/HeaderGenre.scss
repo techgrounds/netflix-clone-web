@@ -18,22 +18,23 @@
     position: absolute;
     top: 0;
     right:0;
-    z-index: 4;
-    height: 68px;
+    z-index: 1;
+    height: 60px;
     padding: 0 4%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     h2 {
-        font-size: 2.375rem;
+        font-size: 1.8rem;
     }
 
     &.scrolled-up {
     top: -68px;
     transition-timing-function: ease-in-out;  
     transition: 1s;
-    background: var(--black) 
+    background: var(--black); 
+    z-index: 1;
     }
 }
 
@@ -44,11 +45,12 @@
 .container-icons-left {
     display: flex;
     justify-content: space-around;
+    height: 2rem;
 }
 
 .toggle-list-icon, .toggle-row-icon {
     width: 44px;
-    height: auto;
+    height: 2rem;
     background-color: var(--whiteOpacity);
     border: 1px solid var(--whiteOpacity);
     padding: 2px;
@@ -57,8 +59,12 @@
     display: flex;
     justify-content: center;
     justify-items: center;
+    align-items: center;
     &:hover {
         background: var(--midgrey);
+    }
+    svg {
+         font-size: 0.5rem;
     }
 }
 
