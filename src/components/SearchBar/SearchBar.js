@@ -70,7 +70,11 @@ export default function SearchBar() {
         </span>
         <input
           type="text"
-          placeholder={language === "EN" ? "Titles, persons, genres" : "Titels, personen, genres"}
+          placeholder={
+            language === "EN"
+              ? "Titles, persons, genres"
+              : "Titels, personen, genres"
+          }
           value={searchInput}
           onChange={handleSearchInput}
           ref={searchInputRef}
