@@ -7,7 +7,7 @@ const MiniModalVideo = ({ youtubeId }) => {
   const embedUrl = `https://www.youtube-nocookie.com/embed/${youtubeId}?${autoPlay}${loop}${modestBranding}`
 
   return (
-    <div className='video-container'>
+    <div className="video-container">
       <iframe
         src= {embedUrl}
         frameBorder='0'
@@ -16,7 +16,7 @@ const MiniModalVideo = ({ youtubeId }) => {
         allow='autoplay'>
       </iframe>
     </div>
-  )
-}
+  );
+};
 
-export default MiniModalVideo
+export default MiniModalVideo;
