@@ -1,73 +1,76 @@
-@import '../../assets/scss/mixins';
+@import "../../assets/scss/mixins";
 
 .header-genre-bg-navbar {
-    position: fixed;
-    top: 0;
-    height: 68px;
-    width: 100%;
-    background-color: var(--black);
-    z-index: 10;
+  position: fixed;
+  top: 0;
+  height: 68px;
+  width: 100%;
+  background-color: var(--black);
+  z-index: -10;
 }
 
 .container-header-genre {
-    background-color: transparent;
-    width: 100%;
-    color: white;
-    font-family: "NetflixSansLight";
-    position: relative;
-    top: 60px;
-    right:0;
-    z-index: 800;
-    height: 60px;
-    padding: 0 4%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  background-color: transparent;
+  width: 100%;
+  color: white;
+  font-family: "NetflixSansLight";
+  position: relative;
+  top: 60px;
+  right: 0;
+  z-index: 800;
+  height: 60px;
+  padding: 0 4%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-    h2 {     
-        display: none;
-        font-size: 1.8rem;
-        @include breakpoint (md) {
-            display: block;
-        }       
+  h2 {
+    display: none;
+    font-size: 1.8rem;
+    @include breakpoint(md) {
+      display: block;
     }
+  }
 
-    &.scrolled-up {
+  &.scrolled-up {
     top: 0;
-    transition-timing-function: ease-in-out;  
+    transition-timing-function: ease-in-out;
     transition: 1s;
-    background: var(--black); 
+    background: var(--black);
     z-index: 800;
     position: fixed;
-    }
+  }
 }
 
 .flex-grow-dropdown {
-    flex: 10%;
+  flex: 10%;
 }
 
 .container-icons-left {
-    display: flex;
-    justify-content: space-around;
-    height: 2rem;
+  display: flex;
+  justify-content: space-around;
+  height: 2rem;
 }
 
-.toggle-list-icon, .toggle-row-icon {
-    width: 44px;
-    height: 2rem;
-    background-color: var(--whiteOpacity);
-    border: 1px solid var(--whiteOpacity);
-    padding: 2px;
-    color: var(--whiteOpacity);
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
-    &:hover {
-        background: var(--midgrey);
-    }
-    svg {
-         font-size: 0.5rem;
-    }
+.toggle-list-icon,
+.toggle-row-icon {
+  width: 44px;
+  height: 2rem;
+  //   background-color: var(--whiteOpacity);
+  background-color: transparent;
+
+  border: 1px solid var(--whiteOpacity);
+  padding: 2px;
+  color: var(--whiteOpacity);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  &:hover {
+    background: var(--midgrey);
+  }
+  svg {
+    font-size: 0.5rem;
+  }
 }

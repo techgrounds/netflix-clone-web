@@ -81,11 +81,11 @@ const HomeHero = ({
           <div className="home-hero-fill-container">
             <div className="home-hero-info">
               <div className="title-wrapper">
-                {/* <h2>{movie?.title || movie?.name || movie?.original_name}</h2> */}
-                <img
+                <h2>{movie?.title || movie?.name || movie?.original_name}</h2>
+                {/* <img
                   src={billboardHeroTitle}
                   alt="Abstract: The Art of Design"
-                />
+                /> */}
               </div>
               <div className="info-wrapper">
                 <TextTruncate line={3} text={movie?.desc} />

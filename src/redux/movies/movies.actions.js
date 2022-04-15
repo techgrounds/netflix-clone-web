@@ -31,10 +31,20 @@ export const fetchMovieDetailsAsync = (id) => {
   return async (dispatch) => {
     try {
       /// 'ID'
-      const request = await axios.get(
+      // const request = await axios.get(requests.fetchDiscover);
+      // const movieData = request.data;
+
+      // const movieDetails = movieData.map(async (movie) => {
+      //   const response = await axios.get(
+      //     `${requests.fetchDiscover}/movie?id=${movie.id}`
+      //   );
+
+      // });
+
+      const requestDetails = await axios.get(
         `${requests.fetchDiscover}/movie?id=634649`
       );
-      const movieDetails = request.data;
+      const movieDetails = requestDetails.data;
 
       console.log("MOVIEDETAILS", movieDetails);
 
@@ -51,6 +61,8 @@ export const fetchMoviesResultsAsync = () => {
 
     try {
       const request = await axios.get(requests.fetchDiscover);
+      console.log("REQUEST", request);
+
       const allMovies = transformMovieData(request.data);
 
       dispatch(fetchMoviesResultsSuccess(allMovies));

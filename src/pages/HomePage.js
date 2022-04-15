@@ -32,7 +32,7 @@ const HomePage = () => {
             laneTitle={movieSet.genre}
             movies={movieSet.movies}
             trailer={movieSet.trailer}
-            key={movieSet.id}
+            id={movieSet.id}
           />
         );
       })}

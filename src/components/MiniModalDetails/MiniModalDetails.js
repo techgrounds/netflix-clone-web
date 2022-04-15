@@ -12,7 +12,7 @@ import ButtonCheck from "../ButtonCheck/ButtonCheck";
 
 const MiniModalDetails = () => {
   const [isChecked, setIsChecked] = useState(false);
-  const movie = useSelector((state) => state.genres.allGenres);
+  const movie = useSelector((state) => state.movies.movie);
 
   const changeIcon = () => {
     !isChecked ? setIsChecked(true) : setIsChecked(false);
@@ -40,10 +40,10 @@ const MiniModalDetails = () => {
         <span className="match">98% Match</span>
         <span className="maturity-rating">
           {/* <IconKijkWijzer16 /> */}
-          {movie.rating}
+          {movie?.rating}
         </span>
         {/* <span className="duration">1h 46m</span> */}
-        <span className="duration">{movie.runtime}</span>
+        <span className="duration">{movie?.runtime}</span>
 
         <span className="feature-badge">HD</span>
       </div>

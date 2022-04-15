@@ -7,9 +7,9 @@ export const transformMovieData = (moviesObject) => {
     let filteredMovies = value.categoryDetails
       .map((movie) => {
         return {
+          desc: movie.overview,
           id: movie.id,
           title: movie.title,
-          desc: movie.overview,
           image: movie.backdropUrls[0],
           imageHR: movie.backdropUrls[1],
           poster: movie.posterUrls[0],
