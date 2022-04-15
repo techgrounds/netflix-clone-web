@@ -179,8 +179,7 @@ console.log("size.length: ",size.length)
                   <button
                     key={movie.id}
                     className={`${
-  ////                    index === (activeIndex - size.length) t/m (activeIndex)
-                          index === (activeIndex - size.length)
+                          (index >= (activeIndex - size.length) && index < (activeIndex - 1))
                         ? 'active_pageIndicatior pageIndicator'
                         : 'pageIndicator'
                     }`}
