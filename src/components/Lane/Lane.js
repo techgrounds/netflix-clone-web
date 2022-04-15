@@ -148,7 +148,11 @@ const Lane = ({
           </button>
 
           <button
-            className='indicator indicator_next'
+            className={`${
+              movies.length < size.length
+                ? 'indicator_inactive indicator_next'
+                : 'indicator indicator_next'
+            }`}
             style={{
               height: `${size.itemHeight}vw`,
               width: '5vw',
