@@ -9,12 +9,6 @@
   overflow: hidden;
   position: relative;
   box-shadow: 1px 20px 20px rgba(0, 0, 0, 0.5);
-  @include breakpoint(lg) {
-    height: 30rem;
-  }
-  @include breakpoint(xlg) {
-    height: 35rem;
-  }
 }
 
 .top-container {
@@ -35,6 +29,9 @@
   position: absolute;
   bottom: 5%;
   left: 1em;
+  opacity: 0.7;
+  animation: videoTitleFade 4s;
+  animation-fill-mode: forwards;
 }
 
 .volume-button-wrapper {
@@ -43,6 +40,8 @@
   border-radius: 50%;
   bottom: 5%;
   right: 1.25em;
+  animation: videovolumeFadeIn 4s;
+  animation-fill-mode: forwards;
 }
 
 .volume-button {
@@ -72,7 +71,7 @@
   padding: 0 1em;
   background: #1b1b1b;
   height: 100%;
-  color: var(--white);
+  color: var (--smokewhite);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -83,4 +82,37 @@
 .movie-poster {
   position: absolute;
   inset: 0;
+}
+
+@keyframes videoTitleFade {
+  0% {
+    opacity: 0.8;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes modalAnimation {
+  0% {
+    transform: scale(0.4);
+  }
+  100% {
+    transform: scale(1) translateX(calc('50vw'-50%));
+  }
+}
+
+@keyframes videovolumeFadeIn {
+  0% {
+    opacity: 0;
+  }
+  95% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.5;
+  }
 }
