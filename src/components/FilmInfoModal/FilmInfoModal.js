@@ -16,6 +16,7 @@ const FilmInfoModal = ({
   setIsModalVisible,
   setIsVideoPlaying,
   movieData,
+  movies,
 }) => {
   const modalQuit = useRef()
 
@@ -88,7 +89,10 @@ const FilmInfoModal = ({
                   <FilmInfoModalDetails movieData={movieData} />
                 </div>
                 <div className='modal-suggestions'>
-                  <FilmInfoModalSuggestions movieData={movieData} />
+                  <FilmInfoModalSuggestions
+                    movieData={movieData}
+                    movies={movies}
+                  />
                 </div>
               </div>
               <div className='modal-footer'>

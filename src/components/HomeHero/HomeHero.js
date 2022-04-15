@@ -20,6 +20,7 @@ const HomeHero = ({
   isModalVisible,
   movieData,
   openModal,
+  movies,
 }) => {
   const element = useRef()
   const timeline = useRef()
@@ -111,6 +112,7 @@ const HomeHero = ({
           setIsVideoPlaying={setIsVideoPlaying}
           isVideoPlaying={isVideoPlaying}
           movieData={movieData}
+          movies={movies}
         />
         <div className='home-hero-buttton-component'>
           <span className='home-hero-volume-button-wrapper'>

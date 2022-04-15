@@ -31,6 +31,7 @@ const HomePage = () => {
         setIsModalVisible={setIsModalVisible}
         openModal={openModal}
         movieData={movieData}
+        allMoviesSelector={allMoviesSelector}
       />
       {allMoviesSelector?.map((movieSet) => {
         return (
