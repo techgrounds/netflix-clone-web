@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './styles.scss'
+import './DropDownGenres.scss'
 import { IconCaretDown } from '../Icons/IconCaretDown'
 
 function DropDownGenres() {

@@ -1,18 +1,38 @@
 import "./MiniModal.scss";
 import MiniModalDetails from "../MiniModalDetails/MiniModalDetails";
+import { useDispatch } from "react-redux";
 import gsap from "gsap";
 import MiniModalVideo from "../MiniModalVideo/MiniModalVideo";
 import { IconVolumeMute } from "../Icons/IconVolumeMute";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+import { fetchMovieDetailsAsync } from "../../redux/movies/movies.actions";
+import { useSelector } from "react-redux";
 
-const MiniModal = ({ setLoadMovie, moviePoster, movieTitle, trailer }) => {
+const MiniModal = ({
+  setLoadMovie,
+  moviePoster,
+  movieTitle,
+  trailer,
+  id,
+  openModal,
+  isModalVisible,
+  setIsModalVisible,
+}) => {
   const youtubeId = trailer.substr(32);
+  const dispatch = useDispatch();
   const boxRef = useRef();
   const [active, setActive] = useState(true);
   const [start, setStart] = useState(false);
 
-  console.log("trailer path: ", trailer);
-  console.log("trailer id: ", youtubeId);
+  const movieData = useSelector((state) => state.movies.movie);
+
+  useEffect(() => {
+    dispatch(fetchMovieDetailsAsync(id));
+    console.log("INSIDE USE EFFECT");
+  }, []);
+
+  // console.log("trailer path: ", trailer);
+  // console.log("trailer id: ", youtubeId);
 
   const remove = async () => {
     setStart(true);
@@ -58,7 +78,15 @@ const MiniModal = ({ setLoadMovie, moviePoster, movieTitle, trailer }) => {
         </div>
       </div>
       <div className="bottom-container">
-        <MiniModalDetails />
+        <MiniModalDetails
+          moviePoster={moviePoster}
+          movieTitle={movieTitle}
+          trailer={trailer}
+          openModal={openModal}
+          isModalVisible={isModalVisible}
+          setIsModalVisible={setIsModalVisible}
+          movieData={movieData}
+        />
       </div>
     </div>
   );

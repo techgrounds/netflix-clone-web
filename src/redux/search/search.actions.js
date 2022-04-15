@@ -43,7 +43,6 @@ export const searchMoviesResultsAsync = () => {
       };
 
       const moviesWithoutDuplicates = removeDuplicates(allMoviesSearchable);
-
       dispatch(searchMoviesResults(moviesWithoutDuplicates));
     } catch (err) {
       console.log(err);

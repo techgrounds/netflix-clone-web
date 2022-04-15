@@ -9,6 +9,9 @@ export const LaneItem = ({
   leftIndex,
   rightIndex,
   index,
+  openModal,
+  isModalVisible,
+  setIsModalVisible,
 }) => {
   const size = useWindowSize()
   const [loadMovie, setLoadMovie] = useState(false)
@@ -61,6 +64,9 @@ export const LaneItem = ({
               setLoadMovie={setLoadMovie}
               updateZIndexRef={updateZIndexRef}
               trailer={movie.trailer}
+              openModal={openModal}
+              isModalVisible={isModalVisible}
+              setIsModalVisible={setIsModalVisible}
             />
           )}
         </div>
