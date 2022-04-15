@@ -9,12 +9,16 @@
   overflow: hidden;
   position: relative;
   box-shadow: 1px 20px 20px rgba(0, 0, 0, 0.5);
+  @include breakpoint(lg) {
+    height: 30rem;
+  }
+  @include breakpoint(xlg) {
+    height: 35rem;
+  }
 }
 
 .top-container {
-  //TODO add color variable
   background: #1b1b1b;
-  height: 100%;
   width: 100%;
   position: relative;
 }
@@ -76,7 +80,7 @@
   color: var (--smokewhite);
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: flex-start;
   z-index: 2;
 }

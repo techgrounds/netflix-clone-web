@@ -10,11 +10,16 @@ export const LaneItem = ({
   leftIndex,
   rightIndex,
   index,
-  }) => {
-  const size = useWindowSize();
-  const [loadMovie, setLoadMovie] = useState(false);
-  const [hovered, setHovered] = useState(false);
-  const [moreInfo, setMoreInfo] = useState(false);
+  openModal,
+  isModalVisible,
+  setIsModalVisible,
+}) => {
+  const size = useWindowSize()
+  const [loadMovie, setLoadMovie] = useState(false)
+  const [hovered, setHovered] = useState(false)
+  const sleep = (milliseconds) => {
+    return new Promise((resolve) => setTimeout(resolve, milliseconds))
+  }
 
   useEffect(() => {
     if (hovered) {
@@ -69,6 +74,9 @@ export const LaneItem = ({
               trailer={movie.trailer}
               moreInfo={moreInfo}
               setMoreInfo={setMoreInfo}
+              openModal={openModal}
+              isModalVisible={isModalVisible}
+              setIsModalVisible={setIsModalVisible}
             />
           )}
         </div>

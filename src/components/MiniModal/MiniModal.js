@@ -24,9 +24,16 @@ const MiniModal = ({
     document.getElementById("sound").muted = true
     console.log("muted")
     setMuteIcon(!muteIcon)}
+  const movieData = useSelector((state) => state.movies.movie)
+
+    console.log(movieData.id)
+  
+    const laneOpenModal = () => {
+      setIsModalVisible(true)
+    }
 
   const remove = async () => {
-    setStart(true);
+    setStart(true)
     gsap.to(boxRef.current, {
       opacity: 0,
       duration: 2,
@@ -57,13 +64,13 @@ const MiniModal = ({
             ref={boxRef}
             src={moviePoster}
             alt={moviePoster}
-            className="movie-poster"
+            className='movie-poster'
           />
         )}
 
-        <div className="overlay-items">
-          <div className="video-title-wrapper">
-            <div className="video-title">{movieTitle}</div>
+        <div className='overlay-items'>
+          <div className='video-title-wrapper'>
+            <div className='video-title'>{movieTitle}</div>
           </div>
 
           <div className="volume-button-wrapper">
@@ -78,7 +85,7 @@ const MiniModal = ({
         <MiniModalDetailsOpen />}
       </div>
     </div>
-  );
-};
+  )
+}
 
 export default MiniModal;
