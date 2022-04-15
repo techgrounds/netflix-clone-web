@@ -1,26 +1,30 @@
-import './Navbar.scss';
-import { useState, useRef } from 'react';
-import { NavLink } from 'react-router-dom';
-import SearchBar from '../SearchBar/SearchBar';
-import { useOnClickOutside } from './ClickOutsideHook';
+import "./Navbar.scss";
+import { useState, useRef } from "react";
+import { NavLink } from "react-router-dom";
+import SearchBar from "../SearchBar/SearchBar";
+import { useOnClickOutside } from "./ClickOutsideHook";
+
+//language
+import { useContext } from "react";
+import { LangContext } from "../../redux/languages/languages.context";
 
 //icons
-import { NetflixLogo } from '../Logos/NetflixLogo';
-import { IconNotification } from '../Icons/IconNotification';
-import { IconCaretDown } from '../Icons/IconCaretDown';
-import { IconPencil } from '../Icons/IconPencil';
-import { IconAccount } from '../Icons/IconAccount';
-import { IconQuestion } from '../Icons/IconQuestion';
-import Jens from '../../assets/images/jens.jpg';
-import Zico from '../../assets/images/zico.jpg'
-import Michael from '../../assets/images/michael.jpg'
-import Roibin from '../../assets/images/roibin.png'
-import Fatos from '../../assets/images/fatos.webp'
-import Janou from '../../assets/images/janou.jpg'
-import Miki from '../../assets/images/miki.jpg'
-import Alfi from '../../assets/images/alfiya.jpg'
-import Wesley from '../../assets/images/wesley.jpg'
-import Carolyn from '../../assets/images/carolyn.webp'
+import { NetflixLogo } from "../Logos/NetflixLogo";
+import { IconNotification } from "../Icons/IconNotification";
+import { IconCaretDown } from "../Icons/IconCaretDown";
+import { IconPencil } from "../Icons/IconPencil";
+import { IconAccount } from "../Icons/IconAccount";
+import { IconQuestion } from "../Icons/IconQuestion";
+import Jens from "../../assets/images/jens.jpg";
+import Zico from "../../assets/images/zico.jpg";
+import Michael from "../../assets/images/michael.jpg";
+import Roibin from "../../assets/images/roibin.png";
+import Fatos from "../../assets/images/fatos.webp";
+import Janou from "../../assets/images/janou.jpg";
+import Miki from "../../assets/images/miki.jpg";
+import Alfi from "../../assets/images/alfiya.jpg";
+import Wesley from "../../assets/images/wesley.jpg";
+import Carolyn from "../../assets/images/carolyn.webp";
 
 const Navbar = () => {
   const [dropdown, setDropdown] = useState(false);
@@ -30,6 +34,7 @@ const Navbar = () => {
   const node = useRef();
   const point = useRef();
   const notificationsElement = useRef();
+  const { language } = useContext(LangContext);
 
   window.onscroll = () => {
     setIsScrolled(window.pageYOffset === 0 ? false : true);
@@ -46,7 +51,7 @@ const Navbar = () => {
     !notifications ? setNotifications(true) : setNotifications(false);
   };
 
-  let activeClassName = 'active-bold';
+  let activeClassName = "active-bold";
 
   useOnClickOutside(node, () => setDropdown(false));
   useOnClickOutside(point, () => setIsClicked(false));
@@ -54,7 +59,7 @@ const Navbar = () => {
 
   return (
     <header>
-      <nav className={isScrolled ? 'navbar scrolled' : 'navbar'}>
+      <nav className={isScrolled ? "navbar scrolled" : "navbar"}>
         <NavLink to="/" className="logo-link">
           <picture>
             <NetflixLogo />
@@ -63,7 +68,9 @@ const Navbar = () => {
 
         <ul className="primary-nav" ref={node}>
           <li className="navigation-menu" onClick={() => submenu()}>
-            <button className="menu-trigger">Browse</button>
+            <button className="menu-trigger">
+              {language === "EN" ? "Browse" : "Bladeren"}
+            </button>
 
             {dropdown ? (
               <div className="sub-menu ">
@@ -77,7 +84,7 @@ const Navbar = () => {
                         isActive ? activeClassName : undefined
                       }
                     >
-                      Home
+                      {language === "EN" ? "Home" : "Homepagina"}
                     </NavLink>
                   </li>
                   <li className="sub-menu-item">
@@ -110,7 +117,7 @@ const Navbar = () => {
                 </ul>
               </div>
             ) : (
-              ''
+              ""
             )}
           </li>
           <li className="navigation-tab current active">
@@ -120,7 +127,7 @@ const Navbar = () => {
                 isActive ? activeClassName : undefined
               }
             >
-              Home
+              {language === "EN" ? "Home" : "Homepagina"}
             </NavLink>
           </li>
           <li className="navigation-tab">
@@ -170,7 +177,7 @@ const Navbar = () => {
                 <div className="notifications-icon">
                   <IconNotification />
                 </div>
-                {notifications ? <div className="callout-arrow"></div> : ''}
+                {notifications ? <div className="callout-arrow"></div> : ""}
               </button>
               {notifications ? (
                 <div className="sub-menu">
@@ -193,15 +200,19 @@ const Navbar = () => {
                                 className="notifications-text element"
                               >
                                 <div className="notifications-header">
-                                  New Arrival
+                                  {language === "EN"
+                                    ? "New Arrival"
+                                    : "Nieuw op Netflix"}
                                 </div>
                                 <div className="notifications-body">
                                   The Cat Project
                                 </div>
                                 <div className="notifications-age">
                                   <span className="relative-tim">
-                                    {' '}
-                                    2 days ago
+                                    {" "}
+                                    {language === "EN"
+                                      ? "2 days ago"
+                                      : "2 dagen geleden"}
                                   </span>
                                 </div>
                               </NavLink>
@@ -223,13 +234,17 @@ const Navbar = () => {
                                 className="notifications-text element"
                               >
                                 <div className="notifications-header">
-                                  New Arrival
+                                  {language === "EN"
+                                    ? "New Arrival"
+                                    : "Nieuw op Netflix"}
                                 </div>
                                 <div className="notifications-body">
-                                  Season 5
+                                  {language === "EN" ? "Season 5" : "Seizoen 5"}
                                 </div>
                                 <div className="notifications-age">
-                                  <span className="relative-tim"> Today</span>
+                                  <span className="relative-tim">
+                                    {language === "EN" ? "Today" : "Vandaag"}
+                                  </span>
                                 </div>
                               </NavLink>
                             </div>
@@ -250,15 +265,19 @@ const Navbar = () => {
                                 className="notifications-text element"
                               >
                                 <div className="notifications-header">
-                                  Now Available
+                                  {language === "EN"
+                                    ? "Now Available"
+                                    : "Nu te zien"}
                                 </div>
                                 <div className="notifications-body">
                                   MonkeyTime
                                 </div>
                                 <div className="notifications-age">
                                   <span className="relative-tim">
-                                    {' '}
-                                    4 days ago
+                                    {" "}
+                                    {language === "EN"
+                                      ? "4 days ago"
+                                      : "4 dagen geleden"}
                                   </span>
                                 </div>
                               </NavLink>
@@ -270,7 +289,7 @@ const Navbar = () => {
                   </ul>
                 </div>
               ) : (
-                ''
+                ""
               )}
             </span>
           </div>
@@ -286,7 +305,7 @@ const Navbar = () => {
                     />
                   </span>
                 </NavLink>
-                <span className={isClicked ? 'caret rotate' : ' caret'}>
+                <span className={isClicked ? "caret rotate" : " caret"}>
                   <IconCaretDown />
                 </span>
               </button>
@@ -344,7 +363,7 @@ const Navbar = () => {
                               className="profile-icon custom-profile-icon"
                               src={Jens}
                               alt="Jens"
-                              height='12px'
+                              height="12px"
                             />
                           </div>
                           <span className="profile-name">Jens</span>
@@ -355,7 +374,7 @@ const Navbar = () => {
                       <div>
                         <NavLink to="" className="profile-link">
                           <div className="avatar-wrapper">
-                          <img
+                            <img
                               className="profile-icon custom-profile-icon"
                               src={Michael}
                               alt="Michael"
@@ -369,7 +388,7 @@ const Navbar = () => {
                       <div>
                         <NavLink to="" className="profile-link">
                           <div className="avatar-wrapper">
-                          <img
+                            <img
                               className="profile-icon custom-profile-icon"
                               src={Roibin}
                               alt="Roibin"
@@ -383,7 +402,7 @@ const Navbar = () => {
                       <div>
                         <NavLink to="" className="profile-link">
                           <div className="avatar-wrapper">
-                          <img
+                            <img
                               className="profile-icon custom-profile-icon"
                               src={Fatos}
                               alt="Fatos"
@@ -397,7 +416,6 @@ const Navbar = () => {
                       <div>
                         <NavLink to="" className="profile-link">
                           <div className="avatar-wrapper">
-                            
                             <img
                               className="profile-icon custom-profile-icon"
                               src={Zico}
@@ -412,7 +430,6 @@ const Navbar = () => {
                       <div>
                         <NavLink to="" className="profile-link">
                           <div className="avatar-wrapper">
-                            
                             <img
                               className="profile-icon custom-profile-icon"
                               src={Alfi}
@@ -427,7 +444,6 @@ const Navbar = () => {
                       <div>
                         <NavLink to="" className="profile-link">
                           <div className="avatar-wrapper">
-                            
                             <img
                               className="profile-icon custom-profile-icon"
                               src={Wesley}
@@ -444,7 +460,11 @@ const Navbar = () => {
                         className="sub-menu-link sub-menu-link-icon"
                       >
                         <IconPencil />
-                        <span>Manage Profiles</span>
+                        <span>
+                          {language === "EN"
+                            ? "Manage Profiles"
+                            : "Profielen beheren"}
+                        </span>
                       </NavLink>
                     </li>
                   </ul>
@@ -457,7 +477,7 @@ const Navbar = () => {
                         className="sub-menu-link sub-menu-link-icon"
                       >
                         <IconAccount />
-                        <span>Account</span>
+                        <span>{language === "EN" ? "Account" : "Account"}</span>
                       </NavLink>
                     </li>
                     <li className="sub-menu-item">
@@ -466,20 +486,22 @@ const Navbar = () => {
                         className="sub-menu-link sub-menu-link-icon"
                       >
                         <IconQuestion />
-                        <span>Help Centre</span>
+                        <span>
+                          {language === "EN" ? "Help Centre" : "Helpcentrum"}
+                        </span>
                       </NavLink>
                     </li>
                   </ul>
                   <ul className="account-links sub-menu-list sign-out-links">
                     <li className="sub-menu-item">
                       <NavLink to="" className="sub-menu-link ">
-                        Sign out of Netflix
+                      {language === "EN" ? 'Sign out of Netflix' : 'Uitloggen'}
                       </NavLink>
                     </li>
                   </ul>
                 </div>
               ) : (
-                ''
+                ""
               )}
             </div>
           </div>
