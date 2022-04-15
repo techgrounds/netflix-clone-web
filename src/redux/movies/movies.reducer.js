@@ -10,9 +10,12 @@ const initialState = {
     imageHR: "",
     poster: "",
     trailer: "",
+    rating: "",
+    runtime: "",
   },
   error: null,
   isLoading: false,
+  movieDetails: {},
 };
 
 const moviesReducer = (state = initialState, action) => {
@@ -28,6 +31,12 @@ const moviesReducer = (state = initialState, action) => {
         allMovies: [...action.payload],
         error: false,
         isLoading: false,
+      };
+    case moviesActionTypes.FETCH_MOVIE_DETAILS:
+      return {
+        ...state,
+        movieDetails: action.payload,
+        error: false,
       };
     case moviesActionTypes.FETCH_SINGLE_MOVIE:
       return {
