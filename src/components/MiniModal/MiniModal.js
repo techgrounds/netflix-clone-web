@@ -21,12 +21,6 @@ const MiniModal = ({
   const [start, setStart] = useState(false)
   const movieData = useSelector((state) => state.movies.movie)
 
-  console.log(movieData.id)
-
-  const laneOpenModal = () => {
-    setIsModalVisible(true)
-  }
-
   const remove = async () => {
     setStart(true)
     gsap.to(boxRef.current, {
@@ -76,7 +70,6 @@ const MiniModal = ({
           trailer={trailer}
           openModal={openModal}
           isModalVisible={isModalVisible}
-          laneOpenModal={laneOpenModal}
           setIsModalVisible={setIsModalVisible}
           movieData={movieData}
         />
