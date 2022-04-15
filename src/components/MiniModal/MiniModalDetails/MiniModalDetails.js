@@ -8,7 +8,7 @@ import ButtonAdd from '../../ButtonAdd/ButtonAdd'
 import ButtonCheck from '../../ButtonCheck/ButtonCheck'
 import FilmInfoModal from '../../FilmInfoModal/FilmInfoModal'
 
-const MiniModalDetails = ({ openModal, isModalVisible, movieData, setMoreInfo, moreInfo }) => {
+const MiniModalDetails = ({ openModal, setMoreInfo, moreInfo }) => {
   const [isChecked, setIsChecked] = useState(false)
   const changeIcon = () => {
     !isChecked ? setIsChecked(true) : setIsChecked(false)

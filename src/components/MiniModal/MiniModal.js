@@ -29,8 +29,6 @@ const MiniModal = ({
     setMuteIcon(!muteIcon)}
   const movieData = useSelector((state) => state.movies.movie)
 
-    console.log(movieData.id)
-  
     const laneOpenModal = () => {
       setIsModalVisible(true)
     }
