@@ -6,11 +6,7 @@ import { useState } from 'react'
 import ButtonRating from '../../ButtonRating/ButtonRating'
 import ButtonAdd from '../../ButtonAdd/ButtonAdd'
 import ButtonCheck from '../../ButtonCheck/ButtonCheck'
-
-import ButtonRating from '../ButtonRating/ButtonRating'
-import ButtonAdd from '../ButtonAdd/ButtonAdd'
-import ButtonCheck from '../ButtonCheck/ButtonCheck'
-import FilmInfoModal from '../FilmInfoModal/FilmInfoModal'
+import FilmInfoModal from '../../FilmInfoModal/FilmInfoModal'
 
 const MiniModalDetails = ({ openModal, isModalVisible, movieData, setMoreInfo, moreInfo }) => {
   const [isChecked, setIsChecked] = useState(false)

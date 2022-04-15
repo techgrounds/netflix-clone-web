@@ -13,6 +13,8 @@ export const LaneItem = ({
   openModal,
   isModalVisible,
   setIsModalVisible,
+  setMoreInfo,
+  moreInfo
 }) => {
   const size = useWindowSize()
   const [loadMovie, setLoadMovie] = useState(false)
@@ -23,7 +25,6 @@ export const LaneItem = ({
 
   useEffect(() => {
     if (hovered) {
-      updateZIndexRef(999)
       setLoadMovie(true)
     }
     if (!hovered) {
@@ -67,6 +68,7 @@ export const LaneItem = ({
         >
           {loadMovie && (
             <MiniModal
+              updateZIndexRef={updateZIndexRef}
               loadMovie={loadMovie}
               moviePoster={movie.image}
               movieTitle={movie.title}

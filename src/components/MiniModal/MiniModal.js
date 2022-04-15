@@ -6,6 +6,7 @@ import MiniModalVideo from '../MiniModalVideo/MiniModalVideo'
 import { IconVolumeMute } from '../Icons/IconVolumeMute'
 import { IconVolumeUp } from '../Icons/IconVolumeUp';
 import { useState, useRef } from 'react'
+import { useSelector } from 'react-redux';
 
 const MiniModal = ({
   setLoadMovie,
@@ -13,7 +14,9 @@ const MiniModal = ({
   movieTitle,
   trailer,
   moreInfo,
-  setMoreInfo
+  setMoreInfo,
+  setIsModalVisible,
+  updateZIndexRef
  }) => {
   const youtubeId = trailer.substr(32)
   const boxRef = useRef()
@@ -42,6 +45,8 @@ const MiniModal = ({
       onComplete: () => setActive(false)
     })
   }
+
+  updateZIndexRef(999)
 
   return (
     <div
