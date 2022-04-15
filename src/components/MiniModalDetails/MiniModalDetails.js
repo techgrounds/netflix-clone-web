@@ -10,12 +10,7 @@ import ButtonAdd from '../ButtonAdd/ButtonAdd'
 import ButtonCheck from '../ButtonCheck/ButtonCheck'
 import FilmInfoModal from '../FilmInfoModal/FilmInfoModal'
 
-const MiniModalDetails = ({
-  openModal,
-  isModalVisible,
-  laneOpenModal,
-  movieData,
-}) => {
+const MiniModalDetails = ({ openModal, isModalVisible, movieData }) => {
   const [isChecked, setIsChecked] = useState(false)
 
   const changeIcon = () => {
@@ -35,10 +30,11 @@ const MiniModalDetails = ({
           <ButtonRating />
         </div>
         <div className='right-content'>
+          {/* OPEN MODAL IN LANE ITEM */}
           <button
             className='moreInfo-button'
             onClick={() => {
-              laneOpenModal()
+              openModal()
             }}>
             <IconArrowDown />
           </button>
