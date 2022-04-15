@@ -16,8 +16,6 @@ export const LaneItem = ({
   const [hovered, setHovered] = useState(false);
   const [moreInfo, setMoreInfo] = useState(false);
 
-
-
   useEffect(() => {
     if (hovered) {
       updateZIndexRef(999)
@@ -39,7 +37,6 @@ export const LaneItem = ({
       onMouseLeave={() => {
         setHovered(false);
         setMoreInfo(false);
-        setIsVideoPlaying(true);
       }}
     >
       {loadMovie && (

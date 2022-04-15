@@ -13,8 +13,7 @@ const MiniModal = ({
   movieTitle,
   trailer,
   moreInfo,
-  setMoreInfo,
-  setIsVideoPlaying,
+  setMoreInfo
  }) => {
   const youtubeId = trailer.substr(32)
   const boxRef = useRef()
@@ -22,8 +21,9 @@ const MiniModal = ({
   const [start, setStart] = useState(false)
   const [muteIcon, setMuteIcon] = useState(false)
   const switchMute = () => {
-    setMuteIcon(!muteIcon)
-  }
+    document.getElementById("sound").muted = true
+    console.log("muted")
+    setMuteIcon(!muteIcon)}
 
   const remove = async () => {
     setStart(true);
@@ -39,16 +39,16 @@ const MiniModal = ({
   return (
     <div
       className='modal'
+      id="sound"
       onMouseEnter={
         remove}
-
 
       onMouseLeave={() => {
         setLoadMovie(false);
       }}
     >
-      <div className="top-container" >
-        {start && <MiniModalVideo 
+      <div className="top-container">
+        {start && <MiniModalVideo
         setMuteIcon={setMuteIcon}
         muteIcon={muteIcon}
         youtubeId={youtubeId}/>}
@@ -68,7 +68,7 @@ const MiniModal = ({
 
           <div className="volume-button-wrapper">
             <button className="volume-button" onClick={switchMute}>
-              {!muteIcon ? <IconVolumeMute /> : <IconVolumeUp />}
+              {!muteIcon ? <IconVolumeMute/> : <IconVolumeUp/>}
             </button>
           </div>
         </div>
