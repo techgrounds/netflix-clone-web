@@ -1,8 +1,11 @@
 import './FilmInfoModal.scss'
+
 import { IconClose } from '../Icons/IconClose'
 import { useEffect, useCallback, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+
 import useOutsideClick from '../../hooks/useOutsideClick'
+
 import FilmInfoModalHeader from '../FilmInfoModalHeader/FilmInfoModalHeader'
 import FilmInfoModalDetails from '../FilmInfoModalDetails/FilmInfoModalDetails'
 import FilmInfoModalSuggestions from '../FilmInfoModalSuggestions/FilmInfoModalSuggestions'
@@ -12,7 +15,8 @@ const FilmInfoModal = ({
   isModalVisible,
   setIsModalVisible,
   setIsVideoPlaying,
-  
+  movieData,
+  movies,
 }) => {
   const modalQuit = useRef()
 
@@ -57,8 +61,7 @@ const FilmInfoModal = ({
               delay: 0.2,
             },
           }}
-          className='modal-background'
-        >
+          className='modal-background'>
           <motion.div
             initial={{
               scale: 0,
@@ -76,31 +79,31 @@ const FilmInfoModal = ({
               },
             }}
             className='modal-container'
-            ref={modalQuit}
-          >
+            ref={modalQuit}>
             <div className='modal-content'>
               <div className='modal-header'>
-                <FilmInfoModalHeader
-                />
+                <FilmInfoModalHeader movieData={movieData} />
               </div>
               <div className='modal-description'>
                 <div className='modal-details'>
-                  <FilmInfoModalDetails />
+                  <FilmInfoModalDetails movieData={movieData} />
                 </div>
                 <div className='modal-suggestions'>
-                  <FilmInfoModalSuggestions />
+                  <FilmInfoModalSuggestions
+                    movieData={movieData}
+                    movies={movies}
+                  />
                 </div>
               </div>
               <div className='modal-footer'>
-                <FilmInfoModalFooter />
+                <FilmInfoModalFooter movieData={movieData} />
               </div>
               <button
                 className='modal-close-button'
                 onClick={() => {
                   setIsModalVisible(false)
                   setIsVideoPlaying(true)
-                }}
-              >
+                }}>
                 <IconClose />
               </button>
             </div>

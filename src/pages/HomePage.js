@@ -2,17 +2,21 @@ import React, { useEffect, useState } from "react";
 import HomeHero from "../components/HomeHero/HomeHero";
 import FooterBrowserPage from "../components/FooterBrowserPage/FooterBrowserPage";
 import Lane from "../components/Lane/Lane";
-import "../components/Lane/Lane.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMoviesResultsAsync } from "../redux/movies/movies.actions";
+import { v4 as uuidv4 } from "uuid";
 
 const HomePage = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
   const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const openModal = () => {
+    setIsModalVisible(true);
+  };
+
   const dispatch = useDispatch();
   const allMoviesSelector = useSelector((state) => state.movies.allMovies);
-
-  console.log(allMoviesSelector);
+  const movieData = useSelector((state) => state.movies.movie);
 
   useEffect(() => {
     dispatch(fetchMoviesResultsAsync());
@@ -25,6 +29,9 @@ const HomePage = () => {
         isVideoPlaying={isVideoPlaying}
         isModalVisible={isModalVisible}
         setIsModalVisible={setIsModalVisible}
+        openModal={openModal}
+        movieData={movieData}
+        allMoviesSelector={allMoviesSelector}
       />
       {allMoviesSelector?.map((movieSet) => {
         return (
@@ -32,7 +39,10 @@ const HomePage = () => {
             laneTitle={movieSet.genre}
             movies={movieSet.movies}
             trailer={movieSet.trailer}
-            id={movieSet.id}
+            openModal={openModal}
+            isModalVisible={isModalVisible}
+            setIsModalVisible={setIsModalVisible}
+            key={uuidv4()}
           />
         );
       })}

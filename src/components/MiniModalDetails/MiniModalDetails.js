@@ -9,10 +9,10 @@ import { useState } from "react";
 import ButtonRating from "../ButtonRating/ButtonRating";
 import ButtonAdd from "../ButtonAdd/ButtonAdd";
 import ButtonCheck from "../ButtonCheck/ButtonCheck";
+import FilmInfoModal from "../FilmInfoModal/FilmInfoModal";
 
-const MiniModalDetails = () => {
+const MiniModalDetails = ({ openModal, isModalVisible, movieData }) => {
   const [isChecked, setIsChecked] = useState(false);
-  const movie = useSelector((state) => state.movies.movie);
 
   const changeIcon = () => {
     !isChecked ? setIsChecked(true) : setIsChecked(false);
@@ -31,7 +31,13 @@ const MiniModalDetails = () => {
           <ButtonRating />
         </div>
         <div className="right-content">
-          <button className="moreInfo-button">
+          {/* OPEN MODAL IN LANE ITEM */}
+          <button
+            className="moreInfo-button"
+            onClick={() => {
+              openModal();
+            }}
+          >
             <IconArrowDown />
           </button>
         </div>
@@ -40,10 +46,10 @@ const MiniModalDetails = () => {
         <span className="match">98% Match</span>
         <span className="maturity-rating">
           {/* <IconKijkWijzer16 /> */}
-          {movie?.rating}
+          {/* {movie?.rating} */}
         </span>
         {/* <span className="duration">1h 46m</span> */}
-        <span className="duration">{movie?.runtime}</span>
+        {/* <span className="duration">{movie?.runtime}</span> */}
 
         <span className="feature-badge">HD</span>
       </div>
@@ -52,6 +58,7 @@ const MiniModalDetails = () => {
         <span className="tag-item-mini">Feel-Good</span>•
         <span className="tag-item-mini">Exciting</span>
       </div>
+      <FilmInfoModal />
     </>
   );
 };

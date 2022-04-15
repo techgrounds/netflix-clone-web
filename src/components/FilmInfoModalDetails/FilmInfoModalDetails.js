@@ -1,12 +1,12 @@
 import './FilmInfoModalDetails.scss'
-import movieData from '../../movies.json'
+import movieMockupData from '../../movies.json'
 import FilmInfoModalDetailsItem from '../FilmInfoModalDetailsItem/FilmInfoModalDetailsItem'
 import FilmInfoModalKijkWijzer from '../FilmInfoModalKijkWijzer/FilmInfoModalKijkWijzer'
 
-const FilmInfoModalDetails = () => {
-  const movie = movieData[1]
+const FilmInfoModalDetails = ({ movieData }) => {
+  const movie = movieMockupData[1]
 
-  const { actors } = movieData[1]
+  const { actors } = movieMockupData[1]
   const seperatedActors = actors.split(',')
 
   return (
@@ -22,7 +22,7 @@ const FilmInfoModalDetails = () => {
             <span className='duration-title'>2h 15m</span>
           </div>
           <div style={{ marginBottom: '1em' }}></div>
-          <p className='modal-details-description'>{movie.description}</p>
+          <p className='modal-details-description'>{movieData?.desc}</p>
         </div>
         <div className='details-right'>
           <div className='details-tags'>
