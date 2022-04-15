@@ -6,6 +6,7 @@ import { LaneItem } from '../../components/Lane/LaneItem'
 import useWindowSize from './WindowSize'
 import './Lane.scss'
 
+
 const Lane = ({
   laneTitle,
   movies,
@@ -103,6 +104,8 @@ const Lane = ({
     onSwipedRight: () => updateIndexNext(activeIndex - size.length),
   })
 
+
+
   return (
     <div className='laneContainer' style={{ zIndex: 0 }} ref={zIndexRef}>
       <div
@@ -168,12 +171,16 @@ const Lane = ({
             className='pageIndicator_container'
             style={{ top: `-${size.itemHeight * 2.1}vw` }}>
             {movies.map((movie, index) => {
+
+console.log("active index: ",activeIndex)
+console.log("size.length: ",size.length)
               if (index % size.length === 1)
                 return (
                   <button
                     key={movie.id}
                     className={`${
-                      index === activeIndex - size.length
+  ////                    index === (activeIndex - size.length) t/m (activeIndex)
+                          index === (activeIndex - size.length)
                         ? 'active_pageIndicatior pageIndicator'
                         : 'pageIndicator'
                     }`}
