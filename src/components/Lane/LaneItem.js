@@ -42,7 +42,6 @@ export const LaneItem = ({
       }}
       onMouseLeave={() => {
         setHovered(false);
-        setMoreInfo(false);
       }}
     >
       {loadMovie && (

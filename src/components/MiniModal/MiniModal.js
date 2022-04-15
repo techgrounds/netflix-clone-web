@@ -1,38 +1,42 @@
-import "./MiniModal.scss";
-import MiniModalDetails from "../MiniModalDetails/MiniModalDetails";
+import './MiniModal.scss'
+import MiniModalDetails from './MiniModalDetails'
 import { useDispatch } from "react-redux";
-import gsap from "gsap";
-import MiniModalVideo from "../MiniModalVideo/MiniModalVideo";
-import { IconVolumeMute } from "../Icons/IconVolumeMute";
-import { useState, useRef, useEffect } from "react";
+import gsap from 'gsap'
+import MiniModalVideo from '../MiniModalVideo/MiniModalVideo'
+import { IconVolumeMute } from '../Icons/IconVolumeMute'
+import { IconVolumeUp } from '../Icons/IconVolumeUp';
+import { useState, useRef, useEffect } from 'react'
+import { useSelector } from 'react-redux';
 import { fetchMovieDetailsAsync } from "../../redux/movies/movies.actions";
-import { useSelector } from "react-redux";
 
 const MiniModal = ({
   setLoadMovie,
   moviePoster,
   movieTitle,
   trailer,
+  moreInfo,
+  setMoreInfo,
+  setIsModalVisible,
+  updateZIndexRef,
   id,
   openModal,
-  isModalVisible,
-  setIsModalVisible,
-}) => {
-  const youtubeId = trailer.substr(32);
+  isModalVisible
+ }) => {
+  const youtubeId = trailer.substr(32)
   const dispatch = useDispatch();
-  const boxRef = useRef();
-  const [active, setActive] = useState(true);
-  const [start, setStart] = useState(false);
+  const boxRef = useRef()
+  const [active, setActive] = useState(true)
+  const [start, setStart] = useState(false)
+  const [muteIcon, setMuteIcon] = useState(false)
+  const switchMute = () => {
+    document.getElementById("sound").muted = true
+    console.log("muted")
+    setMuteIcon(!muteIcon)}
+  const movieData = useSelector((state) => state.movies.movie)
 
-  const movieData = useSelector((state) => state.movies.movie);
-
-  useEffect(() => {
-    dispatch(fetchMovieDetailsAsync(id));
-    console.log("INSIDE USE EFFECT");
-  }, []);
-
-  // console.log("trailer path: ", trailer);
-  // console.log("trailer id: ", youtubeId);
+    const laneOpenModal = () => {
+      setIsModalVisible(true)
+    }
 
   const remove = async () => {
     setStart(true);
@@ -49,14 +53,10 @@ const MiniModal = ({
 
   return (
     <div
-      className="modal"
-      onMouseEnter={remove}
-      onMouseLeave={() => {
-        setLoadMovie(false);
-      }}
-    >
-      <div className="top-container">
-        {start && <MiniModalVideo youtubeId={youtubeId} />}
+      className='modal'
+      id="sound"
+      onMouseEnter={
+        remove}
 
       onMouseLeave={() => {
         setLoadMovie(false);
@@ -98,7 +98,7 @@ const MiniModal = ({
           setIsModalVisible={setIsModalVisible}
           movieData={movieData}
           setMoreInfo={setMoreInfo}
-          moreInfo={moreInfo
+          moreInfo={moreInfo}
         />
       </div>
     </div>

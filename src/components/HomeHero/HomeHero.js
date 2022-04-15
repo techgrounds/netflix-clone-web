@@ -24,9 +24,7 @@ const HomeHero = ({
   const element = useRef();
   const timeline = useRef();
   const selector = gsap.utils.selector(element);
-
   const movie = useSelector((state) => state.movies.movie);
-
   const youtubeId = "65xa8TG2G8o";
 
   useEffect(() => {
@@ -62,7 +60,7 @@ const HomeHero = ({
         <div className="home-hero-container" ref={element}>
           <div className="home-hero-trailer-wrapper">
             {isVideoPlaying ? (
-              <MiniModalVideo youtubeId={(movies?.trailer.substr(32))+'&mute=1'} />
+              <MiniModalVideo youtubeId={(movie?.trailer.substr(32))+'&mute=1'} />
             ) : (
               <img
                 src={`https://image.tmdb.org/t/p/original${movieData.imageHR}`}
