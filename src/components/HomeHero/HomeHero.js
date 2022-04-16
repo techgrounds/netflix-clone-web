@@ -8,8 +8,9 @@ import { IconPlayBlack } from '../Icons/IconPlayBlack'
 import { IconVolumeMute } from '../Icons/IconVolumeMute'
 import { IconKijkWijzer16 } from '../Icons/IconKijkWijzer16'
 import FilmInfoModal from '../FilmInfoModal/FilmInfoModal'
-import MiniModalVideo from '../MiniModalVideo/MiniModalVideo'
+// import MiniModalVideo from '../MiniModalVideo/MiniModalVideo'
 import billboardHeroTitle from '../../assets/hero-img/billboard-title.webp'
+import FilmInfoModalVideo from '../FilmInfoModalVideo/FilmInfoModalVideo'
 
 const HomeHero = ({
   setIsVideoPlaying,
@@ -59,7 +60,7 @@ const HomeHero = ({
         <div className='home-hero-container' ref={element}>
           <div className='home-hero-trailer-wrapper'>
             {isVideoPlaying ? (
-              <MiniModalVideo
+              <FilmInfoModalVideo
                 youtubeId={movie?.trailer.substr(32) + '&mute=1'}
               />
             ) : (

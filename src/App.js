@@ -1,27 +1,27 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar/Navbar";
-import "./assets/scss/main.scss";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Navbar from './components/Navbar/Navbar'
+import './assets/scss/main.scss'
 
-import { LangProvider } from "./redux/languages/languages.context";
-import ScrollToTop from "./components/ScrollToTop";
-import LandingPage from "./pages/LandingPage";
-import HomePage from "./pages/HomePage";
-import GenrePage from "./pages/GenrePage";
-import ErrorPage from "./pages/ErrorPage";
-import SearchPage from "./pages/SearchPage";
-import SignInPage from "./pages/SignInPage";
-import HeaderGenre from "./components/HeaderGenre/HeaderGenre";
+import { LangProvider } from './redux/languages/languages.context'
+import ScrollToTop from './components/ScrollToTop'
+import LandingPage from './pages/LandingPage'
+import HomePage from './pages/HomePage'
+import GenrePage from './pages/GenrePage'
+import ErrorPage from './pages/ErrorPage'
+import SearchPage from './pages/SearchPage'
+import SignInPage from './pages/SignInPage'
+import HeaderGenre from './components/HeaderGenre/HeaderGenre'
 
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       <LangProvider>
         <Router>
           <ScrollToTop>
             <Routes>
-              <Route exact path="/" element={<LandingPage />} />
+              <Route exact path='/' element={<LandingPage />} />
               <Route
-                path="/home"
+                path='/home'
                 element={
                   <>
                     <Navbar />
@@ -30,7 +30,7 @@ function App() {
                 }
               />
               <Route
-                path="/genre"
+                path='/genre'
                 element={
                   <>
                     <Navbar />
@@ -40,7 +40,7 @@ function App() {
                 }
               />
               <Route
-                path="/search"
+                path='/search'
                 element={
                   <>
                     <Navbar />
@@ -48,14 +48,14 @@ function App() {
                   </>
                 }
               />
-              <Route path="/signin" element={<SignInPage />} />
-              <Route path="*" element={<ErrorPage />} />
+              <Route path='/signin' element={<SignInPage />} />
+              <Route path='*' element={<ErrorPage />} />
             </Routes>
           </ScrollToTop>
         </Router>
       </LangProvider>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
