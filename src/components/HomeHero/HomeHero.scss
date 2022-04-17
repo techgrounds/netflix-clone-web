@@ -19,6 +19,9 @@
   @include breakpoint(lg) {
     padding-bottom: 50%;
   }
+  @include breakpoint(xlg) {
+    padding-bottom: 65%;
+  }
 }
 
 .home-hero-container {
@@ -203,7 +206,7 @@
     padding: 0.4rem 2rem 0.4rem 1.5rem;
   }
   @include breakpoint(xlg) {
-    padding: 0.5rem 2rem 0.5rem 1.5rem;
+    padding: 0.7rem 2.5rem 0.7rem 2rem;
   }
 }
 
@@ -226,8 +229,8 @@
     width: 2.2em;
   }
   @include breakpoint(xlg) {
-    height: 2.5em;
-    width: 2.5em;
+    height: 2.8em;
+    width: 2.8em;
   }
 }
 
@@ -240,6 +243,9 @@
   }
   @include breakpoint(lg) {
     font-size: 1rem;
+  }
+  @include breakpoint(xlg) {
+    font-size: 1.5rem;
   }
 }
 
@@ -258,7 +264,7 @@
     bottom: 31%;
   }
   @include breakpoint(xlg) {
-    bottom: 35%;
+    bottom: 36%;
   }
 }
 
@@ -292,6 +298,9 @@
   @include breakpoint(lg) {
     font-size: 1rem;
   }
+  @include breakpoint(xlg) {
+    font-size: 1.6rem;
+  }
   &:hover {
     background-color: var(--midgrey);
     border: 2px solid var(--white);
@@ -316,6 +325,11 @@
   @include breakpoint(lg) {
     height: 3.5rem;
     font-size: 1.2rem;
+    padding: 0.9rem 3rem 0.9rem 0.7rem;
+  }
+  @include breakpoint(xlg) {
+    height: 4.5rem;
+    font-size: 1.9rem;
     padding: 0.9rem 3rem 0.9rem 0.7rem;
   }
 }
