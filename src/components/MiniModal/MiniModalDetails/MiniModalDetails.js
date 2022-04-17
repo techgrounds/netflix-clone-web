@@ -51,8 +51,10 @@ const MiniModalDetails = ({ openModal, isModalVisible, movieData }) => {
         <span className='feature-badge'>HD</span>
       </div>
       <div className='tag-container'>
-        <span className='tag-item-mini'>Witty</span>•
-        <span className='tag-item-mini'>Feel-Good</span>•
+        <span className='tag-item-mini'>Witty</span>
+        <span className='tag-item-mini-space '>•</span>
+        <span className='tag-item-mini '>Feel-Good</span>
+        <span className='tag-item-mini-space '>•</span>
         <span className='tag-item-mini'>Exciting</span>
       </div>
       <FilmInfoModal />
