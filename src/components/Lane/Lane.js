@@ -172,10 +172,6 @@ const Lane = ({
             style={{ top: `-${size.itemHeight * 2.1}vw` }}>
             {movies.map((movie, index) => {
 
-console.log("active index: ",activeIndex)
-console.log("size.length: ",size.length)
-console.log("index: ", index)
-
               if (index % size.length === 1)
                 return (
                   <button
