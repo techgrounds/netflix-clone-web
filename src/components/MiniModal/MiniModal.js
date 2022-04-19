@@ -25,6 +25,7 @@ const MiniModal = ({
 
   useEffect(() => {
     dispatch(fetchSingleMovie(movie));
+    // dispatch(fetchMovieDetailsAsync(movie?.id));
   }, []);
 
   const boxRef = useRef();

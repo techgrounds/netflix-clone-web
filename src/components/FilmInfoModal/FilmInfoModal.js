@@ -27,7 +27,7 @@ const FilmInfoModal = ({ setIsVideoPlaying }) => {
 
   useEffect(() => {
     dispatch(fetchMovieDetailsAsync(movieData?.id));
-  }, []);
+  }, [movieData?.id]);
 
   const movieDetails = useSelector(
     (state) => state.movies.movieDetails.movieDetailsResults
