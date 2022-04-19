@@ -1,13 +1,13 @@
 import './MiniModal.scss'
 import MiniModalDetails from './MiniModalDetails'
-import { useDispatch } from "react-redux";
+import { useDispatch } from 'react-redux'
 import gsap from 'gsap'
 import MiniModalVideo from '../MiniModalVideo/MiniModalVideo'
 import { IconVolumeMute } from '../Icons/IconVolumeMute'
-import { IconVolumeUp } from '../Icons/IconVolumeUp';
+import { IconVolumeUp } from '../Icons/IconVolumeUp'
 import { useState, useRef, useEffect } from 'react'
-import { useSelector } from 'react-redux';
-import { fetchMovieDetailsAsync } from "../../redux/movies/movies.actions";
+import { useSelector } from 'react-redux'
+import { fetchMovieDetailsAsync } from '../../redux/movies/movies.actions'
 
 const MiniModal = ({
   setLoadMovie,
@@ -20,32 +20,33 @@ const MiniModal = ({
   updateZIndexRef,
   id,
   openModal,
-  isModalVisible
- }) => {
+  isModalVisible,
+}) => {
   const youtubeId = trailer.substr(32)
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   const boxRef = useRef()
   const [active, setActive] = useState(true)
   const [start, setStart] = useState(false)
   const [muteIcon, setMuteIcon] = useState(false)
   const switchMute = () => {
-    document.getElementById("sound").muted = true
-    console.log("muted")
-    setMuteIcon(!muteIcon)}
+    document.getElementById('sound').muted = true
+    console.log('muted')
+    setMuteIcon(!muteIcon)
+  }
   const movieData = useSelector((state) => state.movies.movie)
 
-    const laneOpenModal = () => {
-      setIsModalVisible(true)
-    }
+  const laneOpenModal = () => {
+    setIsModalVisible(true)
+  }
 
   const remove = async () => {
-    setStart(true);
+    setStart(true)
     gsap.to(boxRef.current, {
       opacity: 0,
       duration: 2,
       delay: 4,
       ease: 'power4',
-      onComplete: () => setActive(false)
+      onComplete: () => setActive(false),
     })
   }
 
@@ -54,41 +55,41 @@ const MiniModal = ({
   return (
     <div
       className='modal'
-      id="sound"
-      onMouseEnter={
-        remove}
-
+      id='sound'
+      onMouseEnter={remove}
       onMouseLeave={() => {
-        setLoadMovie(false);
-      }}
-    >
-      <div className="top-container">
-        {start && <MiniModalVideo
-        setMuteIcon={setMuteIcon}
-        muteIcon={muteIcon}
-        youtubeId={youtubeId}/>}
+        setLoadMovie(false)
+      }}>
+      <div className='top-container'>
+        {start && (
+          <MiniModalVideo
+            setMuteIcon={setMuteIcon}
+            muteIcon={muteIcon}
+            youtubeId={youtubeId}
+          />
+        )}
         {active && (
           <img
             ref={boxRef}
             src={moviePoster}
             alt={moviePoster}
-            className="movie-poster"
+            className='movie-poster'
           />
         )}
 
-        <div className="overlay-items">
-          <div className="video-title-wrapper">
-            <div className="video-title">{movieTitle}</div>
+        <div className='overlay-items'>
+          <div className='video-title-wrapper'>
+            <div className='video-title'>{movieTitle}</div>
           </div>
 
-          <div className="volume-button-wrapper">
-            <button className="volume-button" onClick={switchMute}>
-              {!muteIcon ? <IconVolumeMute/> : <IconVolumeUp/>}
+          <div className='volume-button-wrapper'>
+            <button className='volume-button' onClick={switchMute}>
+              {!muteIcon ? <IconVolumeMute /> : <IconVolumeUp />}
             </button>
           </div>
         </div>
       </div>
-      <div className="bottom-container">
+      <div className='bottom-container'>
         <MiniModalDetails
           moviePoster={moviePoster}
           movieTitle={movieTitle}
@@ -102,7 +103,7 @@ const MiniModal = ({
         />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default MiniModal;
+export default MiniModal

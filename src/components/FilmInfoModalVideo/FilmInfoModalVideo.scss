@@ -1,0 +1,24 @@
+@import '../../assets/scss/mixins';
+
+.film-modal-video-container {
+  position: relative;
+  aspect-ratio: 25 / 18;
+  overflow: hidden;
+  margin: -1.8% 0;
+  width: 100%;
+  height: auto;
+  @include breakpoint(sm) {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+.film-modal-video-content {
+  overflow: hidden;
+  border: 0;
+  align-items: center;
+  position: absolute;
+  transform: translateX(-14%) translateY(-11%);
+  inset: 0;
+  width: 140%;
+  height: 140%;
+}
