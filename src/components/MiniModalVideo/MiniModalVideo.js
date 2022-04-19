@@ -1,6 +1,6 @@
 import './MiniModalVideo.scss'
 
-const MiniModalVideo = ({ youtubeId }) => {
+const MiniModalVideo = ({ youtubeId, mute }) => {
   const autoPlay = '&autoplay=1'
   const loop = `&playlist=${youtubeId}&loop=1`
   const modestBranding = '&modestbranding=1&showinfo=0&fs=0&iv_load_policy=3'
@@ -9,7 +9,7 @@ const MiniModalVideo = ({ youtubeId }) => {
   return (
     <div className="video-container">
       <iframe
-        src= {embedUrl}
+        src= {mute ? embedUrl : (embedUrl + "&mute=1")}
         frameBorder='0'
         className='video-content'
         loading='lazy'

@@ -1,13 +1,12 @@
 import './MiniModal.scss'
 import MiniModalDetails from './MiniModalDetails'
-import { useDispatch } from 'react-redux'
 import gsap from 'gsap'
 import MiniModalVideo from '../MiniModalVideo/MiniModalVideo'
 import { IconVolumeMute } from '../Icons/IconVolumeMute'
 import { IconVolumeUp } from '../Icons/IconVolumeUp'
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef } from 'react'
 import { useSelector } from 'react-redux'
-import { fetchMovieDetailsAsync } from '../../redux/movies/movies.actions'
+
 
 const MiniModal = ({
   setLoadMovie,
@@ -18,26 +17,21 @@ const MiniModal = ({
   setMoreInfo,
   setIsModalVisible,
   updateZIndexRef,
-  id,
   openModal,
   isModalVisible,
+  mute,
+  setMute,
 }) => {
+  console.log("Mute in miniModal: ", mute)
   const youtubeId = trailer.substr(32)
-  const dispatch = useDispatch()
   const boxRef = useRef()
   const [active, setActive] = useState(true)
   const [start, setStart] = useState(false)
-  const [muteIcon, setMuteIcon] = useState(false)
   const switchMute = () => {
-    document.getElementById('sound').muted = true
-    console.log('muted')
-    setMuteIcon(!muteIcon)
+    setMute(!mute)
+    console.log("mute: ",mute)
   }
   const movieData = useSelector((state) => state.movies.movie)
-
-  const laneOpenModal = () => {
-    setIsModalVisible(true)
-  }
 
   const remove = async () => {
     setStart(true)
@@ -55,7 +49,6 @@ const MiniModal = ({
   return (
     <div
       className='modal'
-      id='sound'
       onMouseEnter={remove}
       onMouseLeave={() => {
         setLoadMovie(false)
@@ -63,8 +56,8 @@ const MiniModal = ({
       <div className='top-container'>
         {start && (
           <MiniModalVideo
-            setMuteIcon={setMuteIcon}
-            muteIcon={muteIcon}
+            setMute={setMute}
+            mute={mute}
             youtubeId={youtubeId}
           />
         )}
@@ -84,7 +77,7 @@ const MiniModal = ({
 
           <div className='volume-button-wrapper'>
             <button className='volume-button' onClick={switchMute}>
-              {!muteIcon ? <IconVolumeMute /> : <IconVolumeUp />}
+              {!mute ? <IconVolumeMute /> : <IconVolumeUp />}
             </button>
           </div>
         </div>
