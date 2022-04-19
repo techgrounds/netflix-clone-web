@@ -145,7 +145,11 @@ const Lane = ({ laneTitle, movies }) => {
           </button>
 
           <button
-            className="indicator indicator_next"
+            className={`${
+              movies.length < size.length
+                ? "indicator_inactive indicator_next"
+                : "indicator indicator_next"
+            }`}
             style={{
               height: `${size.itemHeight}vw`,
               width: "5vw",
@@ -168,8 +172,11 @@ const Lane = ({ laneTitle, movies }) => {
                   <button
                     key={movie.id}
                     className={`${
-                      index === activeIndex - size.length
-                        ? "active_pageIndicator pageIndicator"
+                      startSwitch < 1 && index < size.length
+                        ? "active_pageIndicatior pageIndicator"
+                        : index >= activeIndex - size.length &&
+                          index < activeIndex - 1
+                        ? "active_pageIndicatior pageIndicator"
                         : "pageIndicator"
                     }`}
                   />

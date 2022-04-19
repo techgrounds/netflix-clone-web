@@ -1,15 +1,13 @@
 import "./MiniModalDetails.scss";
-import { IconPlayBlack } from "../Icons/IconPlayBlack";
-import { IconArrowDown } from "../Icons/IconArrowDown";
-// import { IconKijkWijzer16 } from "../Icons/IconKijkWijzer16";
+import { IconPlayBlack } from "../../Icons/IconPlayBlack";
+import { IconArrowDown } from "../../Icons/IconArrowDown";
 import { useSelector, useDispatch } from "react-redux";
-import { movieInfoModalToggle } from "../../redux/movies/movies.actions";
+import { movieInfoModalToggle } from "../../../redux/movies/movies.actions";
 import { useState } from "react";
-
-import ButtonRating from "../ButtonRating/ButtonRating";
-import ButtonAdd from "../ButtonAdd/ButtonAdd";
-import ButtonCheck from "../ButtonCheck/ButtonCheck";
-import FilmInfoModal from "../FilmInfoModal/FilmInfoModal";
+import ButtonRating from "../../ButtonRating/ButtonRating";
+import ButtonAdd from "../../ButtonAdd/ButtonAdd";
+import ButtonCheck from "../../ButtonCheck/ButtonCheck";
+import FilmInfoModal from "../../FilmInfoModal/FilmInfoModal";
 
 const MiniModalDetails = ({ runtime, rating }) => {
   const [isChecked, setIsChecked] = useState(false);

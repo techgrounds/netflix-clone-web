@@ -1,5 +1,5 @@
 import "./MiniModal.scss";
-import MiniModalDetails from "../MiniModalDetails/MiniModalDetails";
+import MiniModalDetails from "./MiniModalDetails/MiniModalDetails";
 import gsap from "gsap";
 import MiniModalVideo from "../MiniModalVideo/MiniModalVideo";
 import { IconVolumeMute } from "../Icons/IconVolumeMute";
@@ -15,10 +15,12 @@ const MiniModal = ({
   moviePoster,
   movieTitle,
   trailer,
-
+  mute,
+  setMute,
   rating,
   runtime,
   movie,
+  updateZIndexRef,
 }) => {
   const dispatch = useDispatch();
   const youtubeId = trailer.substr(32);
@@ -37,11 +39,13 @@ const MiniModal = ({
     gsap.to(boxRef.current, {
       opacity: 0,
       duration: 2,
-      delay: 5,
+      delay: 4,
       ease: "power4",
       onComplete: () => setActive(false),
     });
   };
+
+  updateZIndexRef(999);
 
   return (
     <div
@@ -52,8 +56,9 @@ const MiniModal = ({
       }}
     >
       <div className="top-container">
-        {start && <MiniModalVideo youtubeId={youtubeId} />}
-
+        {start && (
+          <MiniModalVideo setMute={setMute} mute={mute} youtubeId={youtubeId} />
+        )}
         {active && (
           <img
             ref={boxRef}

@@ -14,11 +14,10 @@ import { IconVolumeMute } from "../Icons/IconVolumeMute";
 import { IconKijkWijzer16 } from "../Icons/IconKijkWijzer16";
 
 import FilmInfoModal from "../FilmInfoModal/FilmInfoModal";
-import MiniModalVideo from "../MiniModalVideo/MiniModalVideo";
-
+import FilmInfoModalVideo from "../FilmInfoModalVideo/FilmInfoModalVideo";
 import billboardHeroTitle from "../../assets/hero-img/billboard-title.webp";
 
-const HomeHero = ({ setIsVideoPlaying, isVideoPlaying }) => {
+const HomeHero = ({ setIsVideoPlaying, isVideoPlaying, mute, setMute }) => {
   const element = useRef();
   const timeline = useRef();
   const selector = gsap.utils.selector(element);
@@ -39,7 +38,7 @@ const HomeHero = ({ setIsVideoPlaying, isVideoPlaying }) => {
           duration: 2,
           delay: 25,
           ease: "power4.out",
-          yPercent: "40",
+          yPercent: "30",
           scale: 0.8,
           transformOrigin: "left bottom",
         },
@@ -61,52 +60,68 @@ const HomeHero = ({ setIsVideoPlaying, isVideoPlaying }) => {
       <div className="home-hero-row">
         <div className="home-hero-container" ref={element}>
           <div className="home-hero-trailer-wrapper">
-            {isVideoPlaying ? (
-              <MiniModalVideo youtubeId={movieData?.trailer.substr(32)} />
-            ) : (
-              <img
-                src={`https://image.tmdb.org/t/p/original${movieData?.imageHR}`}
-                className="home-hero-trailer"
-                alt="movie"
-              />
-            )}
-            <div className="trailer-overlay overlay"></div>
-            <div className="home-hero-overlay overlay"></div>
+            <div className="home-hero-motion-background">
+              {isVideoPlaying ? (
+                <FilmInfoModalVideo
+                  youtubeId={movieData?.trailer.substr(32) + "&mute=1"}
+                />
+              ) : (
+                <img
+                  src={`https://image.tmdb.org/t/p/original${movieData.imageHR}`}
+                  className="home-hero-trailer"
+                  alt="movie"
+                />
+              )}
+              <div className="trailer-overlay overlay"></div>
+              <div className="home-hero-overlay overlay"></div>
+            </div>
+            <div className="home-hero-button-component">
+              <span className="home-hero-volume-button-wrapper">
+                <button className="home-hero-volume-button">
+                  <IconVolumeMute />
+                </button>
+              </span>
+              <span className="home-hero-maturity-rating">
+                <IconKijkWijzer16 />
+              </span>
+            </div>
           </div>
           <div className="home-hero-fill-container">
             <div className="home-hero-info">
-              <div className="title-wrapper">
-                {/* <h2>{movie?.title || movie?.name || movie?.original_name}</h2> */}
-                <img
-                  src={billboardHeroTitle}
-                  alt="Abstract: The Art of Design"
-                />
-              </div>
-              <div className="info-wrapper">
-                <TextTruncate line={3} text={movieData?.desc} />
-              </div>
-              <div className="button-wrapper">
-                <button className="home-hero-button home-hero-play-button has-icon">
-                  <div className="home-hero-button-icon">
-                    <IconPlayBlack />
-                  </div>
-                  <div className="breadcrumb"></div>
-                  <span className="home-hero-button-text">Play</span>
-                </button>
-                <button
-                  className="home-hero-button home-hero-info-button has-icon"
-                  onClick={() => {
-                    dispatch(fetchSingleMovie(movieData));
-                    dispatch(movieInfoModalToggle(!isModalOpen));
-                    setIsVideoPlaying(false);
-                  }}
-                >
-                  <div className="home-hero-button-icon">
-                    <IconInfo />
-                  </div>
-                  <div className="breadcrumb"></div>
-                  <span className="home-hero-button-text">More Info</span>
-                </button>
+              <div className="logo-and-text">
+                <div className="title-wrapper">
+                  {/* <h2>{movie?.title || movie?.name || movie?.original_name}</h2> */}
+                  <img
+                    src={billboardHeroTitle}
+                    alt="Abstract: The Art of Design"
+                  />
+                </div>
+                <div className="info-wrapper">
+                  <TextTruncate line={3} text={movieData?.desc} />
+                </div>
+                <div className="button-wrapper">
+                  <button className="home-hero-button home-hero-play-button has-icon">
+                    <div className="home-hero-button-icon">
+                      <IconPlayBlack />
+                    </div>
+                    <div className="breadcrumb"></div>
+                    <span className="home-hero-button-text">Play</span>
+                  </button>
+                  <button
+                    className="home-hero-button home-hero-info-button has-icon"
+                    onClick={() => {
+                      dispatch(fetchSingleMovie(movieData));
+                      dispatch(movieInfoModalToggle(!isModalOpen));
+                      setIsVideoPlaying(false);
+                    }}
+                  >
+                    <div className="home-hero-button-icon">
+                      <IconInfo />
+                    </div>
+                    <div className="breadcrumb"></div>
+                    <span className="home-hero-button-text">More Info</span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -115,16 +130,6 @@ const HomeHero = ({ setIsVideoPlaying, isVideoPlaying }) => {
           setIsVideoPlaying={setIsVideoPlaying}
           isVideoPlaying={isVideoPlaying}
         />
-        <div className="home-hero-button-component">
-          <span className="home-hero-volume-button-wrapper">
-            <button className="home-hero-volume-button">
-              <IconVolumeMute />
-            </button>
-          </span>
-          <span className="home-hero-maturity-rating">
-            <IconKijkWijzer16 />
-          </span>
-        </div>
       </div>
     </div>
   );

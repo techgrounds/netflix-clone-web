@@ -1,22 +1,21 @@
-import './MiniModalVideo.scss'
+import './FilmInfoModalVideo.scss'
 
-const MiniModalVideo = ({ youtubeId, mute }) => {
+const FilmInfoModalVideo = ({ youtubeId }) => {
   const autoPlay = '&autoplay=1'
   const loop = `&playlist=${youtubeId}&loop=1`
   const modestBranding = '&modestbranding=1&showinfo=0&fs=0&iv_load_policy=3'
   const embedUrl = `https://www.youtube-nocookie.com/embed/${youtubeId}?${autoPlay}${loop}${modestBranding}`
 
   return (
-    <div className="video-container">
+    <div className='film-modal-video-container'>
       <iframe
-        src= {mute ? embedUrl : (embedUrl + "&mute=1")}
+        src={embedUrl}
         frameBorder='0'
-        className='video-content'
+        className='film-modal-video-content'
         loading='lazy'
-        allow='autoplay'>
-      </iframe>
+        allow='autoplay'></iframe>
     </div>
-  );
-};
+  )
+}
 
-export default MiniModalVideo;
+export default FilmInfoModalVideo

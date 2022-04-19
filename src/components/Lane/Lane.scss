@@ -18,9 +18,10 @@
     top: -100px;
   }
   @include breakpoint(lg) {
-    padding: 9em 0;
-    margin-bottom: -250px;
-    top: -200px;
+    padding-bottom: 50vh;
+    padding-top: 50vh;
+    margin-bottom: -95vh;
+    top: -55vh;
   }
   @include breakpoint(xlg) {
     padding: 13em 0;
@@ -72,13 +73,13 @@
   background-color: var(----transparent);
   border: 3.5px solid var(--transparent);
   color: var(--white);
-  border-radius: 6%;
+  border-radius: 7%;
   overflow: hidden;
 }
 .laneItemTitle {
   position: absolute;
   bottom: 10%;
-  text-shadow: 1px 1px black;
+  text-shadow: 1px 1px var(--black);
   color: var (--smokewhite);
   opacity: 0.7;
   font-size: 0.8vw;
@@ -146,7 +147,7 @@
   stroke: var(--white);
   stroke-width: 2;
   pointer-events: auto;
-  border-radius: 3% 0 0 3%;
+  border-radius: 2% 0 0 2%;
   transform: translateX(0.2vw) translateY(0.7vh);
 }
 .pageIndicator_container {

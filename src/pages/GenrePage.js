@@ -1,22 +1,23 @@
-import React, { useEffect, useState } from "react";
-import HomeHero from "../components/HomeHero/HomeHero";
-import FooterBrowserPage from "../components/FooterBrowserPage/FooterBrowserPage";
-import Lane from "../components/Lane/Lane";
-import "../components/Lane/Lane.scss";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchGenresResultsAsync } from "../redux/genres/genres.actions";
+import React, { useEffect, useState } from 'react'
+import HomeHero from '../components/HomeHero/HomeHero'
+import FooterBrowserPage from '../components/FooterBrowserPage/FooterBrowserPage'
+import Lane from '../components/Lane/Lane'
+import '../components/Lane/Lane.scss'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchGenresResultsAsync } from '../redux/genres/genres.actions'
 
 const HomePage = () => {
-  const [isVideoPlaying, setIsVideoPlaying] = useState(true);
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const dispatch = useDispatch();
-  const allMoviesSelector = useSelector((state) => state.genres.allGenres);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(true)
+  const [isModalVisible, setIsModalVisible] = useState(false)
+  const dispatch = useDispatch()
+  const allMoviesSelector = useSelector((state) => state.genres.allGenres)
+  const movieData = useSelector((state) => state.movies.movie)
 
-  console.log(allMoviesSelector);
+  console.log(allMoviesSelector)
 
   useEffect(() => {
-    dispatch(fetchGenresResultsAsync());
-  }, []);
+    dispatch(fetchGenresResultsAsync())
+  }, [])
 
   return (
     <>
@@ -25,6 +26,7 @@ const HomePage = () => {
         isVideoPlaying={isVideoPlaying}
         isModalVisible={isModalVisible}
         setIsModalVisible={setIsModalVisible}
+        movieData={movieData}
       />
       {allMoviesSelector?.map((movieSet) => {
         return (
@@ -34,11 +36,11 @@ const HomePage = () => {
             trailer={movieSet.trailer}
             key={movieSet.id}
           />
-        );
+        )
       })}
       <FooterBrowserPage />
     </>
-  );
-};
+  )
+}
 
-export default HomePage;
+export default HomePage

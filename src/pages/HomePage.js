@@ -8,6 +8,7 @@ import { v4 as uuidv4 } from "uuid";
 
 const HomePage = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
+  const [mute, setMute] = useState(false);
   const dispatch = useDispatch();
   const allMoviesSelector = useSelector((state) => state.movies.allMovies);
   console.log("ALL MOVIES", allMoviesSelector);
@@ -21,6 +22,8 @@ const HomePage = () => {
       <HomeHero
         setIsVideoPlaying={setIsVideoPlaying}
         isVideoPlaying={isVideoPlaying}
+        mute={mute}
+        setMute={setMute}
       />
       {allMoviesSelector?.map((movieSet) => {
         return (
@@ -29,6 +32,8 @@ const HomePage = () => {
             movies={movieSet.movies}
             trailer={movieSet.trailer}
             key={uuidv4()}
+            mute={mute}
+            setMute={setMute}
           />
         );
       })}

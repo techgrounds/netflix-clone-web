@@ -1,4 +1,4 @@
-@import "../../assets/scss/mixins";
+@import '../../assets/scss/mixins';
 
 .header-genre-bg-navbar {
   position: fixed;
@@ -13,9 +13,9 @@
   background-color: transparent;
   width: 100%;
   color: white;
-  font-family: "NetflixSansLight";
-  position: relative;
-  top: 60px;
+  font-family: 'NetflixSansLight';
+  position: absolute;
+  top: 1.5rem;
   right: 0;
   z-index: 800;
   height: 60px;
@@ -23,6 +23,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @include breakpoint(sm) {
+    top: 2.5rem;
+  }
+  @include breakpoint(md) {
+    top: 60px;
+  }
 
   h2 {
     display: none;
@@ -54,11 +60,9 @@
 
 .toggle-list-icon,
 .toggle-row-icon {
-  width: 44px;
-  height: 2rem;
-  //   background-color: var(--whiteOpacity);
+  width: 2rem;
+  height: 1.5rem;
   background-color: transparent;
-
   border: 1px solid var(--whiteOpacity);
   padding: 2px;
   color: var(--whiteOpacity);
@@ -67,6 +71,10 @@
   justify-content: center;
   justify-items: center;
   align-items: center;
+  @include breakpoint(sm) {
+    width: 44px;
+    height: 2rem;
+  }
   &:hover {
     background: var(--midgrey);
   }
