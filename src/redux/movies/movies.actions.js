@@ -12,7 +12,7 @@ export const fetchMoviesResultsSuccess = (allMovies) => ({
   payload: allMovies,
 });
 
-export const fetchMovieDetails = (movieDetails) => ({
+export const saveMovieDetails = (movieDetails) => ({
   type: moviesActionTypes.FETCH_MOVIE_DETAILS,
   payload: movieDetails,
 });
@@ -22,33 +22,33 @@ export const fetchSingleMovie = (movie) => ({
   payload: movie,
 });
 
+export const saveHeroMovie = (movie) => ({
+  type: moviesActionTypes.SAVE_HERO_MOVIE,
+  payload: movie,
+});
 export const fetchMoviesResultsFailure = (errorMessage) => ({
   type: moviesActionTypes.FETCH_MOVIES_RESULTS_FAILURE,
   payload: errorMessage,
 });
 
+export const movieInfoModalToggle = (bool) => ({
+  type: bool
+    ? moviesActionTypes.MOVIE_INFO_MODAL_OPEN
+    : moviesActionTypes.MOVIE_INFO_MODAL_CLOSE,
+  payload: bool,
+});
+
 export const fetchMovieDetailsAsync = (id) => {
   return async (dispatch) => {
     try {
-      /// 'ID'
-      // const request = await axios.get(requests.fetchDiscover);
-      // const movieData = request.data;
-
-      // const movieDetails = movieData.map(async (movie) => {
-      //   const response = await axios.get(
-      //     `${requests.fetchDiscover}/movie?id=${movie.id}`
-      //   );
-
-      // });
-
       const requestDetails = await axios.get(
-        `${requests.fetchDiscover}/movie?id=634649`
+        `${requests.fetchDiscover}/movie?id=${id}`
       );
       const movieDetails = requestDetails.data;
 
       console.log("MOVIEDETAILS", movieDetails);
 
-      dispatch(fetchMovieDetails(movieDetails));
+      dispatch(saveMovieDetails(movieDetails));
     } catch (err) {
       console.log(err);
     }
@@ -75,7 +75,7 @@ export const fetchMoviesResultsAsync = () => {
 
       const singleMovie = movies[selectRandomMovie];
 
-      dispatch(fetchSingleMovie(singleMovie));
+      dispatch(saveHeroMovie(singleMovie));
     } catch (err) {
       dispatch(fetchMoviesResultsFailure(err.message));
     }

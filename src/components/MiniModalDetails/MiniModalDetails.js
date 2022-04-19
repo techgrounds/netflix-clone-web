@@ -1,9 +1,9 @@
 import "./MiniModalDetails.scss";
 import { IconPlayBlack } from "../Icons/IconPlayBlack";
 import { IconArrowDown } from "../Icons/IconArrowDown";
-import { IconKijkWijzer16 } from "../Icons/IconKijkWijzer16";
-import { useSelector } from "react-redux";
-
+// import { IconKijkWijzer16 } from "../Icons/IconKijkWijzer16";
+import { useSelector, useDispatch } from "react-redux";
+import { movieInfoModalToggle } from "../../redux/movies/movies.actions";
 import { useState } from "react";
 
 import ButtonRating from "../ButtonRating/ButtonRating";
@@ -11,8 +11,11 @@ import ButtonAdd from "../ButtonAdd/ButtonAdd";
 import ButtonCheck from "../ButtonCheck/ButtonCheck";
 import FilmInfoModal from "../FilmInfoModal/FilmInfoModal";
 
-const MiniModalDetails = ({ openModal, isModalVisible, movieData }) => {
+const MiniModalDetails = ({ runtime, rating }) => {
   const [isChecked, setIsChecked] = useState(false);
+  const dispatch = useDispatch();
+
+  const isModalOpen = useSelector((state) => state.movies.movieInfoModal);
 
   const changeIcon = () => {
     !isChecked ? setIsChecked(true) : setIsChecked(false);
@@ -35,7 +38,7 @@ const MiniModalDetails = ({ openModal, isModalVisible, movieData }) => {
           <button
             className="moreInfo-button"
             onClick={() => {
-              openModal();
+              dispatch(movieInfoModalToggle(!isModalOpen));
             }}
           >
             <IconArrowDown />
@@ -44,12 +47,9 @@ const MiniModalDetails = ({ openModal, isModalVisible, movieData }) => {
       </div>
       <div className="info-container">
         <span className="match">98% Match</span>
-        <span className="maturity-rating">
-          {/* <IconKijkWijzer16 /> */}
-          {/* {movie?.rating} */}
-        </span>
-        {/* <span className="duration">1h 46m</span> */}
-        {/* <span className="duration">{movie?.runtime}</span> */}
+
+        <span className="maturity-rating">{rating ? rating : "7"}</span>
+        <span className="duration">{runtime ? runtime : "1h 34m"}</span>
 
         <span className="feature-badge">HD</span>
       </div>

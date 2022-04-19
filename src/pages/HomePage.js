@@ -8,30 +8,19 @@ import { v4 as uuidv4 } from "uuid";
 
 const HomePage = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
-  const [isModalVisible, setIsModalVisible] = useState(false);
-
-  const openModal = () => {
-    setIsModalVisible(true);
-  };
-
   const dispatch = useDispatch();
   const allMoviesSelector = useSelector((state) => state.movies.allMovies);
-  const movieData = useSelector((state) => state.movies.movie);
+  console.log("ALL MOVIES", allMoviesSelector);
 
   useEffect(() => {
     dispatch(fetchMoviesResultsAsync());
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
       <HomeHero
         setIsVideoPlaying={setIsVideoPlaying}
         isVideoPlaying={isVideoPlaying}
-        isModalVisible={isModalVisible}
-        setIsModalVisible={setIsModalVisible}
-        openModal={openModal}
-        movieData={movieData}
-        allMoviesSelector={allMoviesSelector}
       />
       {allMoviesSelector?.map((movieSet) => {
         return (
@@ -39,9 +28,6 @@ const HomePage = () => {
             laneTitle={movieSet.genre}
             movies={movieSet.movies}
             trailer={movieSet.trailer}
-            openModal={openModal}
-            isModalVisible={isModalVisible}
-            setIsModalVisible={setIsModalVisible}
             key={uuidv4()}
           />
         );

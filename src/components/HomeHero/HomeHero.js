@@ -1,8 +1,12 @@
 import "./HomeHero.scss";
 import { useEffect, useRef } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { gsap } from "gsap";
 import TextTruncate from "react-text-truncate";
+import {
+  movieInfoModalToggle,
+  fetchSingleMovie,
+} from "../../redux/movies/movies.actions";
 
 import { IconInfo } from "../Icons/IconInfo";
 import { IconPlayBlack } from "../Icons/IconPlayBlack";
@@ -14,20 +18,14 @@ import MiniModalVideo from "../MiniModalVideo/MiniModalVideo";
 
 import billboardHeroTitle from "../../assets/hero-img/billboard-title.webp";
 
-const HomeHero = ({
-  setIsVideoPlaying,
-  isVideoPlaying,
-  setIsModalVisible,
-  isModalVisible,
-  movieData,
-  openModal,
-  movies,
-}) => {
+const HomeHero = ({ setIsVideoPlaying, isVideoPlaying }) => {
   const element = useRef();
   const timeline = useRef();
   const selector = gsap.utils.selector(element);
+  const dispatch = useDispatch();
 
-  const movie = useSelector((state) => state.movies.movie);
+  const movieData = useSelector((state) => state.movies.heroMovie);
+  const isModalOpen = useSelector((state) => state.movies.movieInfoModal);
 
   const youtubeId = "65xa8TG2G8o";
 
@@ -67,7 +65,7 @@ const HomeHero = ({
               <MiniModalVideo youtubeId={movieData?.trailer.substr(32)} />
             ) : (
               <img
-                src={`https://image.tmdb.org/t/p/original${movieData.imageHR}`}
+                src={`https://image.tmdb.org/t/p/original${movieData?.imageHR}`}
                 className="home-hero-trailer"
                 alt="movie"
               />
@@ -98,7 +96,8 @@ const HomeHero = ({
                 <button
                   className="home-hero-button home-hero-info-button has-icon"
                   onClick={() => {
-                    openModal();
+                    dispatch(fetchSingleMovie(movieData));
+                    dispatch(movieInfoModalToggle(!isModalOpen));
                     setIsVideoPlaying(false);
                   }}
                 >
@@ -113,14 +112,10 @@ const HomeHero = ({
           </div>
         </div>
         <FilmInfoModal
-          isModalVisible={isModalVisible}
-          setIsModalVisible={setIsModalVisible}
           setIsVideoPlaying={setIsVideoPlaying}
           isVideoPlaying={isVideoPlaying}
-          movieData={movieData}
-          movies={movies}
         />
-        <div className="home-hero-buttton-component">
+        <div className="home-hero-button-component">
           <span className="home-hero-volume-button-wrapper">
             <button className="home-hero-volume-button">
               <IconVolumeMute />

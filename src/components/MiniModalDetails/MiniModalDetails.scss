@@ -1,4 +1,4 @@
-@import '../../assets/scss/mixins';
+@import "../../assets/scss/mixins";
 
 .minimodal-button-wrapper {
   display: flex;
@@ -60,7 +60,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 80%;
+  width: 100%;
+  gap: 0.7rem;
   color: var(--white);
   @include breakpoint(lg) {
     width: 40%;
