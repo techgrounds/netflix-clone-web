@@ -13,7 +13,10 @@ const Lane = ({
   openModal,
   isModalVisible,
   setIsModalVisible,
+  mute,
+  setMute
 }) => {
+  console.log("Mute in Lane: ", mute)
   const size = useWindowSize()
   const [activeIndex, setActiveIndex] = useState(0)
   const [startSwitch, setStartSwitch] = useState(0)
@@ -43,6 +46,8 @@ const Lane = ({
           openModal={openModal}
           isModalVisible={isModalVisible}
           setIsModalVisible={setIsModalVisible}
+          mute={mute}
+          setMute={setMute}
         />
       )
     })

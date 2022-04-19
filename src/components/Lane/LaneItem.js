@@ -12,7 +12,10 @@ export const LaneItem = ({
   openModal,
   isModalVisible,
   setIsModalVisible,
+  mute,
+  setMute
 }) => {
+  console.log("Mute in laneItem: ", mute)
   const size = useWindowSize()
   const [loadMovie, setLoadMovie] = useState(false)
   const [hovered, setHovered] = useState(false)
@@ -67,6 +70,8 @@ export const LaneItem = ({
               openModal={openModal}
               isModalVisible={isModalVisible}
               setIsModalVisible={setIsModalVisible}
+              mute={mute}
+              setMute={setMute}
             />
           )}
         </div>

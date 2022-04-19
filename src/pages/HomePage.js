@@ -9,6 +9,9 @@ import { v4 as uuidv4 } from 'uuid'
 const HomePage = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(true)
   const [isModalVisible, setIsModalVisible] = useState(false)
+  const [isSoundOn, setIsSoundOn] = useState(false)
+  const [mute, setMute] = useState(false)
+  console.log("Mute in Homepage: ", mute)
 
   const openModal = () => {
     setIsModalVisible(true)
@@ -31,6 +34,10 @@ const HomePage = () => {
         setIsModalVisible={setIsModalVisible}
         openModal={openModal}
         movieData={movieData}
+        isSoundOn={isSoundOn}
+        setIsSoundOn={setIsSoundOn}
+        mute={mute}
+        setMute={setMute}
       />
       {allMoviesSelector?.map((movieSet) => {
         return (
@@ -42,6 +49,8 @@ const HomePage = () => {
             isModalVisible={isModalVisible}
             setIsModalVisible={setIsModalVisible}
             key={uuidv4()}
+            mute={mute}
+            setMute={setMute}
           />
         )
       })}
