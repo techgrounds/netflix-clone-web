@@ -35,7 +35,7 @@ const HomeHero = ({
           duration: 2,
           delay: 25,
           ease: 'power4.out',
-          yPercent: '37',
+          yPercent: '30',
           scale: 0.8,
           transformOrigin: 'left bottom',
         },
