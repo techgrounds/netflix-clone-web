@@ -174,14 +174,18 @@ const Lane = ({
 
 console.log("active index: ",activeIndex)
 console.log("size.length: ",size.length)
+console.log("index: ", index)
+
               if (index % size.length === 1)
                 return (
                   <button
                     key={movie.id}
                     className={`${
-                          (index >= (activeIndex - size.length) && index < (activeIndex - 1))
-                        ? 'active_pageIndicatior pageIndicator'
-                        : 'pageIndicator'
+                      (startSwitch < 1 && index < size.length)
+                      ? 'active_pageIndicatior pageIndicator' :
+                      (index >= (activeIndex - size.length) && index < (activeIndex - 1))
+                      ? 'active_pageIndicatior pageIndicator'
+                      : 'pageIndicator'
                     }`}
                   />
                 )
