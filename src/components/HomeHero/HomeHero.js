@@ -3,6 +3,7 @@ import { useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import { gsap } from "gsap";
 import TextTruncate from "react-text-truncate";
+
 import { IconInfo } from '../Icons/IconInfo'
 import { IconPlayBlack } from '../Icons/IconPlayBlack'
 import { IconVolumeMute } from '../Icons/IconVolumeMute'
@@ -60,6 +61,7 @@ const HomeHero = ({
           <div className="home-hero-trailer-wrapper">
             {isVideoPlaying ? (
               <MiniModalVideo youtubeId={(movie?.trailer.substr(32))+'&mute=1'} />
+              // <MiniModalVideo youtubeId={(movie?.trailer.substr(32))+'&mute=1'} />
             ) : (
               <img
                 src={`https://image.tmdb.org/t/p/original${movieData.imageHR}`}

@@ -4,7 +4,6 @@ import MiniModal from '../MiniModal/MiniModal'
 import '../Lane/Lane.scss'
 
 export const LaneItem = ({
-  setIsVideoPlaying,
   updateZIndexRef,
   movie,
   leftIndex,
@@ -13,8 +12,6 @@ export const LaneItem = ({
   openModal,
   isModalVisible,
   setIsModalVisible,
-  setMoreInfo,
-  moreInfo
 }) => {
   const size = useWindowSize()
   const [loadMovie, setLoadMovie] = useState(false)
@@ -23,8 +20,9 @@ export const LaneItem = ({
     return new Promise((resolve) => setTimeout(resolve, milliseconds))
   }
 
-  useEffect(() => {
+  useEffect(async () => {
     if (hovered) {
+      updateZIndexRef(999)
       setLoadMovie(true)
     }
     if (!hovered) {
@@ -38,12 +36,11 @@ export const LaneItem = ({
       className='laneItem'
       style={{ height: `${size.itemHeight}vw`, width: `${size.itemWidth}vw` }}
       onMouseEnter={() => {
-        setHovered(true);
+        setHovered(true)
       }}
       onMouseLeave={() => {
-        setHovered(false);
-      }}
-    >
+        setHovered(false)
+      }}>
       {loadMovie && (
         <div
           className={`miniModal
@@ -55,26 +52,18 @@ export const LaneItem = ({
                      : 'not'
                  }
                  `}
-          style={!moreInfo ? {
+          style={{
             height: `${size.itemHeight * 2.5}vw`,
             width: `${size.itemWidth * 1.5}vw`,
-          } : {
-            height:'100vh',
-            width: '60vw',
-            animation: 'modalAnimation 450ms forwards'
-          }
-        }
-        >
+          }}>
           {loadMovie && (
             <MiniModal
-              updateZIndexRef={updateZIndexRef}
               loadMovie={loadMovie}
               moviePoster={movie.image}
               movieTitle={movie.title}
               setLoadMovie={setLoadMovie}
+              updateZIndexRef={updateZIndexRef}
               trailer={movie.trailer}
-              moreInfo={moreInfo}
-              setMoreInfo={setMoreInfo}
               openModal={openModal}
               isModalVisible={isModalVisible}
               setIsModalVisible={setIsModalVisible}
