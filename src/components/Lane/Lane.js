@@ -7,34 +7,13 @@ import { LaneItem } from "../../components/Lane/LaneItem";
 import useWindowSize from "./WindowSize";
 import "./Lane.scss";
 
-<<<<<<< HEAD
-const Lane = ({
-  laneTitle,
-  movies,
-  openModal,
-  isModalVisible,
-  setIsModalVisible,
-  mute,
-  setMute,
-  isVideoPlaying,
-  setIsVideoPlaying
-}) => {
-  const size = useWindowSize()
-  const [activeIndex, setActiveIndex] = useState(0)
-  const [startSwitch, setStartSwitch] = useState(0)
-  const [animationState, setAnimationState] = useState(false)
-  const zIndexRef = useRef()
-  const laneRef = useRef()
-=======
-const Lane = ({ laneTitle, movies }) => {
+const Lane = ({ laneTitle, movies, mute, setMute }) => {
   const size = useWindowSize();
   const [activeIndex, setActiveIndex] = useState(0);
   const [startSwitch, setStartSwitch] = useState(0);
   const [animationState, setAnimationState] = useState(false);
-
   const zIndexRef = useRef();
   const laneRef = useRef();
->>>>>>> 221e10e4b6f5046d9003dc259f02e53c5942b1dd
   const updateZIndexRef = (number) => {
     zIndexRef.current.style.zIndex = number;
   };
@@ -56,13 +35,8 @@ const Lane = ({ laneTitle, movies }) => {
           rightIndex={rightIndex}
           index={index}
           isModalVisible={isModalVisible}
-<<<<<<< HEAD
-          setIsModalVisible={setIsModalVisible}
           mute={mute}
           setMute={setMute}
-          setIsVideoPlaying={setIsVideoPlaying}
-=======
->>>>>>> 221e10e4b6f5046d9003dc259f02e53c5942b1dd
         />
       );
     });

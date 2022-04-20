@@ -5,7 +5,6 @@ import { useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { movieInfoModalToggle } from "../../redux/movies/movies.actions";
 import useOutsideClick from "../../hooks/useOutsideClick";
-
 import FilmInfoModalHeader from "../FilmInfoModalHeader/FilmInfoModalHeader";
 import FilmInfoModalDetails from "../FilmInfoModalDetails/FilmInfoModalDetails";
 import FilmInfoModalSuggestions from "../FilmInfoModalSuggestions/FilmInfoModalSuggestions";
@@ -33,6 +32,7 @@ const FilmInfoModal = ({ setIsVideoPlaying }) => {
     (state) => state.movies.movieDetails.movieDetailsResults
   );
 
+
   const {
     actors,
     certificationDefinition,
@@ -41,7 +41,6 @@ const FilmInfoModal = ({ setIsVideoPlaying }) => {
     releaseDate,
     writers,
   } = movieDetails;
-  console.log("MOVIEDETAILS", movieDetails);
   const handleKeyPress = useCallback(
     (event) => {
       if (event.key === "Escape" && isModalVisible) {

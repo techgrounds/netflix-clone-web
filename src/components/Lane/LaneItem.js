@@ -9,6 +9,8 @@ export const LaneItem = ({
   leftIndex,
   rightIndex,
   index,
+  mute,
+  setMute
 }) => {
   const size = useWindowSize();
   const [loadMovie, setLoadMovie] = useState(false);
@@ -66,6 +68,8 @@ export const LaneItem = ({
               runtime={movie.runtime}
               rating={movie.rating}
               movie={movie}
+              mute={mute}
+              setMute={setMute}
             />
           )}
         </div>

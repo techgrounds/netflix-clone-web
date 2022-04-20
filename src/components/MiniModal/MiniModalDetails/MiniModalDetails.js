@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-import './MiniModalDetails.scss'
-import { IconPlayBlack } from '../../Icons/IconPlayBlack'
-import { IconArrowDown } from '../../Icons/IconArrowDown'
-import { IconKijkWijzer16 } from '../../Icons/IconKijkWijzer16'
-import { useState } from 'react'
-import ButtonRating from '../../ButtonRating/ButtonRating'
-import ButtonAdd from '../../ButtonAdd/ButtonAdd'
-import ButtonCheck from '../../ButtonCheck/ButtonCheck'
-import FilmInfoModal from '../../FilmInfoModal/FilmInfoModal'
-
-const MiniModalDetails = ({ openModal }) => {
-  const [isChecked, setIsChecked] = useState(false)
-=======
 import "./MiniModalDetails.scss";
 import { IconPlayBlack } from "../../Icons/IconPlayBlack";
 import { IconArrowDown } from "../../Icons/IconArrowDown";
@@ -26,10 +12,7 @@ import FilmInfoModal from "../../FilmInfoModal/FilmInfoModal";
 const MiniModalDetails = ({ runtime, rating }) => {
   const [isChecked, setIsChecked] = useState(false);
   const dispatch = useDispatch();
-
   const isModalOpen = useSelector((state) => state.movies.movieInfoModal);
->>>>>>> 221e10e4b6f5046d9003dc259f02e53c5942b1dd
-
   const changeIcon = () => {
     !isChecked ? setIsChecked(true) : setIsChecked(false);
   };
@@ -60,10 +43,8 @@ const MiniModalDetails = ({ runtime, rating }) => {
       </div>
       <div className="info-container">
         <span className="match">98% Match</span>
-
         <span className="maturity-rating">{rating ? rating : "7"}</span>
         <span className="duration">{runtime ? runtime : "1h 34m"}</span>
-
         <span className="feature-badge">HD</span>
       </div>
       <div className="tag-container">
