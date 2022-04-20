@@ -67,7 +67,7 @@ const HomeHero = ({ setIsVideoPlaying, isVideoPlaying, mute, setMute }) => {
                 />
               ) : (
                 <img
-                  src={`https://image.tmdb.org/t/p/original${movieData.imageHR}`}
+                  src={`https://image.tmdb.org/t/p/original${movieData?.imageHR}`}
                   className="home-hero-trailer"
                   alt="movie"
                 />
