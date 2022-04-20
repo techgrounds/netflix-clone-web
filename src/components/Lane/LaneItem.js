@@ -13,9 +13,10 @@ export const LaneItem = ({
   isModalVisible,
   setIsModalVisible,
   mute,
-  setMute
+  setMute,
+  setIsVideoPlaying,
 }) => {
-  console.log("Mute in laneItem: ", mute)
+
   const size = useWindowSize()
   const [loadMovie, setLoadMovie] = useState(false)
   const [hovered, setHovered] = useState(false)
@@ -23,7 +24,7 @@ export const LaneItem = ({
     return new Promise((resolve) => setTimeout(resolve, milliseconds))
   }
 
-  useEffect(async () => {
+  useEffect(() => {
     if (hovered) {
       updateZIndexRef(999)
       setLoadMovie(true)
@@ -72,6 +73,7 @@ export const LaneItem = ({
               setIsModalVisible={setIsModalVisible}
               mute={mute}
               setMute={setMute}
+              setIsVideoPlaying={setIsVideoPlaying}
             />
           )}
         </div>

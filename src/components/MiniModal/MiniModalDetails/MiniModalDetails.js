@@ -2,14 +2,13 @@ import './MiniModalDetails.scss'
 import { IconPlayBlack } from '../../Icons/IconPlayBlack'
 import { IconArrowDown } from '../../Icons/IconArrowDown'
 import { IconKijkWijzer16 } from '../../Icons/IconKijkWijzer16'
-import { useSelector } from 'react-redux'
 import { useState } from 'react'
 import ButtonRating from '../../ButtonRating/ButtonRating'
 import ButtonAdd from '../../ButtonAdd/ButtonAdd'
 import ButtonCheck from '../../ButtonCheck/ButtonCheck'
 import FilmInfoModal from '../../FilmInfoModal/FilmInfoModal'
 
-const MiniModalDetails = ({ openModal, isModalVisible, movieData }) => {
+const MiniModalDetails = ({ openModal }) => {
   const [isChecked, setIsChecked] = useState(false)
 
   const changeIcon = () => {

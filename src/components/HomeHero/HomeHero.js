@@ -5,8 +5,7 @@ import { gsap } from 'gsap'
 import TextTruncate from 'react-text-truncate'
 import { IconInfo } from '../Icons/IconInfo'
 import { IconPlayBlack } from '../Icons/IconPlayBlack'
-import { IconVolumeMute } from '../Icons/IconVolumeMute'
-import { IconVolumeUp } from '../Icons/IconVolumeUp'
+import ButtonMute from '../ButtonMute/ButtonMute'
 import { IconKijkWijzer16 } from '../Icons/IconKijkWijzer16'
 import FilmInfoModal from '../FilmInfoModal/FilmInfoModal'
 import billboardHeroTitle from '../../assets/hero-img/billboard-title.webp'
@@ -27,10 +26,6 @@ const HomeHero = ({
   const timeline = useRef()
   const selector = gsap.utils.selector(element)
   const movie = useSelector((state) => state.movies.movie)
-  const switchMute = () => {
-    setMute(!mute)
-    console.log("mute: ",mute)
-  }
 
   useEffect(() => {
     timeline.current = gsap
@@ -65,10 +60,12 @@ const HomeHero = ({
         <div className='home-hero-container' ref={element}>
           <div className='home-hero-trailer-wrapper'>
             <div className='home-hero-motion-background'>
-              {isVideoPlaying && mute? (
-                <FilmInfoModalVideo
-                  youtubeId={movie?.trailer.substr(32)}/>
-              ) : isVideoPlaying ? (
+              {
+              // isVideoPlaying && mute? (
+              //   <FilmInfoModalVideo
+              //     youtubeId={movie?.trailer.substr(32)}/>
+              // ) :
+              isVideoPlaying ? (
                 <FilmInfoModalVideo
                   youtubeId={movie?.trailer.substr(32) + '&mute=1'}/>
               ) : (
@@ -83,8 +80,10 @@ const HomeHero = ({
             </div>
             <div className='home-hero-buttton-component'>
               <span className='home-hero-volume-button-wrapper'>
-                <button className='home-hero-volume-button' onClick={switchMute}>
-                {!mute ? <IconVolumeMute /> : <IconVolumeUp />}
+                <button className='home-hero-volume-button'>
+                <ButtonMute
+                setMute={setMute}mute={mute}
+             />
                 </button>
               </span>
               <span className='home-hero-maturity-rating'>

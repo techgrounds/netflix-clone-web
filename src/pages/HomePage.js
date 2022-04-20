@@ -51,6 +51,7 @@ const HomePage = () => {
             key={uuidv4()}
             mute={mute}
             setMute={setMute}
+            setIsVideoPlaying={setIsVideoPlaying}
           />
         )
       })}

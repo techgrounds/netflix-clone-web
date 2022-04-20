@@ -6,7 +6,6 @@ import { LaneItem } from '../../components/Lane/LaneItem'
 import useWindowSize from './WindowSize'
 import './Lane.scss'
 
-
 const Lane = ({
   laneTitle,
   movies,
@@ -14,9 +13,10 @@ const Lane = ({
   isModalVisible,
   setIsModalVisible,
   mute,
-  setMute
+  setMute,
+  isVideoPlaying,
+  setIsVideoPlaying
 }) => {
-  console.log("Mute in Lane: ", mute)
   const size = useWindowSize()
   const [activeIndex, setActiveIndex] = useState(0)
   const [startSwitch, setStartSwitch] = useState(0)
@@ -48,6 +48,7 @@ const Lane = ({
           setIsModalVisible={setIsModalVisible}
           mute={mute}
           setMute={setMute}
+          setIsVideoPlaying={setIsVideoPlaying}
         />
       )
     })

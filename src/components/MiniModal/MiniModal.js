@@ -2,11 +2,9 @@ import './MiniModal.scss'
 import MiniModalDetails from './MiniModalDetails'
 import gsap from 'gsap'
 import MiniModalVideo from '../MiniModalVideo/MiniModalVideo'
-import { IconVolumeMute } from '../Icons/IconVolumeMute'
-import { IconVolumeUp } from '../Icons/IconVolumeUp'
 import { useState, useRef } from 'react'
 import { useSelector } from 'react-redux'
-
+import ButtonMute from '../ButtonMute/ButtonMute'
 
 const MiniModal = ({
   setLoadMovie,
@@ -21,27 +19,24 @@ const MiniModal = ({
   isModalVisible,
   mute,
   setMute,
+  setIsVideoPlaying
 }) => {
-  console.log("Mute in miniModal: ", mute)
+
   const youtubeId = trailer.substr(32)
   const boxRef = useRef()
   const [active, setActive] = useState(true)
   const [start, setStart] = useState(false)
-  const switchMute = () => {
-    setMute(!mute)
-    console.log("mute: ",mute)
-  }
   const movieData = useSelector((state) => state.movies.movie)
-
-  const remove = async () => {
+  const remove = () => {
     setStart(true)
-    gsap.to(boxRef.current, {
+     gsap.to(boxRef.current, {
       opacity: 0,
       duration: 2,
       delay: 4,
       ease: 'power4',
-      onComplete: () => setActive(false),
-    })
+      onComplete: () => setActive(false)},
+      // setIsVideoPlaying(false)
+    )
   }
 
   updateZIndexRef(999)
@@ -52,6 +47,7 @@ const MiniModal = ({
       onMouseEnter={remove}
       onMouseLeave={() => {
         setLoadMovie(false)
+        // setIsVideoPlaying(true)
       }}>
       <div className='top-container'>
         {start && (
@@ -76,9 +72,12 @@ const MiniModal = ({
           </div>
 
           <div className='volume-button-wrapper'>
-            <button className='volume-button' onClick={switchMute}>
-              {!mute ? <IconVolumeMute /> : <IconVolumeUp />}
-            </button>
+
+            <ButtonMute
+             setMute={setMute}
+             mute={mute}
+             />
+
           </div>
         </div>
       </div>
