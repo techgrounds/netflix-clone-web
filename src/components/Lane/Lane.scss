@@ -1,4 +1,4 @@
-@import "../../assets/scss/mixins";
+@import '../../assets/scss/mixins';
 
 .laneContainer {
   pointer-events: none;
@@ -41,6 +41,7 @@
     }
   }
 }
+
 .laneName {
   position: relative;
   display: flex;
