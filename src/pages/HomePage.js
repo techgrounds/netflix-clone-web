@@ -11,6 +11,7 @@ const HomePage = ({ mute, setMute }) => {
   // const [mute, setMute] = useState(false);
   const dispatch = useDispatch();
   const allMoviesSelector = useSelector((state) => state.movies.allMovies);
+  console.log("allmovie S", allMoviesSelector)
 
   useEffect(() => {
     dispatch(fetchMoviesResultsAsync());

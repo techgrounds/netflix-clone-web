@@ -12,6 +12,7 @@ const initialState = {
     trailer: "",
     rating: "",
     runtime: "",
+    logo: ""
   },
   heroMovie: {
     id: 0,
@@ -23,6 +24,7 @@ const initialState = {
     trailer: "",
     rating: "",
     runtime: "",
+    logo: ""
   },
   error: null,
   isLoading: false,
