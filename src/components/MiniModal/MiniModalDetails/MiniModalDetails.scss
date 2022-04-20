@@ -1,16 +1,13 @@
-@import '../../../assets/scss/mixins';
-
+@import "../../../assets/scss/mixins";
 .minimodal-button-wrapper {
   display: flex;
   justify-content: space-between;
   width: 99%;
-
   .play-button {
     background-color: var(--white);
     border: 1px solid var(--black);
     width: 2.8em;
     margin-right: 0.2rem;
-
     &:hover {
       border: 1px solid var(--black);
       background-color: rgb(214, 214, 214);
@@ -25,18 +22,71 @@
     border-radius: 50%;
     padding: 6px;
     color: var(--white);
-
     svg {
       height: 1.3rem;
       width: auto;
       margin: auto;
     }
-
     &:hover {
       cursor: pointer;
       border: 2px solid var(--white);
     }
   }
+}
+.left-content {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 35%;
+  @include breakpoint(lg) {
+    width: 0%;
+  }
+}
+.right-content {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.info-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  color: var(--white);
+  @include breakpoint(lg) {
+    width: 40%;
+  }
+}
+.match {
+  color: #46d369;
+  padding-right: 0.5rem;
+}
+.maturity-rating {
+  padding-right: 0.5rem;
+}
+.duration {
+  padding-right: 0.5rem;
+}
+.tag-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  color: var(--whiteOpacity);
+  @include breakpoint(lg) {
+    width: 40%;
+  }
+}
+.tag-item-mini {
+  color: var(--white);
+  &:hover {
+    text-decoration: none;
+  }
+}
+.tag-item-mini-space {
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
 }
 
 .left-content {
@@ -60,7 +110,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 80%;
+  width: 100%;
+  gap: 0.7rem;
   color: var(--white);
   @include breakpoint(lg) {
     width: 40%;
