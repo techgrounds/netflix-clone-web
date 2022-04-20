@@ -1,8 +1,9 @@
-import './HomeHero.scss'
-import { useEffect, useRef } from 'react'
-import { useSelector } from 'react-redux'
-import { gsap } from 'gsap'
-import TextTruncate from 'react-text-truncate'
+import "./HomeHero.scss";
+import { useEffect, useRef } from "react";
+import { useSelector } from "react-redux";
+import { gsap } from "gsap";
+import TextTruncate from "react-text-truncate";
+
 import { IconInfo } from '../Icons/IconInfo'
 import { IconPlayBlack } from '../Icons/IconPlayBlack'
 import { IconVolumeMute } from '../Icons/IconVolumeMute'
