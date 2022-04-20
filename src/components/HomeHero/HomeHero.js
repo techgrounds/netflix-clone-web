@@ -88,7 +88,6 @@ const HomeHero = ({ setIsVideoPlaying, isVideoPlaying }) => {
             <div className='home-hero-info'>
               <div className='logo-and-text'>
                 <div className='title-wrapper'>
-                  {/* <h2>{movie?.title || movie?.name || movie?.original_name}</h2> */}
                   <img
                     src={billboardHeroTitle}
                     alt='Abstract: The Art of Design'
