@@ -91,9 +91,6 @@
     left: 90%;
   }
   @include breakpoint(md) {
-    left: 86%;
-  }
-  @include breakpoint(lg) {
-    left: 94%;
+    left: 89%;
   }
 }

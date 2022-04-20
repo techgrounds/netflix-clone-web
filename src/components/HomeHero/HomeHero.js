@@ -32,7 +32,7 @@ const HomeHero = ({ setIsVideoPlaying, isVideoPlaying, mute, setMute }) => {
         selector('.title-wrapper'),
         {
           duration: 2,
-          delay: 25,
+          delay: 2,
           ease: 'power4.out',
           yPercent: '30',
           scale: 0.8,
@@ -44,7 +44,7 @@ const HomeHero = ({ setIsVideoPlaying, isVideoPlaying, mute, setMute }) => {
         selector('.info-wrapper'),
         {
           opacity: 0,
-          delay: 25,
+          delay: 2,
           ease: 'power4',
         },
         'start'

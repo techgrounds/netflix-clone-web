@@ -1,6 +1,5 @@
 import './FilmInfoModalFooter.scss'
 import FilmInfoModalDetailsItem from '../FilmInfoModalDetailsItem/FilmInfoModalDetailsItem'
-import FilmInfoModalKijkWijzer from '../FilmInfoModalKijkWijzer/FilmInfoModalKijkWijzer'
 
 const FilmInfoModalFooter = ({
   ref,
@@ -23,9 +22,9 @@ const FilmInfoModalFooter = ({
         <FilmInfoModalDetailsItem tagLabel='Director' tagItems={directors} />
         <FilmInfoModalDetailsItem tagLabel='Writer' tagItems={writers} />
         <FilmInfoModalDetailsItem tagLabel='Genres' tagItems={genres} />
-        <div className='modal-footer-kijk-wijzer'>
-          <FilmInfoModalDetailsItem tagLabel='Maturity Rating' />
-          <FilmInfoModalKijkWijzer />
+        <div className='details-tags'>
+          <span className='tags-label'>Maturity Rating:</span>
+          <span className='tag-item'>{certification}</span>
         </div>
       </div>
     </section>
