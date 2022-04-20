@@ -1,18 +1,5 @@
 import "./HomeHero.scss";
 import { useEffect, useRef } from "react";
-<<<<<<< HEAD
-import { useSelector } from "react-redux";
-import { gsap } from "gsap";
-import TextTruncate from "react-text-truncate";
-
-import { IconInfo } from '../Icons/IconInfo'
-import { IconPlayBlack } from '../Icons/IconPlayBlack'
-import { IconVolumeMute } from '../Icons/IconVolumeMute'
-import { IconKijkWijzer16 } from '../Icons/IconKijkWijzer16'
-import FilmInfoModal from '../FilmInfoModal/FilmInfoModal'
-import billboardHeroTitle from '../../assets/hero-img/billboard-title.webp'
-import FilmInfoModalVideo from '../FilmInfoModalVideo/FilmInfoModalVideo'
-=======
 import { useSelector, useDispatch } from "react-redux";
 import { gsap } from "gsap";
 import TextTruncate from "react-text-truncate";
@@ -24,7 +11,6 @@ import { IconKijkWijzer16 } from "../Icons/IconKijkWijzer16";
 import FilmInfoModal from "../FilmInfoModal/FilmInfoModal";
 import FilmInfoModalVideo from "../FilmInfoModalVideo/FilmInfoModalVideo";
 import billboardHeroTitle from "../../assets/hero-img/billboard-title.webp";
->>>>>>> 4e262337cae2e1170392fa69231815a030744dcf
 
 const HomeHero = ({ setIsVideoPlaying, isVideoPlaying, mute, setMute }) => {
   const element = useRef();
