@@ -25,13 +25,9 @@ const FilmInfoModalDetails = ({
           <p className='modal-details-description'>{movieData?.desc}</p>
         </div>
         <div className='details-right'>
-          <FilmInfoModalDetailsItem tagLabel={'Actors'} tagItems={actors} />
-          <FilmInfoModalDetailsItem tagLabel={'Genres'} tagItems={genres} />
-
-          <FilmInfoModalDetailsItem
-            tagLabel={'Directors'}
-            tagItems={directors}
-          />
+          <FilmInfoModalDetailsItem tagLabel='Actors' tagItems={actors} />
+          <FilmInfoModalDetailsItem tagLabel='Genres' tagItems={genres} />
+          <FilmInfoModalDetailsItem tagLabel='Director' tagItems={directors} />
         </div>
       </div>
     </>

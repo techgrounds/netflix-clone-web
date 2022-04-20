@@ -5,7 +5,7 @@ const FilmInfoModalDetailsItem = ({ tagLabel, tagItems }) => {
     <section>
       <div className='details-tags'>
         <span className='tags-label'>{tagLabel}:</span>
-        {tagItems?.map((tagItem, i) => (
+        {tagItems?.slice(0, 4).map((tagItem, i) => (
           <span key={tagItem} className='tag-item'>
             {tagItem}
             {i !== tagItems.length - 1 && ','}

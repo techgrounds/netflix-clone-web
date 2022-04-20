@@ -3,8 +3,9 @@ import { IconPlayBlack } from '../Icons/IconPlayBlack'
 import MiniModalVideo from '../MiniModalVideo/MiniModalVideo'
 import ButtonRating from '../ButtonRating/ButtonRating'
 import ButtonAdd from '../ButtonAdd/ButtonAdd'
+import ButtonMute from '../ButtonMute/ButtonMute'
 
-const FilmInfoModalVideo = ({ isVideoPlaying, movieData }) => {
+const FilmInfoModalVideo = ({ isVideoPlaying, movieData, setMute, mute }) => {
   return (
     <>
       <div className='header-video'>
@@ -31,6 +32,11 @@ const FilmInfoModalVideo = ({ isVideoPlaying, movieData }) => {
               <ButtonRating />
             </div>
           </div>
+        </div>
+        <div className='modal-volume-button-wrapper'>
+          <button className='home-hero-volume-button'>
+            <ButtonMute setMute={setMute} mute={mute} />
+          </button>
         </div>
       </div>
     </>

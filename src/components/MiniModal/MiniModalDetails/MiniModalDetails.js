@@ -12,9 +12,7 @@ import FilmInfoModal from '../../FilmInfoModal/FilmInfoModal'
 const MiniModalDetails = ({ runtime, rating, setIsVideoPlaying }) => {
   const [isChecked, setIsChecked] = useState(false)
   const dispatch = useDispatch()
-
   const isModalOpen = useSelector((state) => state.movies.movieInfoModal)
-
   const changeIcon = () => {
     !isChecked ? setIsChecked(true) : setIsChecked(false)
   }
@@ -45,10 +43,8 @@ const MiniModalDetails = ({ runtime, rating, setIsVideoPlaying }) => {
       </div>
       <div className='info-container'>
         <span className='match'>98% Match</span>
-
         <span className='maturity-rating'>{rating ? rating : '7'}</span>
         <span className='duration'>{runtime ? runtime : '1h 34m'}</span>
-
         <span className='feature-badge'>HD</span>
       </div>
       <div className='tag-container'>

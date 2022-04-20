@@ -38,6 +38,7 @@
   width: 100%;
   @include breakpoint(lg) {
     font-size: 3rem;
+    padding-bottom: 1rem;
   }
 }
 
@@ -79,5 +80,20 @@
   @include breakpoint(lg) {
     height: 2rem;
     width: 2rem;
+  }
+}
+
+.modal-volume-button-wrapper {
+  position: absolute;
+  bottom: 8%;
+  left: 82%;
+  @include breakpoint(sm) {
+    left: 90%;
+  }
+  @include breakpoint(md) {
+    left: 86%;
+  }
+  @include breakpoint(lg) {
+    left: 94%;
   }
 }

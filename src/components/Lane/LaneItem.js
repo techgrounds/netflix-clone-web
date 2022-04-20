@@ -9,7 +9,8 @@ export const LaneItem = ({
   leftIndex,
   rightIndex,
   index,
-  setIsVideoPlaying,
+  mute,
+  setMute,
 }) => {
   const size = useWindowSize()
   const [loadMovie, setLoadMovie] = useState(false)
@@ -18,7 +19,7 @@ export const LaneItem = ({
     return new Promise((resolve) => setTimeout(resolve, milliseconds))
   }
 
-  useEffect(async () => {
+  useEffect(() => {
     if (hovered) {
       updateZIndexRef(999)
       setLoadMovie(true)
@@ -65,7 +66,8 @@ export const LaneItem = ({
               runtime={movie.runtime}
               rating={movie.rating}
               movie={movie}
-              setIsVideoPlaying={setIsVideoPlaying}
+              mute={mute}
+              setMute={setMute}
             />
           )}
         </div>

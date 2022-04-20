@@ -10,7 +10,6 @@ const HomePage = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(true)
   const [mute, setMute] = useState(false)
   const dispatch = useDispatch()
-
   const allMoviesSelector = useSelector((state) => state.movies.allMovies)
 
   useEffect(() => {

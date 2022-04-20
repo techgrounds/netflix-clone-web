@@ -5,7 +5,6 @@ import { useEffect, useCallback, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { movieInfoModalToggle } from '../../redux/movies/movies.actions'
 import useOutsideClick from '../../hooks/useOutsideClick'
-
 import FilmInfoModalHeader from '../FilmInfoModalHeader/FilmInfoModalHeader'
 import FilmInfoModalDetails from '../FilmInfoModalDetails/FilmInfoModalDetails'
 import FilmInfoModalSuggestions from '../FilmInfoModalSuggestions/FilmInfoModalSuggestions'
@@ -41,8 +40,9 @@ const FilmInfoModal = ({ setIsVideoPlaying }) => {
     genres,
     releaseDate,
     writers,
+    setMute,
+    mute,
   } = movieDetails
-
   const handleKeyPress = useCallback(
     (event) => {
       if (event.key === 'Escape' && isModalVisible) {
@@ -98,7 +98,11 @@ const FilmInfoModal = ({ setIsVideoPlaying }) => {
             ref={modalQuit}>
             <div className='modal-content'>
               <div className='modal-header'>
-                <FilmInfoModalHeader movieData={movieData} />
+                <FilmInfoModalHeader
+                  movieData={movieData}
+                  setMute={setMute}
+                  mute={mute}
+                />
               </div>
               <div className='modal-description'>
                 <div className='modal-details'>
