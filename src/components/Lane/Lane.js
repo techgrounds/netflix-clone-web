@@ -7,12 +7,11 @@ import { LaneItem } from "../../components/Lane/LaneItem";
 import useWindowSize from "./WindowSize";
 import "./Lane.scss";
 
-const Lane = ({ laneTitle, movies }) => {
+const Lane = ({ laneTitle, movies, mute, setMute }) => {
   const size = useWindowSize();
   const [activeIndex, setActiveIndex] = useState(0);
   const [startSwitch, setStartSwitch] = useState(0);
   const [animationState, setAnimationState] = useState(false);
-
   const zIndexRef = useRef();
   const laneRef = useRef();
   const updateZIndexRef = (number) => {
@@ -36,6 +35,8 @@ const Lane = ({ laneTitle, movies }) => {
           rightIndex={rightIndex}
           index={index}
           isModalVisible={isModalVisible}
+          mute={mute}
+          setMute={setMute}
         />
       );
     });
