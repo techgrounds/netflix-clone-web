@@ -2,13 +2,14 @@ import "./MiniModal.scss";
 import MiniModalDetails from "./MiniModalDetails/MiniModalDetails";
 import gsap from "gsap";
 import MiniModalVideo from "../MiniModalVideo/MiniModalVideo";
-import { IconVolumeMute } from "../Icons/IconVolumeMute";
+import ButtonMute from '../ButtonMute/ButtonMute'
 import { useState, useRef, useEffect } from "react";
 import {
   fetchMovieDetailsAsync,
   fetchSingleMovie,
 } from "../../redux/movies/movies.actions";
 import { useSelector, useDispatch } from "react-redux";
+
 
 const MiniModal = ({
   setLoadMovie,
@@ -73,10 +74,13 @@ const MiniModal = ({
             <div className="video-title">{movieTitle}</div>
           </div>
 
-          <div className="volume-button-wrapper">
-            <button className="volume-button">
-              <IconVolumeMute />
-            </button>
+          <div className='volume-button-wrapper'>
+
+            <ButtonMute
+             setMute={setMute}
+             mute={mute}
+             />
+
           </div>
         </div>
       </div>

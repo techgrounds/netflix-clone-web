@@ -280,14 +280,14 @@
 .home-hero-volume-button {
   align-items: center;
   background-color: transparent;
-  border: 2px solid var(--white);
+  border: none;
   color: var(--white);
   cursor: pointer;
   display: flex;
   font-size: 0.5rem;
   justify-content: center;
   opacity: 1;
-  padding: 0.2rem;
+  // padding: 0.2rem;
   position: relative;
   border-radius: 50%;
   @include breakpoint(sm) {
@@ -301,7 +301,7 @@
   }
   &:hover {
     background-color: var(--midgrey);
-    border: 2px solid var(--white);
+    // border: 2px solid var(--white);
   }
 }
 
