@@ -60,10 +60,8 @@ export const fetchMoviesResultsAsync = () => {
 
     try {
       const request = await axios.get(requests.fetchDiscover);
-      console.log("REQUEST", request);
 
       const allMovies = transformMovieData(request.data);
-      console.log("allmovies", allMovies)
 
       dispatch(fetchMoviesResultsSuccess(allMovies));
 
@@ -71,11 +69,8 @@ export const fetchMoviesResultsAsync = () => {
         Math.floor(Math.random() * (allMovies.length - 1)) + 1;
 
       const movies = allMovies[randomMovieSet].movies;
-      console.log( "movies ", movies)
 
       const selectRandomMovie = Math.floor(Math.random() * 5);
-      console.log("select random movie: ", selectRandomMovie)
-      console.log("spotlight ",spotlightMovies )
 
       const singleMovie = spotlightMovies[selectRandomMovie];
 

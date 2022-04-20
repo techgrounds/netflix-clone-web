@@ -86,7 +86,10 @@ export const LaneItem = ({
       <div
         className='laneItemTitle'
         style={{ width: `${size.itemWidth * 0.9}vw`, overflow: `hidden` }}>
-        {movie.title}
+        {/* {movie.title} */}
+        <div className='movieLogo'>
+          <img src={movie.logo} />
+        </div>
       </div>
     </div>
   )

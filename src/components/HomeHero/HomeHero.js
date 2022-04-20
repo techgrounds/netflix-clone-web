@@ -13,7 +13,6 @@ import { IconPlayBlack } from '../Icons/IconPlayBlack'
 import { IconKijkWijzer16 } from '../Icons/IconKijkWijzer16'
 import FilmInfoModal from '../FilmInfoModal/FilmInfoModal'
 import FilmInfoModalVideo from '../FilmInfoModalVideo/FilmInfoModalVideo'
-import billboardHeroTitle from '../../assets/hero-img/billboard-title.webp'
 
 const HomeHero = ({ setIsVideoPlaying, isVideoPlaying, mute, setMute }) => {
   const element = useRef()
@@ -22,6 +21,8 @@ const HomeHero = ({ setIsVideoPlaying, isVideoPlaying, mute, setMute }) => {
   const dispatch = useDispatch()
   const movieData = useSelector((state) => state.movies.heroMovie)
   const isModalOpen = useSelector((state) => state.movies.movieInfoModal)
+
+  console.log('movieData', movieData)
 
   useEffect(() => {
     timeline.current = gsap
@@ -85,10 +86,7 @@ const HomeHero = ({ setIsVideoPlaying, isVideoPlaying, mute, setMute }) => {
             <div className='home-hero-info'>
               <div className='logo-and-text'>
                 <div className='title-wrapper'>
-                  <img
-                    src={billboardHeroTitle}
-                    alt='Abstract: The Art of Design'
-                  />
+                  <img src={movieData?.logo} />
                 </div>
                 <div className='info-wrapper'>
                   <TextTruncate line={3} text={movieData?.desc} />

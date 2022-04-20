@@ -16,9 +16,11 @@ export const transformMovieData = (moviesObject) => {
           trailer: movie.trailerUrl,
           runtime: movie.runtime,
           rating: movie.rating[0],
+          logo: movie.logo
         };
       })
       .filter((movie) => movie.trailer);
+
 
     let editedGenre =
       key.split("Movies")[0].charAt(0).toUpperCase() +
