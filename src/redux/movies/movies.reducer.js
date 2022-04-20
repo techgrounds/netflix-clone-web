@@ -13,9 +13,21 @@ const initialState = {
     rating: "",
     runtime: "",
   },
+  heroMovie: {
+    id: 0,
+    title: "",
+    desc: "",
+    image: "",
+    imageHR: "",
+    poster: "",
+    trailer: "",
+    rating: "",
+    runtime: "",
+  },
   error: null,
   isLoading: false,
-  movieDetails: {},
+  movieDetails: { id: 0, movieDetailsResults: {} },
+  movieInfoModal: false,
 };
 
 const moviesReducer = (state = initialState, action) => {
@@ -24,6 +36,16 @@ const moviesReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: true,
+      };
+    case moviesActionTypes.MOVIE_INFO_MODAL_OPEN:
+      return {
+        ...state,
+        movieInfoModal: action.payload,
+      };
+    case moviesActionTypes.MOVIE_INFO_MODAL_CLOSE:
+      return {
+        ...state,
+        movieInfoModal: action.payload,
       };
     case moviesActionTypes.FETCH_MOVIES_RESULTS_SUCCESS:
       return {
@@ -42,6 +64,11 @@ const moviesReducer = (state = initialState, action) => {
       return {
         ...state,
         movie: action.payload,
+      };
+    case moviesActionTypes.SAVE_HERO_MOVIE:
+      return {
+        ...state,
+        heroMovie: action.payload,
       };
     case moviesActionTypes.FETCH_MOVIES_RESULTS_FAILURE:
       return {

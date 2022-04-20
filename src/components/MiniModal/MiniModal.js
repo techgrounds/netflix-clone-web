@@ -1,109 +1,94 @@
-import './MiniModal.scss'
-import MiniModalDetails from './MiniModalDetails'
-import { useDispatch } from 'react-redux'
-import gsap from 'gsap'
-import MiniModalVideo from '../MiniModalVideo/MiniModalVideo'
-import { IconVolumeMute } from '../Icons/IconVolumeMute'
-import { IconVolumeUp } from '../Icons/IconVolumeUp'
-import { useState, useRef, useEffect } from 'react'
-import { useSelector } from 'react-redux'
-import { fetchMovieDetailsAsync } from '../../redux/movies/movies.actions'
+import "./MiniModal.scss";
+import MiniModalDetails from "./MiniModalDetails/MiniModalDetails";
+import gsap from "gsap";
+import MiniModalVideo from "../MiniModalVideo/MiniModalVideo";
+import ButtonMute from '../ButtonMute/ButtonMute'
+import { useState, useRef, useEffect } from "react";
+import {
+  fetchMovieDetailsAsync,
+  fetchSingleMovie,
+} from "../../redux/movies/movies.actions";
+import { useSelector, useDispatch } from "react-redux";
+
 
 const MiniModal = ({
   setLoadMovie,
   moviePoster,
   movieTitle,
   trailer,
-  moreInfo,
-  setMoreInfo,
-  setIsModalVisible,
+  mute,
+  setMute,
+  rating,
+  runtime,
+  movie,
   updateZIndexRef,
-  id,
-  openModal,
-  isModalVisible,
 }) => {
-  const youtubeId = trailer.substr(32)
-  const dispatch = useDispatch()
-  const boxRef = useRef()
-  const [active, setActive] = useState(true)
-  const [start, setStart] = useState(false)
-  const [muteIcon, setMuteIcon] = useState(false)
-  const switchMute = () => {
-    document.getElementById('sound').muted = true
-    console.log('muted')
-    setMuteIcon(!muteIcon)
-  }
-  const movieData = useSelector((state) => state.movies.movie)
+  const dispatch = useDispatch();
+  const youtubeId = trailer.substr(32);
 
-  const laneOpenModal = () => {
-    setIsModalVisible(true)
-  }
+  useEffect(() => {
+    dispatch(fetchSingleMovie(movie));
+    // dispatch(fetchMovieDetailsAsync(movie?.id));
+  }, []);
+
+  const boxRef = useRef();
+  const [active, setActive] = useState(true);
+  const [start, setStart] = useState(false);
 
   const remove = async () => {
-    setStart(true)
+    setStart(true);
     gsap.to(boxRef.current, {
       opacity: 0,
       duration: 2,
       delay: 4,
-      ease: 'power4',
+      ease: "power4",
       onComplete: () => setActive(false),
-    })
-  }
+    });
+  };
 
-  updateZIndexRef(999)
+  updateZIndexRef(999);
 
   return (
     <div
-      className='modal'
-      id='sound'
+      className="modal"
       onMouseEnter={remove}
       onMouseLeave={() => {
-        setLoadMovie(false)
-      }}>
-      <div className='top-container'>
+        setLoadMovie(false);
+      }}
+    >
+      <div className="top-container">
         {start && (
-          <MiniModalVideo
-            setMuteIcon={setMuteIcon}
-            muteIcon={muteIcon}
-            youtubeId={youtubeId}
-          />
+          <MiniModalVideo setMute={setMute} mute={mute} youtubeId={youtubeId} />
         )}
         {active && (
           <img
             ref={boxRef}
             src={moviePoster}
             alt={moviePoster}
-            className='movie-poster'
+            className="movie-poster"
           />
         )}
 
-        <div className='overlay-items'>
-          <div className='video-title-wrapper'>
-            <div className='video-title'>{movieTitle}</div>
+        <div className="overlay-items">
+          <div className="video-title-wrapper">
+            <div className="video-title">{movieTitle}</div>
           </div>
 
           <div className='volume-button-wrapper'>
-            <button className='volume-button' onClick={switchMute}>
-              {!muteIcon ? <IconVolumeMute /> : <IconVolumeUp />}
-            </button>
+
+            <ButtonMute
+             setMute={setMute}
+             mute={mute}
+             />
+
           </div>
         </div>
       </div>
-      <div className='bottom-container'>
-        <MiniModalDetails
-          moviePoster={moviePoster}
-          movieTitle={movieTitle}
-          trailer={trailer}
-          openModal={openModal}
-          isModalVisible={isModalVisible}
-          setIsModalVisible={setIsModalVisible}
-          movieData={movieData}
-          setMoreInfo={setMoreInfo}
-          moreInfo={moreInfo}
-        />
+      <div className="bottom-container">
+        <MiniModalDetails runtime={runtime} rating={rating} />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default MiniModal
+export default MiniModal;

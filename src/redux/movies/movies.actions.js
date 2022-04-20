@@ -2,6 +2,7 @@ import { moviesActionTypes } from "./movies.types";
 import requests from "../../requests";
 import axios from "../../axiosInstance";
 import { transformMovieData } from "./movies.helpers";
+import { spotlightMovies } from "./movies.spotlight"
 
 export const fetchMoviesResultsRequest = () => ({
   type: moviesActionTypes.FETCH_MOVIES_RESULTS_REQUEST,
@@ -12,7 +13,7 @@ export const fetchMoviesResultsSuccess = (allMovies) => ({
   payload: allMovies,
 });
 
-export const fetchMovieDetails = (movieDetails) => ({
+export const saveMovieDetails = (movieDetails) => ({
   type: moviesActionTypes.FETCH_MOVIE_DETAILS,
   payload: movieDetails,
 });
@@ -22,33 +23,31 @@ export const fetchSingleMovie = (movie) => ({
   payload: movie,
 });
 
+export const saveHeroMovie = (movie) => ({
+  type: moviesActionTypes.SAVE_HERO_MOVIE,
+  payload: movie,
+});
 export const fetchMoviesResultsFailure = (errorMessage) => ({
   type: moviesActionTypes.FETCH_MOVIES_RESULTS_FAILURE,
   payload: errorMessage,
 });
 
+export const movieInfoModalToggle = (bool) => ({
+  type: bool
+    ? moviesActionTypes.MOVIE_INFO_MODAL_OPEN
+    : moviesActionTypes.MOVIE_INFO_MODAL_CLOSE,
+  payload: bool,
+});
+
 export const fetchMovieDetailsAsync = (id) => {
   return async (dispatch) => {
     try {
-      /// 'ID'
-      // const request = await axios.get(requests.fetchDiscover);
-      // const movieData = request.data;
-
-      // const movieDetails = movieData.map(async (movie) => {
-      //   const response = await axios.get(
-      //     `${requests.fetchDiscover}/movie?id=${movie.id}`
-      //   );
-
-      // });
-
       const requestDetails = await axios.get(
-        `${requests.fetchDiscover}/movie?id=634649`
+        `${requests.fetchDiscover}/movie?id=${id}`
       );
       const movieDetails = requestDetails.data;
 
-      console.log("MOVIEDETAILS", movieDetails);
-
-      dispatch(fetchMovieDetails(movieDetails));
+      dispatch(saveMovieDetails(movieDetails));
     } catch (err) {
       console.log(err);
     }
@@ -64,18 +63,23 @@ export const fetchMoviesResultsAsync = () => {
       console.log("REQUEST", request);
 
       const allMovies = transformMovieData(request.data);
+      console.log("allmovies", allMovies)
 
       dispatch(fetchMoviesResultsSuccess(allMovies));
 
       const randomMovieSet =
         Math.floor(Math.random() * (allMovies.length - 1)) + 1;
+
       const movies = allMovies[randomMovieSet].movies;
+      console.log( "movies ", movies)
 
-      const selectRandomMovie = Math.floor(Math.random() * movies.length - 1);
+      const selectRandomMovie = Math.floor(Math.random() * 5);
+      console.log("select random movie: ", selectRandomMovie)
+      console.log("spotlight ",spotlightMovies )
 
-      const singleMovie = movies[selectRandomMovie];
+      const singleMovie = spotlightMovies[selectRandomMovie];
 
-      dispatch(fetchSingleMovie(singleMovie));
+      dispatch(saveHeroMovie(singleMovie));
     } catch (err) {
       dispatch(fetchMoviesResultsFailure(err.message));
     }
