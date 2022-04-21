@@ -15,8 +15,6 @@ const MiniModal = ({
   moviePoster,
   movieTitle,
   trailer,
-  mute,
-  setMute,
   rating,
   runtime,
   movie,
@@ -24,6 +22,7 @@ const MiniModal = ({
   updateZIndexRef,
   setIsVideoPlaying,
 }) => {
+  const [mute, setMute] = useState(false)
   const dispatch = useDispatch()
   const youtubeId = trailer.substr(32)
 
