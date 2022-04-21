@@ -4,34 +4,39 @@
   display: flex;
   justify-content: space-between;
   width: 99%;
-  .play-button {
-    background-color: var(--white);
-    border: 1px solid var(--black);
-    width: 2.8em;
-    margin-right: 0.2rem;
-    &:hover {
-      border: 1px solid var(--black);
-      background-color: rgb(214, 214, 214);
-    }
+}
+
+.mini-modal-button {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  border-radius: 50%;
+  font-size: 0.5rem;
+  justify-content: center;
+  opacity: 1;
+  padding: 0.4em;
+  position: relative;
+  @include breakpoint(xlg) {
+    font-size: 1rem;
   }
-  button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: transparent;
-    border: 2px solid var(--whiteOpacity);
-    border-radius: 50%;
-    padding: 6px;
-    color: var(--white);
-    svg {
-      height: 1.3rem;
-      width: auto;
-      margin: auto;
-    }
-    &:hover {
-      cursor: pointer;
-      border: 2px solid var(--white);
-    }
+}
+
+.mini-modal-play-button {
+  border: 2px solid rgba(255, 255, 255, 0.5);
+
+  &:hover {
+    border: 2px solid var(--black);
+    background-color: rgb(214, 214, 214);
+  }
+}
+
+.mini-modal-moreInfo-button {
+  background-color: transparent;
+  border: 2px solid var(--whiteOpacity);
+
+  &:hover {
+    background-color: var(--midgrey);
+    border: 2px solid var(--white);
   }
 }
 
@@ -60,6 +65,9 @@
   color: var(--white);
   @include breakpoint(lg) {
     width: 40%;
+  }
+  @include breakpoint(xlg) {
+    font-size: 1.2rem;
   }
 }
 
@@ -118,12 +126,14 @@
   color: var(--whiteOpacity);
   white-space: normal;
   width: 90%;
+  @include breakpoint(xlg) {
+    font-size: 1.2rem;
+  }
 }
 
 .tag-item-mini {
   color: var(--white);
   text-transform: capitalize;
-
   &:hover {
     text-decoration: none;
   }

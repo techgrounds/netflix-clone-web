@@ -22,7 +22,7 @@ const MiniModalDetails = ({ runtime, rating, keywords, setIsVideoPlaying }) => {
     <>
       <div className='minimodal-button-wrapper'>
         <div className='left-content'>
-          <button className='play-button'>
+          <button className='mini-modal-play-button mini-modal-button'>
             <IconPlayBlack />
           </button>
           <div onClick={() => changeIcon()}>
@@ -32,7 +32,7 @@ const MiniModalDetails = ({ runtime, rating, keywords, setIsVideoPlaying }) => {
         </div>
         <div className='right-content'>
           <button
-            className='moreInfo-button'
+            className='mini-modal-moreInfo-button mini-modal-button'
             onClick={() => {
               dispatch(movieInfoModalToggle(!isModalOpen))
               setIsVideoPlaying(false)

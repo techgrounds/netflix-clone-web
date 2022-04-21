@@ -278,25 +278,9 @@
 }
 
 .home-hero-volume-button {
-  align-items: center;
   background-color: transparent;
   border: none;
   color: var(--white);
-  cursor: pointer;
-  display: flex;
-  font-size: 0.5rem;
-  justify-content: center;
-  opacity: 1;
-  position: relative;
-  @include breakpoint(sm) {
-    font-size: 0.73rem;
-  }
-  @include breakpoint(lg) {
-    font-size: 1rem;
-  }
-  @include breakpoint(xlg) {
-    font-size: 1.6rem;
-  }
 }
 
 .home-hero-maturity-rating {

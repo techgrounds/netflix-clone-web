@@ -1,3 +1,5 @@
+@import '../../assets/scss/mixins';
+
 .buttonRound {
   position: relative;
   display: flex;
@@ -14,7 +16,11 @@
     width: auto;
     margin: auto;
   }
+  @include breakpoint(xlg) {
+    font-size: 1rem;
+  }
 }
+
 .buttonDark {
   background-color: transparent;
   border: 2px solid var(--whiteOpacity);
@@ -23,6 +29,7 @@
     border: 2px solid var(--white);
   }
 }
+
 .buttonLight {
   background-color: var(--white);
   border: none;
@@ -31,6 +38,7 @@
     opacity: 0.8;
   }
 }
+
 .buttonTooltip .tooltipText {
   position: absolute;
   bottom: 130%;
@@ -48,10 +56,12 @@
   z-index: 1;
   transition: opacity 0.4s;
 }
+
 .buttonTooltip:hover .tooltipText {
   visibility: visible;
   opacity: 1;
 }
+
 .buttonTooltip .tooltipText::after {
   content: '';
   position: absolute;

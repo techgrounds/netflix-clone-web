@@ -1,0 +1,34 @@
+@import '../../assets/scss/mixins';
+
+.volume-button {
+  align-items: center;
+  appearance: none;
+  cursor: pointer;
+  display: flex;
+  border-width: 2px;
+  background-color: rgba(42, 42, 42, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  font-size: 0.5rem;
+  justify-content: center;
+  opacity: 1;
+  padding: 0.4em;
+  position: relative;
+  user-select: none;
+  will-change: background-color, color;
+  word-break: break-word;
+  white-space: nowrap;
+  border-radius: 50%;
+  @include breakpoint(sm) {
+    font-size: 0.73rem;
+  }
+  @include breakpoint(lg) {
+    font-size: 1rem;
+  }
+  @include breakpoint(xlg) {
+    font-size: 1.4rem;
+  }
+  &:hover {
+    background-color: var(--midgrey);
+    border: 2px solid var(--white);
+  }
+}

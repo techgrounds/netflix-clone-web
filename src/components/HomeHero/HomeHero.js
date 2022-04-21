@@ -33,7 +33,7 @@ const HomeHero = ({ setIsVideoPlaying, isVideoPlaying, mute, setMute }) => {
           delay: 125,
           ease: 'power4.out',
           yPercent: '35',
-          xPercent: '-18',
+          xPercent: '-17',
           scale: 0.8,
           transformOrigin: 'left bottom',
         },
