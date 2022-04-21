@@ -7,9 +7,9 @@ const ButtonMute = ({mute, setMute}) => {
       }
 
     return (
-      <button className='volume-button' onClick={switchMute}>
+      <div className='volume-button' onClick={switchMute}>
           {!mute ? <IconVolumeMute /> : <IconVolumeUp />}
-    </button>)
+    </div>)
 }
 
 export default ButtonMute;

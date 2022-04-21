@@ -19,6 +19,11 @@ export const LaneItem = ({
     return new Promise((resolve) => setTimeout(resolve, milliseconds));
   };
 
+  const movieLogoCheck = () => {
+  if (movie.logo === "") {return movie.title};
+  if (movie.logo != "") {return <img src={movie.logo} />};
+  }
+
   useEffect(() => {
     if (hovered) {
       updateZIndexRef(999);
@@ -89,9 +94,8 @@ export const LaneItem = ({
         className="laneItemTitle"
         style={{ width: `${size.itemWidth * 0.9}vw`, overflow: `hidden` }}
       >
-        {/* {movie.title} */}
         <div className="movieLogo">
-        <img src={movie.logo} />
+        {movieLogoCheck()}
         </div>
       </div>
     </div>

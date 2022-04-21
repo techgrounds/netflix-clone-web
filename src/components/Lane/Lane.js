@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { lazy, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { useSwipeable } from "react-swipeable";
 import { IconArrowRight } from "../Icons/IconArrowRight";

@@ -10,7 +10,6 @@ import {
 } from "../../redux/movies/movies.actions";
 import { useSelector, useDispatch } from "react-redux";
 
-
 const MiniModal = ({
   setLoadMovie,
   moviePoster,
