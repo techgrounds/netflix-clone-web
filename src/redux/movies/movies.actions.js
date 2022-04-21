@@ -65,12 +65,12 @@ export const fetchMoviesResultsAsync = () => {
 
       dispatch(fetchMoviesResultsSuccess(allMovies))
 
-      console.log('allMovies', allMovies)
-
       const randomMovieSet =
         Math.floor(Math.random() * (allMovies.length - 1)) + 1
 
       const movies = allMovies[randomMovieSet].movies
+
+      console.log('MOVIES', movies)
 
       const selectRandomMovie = Math.floor(Math.random() * 5)
 
