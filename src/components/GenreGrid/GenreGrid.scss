@@ -1,0 +1,36 @@
+@import '../../assets/scss/mixins';
+
+.containerTitleGenre {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    background-color: var(--black);
+    height: 20vh;
+    padding: 2rem;
+}
+.gridContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black);
+    
+}
+
+.gridItem {
+    justify-content: center;
+    background-color: var(----transparent);
+    border: 3.5px solid var(--transparent);
+    color: var(--white);
+    border-radius: 7%;
+    overflow: hidden;
+    padding: 0.45em;
+    
+}
+.movieImage {
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}

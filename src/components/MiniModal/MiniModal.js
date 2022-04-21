@@ -45,7 +45,7 @@ const MiniModal = ({
     })
   }
 
-  updateZIndexRef(999)
+  if (updateZIndexRef) updateZIndexRef(999)
 
   return (
     <div

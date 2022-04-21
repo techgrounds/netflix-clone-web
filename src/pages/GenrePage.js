@@ -1,23 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import HomeHero from '../components/HomeHero/HomeHero'
 import FooterBrowserPage from '../components/FooterBrowserPage/FooterBrowserPage'
-import Lane from '../components/Lane/Lane'
+// import Lane from '../components/Lane/Lane'
 import '../components/Lane/Lane.scss'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchGenresResultsAsync } from '../redux/genres/genres.actions'
+import { GenreGrid } from '../components/GenreGrid/GenreGrid'
 
-const HomePage = () => {
+const GenrePage = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(true)
   const [isModalVisible, setIsModalVisible] = useState(false)
   const dispatch = useDispatch()
-  const allMoviesSelector = useSelector((state) => state.genres.allGenres)
+  const moviesByGenreData = useSelector((state) => state.genres.allGenres[0])
   const movieData = useSelector((state) => state.movies.movie)
-
-  console.log(allMoviesSelector)
 
   useEffect(() => {
     dispatch(fetchGenresResultsAsync())
   }, [])
+
+  console.log('moviesByGenreDataJanou', moviesByGenreData)
 
   return (
     <>
@@ -28,19 +29,21 @@ const HomePage = () => {
         setIsModalVisible={setIsModalVisible}
         movieData={movieData}
       />
-      {allMoviesSelector?.map((movieSet) => {
-        return (
-          <Lane
-            laneTitle={movieSet.genre}
-            movies={movieSet.movies}
-            trailer={movieSet.trailer}
-            key={movieSet.id}
+
+      <div>
+        {moviesByGenreData?.movies && (
+          <GenreGrid
+            genreTitle={moviesByGenreData.genre}
+            moviesByGenreData={moviesByGenreData?.movies}
           />
-        )
-      })}
+        )}
+
+
+      </div>
+
       <FooterBrowserPage />
     </>
   )
 }
 
-export default HomePage
+export default GenrePage
