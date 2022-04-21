@@ -6,7 +6,7 @@ import { IconArrowDown } from '../Icons/IconArrowDown'
 import { ButtonRoundDarkTooltip } from '../ButtonRound/ButtonRound'
 import movieMockupData from '../../movies.json'
 
-const FilmInfoModalSuggestions = ({ movieData }) => {
+const FilmInfoModalSuggestions = () => {
   const [amountVisible, setAmountVisible] = useState(6)
 
   const showMoreItems = () => {

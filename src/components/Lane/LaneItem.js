@@ -1,7 +1,7 @@
-import useWindowSize from "./WindowSize";
-import { useState, useEffect } from "react";
-import MiniModal from "../MiniModal/MiniModal";
-import "../Lane/Lane.scss";
+import useWindowSize from './WindowSize'
+import { useState, useEffect } from 'react'
+import MiniModal from '../MiniModal/MiniModal'
+import '../Lane/Lane.scss'
 
 export const LaneItem = ({
   updateZIndexRef,
@@ -10,53 +10,51 @@ export const LaneItem = ({
   rightIndex,
   index,
   mute,
-  setMute
+  setMute,
 }) => {
-  const size = useWindowSize();
-  const [loadMovie, setLoadMovie] = useState(false);
-  const [hovered, setHovered] = useState(false);
+  const size = useWindowSize()
+  const [loadMovie, setLoadMovie] = useState(false)
+  const [hovered, setHovered] = useState(false)
   const sleep = (milliseconds) => {
-    return new Promise((resolve) => setTimeout(resolve, milliseconds));
-  };
+    return new Promise((resolve) => setTimeout(resolve, milliseconds))
+  }
 
   useEffect(() => {
     if (hovered) {
-      updateZIndexRef(999);
-      setLoadMovie(true);
+      updateZIndexRef(999)
+      setLoadMovie(true)
     }
     if (!hovered) {
-      updateZIndexRef(0);
-      setLoadMovie(false);
+      updateZIndexRef(0)
+      setLoadMovie(false)
     }
-  }, [hovered]);
+  }, [hovered])
 
   return (
     <div
-      className="laneItem"
+      className='laneItem'
       style={{ height: `${size.itemHeight}vw`, width: `${size.itemWidth}vw` }}
       onMouseEnter={() => {
-        setHovered(true);
+        setHovered(true)
       }}
       onMouseLeave={() => {
-        setHovered(false);
-      }}
-    >
+        setHovered(false)
+      }}>
       {loadMovie && (
         <div
           className={`miniModal
                  ${
                    index === leftIndex
-                     ? "leftModal"
+                     ? 'leftModal'
                      : index === rightIndex
-                     ? "rightModal"
-                     : "not"
+                     ? 'rightModal'
+                     : 'not'
                  }
                  `}
           style={{
             height: `${size.itemHeight * 2.5}vw`,
             width: `${size.itemWidth * 1.5}vw`,
-          }}
-        >
+          }}>
           {loadMovie && (
             <MiniModal
               loadMovie={loadMovie}
@@ -78,19 +76,21 @@ export const LaneItem = ({
       <img
         src={movie.image}
         alt={movie.title}
-        className="movie-image"
+        className='movie-image'
         style={{
-          width: "0",
-          height: "0",
-          objectFit: "contain",
+          width: '0',
+          height: '0',
+          objectFit: 'contain',
         }}
       />
       <div
-        className="laneItemTitle"
-        style={{ width: `${size.itemWidth * 0.9}vw`, overflow: `hidden` }}
-      >
-        {movie.title}
+        className='laneItemTitle'
+        style={{ width: `${size.itemWidth * 0.9}vw`, overflow: `hidden` }}>
+        {/* {movie.title} */}
+        <div className='movieLogo'>
+          <img src={movie.logo} />
+        </div>
       </div>
     </div>
-  );
-};
+  )
+}

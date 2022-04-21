@@ -1,4 +1,4 @@
-@import "../../assets/scss/mixins";
+@import '../../assets/scss/mixins';
 
 .laneContainer {
   pointer-events: none;
@@ -41,6 +41,7 @@
     }
   }
 }
+
 .laneName {
   position: relative;
   display: flex;
@@ -81,7 +82,7 @@
   bottom: 10%;
   text-shadow: 1px 1px var(--black);
   color: var (--smokewhite);
-  opacity: 0.7;
+  // opacity: 0.7;
   font-size: 0.8vw;
 }
 .laneNameButton {
