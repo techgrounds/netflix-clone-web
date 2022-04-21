@@ -43,6 +43,7 @@ const FilmInfoModal = ({ setIsVideoPlaying }) => {
     setMute,
     mute,
   } = movieDetails
+
   const handleKeyPress = useCallback(
     (event) => {
       if (event.key === 'Escape' && isModalVisible) {
