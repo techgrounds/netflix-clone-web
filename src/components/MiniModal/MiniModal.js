@@ -4,11 +4,8 @@ import gsap from 'gsap'
 import MiniModalVideo from '../MiniModalVideo/MiniModalVideo'
 import ButtonMute from '../ButtonMute/ButtonMute'
 import { useState, useRef, useEffect } from 'react'
-import {
-  fetchMovieDetailsAsync,
-  fetchSingleMovie,
-} from '../../redux/movies/movies.actions'
-import { useSelector, useDispatch } from 'react-redux'
+import {fetchSingleMovie} from '../../redux/movies/movies.actions'
+import { useDispatch } from 'react-redux'
 
 const MiniModal = ({
   setLoadMovie,
