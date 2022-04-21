@@ -1,4 +1,4 @@
-@import "../../assets/scss/mixins";
+@import '../../assets/scss/mixins';
 
 .home-hero {
   position: relative;
@@ -287,9 +287,7 @@
   font-size: 0.5rem;
   justify-content: center;
   opacity: 1;
-  // padding: 0.2rem;
   position: relative;
-  border-radius: 50%;
   @include breakpoint(sm) {
     font-size: 0.73rem;
   }
@@ -298,10 +296,6 @@
   }
   @include breakpoint(xlg) {
     font-size: 1.6rem;
-  }
-  &:hover {
-    background-color: var(--midgrey);
-    // border: 2px solid var(--white);
   }
 }
 

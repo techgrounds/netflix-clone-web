@@ -1,21 +1,21 @@
-import React, { useEffect, useState } from "react";
-import HomeHero from "../components/HomeHero/HomeHero";
-import FooterBrowserPage from "../components/FooterBrowserPage/FooterBrowserPage";
-import Lane from "../components/Lane/Lane";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchMoviesResultsAsync } from "../redux/movies/movies.actions";
-import { v4 as uuidv4 } from "uuid";
+import React, { useEffect, useState } from 'react'
+import HomeHero from '../components/HomeHero/HomeHero'
+import FooterBrowserPage from '../components/FooterBrowserPage/FooterBrowserPage'
+import Lane from '../components/Lane/Lane'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchMoviesResultsAsync } from '../redux/movies/movies.actions'
+import { v4 as uuidv4 } from 'uuid'
 
 const HomePage = ({ mute, setMute }) => {
-  const [isVideoPlaying, setIsVideoPlaying] = useState(true);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(true)
   // const [mute, setMute] = useState(false);
-  const dispatch = useDispatch();
-  const allMoviesSelector = useSelector((state) => state.movies.allMovies);
-  console.log("allmovie S", allMoviesSelector)
+  const dispatch = useDispatch()
+  const allMoviesSelector = useSelector((state) => state.movies.allMovies)
+  console.log('allmovie S', allMoviesSelector)
 
   useEffect(() => {
-    dispatch(fetchMoviesResultsAsync());
-  }, [dispatch]);
+    dispatch(fetchMoviesResultsAsync())
+  }, [dispatch])
 
   return (
     <>
@@ -36,11 +36,11 @@ const HomePage = ({ mute, setMute }) => {
             setMute={setMute}
             setIsVideoPlaying={setIsVideoPlaying}
           />
-        );
+        )
       })}
       <FooterBrowserPage />
     </>
-  );
-};
+  )
+}
 
-export default HomePage;
+export default HomePage
