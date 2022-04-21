@@ -9,10 +9,11 @@ import ButtonAdd from '../../ButtonAdd/ButtonAdd'
 import ButtonCheck from '../../ButtonCheck/ButtonCheck'
 import FilmInfoModal from '../../FilmInfoModal/FilmInfoModal'
 
-const MiniModalDetails = ({ runtime, rating, setIsVideoPlaying }) => {
+const MiniModalDetails = ({ runtime, rating, keywords, setIsVideoPlaying }) => {
   const [isChecked, setIsChecked] = useState(false)
   const dispatch = useDispatch()
   const isModalOpen = useSelector((state) => state.movies.movieInfoModal)
+
   const changeIcon = () => {
     !isChecked ? setIsChecked(true) : setIsChecked(false)
   }
@@ -30,7 +31,6 @@ const MiniModalDetails = ({ runtime, rating, setIsVideoPlaying }) => {
           <ButtonRating />
         </div>
         <div className='right-content'>
-          {/* OPEN MODAL IN LANE ITEM */}
           <button
             className='moreInfo-button'
             onClick={() => {
@@ -48,9 +48,16 @@ const MiniModalDetails = ({ runtime, rating, setIsVideoPlaying }) => {
         <span className='feature-badge'>HD</span>
       </div>
       <div className='tag-container'>
-        <span className='tag-item-mini'>Witty</span>•
-        <span className='tag-item-mini'>Feel-Good</span>•
-        <span className='tag-item-mini'>Exciting</span>
+        {keywords.map((keyword, i) => (
+          <>
+            <span key={i} className='tag-item-mini'>
+              {keyword}
+            </span>
+            {i !== keywords.length - 1 && (
+              <span className='tag-item-circle'>•</span>
+            )}
+          </>
+        ))}
       </div>
       <FilmInfoModal />
     </>

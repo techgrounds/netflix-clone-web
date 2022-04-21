@@ -70,6 +70,7 @@ export const LaneItem = ({
               trailer={movie.trailer}
               runtime={movie.runtime}
               rating={movie.rating}
+              keywords={movie.keywords}
               movie={movie}
               mute={mute}
               setMute={setMute}
