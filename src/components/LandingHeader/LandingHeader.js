@@ -20,7 +20,7 @@ export default function LandingHeader({}) {
       <div className='button-container'>
         <LanguagesSelector />
         <ButtonRed>
-          <Link to='/home'>{language === 'EN' ? 'Sign In' : 'Inloggen'}</Link>
+          <Link to='/signin'>{language === 'EN' ? 'Sign In' : 'Inloggen'}</Link>
         </ButtonRed>
       </div>
     </div>
