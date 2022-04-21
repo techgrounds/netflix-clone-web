@@ -199,7 +199,7 @@
 
 .has-icon {
   padding: 0.2rem 1rem 0.2rem 0.5rem;
-  @include breakpoint(sm) {
+  @include breakpoint(md) {
     padding: 0.3rem 1.5rem 0.3rem 1rem;
   }
   @include breakpoint(lg) {
@@ -220,7 +220,7 @@
   justify-content: center;
   height: 1em;
   width: 1em;
-  @include breakpoint(sm) {
+  @include breakpoint(md) {
     height: 2em;
     width: 2em;
   }
@@ -238,7 +238,7 @@
   font-family: inherit;
   font-size: 0.5rem;
   font-weight: 600;
-  @include breakpoint(sm) {
+  @include breakpoint(md) {
     font-size: 0.9rem;
   }
   @include breakpoint(lg) {

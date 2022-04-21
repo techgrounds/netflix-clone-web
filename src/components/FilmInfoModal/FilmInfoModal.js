@@ -115,7 +115,7 @@ const FilmInfoModal = ({ setIsVideoPlaying }) => {
                   />
                 </div>
                 <div className='modal-suggestions'>
-                  <FilmInfoModalSuggestions movieData={movieData} />
+                  <FilmInfoModalSuggestions />
                 </div>
               </div>
               <div className='modal-footer'>
