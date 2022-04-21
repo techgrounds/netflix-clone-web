@@ -58,35 +58,4 @@
   @include breakpoint(md) {
     font-size: 1rem;
   }
-  @include breakpoint(lg) {
-    font-size: 1.2rem;
-  }
-}
-
-// ------------------
-
-.details-tags {
-  font-size: 0.8rem;
-  line-height: 20px;
-  margin: 0.5em;
-  margin-left: 0;
-  padding-bottom: 0.5rem;
-  @include breakpoint(md) {
-    font-size: 0.9rem;
-  }
-}
-
-.tags-label {
-  color: #777;
-  margin-right: 0.3rem;
-}
-
-.tag-item {
-  color: #ddd;
-  margin: 0;
-  cursor: pointer;
-  margin-right: 0.3rem;
-  &:hover {
-    border-bottom: 1px solid #ddd;
-  }
 }

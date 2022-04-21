@@ -41,8 +41,7 @@ function FooterSignin() {
               className='ui-select'
               name='Nederlands'
               placeholder='language-switcher'
-              id=''
-            >
+              id=''>
               <option value=''>English</option>
               <option value=''>Nederlands</option>
             </select>
