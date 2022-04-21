@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import React, {useState } from "react";
 import Navbar from './components/Navbar/Navbar'
 import './assets/scss/main.scss'
 
@@ -13,6 +14,7 @@ import SignInPage from './pages/SignInPage'
 import HeaderGenre from './components/HeaderGenre/HeaderGenre'
 
 function App() {
+  const [mute, setMute] = useState(false);
   return (
     <div className='App'>
       <LangProvider>
@@ -25,7 +27,9 @@ function App() {
                 element={
                   <>
                     <Navbar />
-                    <HomePage />
+                    <HomePage
+                      mute={mute}
+                      setMute={setMute}/>
                   </>
                 }
               />
@@ -35,7 +39,10 @@ function App() {
                   <>
                     <Navbar />
                     <HeaderGenre />
-                    <GenrePage />
+                    <GenrePage
+                      mute={mute}
+                      setMute={setMute}
+                    />
                   </>
                 }
               />
