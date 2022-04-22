@@ -55,20 +55,6 @@ export const spotlightMovies = [
     trailer: 'https://www.youtube.com/watch?v=foyufD52aog',
   },
   {
-    desc: 'Joe Gardner is a middle school teacher with a love for jazz music. After a successful audition at the Half Note Club, he suddenly gets into an accident that separates his soul from his body and is transported to the You Seminar, a center in which souls develop and gain passions before being transported to a newborn child. Joe must enlist help from the other souls-in-training, like 22, a soul who has spent eons in the You Seminar, in order to get back to Earth.',
-    id: 508442,
-    image: 'https://image.tmdb.org/t/p/w300/rQaHA74pevnGsxcKGaoZVGWe9TC.jpg',
-    imageHR:
-      'https://image.tmdb.org/t/p/original/rQaHA74pevnGsxcKGaoZVGWe9TC.jpg',
-
-    logo: 'http://assets.fanart.tv/fanart/movies/508442/hdmovielogo/untitled-pixar-animation-project-5d110c993436a.png',
-    poster: 'https://image.tmdb.org/t/p/w500/hm58Jw4Lw8OIeECIq5qyPYhAeRJ.jpg',
-    rating: '6',
-    runtime: '1h 41m',
-    title: 'Soul',
-    trailer: 'https://www.youtube.com/watch?v=Gs--6c7Hn_A',
-  },
-  {
     desc: 'Luca and his best friend Alberto experience an unforgettable summer on the Italian Riviera. But all the fun is threatened by a deeply-held secret: they are sea monsters from another world just below the water’s surface.',
     id: 508943,
     image: 'https://image.tmdb.org/t/p/w300/zdT9pVcXEKo2wpQb4HDPRWMQXvp.jpg',
@@ -81,4 +67,30 @@ export const spotlightMovies = [
     title: 'Luca',
     trailer: 'https://www.youtube.com/watch?v=mYfJxlgR2jw',
   },
-]
+  {
+    desc: "When a single mom and her two kids arrive in a small town, they begin to discover their connection to the original Ghostbusters and the secret legacy their grandfather left behind.",
+    id: 425909,
+    image: "https://image.tmdb.org/t/p/w300/EnDlndEvw6Ptpp8HIwmRcSSNKQ.jpg",
+    imageHR:
+      "https://image.tmdb.org/t/p/original/EnDlndEvw6Ptpp8HIwmRcSSNKQ.jpg",
+    logo: "http://assets.fanart.tv/fanart/movies/425909/hdmovielogo/ghostbusters-afterlife-5f1b304841262.png",
+    poster: "https://image.tmdb.org/t/p/w500/sg4xJaufDiQl7caFEskBtQXfD4x.jpg",
+    rating: "1",
+    runtime: "2h 4m",
+    title: "Ghostbusters: Afterlife",
+    trailer: "https://www.youtube.com/watch?v=lnKmAVLC3jU",
+  },
+  {
+    desc: "In his second year of fighting crime, Batman uncovers corruption in Gotham City that connects to his own family while facing a serial killer known as the Riddler.",
+    id: 414906,
+    image: "https://image.tmdb.org/t/p/w300/5P8SmMzSNYikXpxil6BYzJ16611.jpg",
+    imageHR:
+      "https://image.tmdb.org/t/p/original/5P8SmMzSNYikXpxil6BYzJ16611.jpg",
+    logo: "http://assets.fanart.tv/fanart/movies/414906/hdmovielogo/the-batman-5f406d6c93339.png",
+    poster: "https://image.tmdb.org/t/p/w500/74xTEgt7R36Fpooo50r9T25onhq.jpg",
+    rating: "1",
+    runtime: "2h 56m",
+    title: "The Batman",
+    trailer: "https://www.youtube.com/watch?v=vc7_mH2PWHs",
+  },
+];

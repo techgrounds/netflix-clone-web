@@ -16,6 +16,8 @@ const HomePage = () => {
     dispatch(fetchMoviesResultsAsync())
   }, [dispatch])
 
+  console.log('ALL MOVIES', allMoviesSelector)
+
   return (
     <>
       <HomeHero
