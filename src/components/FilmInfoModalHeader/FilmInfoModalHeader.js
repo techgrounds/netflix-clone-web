@@ -6,6 +6,7 @@ import ButtonAdd from '../ButtonAdd/ButtonAdd'
 import ButtonMute from '../ButtonMute/ButtonMute'
 
 const FilmInfoModalVideo = ({ isVideoPlaying, movieData, setMute, mute }) => {
+  console.log("mute:" , mute)
   return (
     <>
       <div className='header-video'>

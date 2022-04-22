@@ -30,8 +30,7 @@
   position: absolute;
   bottom: 5%;
   left: 1em;
-  opacity: 0.7;
-  animation: videoTitleFade 4s;
+  animation: videoTitleFade 7s;
   animation-fill-mode: forwards;
 }
 
@@ -41,7 +40,7 @@
   border-radius: 50%;
   bottom: 5%;
   right: 1.25em;
-  animation: videovolumeFadeIn 3s;
+  animation: videovolumeFadeIn 6s;
   animation-fill-mode: forwards;
 }
 
@@ -54,7 +53,6 @@
   background-color: rgba(42, 42, 42, 0.6);
   border: 2px solid rgba(255, 255, 255, 0.5);
   justify-content: center;
-  opacity: 1;
   padding: 0.4em;
   position: relative;
   user-select: none;
@@ -87,10 +85,10 @@
 
 @keyframes videoTitleFade {
   0% {
-    opacity: 0.8;
+    opacity: 1;
   }
-  80% {
-    opacity: 0.8;
+  50% {
+    opacity: 1;
   }
   100% {
     opacity: 0;
@@ -110,7 +108,7 @@
   0% {
     opacity: 0;
   }
-  95% {
+  50% {
     opacity: 0;
   }
   100% {

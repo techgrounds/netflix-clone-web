@@ -74,6 +74,7 @@ export const LaneItem = ({
               movie={movie}
               mute={mute}
               setMute={setMute}
+              // movieLogoCheck={movieLogoCheck}
             />
           )}
         </div>
