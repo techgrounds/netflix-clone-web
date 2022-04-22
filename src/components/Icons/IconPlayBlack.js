@@ -1,8 +1,8 @@
 export const IconPlayBlack = () => {
   return (
     <svg
-      width='2em'
-      height='2em'
+      width='4em'
+      height='4em'
       viewBox='0 0 23 23'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'>

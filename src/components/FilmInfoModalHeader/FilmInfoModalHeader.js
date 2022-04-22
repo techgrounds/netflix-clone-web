@@ -1,11 +1,13 @@
 import './FilmInfoModalHeader.scss'
+import { useState } from 'react'
 import { IconPlayBlack } from '../Icons/IconPlayBlack'
 import MiniModalVideo from '../MiniModalVideo/MiniModalVideo'
 import ButtonRating from '../ButtonRating/ButtonRating'
 import ButtonAdd from '../ButtonAdd/ButtonAdd'
 import ButtonMute from '../ButtonMute/ButtonMute'
 
-const FilmInfoModalVideo = ({ isVideoPlaying, movieData, setMute, mute }) => {
+const FilmInfoModalVideo = ({ isVideoPlaying, movieData }) => {
+  const [mute, setMute] = useState(false)
   return (
     <>
       <div className='header-video'>

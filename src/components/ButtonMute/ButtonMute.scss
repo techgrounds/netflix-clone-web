@@ -24,9 +24,6 @@
   @include breakpoint(lg) {
     font-size: 1rem;
   }
-  @include breakpoint(xlg) {
-    font-size: 1.4rem;
-  }
   &:hover {
     background-color: var(--midgrey);
     border: 2px solid var(--white);

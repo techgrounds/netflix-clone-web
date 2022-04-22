@@ -16,9 +16,6 @@
     width: auto;
     margin: auto;
   }
-  @include breakpoint(xlg) {
-    font-size: 1rem;
-  }
 }
 
 .buttonDark {
