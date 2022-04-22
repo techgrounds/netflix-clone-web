@@ -197,7 +197,8 @@ picture {
     cursor: default;
     transition: all 0.4s ease-in-out;
 
-    a {
+    a,
+    .custom-account {
       &:hover {
         filter: (brightness(1.5));
       }
@@ -206,7 +207,8 @@ picture {
     .sub-menu-item {
       transition: all 0.4s ease-in-out;
 
-      a {
+      a,
+      .custom-account {
         width: 260px;
         height: 50px;
         padding: 0 1em;
@@ -217,6 +219,7 @@ picture {
         color: var(--smokewhite);
         background-color: var(--blackTrans);
         transition: background-color 0.4s ease;
+        cursor: pointer;
       }
     }
   }
@@ -281,7 +284,8 @@ picture {
   margin-left: 0;
   padding: 0;
 
-  a {
+  a,
+  .custom-account {
     width: 100%;
     height: 50px;
     display: flex;
@@ -289,6 +293,7 @@ picture {
     justify-content: flex-start;
     color: var(--white);
     background-color: var(--black);
+    cursor: pointer;
 
     &:hover {
       text-decoration: underline;
