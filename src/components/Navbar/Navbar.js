@@ -35,6 +35,7 @@ const Navbar = () => {
   const point = useRef()
   const notificationsElement = useRef()
   const { language } = useContext(LangContext)
+  const [account,setAccount] = useState('defaultAccount')
 
   window.onscroll = () => {
     setIsScrolled(window.pageYOffset === 0 ? false : true)
