@@ -1,7 +1,6 @@
 import "./Navbar.scss"
 import { useState, useRef } from "react"
 import { NavLink } from "react-router-dom"
-import { useSelector } from "react-redux"
 import SearchBar from "../SearchBar/SearchBar"
 import { useOnClickOutside } from "./ClickOutsideHook"
 
@@ -19,20 +18,18 @@ import { IconAccount } from "../Icons/IconAccount"
 import { IconQuestion } from "../Icons/IconQuestion"
 
 import AccountMenu from "../AccountMenu/AccountMenu"
-{
-  /*}
-import Jens from '../../assets/images/jens.jpg'
-import Zico from '../../assets/images/zico.jpg'
-import Michael from '../../assets/images/michael.jpg'
-import Roibin from '../../assets/images/roibin.png'
-import Fatos from '../../assets/images/fatos.webp'
-import Janou from '../../assets/images/janou.jpg'
-import Miki from '../../assets/images/miki.jpg'
-import Alfi from '../../assets/images/alfiya.jpg'
-import Wesley from '../../assets/images/wesley.jpg'
-import Carolyn from '../../assets/images/carolyn.webp'
-*/
-}
+
+import Jens from "../../assets/images/accounts/jens.jpg"
+import Zico from "../../assets/images/accounts/zico.jpg"
+import Michael from "../../assets/images/accounts/michael.jpg"
+import Roibin from "../../assets/images/accounts/roibin.png"
+import Fatos from "../../assets/images/accounts/fatos.webp"
+import Janou from "../../assets/images/accounts/janou.jpg"
+import Miki from "../../assets/images/accounts/miki.jpg"
+import Alfijah from "../../assets/images/accounts/alfijah.jpg"
+import Wesley from "../../assets/images/accounts/wesley.jpg"
+import Carolyn from "../../assets/images/accounts/carolyn.webp"
+
 const Navbar = () => {
   const [dropdown, setDropdown] = useState(false)
   const [isClicked, setIsClicked] = useState(false)
@@ -45,6 +42,19 @@ const Navbar = () => {
   const currentAccount = useContext(AccountContext)
   console.log("currentAccount", currentAccount)
 
+  const allAccounts = [
+    { name: "Alfijah", source: Alfijah },
+    { name: "Zico", source: Zico },
+    { name: "Michael", source: Michael },
+    { name: "Miki", source: Miki },
+    { name: "Wesley", source: Wesley },
+    { name: "Janou", source: Janou },
+    { name: "Carolyn", source: Carolyn },
+    { name: "Roibin", source: Roibin },
+    { name: "Fatos", source: Fatos },
+    { name: "Jens", source: Jens },
+  ]
+  
   window.onscroll = () => {
     setIsScrolled(window.pageYOffset === 0 ? false : true)
     return () => (window.onscroll = null)
@@ -306,10 +316,13 @@ const Navbar = () => {
             <div className="account-menu-item" onClick={() => accountMenu()}>
               <button className="account-dropdown-button">
                 <NavLink to="" className="account-link">
-                  <span className="profile-link">                    
+                  <span className="profile-link">
                     <img
-                      src=
-                      {currentAccount.account === "defaultAccount" ? "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" : `../../assets/images/accounts/${currentAccount.account}.jpg`}
+                      src={
+                        currentAccount.account === "defaultAccount"
+                          ? "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+                          : `../../assets/images/accounts/${currentAccount.account}.jpg`
+                      }
                       alt={currentAccount.account}
                       className="profile-icon"
                     />

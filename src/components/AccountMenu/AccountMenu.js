@@ -1,19 +1,38 @@
-//import { NavLink } from "react-router-dom"
-//import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { changeAccount } from "../../redux/account/account.action"
 import { useContext } from "react"
 import { AccountContext } from "../../redux/account/account.context"
 
-const accountData = require("../../assets/accountData.json")
+import Jens from "../../assets/images/accounts/jens.jpg"
+import Zico from "../../assets/images/accounts/zico.jpg"
+import Michael from "../../assets/images/accounts/michael.jpg"
+import Roibin from "../../assets/images/accounts/roibin.png"
+import Fatos from "../../assets/images/accounts/fatos.webp"
+import Janou from "../../assets/images/accounts/janou.jpg"
+import Miki from "../../assets/images/accounts/miki.jpg"
+import Alfijah from "../../assets/images/accounts/alfijah.jpg"
+import Wesley from "../../assets/images/accounts/wesley.jpg"
+import Carolyn from "../../assets/images/accounts/carolyn.webp"
 
 const AccountMenu = () => {
   const dispatch = useDispatch()
-  console.log(accountData)
   const { account, setAccount } = useContext(AccountContext)
   console.log(account)
 
-  const customAccount = accountData.map((profile) => {
+  const allAccounts = [
+    { name: "Alfijah", source: Alfijah },
+    { name: "Zico", source: Zico },
+    { name: "Michael", source: Michael },
+    { name: "Miki", source: Miki },
+    { name: "Wesley", source: Wesley },
+    { name: "Janou", source: Janou },
+    { name: "Carolyn", source: Carolyn },
+    { name: "Roibin", source: Roibin },
+    { name: "Fatos", source: Fatos },
+    { name: "Jens", source: Jens },
+  ]
+  console.log(allAccounts)
+  const customAccount = allAccounts.map((profile) => {
     console.log(profile.name)
     return (
       <li
@@ -27,7 +46,7 @@ const AccountMenu = () => {
             <div className="avatar-wrapper">
               <img
                 className="profile-icon custom-profile-icon"
-                src={`url(../../assets/images/accounts/${profile.img})`}
+                src={profile.source}
                 alt={profile.name}
               />
             </div>
