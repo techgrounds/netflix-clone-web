@@ -17,7 +17,7 @@
     padding-bottom: 45%;
   }
   @include breakpoint(xlg) {
-    padding-bottom: 65%;
+    padding-bottom: 45%;
   }
 }
 
@@ -275,25 +275,9 @@
 }
 
 .home-hero-volume-button {
-  align-items: center;
   background-color: transparent;
   border: none;
   color: var(--white);
-  cursor: pointer;
-  display: flex;
-  font-size: 0.5rem;
-  justify-content: center;
-  opacity: 1;
-  position: relative;
-  @include breakpoint(sm) {
-    font-size: 0.73rem;
-  }
-  @include breakpoint(lg) {
-    font-size: 1rem;
-  }
-  @include breakpoint(xlg) {
-    font-size: 1.6rem;
-  }
 }
 
 .home-hero-maturity-rating {
@@ -317,8 +301,8 @@
     padding: 0.9rem 3rem 0.9rem 0.7rem;
   }
   @include breakpoint(xlg) {
-    height: 4.5rem;
-    font-size: 1.9rem;
-    padding: 0.9rem 3rem 0.9rem 0.7rem;
+    height: 4rem;
+    font-size: 1.4rem;
+    padding: 0.9rem 8rem 0.9rem 0.7rem;
   }
 }

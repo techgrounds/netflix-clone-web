@@ -4,8 +4,8 @@ export const IconInfo = () => {
       xmlns='http://www.w3.org/2000/svg'
       aria-hidden='true'
       role='img'
-      width='3em'
-      height='3em'
+      width='2em'
+      height='2em'
       preserveAspectRatio='xMidYMid meet'
       viewBox='0 0 1024 1024'>
       <path

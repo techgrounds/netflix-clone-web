@@ -10,6 +10,9 @@
   position: relative;
   box-shadow: 1px 20px 20px rgba(0, 0, 0, 0.5);
   font-size: 0.9rem;
+  @include breakpoint(xlg) {
+    height: 35rem;
+  }
 }
 
 .top-container {
@@ -44,6 +47,7 @@
   animation-fill-mode: forwards;
 }
 
+<<<<<<< HEAD
 .volume-button {
   align-items: center;
   appearance: none;
@@ -66,6 +70,8 @@
   }
 }
 
+=======
+>>>>>>> 7001cdb9146392c6b914b5d19ca1979fbe1e82ce
 .bottom-container {
   padding: 0 1em;
   background: #1b1b1b;
