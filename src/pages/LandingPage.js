@@ -6,15 +6,13 @@ import Loader from "../components/Loader";
 
 
 const LandingPage = () => {
-  document.readyState === "complete" ?
+  // document.readyState === "complete" ?
   return (
     <div className="landingPage">
       <LandingHero />
       <FooterLandingPage />
-      }
     </div>
   );
-  : <Loader />
 }
 
 
