@@ -47,6 +47,7 @@ const FilmInfoModal = ({
     releaseDate,
     writers,
   } = movieDetails
+
   const handleKeyPress = useCallback(
     (event) => {
       if (event.key === 'Escape' && isModalVisible) {
