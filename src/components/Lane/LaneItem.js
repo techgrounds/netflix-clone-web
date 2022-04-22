@@ -21,7 +21,7 @@ export const LaneItem = ({
 
   const movieLogoCheck = () => {
   if (movie.logo === "") {return movie.title};
-  if (movie.logo != "") {return <img src={movie.logo} />};
+  if (movie.logo !== "") {return <img src={movie.logo} />};
   }
 
 

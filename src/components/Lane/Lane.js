@@ -45,7 +45,6 @@ const Lane = ({ laneTitle, movies, mute, setMute }) => {
       )
     })
 
-
   const arrayFromFirstLane = midLane.filter(
     (movie, index) => index < size.length + 1
   )

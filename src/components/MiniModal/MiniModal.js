@@ -23,7 +23,7 @@ const MiniModal = ({
   const youtubeId = trailer.substr(32)
   const movieLogoCheck = () => {
     if (movie.logo === "") {return movie.title};
-    if (movie.logo != "") {return <div className='movieLogoBig'><img src={movie.logo} /></div>};
+    if (movie.logo !== "") {return <div className='movieLogoBig'><img src={movie.logo} /></div>};
     }
 
   useEffect(() => {
