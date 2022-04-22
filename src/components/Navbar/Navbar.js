@@ -3,6 +3,7 @@ import { useState, useRef } from 'react'
 import { NavLink } from 'react-router-dom'
 import SearchBar from '../SearchBar/SearchBar'
 import { useOnClickOutside } from './ClickOutsideHook'
+import { genreGridActive } from "../../redux/genres/genres.actions";
 
 //language
 import { useContext } from 'react'
@@ -25,8 +26,10 @@ import Miki from '../../assets/images/miki.jpg'
 import Alfi from '../../assets/images/alfiya.jpg'
 import Wesley from '../../assets/images/wesley.jpg'
 import Carolyn from '../../assets/images/carolyn.webp'
+import { useDispatch } from 'react-redux'
 
 const Navbar = () => {
+  const dispatch = useDispatch()
   const [dropdown, setDropdown] = useState(false)
   const [isClicked, setIsClicked] = useState(false)
   const [notifications, setNotifications] = useState(false)
@@ -130,6 +133,7 @@ const Navbar = () => {
           <li className='navigation-tab'>
             <NavLink
               to='/genre'
+              onClick={() => { dispatch(genreGridActive(false)) }}
               className={({ isActive }) =>
                 isActive ? activeClassName : undefined
               }>

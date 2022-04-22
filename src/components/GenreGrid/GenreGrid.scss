@@ -71,66 +71,66 @@
   cursor: pointer;
   animation: miniModalGrowLeft 1000ms;
 }
-.rightModal {
-  position: absolute;
-  z-index: 1;
-  transform: translateX(-60px);
-  cursor: pointer;
-  animation: miniModalGrowRight 1000ms;
-}
+// .rightModal {
+//   position: absolute;
+//   z-index: 1;
+//   transform: translateX(-60px);
+//   cursor: pointer;
+//   animation: miniModalGrowRight 1000ms;
+// }
 
-@keyframes miniModalGrowRight {
-  0% {
-    transform: scale(0.65) translateY(5vw);
-    opacity: 0;
-  }
-  80% {
-    transform: scale(0.65) translateY(5vw);
-    opacity: 0;
-  }
-  81% {
-    transform: scale(0.65) translateY(5vw);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(-60px) scale(1);
-  }
-}
+// @keyframes miniModalGrowRight {
+//   0% {
+//     transform: scale(0.65) translateY(5vw);
+//     opacity: 0;
+//   }
+//   80% {
+//     transform: scale(0.65) translateY(5vw);
+//     opacity: 0;
+//   }
+//   81% {
+//     transform: scale(0.65) translateY(5vw);
+//     opacity: 1;
+//   }
+//   100% {
+//     transform: translateX(-60px) scale(1);
+//   }
+// }
 
-@keyframes miniModalGrowLeft {
-  0% {
-    transform: scale(0.65) translateY(5vw);
-    opacity: 0;
-  }
-  80% {
-    transform: scale(0.65) translateY(5vw);
-    opacity: 0;
-  }
-  81% {
-    transform: scale(0.65) translateY(5vw);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(60px) scale(1);
-  }
-}
+// @keyframes miniModalGrowLeft {
+//   0% {
+//     transform: scale(0.65) translateY(5vw);
+//     opacity: 0;
+//   }
+//   80% {
+//     transform: scale(0.65) translateY(5vw);
+//     opacity: 0;
+//   }
+//   81% {
+//     transform: scale(0.65) translateY(5vw);
+//     opacity: 1;
+//   }
+//   100% {
+//     transform: translateX(60px) scale(1);
+//   }
+// }
 
-@keyframes miniModalGrow {
-  0% {
-    transform: scale(0.65);
-    opacity: 0;
-  }
-  80% {
-    transform: scale(0.65) translateY(5vw);
-    opacity: 0;
-  }
-  81% {
-    transform: scale(0.65) translateY(5vw);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1);
-  }
-}
+// @keyframes miniModalGrow {
+//   0% {
+//     transform: scale(0.65);
+//     opacity: 0;
+//   }
+//   80% {
+//     transform: scale(0.65) translateY(5vw);
+//     opacity: 0;
+//   }
+//   81% {
+//     transform: scale(0.65) translateY(5vw);
+//     opacity: 1;
+//   }
+//   100% {
+//     transform: scale(1);
+//   }
+// }
 
 

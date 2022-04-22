@@ -9,6 +9,7 @@ import searchReducer from './search/search.reducer';
 const persistConfig = {
   key: 'root',
   storage,
+  blacklist: 'gridActive'
 };
 
 const rootReducer = combineReducers({
