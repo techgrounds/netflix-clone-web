@@ -10,7 +10,7 @@ import {
 import { IconInfo } from '../Icons/IconInfo'
 import ButtonMute from '../ButtonMute/ButtonMute'
 import { IconPlayBlack } from '../Icons/IconPlayBlack'
-import { IconKijkWijzer16 } from '../Icons/IconKijkWijzer16'
+import KijkWijzer from '../KijkWijzer/KijkWijzer'
 import FilmInfoModal from '../FilmInfoModal/FilmInfoModal'
 import FilmInfoModalVideo from '../FilmInfoModalVideo/FilmInfoModalVideo'
 
@@ -62,7 +62,7 @@ const HomeHero = ({ setIsVideoPlaying, isVideoPlaying, mute, setMute }) => {
                 />
               ) : (
                 <img
-                  src={`https://image.tmdb.org/t/p/original${movieData.imageHR}`}
+                  src={`https://image.tmdb.org/t/p/original${movieData?.imageHR}`}
                   className='home-hero-trailer'
                   alt='movie'
                 />
@@ -77,7 +77,7 @@ const HomeHero = ({ setIsVideoPlaying, isVideoPlaying, mute, setMute }) => {
                 </button>
               </div>
               <div className='home-hero-maturity-rating'>
-                <IconKijkWijzer16 />
+                <KijkWijzer value={movieData?.rating} />
               </div>
             </div>
           </div>

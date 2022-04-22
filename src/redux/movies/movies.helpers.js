@@ -1,7 +1,7 @@
 // import { v4 as uuidv4 } from "uuid";
 
 export const transformMovieData = (moviesObject) => {
-  const movies = []
+  const movies = [];
 
   Object.entries(moviesObject).forEach(([key, value]) => {
     let filteredMovies = value.categoryDetails
@@ -15,21 +15,23 @@ export const transformMovieData = (moviesObject) => {
           poster: movie.posterUrls[0],
           trailer: movie.trailerUrl,
           runtime: movie.runtime,
-          rating: movie.rating[0],
+          rating: movie.rating,
           logo: movie.logo,
           keywords: movie.keywords,
-        }
+        };
       })
-      .filter((movie) => movie.trailer)
+      .filter((movie) => movie.trailer);
+
+    console.log(filteredMovies);
 
     let editedGenre =
-      key.split('Movies')[0].charAt(0).toUpperCase() +
-      key.split('Movies')[0].slice(1)
+      key.split("Movies")[0].charAt(0).toUpperCase() +
+      key.split("Movies")[0].slice(1);
 
     movies.push({
       genre: editedGenre,
       movies: filteredMovies,
-    })
-  })
-  return movies
-}
+    });
+  });
+  return movies;
+};

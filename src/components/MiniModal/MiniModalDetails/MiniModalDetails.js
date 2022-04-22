@@ -8,7 +8,7 @@ import ButtonRating from '../../ButtonRating/ButtonRating'
 import ButtonAdd from '../../ButtonAdd/ButtonAdd'
 import ButtonCheck from '../../ButtonCheck/ButtonCheck'
 import FilmInfoModal from '../../FilmInfoModal/FilmInfoModal'
-import { v4 as uuidv4 } from 'uuid'
+import KijkWijzer from '../../KijkWijzer/KijkWijzer'
 
 const MiniModalDetails = ({ runtime, rating, keywords, setIsVideoPlaying }) => {
   const [isChecked, setIsChecked] = useState(false)
@@ -44,7 +44,9 @@ const MiniModalDetails = ({ runtime, rating, keywords, setIsVideoPlaying }) => {
       </div>
       <div className='info-container'>
         <span className='match'>98% Match</span>
-        <span className='maturity-rating'>{rating ? rating : '7'}</span>
+        <span className='maturity-rating'>
+          <KijkWijzer value={rating} />
+        </span>
         <span className='duration'>{runtime ? runtime : '1h 34m'}</span>
         <span className='feature-badge'>HD</span>
       </div>
