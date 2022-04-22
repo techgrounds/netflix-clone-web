@@ -38,7 +38,7 @@ const MiniModal = ({
   const [start, setStart] = useState(false)
   const [mute, setMute] = useState(false)
 
-  const remove = async () => {
+  const remove = () => {
     setStart(true)
     gsap.to(boxRef.current, {
       opacity: 0,

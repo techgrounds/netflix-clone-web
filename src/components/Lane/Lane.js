@@ -25,7 +25,11 @@ const Lane = ({ laneTitle, movies, mute, setMute }) => {
         startSwitch > 0
           ? (movies.length - size.length + activeIndex - 1) % movies.length
           : 0
-      const rightIndex = leftIndex + (size.length - 1)
+      const rightIndex =
+        // leftIndex + (size.length - 1) < size.length ?
+        leftIndex + (size.length - 1)
+        // : (leftIndex + (size.length - 1)) - size.length
+
       return (
         <LaneItem
           key={movie.id}
