@@ -93,4 +93,7 @@
   @include breakpoint(md) {
     left: 89%;
   }
+  @include breakpoint(xlg) {
+    left: 94%;
+  }
 }

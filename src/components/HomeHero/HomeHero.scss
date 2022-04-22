@@ -20,7 +20,7 @@
     padding-bottom: 50%;
   }
   @include breakpoint(xlg) {
-    padding-bottom: 65%;
+    padding-bottom: 45%;
   }
 }
 
@@ -304,8 +304,8 @@
     padding: 0.9rem 3rem 0.9rem 0.7rem;
   }
   @include breakpoint(xlg) {
-    height: 4.5rem;
-    font-size: 1.9rem;
-    padding: 0.9rem 3rem 0.9rem 0.7rem;
+    height: 4rem;
+    font-size: 1.4rem;
+    padding: 0.9rem 8rem 0.9rem 0.7rem;
   }
 }
