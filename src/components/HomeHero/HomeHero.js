@@ -22,8 +22,6 @@ const HomeHero = ({ setIsVideoPlaying, isVideoPlaying, mute, setMute }) => {
   const movieData = useSelector((state) => state.movies.heroMovie)
   const isModalOpen = useSelector((state) => state.movies.movieInfoModal)
 
-  console.log('movieData', movieData)
-
   useEffect(() => {
     timeline.current = gsap
       .timeline()
@@ -32,9 +30,10 @@ const HomeHero = ({ setIsVideoPlaying, isVideoPlaying, mute, setMute }) => {
         selector('.title-wrapper'),
         {
           duration: 2,
-          delay: 25,
+          delay: 125,
           ease: 'power4.out',
-          yPercent: '30',
+          yPercent: '35',
+          xPercent: '-18',
           scale: 0.8,
           transformOrigin: 'left bottom',
         },
@@ -44,7 +43,7 @@ const HomeHero = ({ setIsVideoPlaying, isVideoPlaying, mute, setMute }) => {
         selector('.info-wrapper'),
         {
           opacity: 0,
-          delay: 25,
+          delay: 125,
           ease: 'power4',
         },
         'start'

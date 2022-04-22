@@ -43,6 +43,7 @@ const FilmInfoModal = ({ setIsVideoPlaying }) => {
     setMute,
     mute,
   } = movieDetails
+
   const handleKeyPress = useCallback(
     (event) => {
       if (event.key === 'Escape' && isModalVisible) {
@@ -115,7 +116,7 @@ const FilmInfoModal = ({ setIsVideoPlaying }) => {
                   />
                 </div>
                 <div className='modal-suggestions'>
-                  <FilmInfoModalSuggestions movieData={movieData} />
+                  <FilmInfoModalSuggestions />
                 </div>
               </div>
               <div className='modal-footer'>

@@ -20,6 +20,7 @@ const MiniModal = ({
   rating,
   runtime,
   movie,
+  keywords,
   updateZIndexRef,
   setIsVideoPlaying,
 }) => {
@@ -81,6 +82,7 @@ const MiniModal = ({
         <MiniModalDetails
           runtime={runtime}
           rating={rating}
+          keywords={keywords}
           setIsVideoPlaying={setIsVideoPlaying}
         />
       </div>
