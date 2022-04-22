@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux"
 import { changeAccount } from "../../redux/account/account.action"
 import { useContext } from "react"
 import { AccountContext } from "../../redux/account/account.context"
-import img from "../../assets/images/accounts/alfijah.jpg"
 
 const accountData = require("../../assets/accountData.json")
 
@@ -12,7 +11,7 @@ const AccountMenu = () => {
   const dispatch = useDispatch()
   console.log(accountData)
   const { account, setAccount } = useContext(AccountContext)
-  console.log(img)
+  console.log(account)
 
   const customAccount = accountData.map((profile) => {
     console.log(profile.name)
