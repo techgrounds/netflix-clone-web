@@ -2,8 +2,10 @@
   // background: red;
   width: 100%;
   position: relative;
-height: 150px;
+  height: 120px;
 
+// height: 120%;
+// border: 1px solid red;
 }
 
 .loader__track {
@@ -14,11 +16,11 @@ height: 150px;
 }
 .loader__items {
   height: 100%;
-
+  aspect-ratio:16/9;
   flex: 1;
   margin:0 10px;
   // border: 2px solid red;
-  background:    rgba(177, 6, 15,1);
+  background:    #b1060f;
   background-image: url("https://images.unsplash.com/photo-1456796148441-485386946471?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
   background-size: cover;
   background-repeat: no-repeat;

@@ -3,13 +3,15 @@ import React from "react";
 import LandingHero from "./../components/LandingHero/LandingHero";
 import FooterLandingPage from "../components/FooterLandingPage/FooterLandingPage";
 
-import Loader from "../components/Loader";
+import MiniLoader from "../components/Loader/MiniLoader";
 
 const LandingPage = () => {
   return (
     <div className="landingPage">
       <LandingHero />
-      <Loader />
+      <MiniLoader  size={60}/>
+
+
       <FooterLandingPage />
     </div>
   );
