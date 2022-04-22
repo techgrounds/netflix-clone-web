@@ -27,7 +27,7 @@ const FilmInfoModalDetails = ({
           <div style={{ marginBottom: '1em' }}></div>
           <p className='modal-details-description'>{movieData?.desc}</p>
         </div>
-        <div className='details-right'>
+        <div className='modal-details-right'>
           <FilmInfoModalDetailsItem tagLabel='Actors' tagItems={actors} />
           <FilmInfoModalDetailsItem tagLabel='Genres' tagItems={genres} />
           <FilmInfoModalDetailsItem tagLabel='Director' tagItems={directors} />

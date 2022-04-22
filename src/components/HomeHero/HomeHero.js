@@ -30,10 +30,9 @@ const HomeHero = ({ setIsVideoPlaying, isVideoPlaying, mute, setMute }) => {
         selector('.title-wrapper'),
         {
           duration: 2,
-          delay: 125,
+          delay: 5,
           ease: 'power4.out',
-          yPercent: '35',
-          xPercent: '-17',
+          yPercent: '55',
           scale: 0.8,
           transformOrigin: 'left bottom',
         },
@@ -43,7 +42,7 @@ const HomeHero = ({ setIsVideoPlaying, isVideoPlaying, mute, setMute }) => {
         selector('.info-wrapper'),
         {
           opacity: 0,
-          delay: 125,
+          delay: 5,
           ease: 'power4',
         },
         'start'
@@ -85,7 +84,7 @@ const HomeHero = ({ setIsVideoPlaying, isVideoPlaying, mute, setMute }) => {
             <div className='home-hero-info'>
               <div className='logo-and-text'>
                 <div className='title-wrapper'>
-                  <img src={movieData?.logo} />
+                  <img className='title-logo' src={movieData?.logo} />
                 </div>
                 <div className='info-wrapper'>
                   <TextTruncate line={3} text={movieData?.desc} />

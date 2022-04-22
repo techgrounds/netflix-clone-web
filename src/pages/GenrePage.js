@@ -13,7 +13,7 @@ const HomePage = () => {
   const allMoviesSelector = useSelector((state) => state.genres.allGenres)
   const movieData = useSelector((state) => state.movies.movie)
 
-  console.log(allMoviesSelector)
+  console.log('ALL MOVIE SELECTOR', allMoviesSelector)
 
   useEffect(() => {
     dispatch(fetchGenresResultsAsync())

@@ -11,12 +11,17 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  @include breakpoint(xlg) {
+    position: absolute;
+    bottom: 0;
+  }
 }
 .footerContainer {
   font-family: 'NetflixSansThin', sans-serif;
   color: var(--gray);
   display: flex;
   flex-direction: column;
+
   @include breakpoint(sm) {
     max-width: 100%;
     margin: 0 auto;
@@ -57,10 +62,9 @@
   height: 4em;
   width: 13em;
   margin: 1em 0 1.5em 0;
-  opacity: .6;
+  opacity: 0.6;
   div select {
-    font-family: "NetflixSansThin";
+    font-family: 'NetflixSansThin';
     font-size: 1em;
   }
 }
-
