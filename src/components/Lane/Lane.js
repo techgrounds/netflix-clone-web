@@ -30,6 +30,8 @@ const Lane = ({ laneTitle, movies, mute, setMute }) => {
         leftIndex + (size.length - 1)
         // : (leftIndex + (size.length - 1)) - size.length
 
+      if (leftIndex + (size.length - 1) > size.length) console.log("probleem!")
+
       return (
         <LaneItem
           key={movie.id}

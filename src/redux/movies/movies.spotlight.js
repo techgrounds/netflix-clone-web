@@ -55,20 +55,6 @@ export const spotlightMovies = [
     trailer: 'https://www.youtube.com/watch?v=foyufD52aog',
   },
   {
-    desc: 'Joe Gardner is a middle school teacher with a love for jazz music. After a successful audition at the Half Note Club, he suddenly gets into an accident that separates his soul from his body and is transported to the You Seminar, a center in which souls develop and gain passions before being transported to a newborn child. Joe must enlist help from the other souls-in-training, like 22, a soul who has spent eons in the You Seminar, in order to get back to Earth.',
-    id: 508442,
-    image: 'https://image.tmdb.org/t/p/w300/rQaHA74pevnGsxcKGaoZVGWe9TC.jpg',
-    imageHR:
-      'https://image.tmdb.org/t/p/original/rQaHA74pevnGsxcKGaoZVGWe9TC.jpg',
-
-    logo: 'http://assets.fanart.tv/fanart/movies/508442/hdmovielogo/untitled-pixar-animation-project-5d110c993436a.png',
-    poster: 'https://image.tmdb.org/t/p/w500/hm58Jw4Lw8OIeECIq5qyPYhAeRJ.jpg',
-    rating: '6',
-    runtime: '1h 41m',
-    title: 'Soul',
-    trailer: 'https://www.youtube.com/watch?v=Gs--6c7Hn_A',
-  },
-  {
     desc: 'Luca and his best friend Alberto experience an unforgettable summer on the Italian Riviera. But all the fun is threatened by a deeply-held secret: they are sea monsters from another world just below the water’s surface.',
     id: 508943,
     image: 'https://image.tmdb.org/t/p/w300/zdT9pVcXEKo2wpQb4HDPRWMQXvp.jpg',

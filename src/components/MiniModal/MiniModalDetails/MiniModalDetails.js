@@ -8,6 +8,7 @@ import ButtonRating from '../../ButtonRating/ButtonRating'
 import ButtonAdd from '../../ButtonAdd/ButtonAdd'
 import ButtonCheck from '../../ButtonCheck/ButtonCheck'
 import FilmInfoModal from '../../FilmInfoModal/FilmInfoModal'
+import { v4 as uuidv4 } from 'uuid'
 
 const MiniModalDetails = ({ runtime, rating, keywords, setIsVideoPlaying }) => {
   const [isChecked, setIsChecked] = useState(false)
@@ -48,12 +49,12 @@ const MiniModalDetails = ({ runtime, rating, keywords, setIsVideoPlaying }) => {
         <span className='feature-badge'>HD</span>
       </div>
       <div className='tag-container'>
-        {keywords.map((keyword, i) => (
+        {keywords.map((keyword, id) => (
           <>
-            <span key={i} className='tag-item-mini'>
+            <span key={id} className='tag-item-mini'>
               {keyword}
             </span>
-            {i !== keywords.length - 1 && (
+            {id !== keywords.length - 1 && (
               <span className='tag-item-circle'>•</span>
             )}
           </>
