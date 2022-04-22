@@ -11,7 +11,7 @@ import FilmInfoModalSuggestions from '../FilmInfoModalSuggestions/FilmInfoModalS
 import FilmInfoModalFooter from '../FilmInfoModalFooter/FilmInfoModalFooter'
 import { fetchMovieDetailsAsync } from '../../redux/movies/movies.actions'
 
-const FilmInfoModal = ({ setIsVideoPlaying }) => {
+const FilmInfoModal = ({ setIsVideoPlaying, setMute, mute }) => {
   const dispatch = useDispatch()
   const modalQuit = useRef()
   const isModalVisible = useSelector((state) => state.movies.movieInfoModal)
@@ -40,8 +40,6 @@ const FilmInfoModal = ({ setIsVideoPlaying }) => {
     genres,
     releaseDate,
     writers,
-    setMute,
-    mute,
   } = movieDetails
 
   const handleKeyPress = useCallback(

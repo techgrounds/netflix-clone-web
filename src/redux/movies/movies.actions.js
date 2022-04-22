@@ -70,8 +70,6 @@ export const fetchMoviesResultsAsync = () => {
 
       const movies = allMovies[randomMovieSet].movies
 
-      console.log('MOVIES', movies)
-
       const selectRandomMovie = Math.floor(Math.random() * 5)
 
       const singleMovie = spotlightMovies[selectRandomMovie]

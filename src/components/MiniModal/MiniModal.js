@@ -4,19 +4,14 @@ import gsap from 'gsap'
 import MiniModalVideo from '../MiniModalVideo/MiniModalVideo'
 import ButtonMute from '../ButtonMute/ButtonMute'
 import { useState, useRef, useEffect } from 'react'
-import {
-  fetchMovieDetailsAsync,
-  fetchSingleMovie,
-} from '../../redux/movies/movies.actions'
-import { useSelector, useDispatch } from 'react-redux'
+import { fetchSingleMovie } from '../../redux/movies/movies.actions'
+import { useDispatch } from 'react-redux'
 
 const MiniModal = ({
   setLoadMovie,
   moviePoster,
   movieTitle,
   trailer,
-  mute,
-  setMute,
   rating,
   runtime,
   movie,
@@ -34,6 +29,7 @@ const MiniModal = ({
   const boxRef = useRef()
   const [active, setActive] = useState(true)
   const [start, setStart] = useState(false)
+  const [mute, setMute] = useState(false)
 
   const remove = async () => {
     setStart(true)

@@ -1,32 +1,28 @@
-import "./ButtonRound.scss";
+import './ButtonRound.scss'
 
-export const ButtonRoundDark = ({children}) => {
+export const ButtonRoundDark = ({ children }) => {
   return (
     <>
-      <button className="buttonRound buttonDark">
+      <button className='buttonRound buttonDark'>{children}</button>
+    </>
+  )
+}
+
+export const ButtonRoundDarkTooltip = ({ children, tooltiptext }) => {
+  return (
+    <>
+      <button className='buttonRound buttonDark buttonTooltip'>
+        <span className='tooltipText'>{tooltiptext}</span>
         {children}
       </button>
     </>
-  );
-};
+  )
+}
 
-export const ButtonRoundDarkTooltip = ({children, tooltiptext}) => {
+export const ButtonRoundLight = ({ children }) => {
   return (
     <>
-      <button className="buttonRound buttonDark buttonTooltip">
-        <span className="tooltipText">{tooltiptext}</span>
-        {children}
-      </button>
+      <button className='buttonRound buttonLight'>{children}</button>
     </>
-  );
-};
-
-export const ButtonRoundLight = ({children}) => {
-  return (
-    <>
-      <button className="buttonRound buttonLight">
-        {children}
-      </button>
-    </>
-  );
-};
+  )
+}
