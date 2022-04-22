@@ -38,6 +38,7 @@ const FilmInfoModal = ({ setIsVideoPlaying, setMute, mute }) => {
     certificationDefinition,
     directors,
     genres,
+
     releaseDate,
     writers,
   } = movieDetails
@@ -108,6 +109,7 @@ const FilmInfoModal = ({ setIsVideoPlaying, setMute, mute }) => {
                   <FilmInfoModalDetails
                     actors={actors}
                     genres={genres}
+                    rating={movieData?.rating}
                     directors={directors}
                     releaseDate={releaseDate}
                     movieData={movieData}

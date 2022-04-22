@@ -65,12 +65,7 @@ export const fetchMoviesResultsAsync = () => {
 
       dispatch(fetchMoviesResultsSuccess(allMovies))
 
-      const randomMovieSet =
-        Math.floor(Math.random() * (allMovies.length - 1)) + 1
-
-      const movies = allMovies[randomMovieSet].movies
-
-      const selectRandomMovie = Math.floor(Math.random() * 5)
+      const selectRandomMovie = (Math.floor(Math.random() * spotlightMovies.length)-1)
 
       const singleMovie = spotlightMovies[selectRandomMovie]
 

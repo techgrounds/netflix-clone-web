@@ -22,8 +22,6 @@ export const transformMovieData = (moviesObject) => {
       })
       .filter((movie) => movie.trailer);
 
-    console.log(filteredMovies);
-
     let editedGenre =
       key.split("Movies")[0].charAt(0).toUpperCase() +
       key.split("Movies")[0].slice(1);
