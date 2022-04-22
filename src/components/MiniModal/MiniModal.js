@@ -21,6 +21,10 @@ const MiniModal = ({
 }) => {
   const dispatch = useDispatch()
   const youtubeId = trailer.substr(32)
+  const movieLogoCheck = () => {
+    if (movie.logo === "") {return movie.title};
+    if (movie.logo != "") {return <div className='movieLogoBig'><img src={movie.logo} /></div>};
+    }
 
   useEffect(() => {
     dispatch(fetchSingleMovie(movie))
@@ -31,7 +35,7 @@ const MiniModal = ({
   const [start, setStart] = useState(false)
   const [mute, setMute] = useState(false)
 
-  const remove = async () => {
+  const remove = () => {
     setStart(true)
     gsap.to(boxRef.current, {
       opacity: 0,
@@ -66,7 +70,7 @@ const MiniModal = ({
 
         <div className='overlay-items'>
           <div className='video-title-wrapper'>
-            <div className='video-title'>{movieTitle}</div>
+            <div className='video-title'>{movieLogoCheck()}</div>
           </div>
 
           <div className='volume-button-wrapper'>
