@@ -306,11 +306,10 @@ const Navbar = () => {
             <div className="account-menu-item" onClick={() => accountMenu()}>
               <button className="account-dropdown-button">
                 <NavLink to="" className="account-link">
-                  <span className="profile-link">
-                    
+                  <span className="profile-link">                    
                     <img
                       src=
-                      {currentAccount.account === "defaultAccount" ? "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" : `${currentAccount.account}.jpg`}
+                      {currentAccount.account === "defaultAccount" ? "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" : `../../assets/images/accounts/${currentAccount.account}.jpg`}
                       alt={currentAccount.account}
                       className="profile-icon"
                     />

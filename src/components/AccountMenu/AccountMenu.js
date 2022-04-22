@@ -2,8 +2,9 @@
 //import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { changeAccount } from "../../redux/account/account.action"
-import { useContext, useEffect } from "react"
+import { useContext } from "react"
 import { AccountContext } from "../../redux/account/account.context"
+import img from "../../assets/images/accounts/alfijah.jpg"
 
 const accountData = require("../../assets/accountData.json")
 
@@ -11,12 +12,10 @@ const AccountMenu = () => {
   const dispatch = useDispatch()
   console.log(accountData)
   const { account, setAccount } = useContext(AccountContext)
-  console.log(account)
-  
-  
+  console.log(img)
 
   const customAccount = accountData.map((profile) => {
-      console.log(profile.name)
+    console.log(profile.name)
     return (
       <li
         className="sub-menu-item profile"
@@ -29,7 +28,7 @@ const AccountMenu = () => {
             <div className="avatar-wrapper">
               <img
                 className="profile-icon custom-profile-icon"
-                src={`../../assets/images/accounts/${profile.img}`}
+                src={`url(../../assets/images/accounts/${profile.img})`}
                 alt={profile.name}
               />
             </div>
