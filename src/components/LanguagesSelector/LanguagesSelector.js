@@ -1,19 +1,14 @@
 import './LanguagesSelector.scss'
-
 import { useSelector, useDispatch } from 'react-redux'
 import { useContext, useEffect, useState } from 'react'
-
 import { LangContext } from '../../redux/languages/languages.context'
 import { changeLanguage } from '../../redux/languages/languages.actions'
-
 import { IconWorld } from '../Icons/IconWorld'
 
 const LanguagesSelector = () => {
   const currentLanguage = useSelector((state) => state.language.language)
-  console.log('currentLanguage: ', currentLanguage)
   const dispatch = useDispatch()
   const { language, setLanguage } = useContext(LangContext)
-
   const handleChange = (e) => {
     setLanguage(e.target.value)
   }

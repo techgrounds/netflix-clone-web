@@ -1,11 +1,13 @@
 import { useEffect, useRef } from "react";
 import "./Loader.scss";
 import gsap from "gsap";
+import useWindowSize from "../Lane/WindowSize";
 
 
 const Loader = () => {
   const el = useRef();
   const q = gsap.utils.selector(el);
+  const size = useWindowSize()
 
   useEffect(() => {
     // Target ALL descendants with the class of .box
@@ -28,27 +30,31 @@ const Loader = () => {
   return (
     <div className="loader">
       <ul className="loader__track" ref={el}>
-        <li className="loader__items">
+        <li className="loader__items"
+         style={{ height: `${size.itemHeight}vw`, width: `${size.itemWidth}vw` }}>
           <div className="loader__content">
 
           {/* <img src="https://images.unsplash.com/photo-1456796148441-485386946471?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="" className="cat-dummy" /> */}
-            
+
           </div>
         </li>
-        <li className="loader__items">
+        <li className="loader__items"
+         style={{ height: `${size.itemHeight}vw`, width: `${size.itemWidth}vw` }}>
           <div className="loader__content">
 
-{/* <img src="https://images.unsplash.com/photo-1456796148441-485386946471?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="" className="cat-dummy" /> */}
-            
+          {/* <img src="https://images.unsplash.com/photo-1456796148441-485386946471?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="" className="cat-dummy" /> */}
+
           </div>
         </li>
-        <li className="loader__items">
+        <li className="loader__items"
+         style={{ height: `${size.itemHeight}vw`, width: `${size.itemWidth}vw` }}>
           <div className="loader__content">
 
           {/* <img src="https://images.unsplash.com/photo-1456796148441-485386946471?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="" className="cat-dummy" /> */}
           </div>
         </li>
-        <li className="loader__items">
+        <li className="loader__items"
+         style={{ height: `${size.itemHeight}vw`, width: `${size.itemWidth}vw` }}>
           <div className="loader__content">
           {/* <img src="https://images.unsplash.com/photo-1456796148441-485386946471?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="" className="cat-dummy" /> */}
 
