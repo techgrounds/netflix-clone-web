@@ -1,11 +1,13 @@
 import './FilmInfoModalDetails.scss'
 import FilmInfoModalDetailsItem from '../FilmInfoModalDetailsItem/FilmInfoModalDetailsItem'
+import KijkWijzer from '../KijkWijzer/KijkWijzer'
 
 const FilmInfoModalDetails = ({
   actors,
   releaseDate,
   directors,
   genres,
+  rating,
   movieData,
   certification,
 }) => {
@@ -16,6 +18,9 @@ const FilmInfoModalDetails = ({
           <div className='modal-details-first-line'>
             <span className='match-title'>97% Match</span>
             <span className='release-title'>{releaseDate}</span>
+            <span className='release-title'>
+              <KijkWijzer value={rating} />
+            </span>
             <div className='details-icons'>{certification}</div>
             <span className='duration-title'>{movieData?.runtime}</span>
           </div>

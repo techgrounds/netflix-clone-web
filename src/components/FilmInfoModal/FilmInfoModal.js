@@ -25,6 +25,8 @@ const FilmInfoModal = ({ setIsVideoPlaying, setMute, mute }) => {
 
   const movieData = useSelector((state) => state.movies.movie)
 
+  console.log('MOVIE DATA', movieData)
+
   useEffect(() => {
     dispatch(fetchMovieDetailsAsync(movieData?.id))
   }, [movieData?.id])
@@ -38,6 +40,7 @@ const FilmInfoModal = ({ setIsVideoPlaying, setMute, mute }) => {
     certificationDefinition,
     directors,
     genres,
+    rating,
     releaseDate,
     writers,
   } = movieDetails
@@ -108,6 +111,7 @@ const FilmInfoModal = ({ setIsVideoPlaying, setMute, mute }) => {
                   <FilmInfoModalDetails
                     actors={actors}
                     genres={genres}
+                    rating={rating}
                     directors={directors}
                     releaseDate={releaseDate}
                     movieData={movieData}
@@ -123,6 +127,7 @@ const FilmInfoModal = ({ setIsVideoPlaying, setMute, mute }) => {
                   genres={genres}
                   directors={directors}
                   writers={writers}
+                  rating={rating}
                   certification={certificationDefinition}
                   movieData={movieData}
                 />
