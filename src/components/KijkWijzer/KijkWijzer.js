@@ -6,7 +6,7 @@ import { IconKijkWijzer16 } from '../Icons/IconKijkWijzer16'
 const KijkWijzer = ({ value }) => {
   function CheckAge(props) {
     switch (props.value) {
-      case 'all':
+      case 'AL':
         return <IconKijkWijzerAll />
       case '6':
         return <IconKijkWijzer6 />

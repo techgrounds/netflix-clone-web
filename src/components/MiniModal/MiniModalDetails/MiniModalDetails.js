@@ -51,7 +51,7 @@ const MiniModalDetails = ({ runtime, rating, keywords, setIsVideoPlaying }) => {
         <span className='feature-badge'>HD</span>
       </div>
       <div className='tag-container'>
-        {keywords.map((keyword, i) => (
+        {keywords?.map((keyword, i) => (
           <>
             <span key={i} className='tag-item-mini'>
               {keyword}
