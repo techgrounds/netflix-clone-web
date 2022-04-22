@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar/Navbar'
 import './assets/scss/main.scss'
-import React, { useState } from "react";
+import React, { useState } from 'react'
 import { LangProvider } from './redux/languages/languages.context'
 import ScrollToTop from './components/ScrollToTop'
 import LandingPage from './pages/LandingPage'
@@ -13,7 +13,7 @@ import SignInPage from './pages/SignInPage'
 import HeaderGenre from './components/HeaderGenre/HeaderGenre'
 
 function App() {
-  const [mute, setMute] = useState(false);
+  // const [mute, setMute] = useState(false);
   return (
     <div className='App'>
       <LangProvider>
@@ -27,8 +27,9 @@ function App() {
                   <>
                     <Navbar />
                     <HomePage
-                    mute={mute}
-                    setMute={setMute}/>
+                    // mute={mute}
+                    // setMute={setMute}
+                    />
                   </>
                 }
               />
@@ -39,8 +40,8 @@ function App() {
                     <Navbar />
                     <HeaderGenre />
                     <GenrePage
-                    mute={mute}
-                    setMute={setMute}/>
+                    // mute={mute} setMute={setMute}
+                    />
                   </>
                 }
               />
@@ -64,4 +65,3 @@ function App() {
 }
 
 export default App
-

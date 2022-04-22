@@ -23,10 +23,6 @@
     margin-bottom: -95vh;
     top: -55vh;
   }
-  @include breakpoint(xlg) {
-    padding: 13em 0;
-    margin-bottom: -350px;
-  }
 }
 .lane {
   position: relative;

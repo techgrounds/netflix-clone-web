@@ -1,85 +1,85 @@
-import { moviesActionTypes } from "./movies.types";
-import requests from "../../requests";
-import axios from "../../axiosInstance";
-import { transformMovieData } from "./movies.helpers";
-import { spotlightMovies } from "./movies.spotlight"
+import { moviesActionTypes } from './movies.types'
+import requests from '../../requests'
+import axios from '../../axiosInstance'
+import { transformMovieData } from './movies.helpers'
+import { spotlightMovies } from './movies.spotlight'
 
 export const fetchMoviesResultsRequest = () => ({
   type: moviesActionTypes.FETCH_MOVIES_RESULTS_REQUEST,
-});
+})
 
 export const fetchMoviesResultsSuccess = (allMovies) => ({
   type: moviesActionTypes.FETCH_MOVIES_RESULTS_SUCCESS,
   payload: allMovies,
-});
+})
 
 export const saveMovieDetails = (movieDetails) => ({
   type: moviesActionTypes.FETCH_MOVIE_DETAILS,
   payload: movieDetails,
-});
+})
 
 export const fetchSingleMovie = (movie) => ({
   type: moviesActionTypes.FETCH_SINGLE_MOVIE,
   payload: movie,
-});
+})
 
 export const saveHeroMovie = (movie) => ({
   type: moviesActionTypes.SAVE_HERO_MOVIE,
   payload: movie,
-});
+})
 export const fetchMoviesResultsFailure = (errorMessage) => ({
   type: moviesActionTypes.FETCH_MOVIES_RESULTS_FAILURE,
   payload: errorMessage,
-});
+})
 
 export const movieInfoModalToggle = (bool) => ({
   type: bool
     ? moviesActionTypes.MOVIE_INFO_MODAL_OPEN
     : moviesActionTypes.MOVIE_INFO_MODAL_CLOSE,
   payload: bool,
-});
+})
 
 export const fetchMovieDetailsAsync = (id) => {
   return async (dispatch) => {
     try {
       const requestDetails = await axios.get(
         `${requests.fetchDiscover}/movie?id=${id}`
-      );
-      const movieDetails = requestDetails.data;
+      )
+      const movieDetails = requestDetails.data
 
-      dispatch(saveMovieDetails(movieDetails));
+      dispatch(saveMovieDetails(movieDetails))
     } catch (err) {
-      console.log(err);
+      console.log(err)
     }
-  };
-};
+  }
+}
 
 export const fetchMoviesResultsAsync = () => {
   return async (dispatch) => {
-    dispatch(fetchMoviesResultsRequest());
+    dispatch(fetchMoviesResultsRequest())
 
     try {
-      const request = await axios.get(requests.fetchDiscover);
+      const request = await axios.get(requests.fetchDiscover)
 
-      const allMovies = transformMovieData(request.data);
+      const allMovies = transformMovieData(request.data)
 
-      dispatch(fetchMoviesResultsSuccess(allMovies));
+      dispatch(fetchMoviesResultsSuccess(allMovies))
 
       const randomMovieSet =
-        Math.floor(Math.random() * (allMovies.length - 1)) + 1;
+        Math.floor(Math.random() * (allMovies.length - 1)) + 1
 
-      const movies = allMovies[randomMovieSet].movies;
+      const movies = allMovies[randomMovieSet].movies
 
-      const selectRandomMovie = Math.floor(Math.random() * 5);
+      const selectRandomMovie = Math.floor(Math.random() * 5)
 
-      const singleMovie = spotlightMovies[selectRandomMovie];
+      const singleMovie = spotlightMovies[selectRandomMovie]
 
-      dispatch(saveHeroMovie(singleMovie));
+      dispatch(saveHeroMovie(singleMovie))
     } catch (err) {
-      dispatch(fetchMoviesResultsFailure(err.message));
+      dispatch(fetchMoviesResultsFailure(err.message))
     }
-  };
-};
+  }
+}
 
 /////////////
 //REMOVE NULL FROM LINK!

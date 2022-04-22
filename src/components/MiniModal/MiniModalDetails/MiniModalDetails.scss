@@ -1,4 +1,5 @@
 @import '../../../assets/scss/mixins';
+
 .minimodal-button-wrapper {
   display: flex;
   justify-content: space-between;
@@ -33,6 +34,7 @@
     }
   }
 }
+
 .left-content {
   position: relative;
   display: flex;
@@ -43,11 +45,13 @@
     width: 0%;
   }
 }
+
 .right-content {
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
+
 .info-container {
   display: flex;
   justify-content: space-between;
@@ -57,36 +61,22 @@
   @include breakpoint(lg) {
     width: 40%;
   }
+  @include breakpoint(xlg) {
+    font-size: 1.2rem;
+  }
 }
+
 .match {
   color: #46d369;
   padding-right: 0.5rem;
 }
+
 .maturity-rating {
   padding-right: 0.5rem;
 }
+
 .duration {
   padding-right: 0.5rem;
-}
-.tag-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 80%;
-  color: var(--whiteOpacity);
-  @include breakpoint(lg) {
-    width: 40%;
-  }
-}
-.tag-item-mini {
-  color: var(--white);
-  &:hover {
-    text-decoration: none;
-  }
-}
-.tag-item-mini-space {
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
 }
 
 .left-content {
@@ -110,12 +100,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
   gap: 0.7rem;
   color: var(--white);
-  @include breakpoint(lg) {
-    width: 40%;
-  }
 }
 
 .match {
@@ -132,26 +118,23 @@
 }
 
 .tag-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 80%;
   color: var(--whiteOpacity);
-
-  @include breakpoint(lg) {
-    width: 40%;
+  white-space: normal;
+  width: 90%;
+  @include breakpoint(xlg) {
+    font-size: 1.2rem;
   }
 }
 
 .tag-item-mini {
   color: var(--white);
-
+  text-transform: capitalize;
   &:hover {
     text-decoration: none;
   }
 }
 
-.tag-item-mini-space {
+.tag-item-circle {
   padding-right: 0.5rem;
   padding-left: 0.5rem;
 }
