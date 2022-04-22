@@ -159,25 +159,21 @@ const Lane = ({ laneTitle, movies, mute, setMute }) => {
             <IconArrowRight />
           </button>
 
-          <div
-            className='pageIndicator_container'
-            style={{ top: `-${size.itemHeight * 2.1}vw` }}>
+          <div className='pageIndicator_container' style={{ top: `-${size.itemHeight * 2.1}vw` }}>
             {movies.map((movie, index) => {
               if (index % size.length === 1)
                 return (
-                  <button
-                    key={movie.id}
-                    className={`${
-                      startSwitch < 1 && index < size.length
-                        ? 'active_pageIndicatior pageIndicator'
+                  <button key={movie.id} className={`${startSwitch < 1 && index < size.length
+                        ? 'active_pageIndicator pageIndicator'
                         : index >= activeIndex - size.length &&
                           index < activeIndex - 1
-                        ? 'active_pageIndicatior pageIndicator'
-                        : 'pageIndicator'
-                    }`}
+                        ? 'active_pageIndicator pageIndicator'
+                        : 'pageIndicator'}`}
                   />
                 )
-            })}
+              }
+            )
+          }
           </div>
         </div>
       </div>

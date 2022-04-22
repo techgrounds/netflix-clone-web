@@ -24,6 +24,8 @@ const MiniModal = ({
   const dispatch = useDispatch()
   const youtubeId = trailer.substr(32)
 
+  console.log("movie array ",movie.rating)
+
   const movieLogoCheck = () => {
     if (movie.logo === "") {return movie.title};
     if (movie.logo != "") {return <div className='movieLogoBig'><img src={movie.logo} /></div>};

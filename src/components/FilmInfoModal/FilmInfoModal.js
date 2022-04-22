@@ -20,8 +20,6 @@ const FilmInfoModal = ({
   const modalQuit = useRef()
   const isModalVisible = useSelector((state) => state.movies.movieInfoModal)
 
-  console.log("mute in filminfomodal: ", mute)
-
   useOutsideClick(modalQuit, () => {
     if (isModalVisible) {
       dispatch(movieInfoModalToggle(!isModalVisible))
