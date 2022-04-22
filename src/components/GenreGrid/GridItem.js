@@ -4,16 +4,29 @@ import MiniModal from "../MiniModal/MiniModal";
 import "./GenreGrid.scss";
 
 export const GridItem = ({
-  movie,
-  leftIndex,
-  rightIndex,
-  index
+    movie,
+    leftIndex,
+    rightIndex,
+    index
 }) => {
   const size = useWindowSize();
   const [loadMovie, setLoadMovie] = useState(false);
   const [hovered, setHovered] = useState(false);
   const sleep = (milliseconds) => {
     return new Promise((resolve) => setTimeout(resolve, milliseconds));
+  };
+
+  const movieLogoCheck = () => {
+    if (movie.logo === "") {
+      return movie.title;
+    }
+    if (movie.logo != "") {
+      return (
+        <div className="movieLogo">
+          <img src={movie.logo} />
+        </div>
+      );
+    }
   };
 
   useEffect(() => {
@@ -79,15 +92,17 @@ export const GridItem = ({
           objectFit: "contain",
         }}
       />
-      {/* <div
+      <div
         className="laneItemTitle"
         style={{ width: `${size.itemWidth * 0.9}vw`, overflow: `hidden` }}
       >
-        {movie.title}
-        <div className="movieLogo">
+        {/* {movie.title} */}
+        {/* <div className="movieLogo">
           <img src={movie.logo} />
-        </div>
-      </div> */}
+        </div> */}
+              
+              {movieLogoCheck() }
+      </div>
     </div>
   );
 };

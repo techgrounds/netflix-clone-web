@@ -9,7 +9,7 @@ export const GenreGrid = ({ moviesByGenreData, genreTitle }) => {
 
         <>
             <div className="containerTitleGenre">
-                <h1>{genreTitle}</h1>
+                <h2>{genreTitle}</h2>
             </div>
             <div className='gridContainer'>
 

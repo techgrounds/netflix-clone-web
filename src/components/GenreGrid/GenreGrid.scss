@@ -3,12 +3,20 @@
 .containerTitleGenre {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
+  align-content: flex-end;
   color: var(--white);
   background-color: var(--black);
-  height: 20vh;
-  padding: 2rem;
+  height: 16vh;
+  padding: 0 5%;
+   @include breakpoint(sm){
+      padding: 0 5%;
+  }
+  h2 {
+    font-size: 1.4em;
+    font-family: "NetflixSansBold";
+  }
 }
 .gridContainer {
   display: flex;
@@ -20,13 +28,14 @@
 
 .gridItem {
   display: inline-flex;
+  position: relative;
   align-items: center;
   justify-content: center;
   background-color: var(----transparent);
   border: 3.5px solid var(--transparent);
   color: var(--white);
   border-radius: 7%;
-  overflow: hidden;
+//   overflow: hidden;
 }
 .laneItemTitle {
   position: absolute;
@@ -44,3 +53,84 @@
   object-fit: contain;
   overflow: hidden;
 }
+.movieLogo {
+ margin-left: 0%;
+ margin-right: 55%;
+}
+
+.miniModal {
+  position: absolute;
+  z-index: 10;
+  cursor: pointer;
+  animation: miniModalGrow 1000ms;
+}
+.leftModal {
+  position: absolute;
+  z-index: 1;
+  transform: translateX(60px);
+  cursor: pointer;
+  animation: miniModalGrowLeft 1000ms;
+}
+.rightModal {
+  position: absolute;
+  z-index: 1;
+  transform: translateX(-60px);
+  cursor: pointer;
+  animation: miniModalGrowRight 1000ms;
+}
+
+@keyframes miniModalGrowRight {
+  0% {
+    transform: scale(0.65) translateY(5vw);
+    opacity: 0;
+  }
+  80% {
+    transform: scale(0.65) translateY(5vw);
+    opacity: 0;
+  }
+  81% {
+    transform: scale(0.65) translateY(5vw);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-60px) scale(1);
+  }
+}
+
+@keyframes miniModalGrowLeft {
+  0% {
+    transform: scale(0.65) translateY(5vw);
+    opacity: 0;
+  }
+  80% {
+    transform: scale(0.65) translateY(5vw);
+    opacity: 0;
+  }
+  81% {
+    transform: scale(0.65) translateY(5vw);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(60px) scale(1);
+  }
+}
+
+@keyframes miniModalGrow {
+  0% {
+    transform: scale(0.65);
+    opacity: 0;
+  }
+  80% {
+    transform: scale(0.65) translateY(5vw);
+    opacity: 0;
+  }
+  81% {
+    transform: scale(0.65) translateY(5vw);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
