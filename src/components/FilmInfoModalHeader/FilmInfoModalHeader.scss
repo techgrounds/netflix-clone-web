@@ -85,13 +85,16 @@
 
 .modal-volume-button-wrapper {
   position: absolute;
-  bottom: 7%;
+  bottom: 6%;
   left: 82%;
   @include breakpoint(sm) {
     left: 90%;
   }
   @include breakpoint(md) {
     left: 89%;
+  }
+  @include breakpoint(lg) {
+    left: 90%;
   }
   @include breakpoint(xlg) {
     left: 94%;
