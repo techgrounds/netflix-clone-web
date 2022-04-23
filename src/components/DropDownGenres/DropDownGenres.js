@@ -1,78 +1,64 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import './DropDownGenres.scss'
-import { IconCaretDown } from '../Icons/IconCaretDown'
+import React, { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
+import "./DropDownGenres.scss";
+import { IconCaretDown } from "../Icons/IconCaretDown";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectGenre,
+  genreGridActive,
+} from "../../redux/genres/genres.actions";
 
 function DropDownGenres() {
+  const [showDropdown, setShowDropdown] = useState(false);
+  const moviesByGenreData = useSelector((state) => state.genres.allGenres);
 
-    const [showDropdown, setShowDropdown] = useState(false);
+  const dispatch = useDispatch();
+  const currentGenre = useSelector((state) => state.genres.selectGenre);
 
-    const ref = useRef()
+  const ref = useRef();
 
-    useEffect(() => {
-        const checkIfClickedOutside = event => {
-            if (showDropdown && ref.current && !ref.current.contains(event.target)) {
-                setShowDropdown(false)
-            }
-        }
-        document.addEventListener("mousedown", checkIfClickedOutside)
-        return () => {
-            document.removeEventListener("mousedown", checkIfClickedOutside)
-        }
-    }, [showDropdown])
+  useEffect(() => {
+    const checkIfClickedOutside = (event) => {
+      if (showDropdown && ref.current && !ref.current.contains(event.target)) {
+        setShowDropdown(false);
+      }
+    };
 
+    document.addEventListener("mousedown", checkIfClickedOutside);
+    return () => {
+      document.removeEventListener("mousedown", checkIfClickedOutside);
+    };
+  }, [showDropdown]);
 
-    return (
-        <>
-            <div className="container-dropdown-genres ">
-
-                <button onClick={() => setShowDropdown(!showDropdown)} className='dropdown-toggle-btn' ref={ref}>Genres
+  return (
+    <>
+      <div className="container-dropdown-genres ">
+        {/* <button
+                    onClick={() => setShowDropdown(!showDropdown)}
+                    className="dropdown-toggle-btn"
+                    ref={ref}
+                >
+                    Genres
                     <IconCaretDown />
-                </button>
+                </button> */}
 
-
-                {showDropdown &&
-                    <div className='dropdown-ui'>
-                        <div className='dropdown-links'>
-                            <ul>
-                                <li >
-                                    <Link to="/">Comedy</Link>
-                                </li>
-                                <li >
-                                    <Link to="/" >Action</Link></li>
-                                <li>
-                                    <Link to="/" >Thriller</Link></li>
-                                <li >
-                                    <Link to="/" >Family</Link></li>
-                                <li >
-                                    <Link to="/" >Fantasy</Link></li>
-                            </ul>
-
-                            <ul>
-                                <li >
-                                    <Link to="/" >Crime</Link>
-                                </li>
-                                <li >
-                                    <Link to="/" >Adventure</Link>
-                                </li>
-                                <li >
-                                    <Link to="/" >80ties</Link>
-                                </li>
-                                <li >
-                                    <Link to="/" >90ties</Link>
-                                </li>
-                                <li >
-                                    <Link to="/" >2000 Millenials</Link>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                }
-
-            </div>
-        </>
-        
-    )
+        <select
+          className="dropdown-toggle-btn"
+          value={currentGenre}
+          onChange={(e) => {
+            dispatch(selectGenre(e.target.value));
+            dispatch(genreGridActive(true));
+          }}
+        >
+          {moviesByGenreData.map((genre) => (
+            <option value={genre.genre} key={genre.genre}>
+              {genre.genre}
+            </option>
+          ))}
+        </select>
+      </div>
+    </>
+  );
 }
 
-export default DropDownGenres
+export default DropDownGenres;

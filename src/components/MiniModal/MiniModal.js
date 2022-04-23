@@ -20,7 +20,6 @@ const MiniModal = ({
 }) => {
   const dispatch = useDispatch()
   const youtubeId = trailer.substr(32)
-
   const movieLogoCheck = () => {
     if (movie.logo === '') {
       return movie.title
@@ -54,7 +53,7 @@ const MiniModal = ({
     })
   }
 
-  updateZIndexRef(999)
+  if (updateZIndexRef) updateZIndexRef(999)
 
   return (
     <div

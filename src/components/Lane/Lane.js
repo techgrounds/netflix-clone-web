@@ -26,17 +26,17 @@ const Lane = ({ laneTitle, movies, mute, setMute }) => {
           ? (movies.length - size.length + activeIndex - 1) % movies.length
           : 0
       const rightIndex =
-        // leftIndex + (size.length - 1) < size.length ?
         leftIndex + (size.length - 1)
-        // : (leftIndex + (size.length - 1)) - size.length
+      const rightIndexLastPage =
+        (leftIndex + (size.length - 1))-movies.length
 
-      return (
+    return (
         <LaneItem
           key={movie.id}
           updateZIndexRef={updateZIndexRef}
           movie={movie}
           leftIndex={leftIndex}
-          rightIndex={rightIndex}
+          rightIndex={((leftIndex + (size.length - 1)) > movies.length) ? rightIndexLastPage : rightIndex}
           index={index}
           isModalVisible={isModalVisible}
           mute={mute}
@@ -44,6 +44,8 @@ const Lane = ({ laneTitle, movies, mute, setMute }) => {
         />
       )
     })
+
+
   const arrayFromFirstLane = midLane.filter(
     (movie, index) => index < size.length + 1
   )
