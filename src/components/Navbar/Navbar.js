@@ -30,12 +30,6 @@ import Miki from "../../assets/images/accounts/miki.jpg"
 import Alfijah from "../../assets/images/accounts/alfijah.jpg"
 import Wesley from "../../assets/images/accounts/wesley.jpg"
 import Carolyn from "../../assets/images/accounts/carolyn.webp"
-import { NetflixLogo } from '../Logos/NetflixLogo'
-import { IconNotification } from '../Icons/IconNotification'
-import { IconCaretDown } from '../Icons/IconCaretDown'
-import { IconPencil } from '../Icons/IconPencil'
-import { IconAccount } from '../Icons/IconAccount'
-import { IconQuestion } from '../Icons/IconQuestion'
 import { useDispatch } from 'react-redux'
 
 const Navbar = () => {
