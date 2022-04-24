@@ -1,5 +1,5 @@
 import './Navbar.scss'
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import SearchBar from '../SearchBar/SearchBar'
 import { useOnClickOutside } from './ClickOutsideHook'
@@ -43,7 +43,7 @@ const Navbar = () => {
   const notificationsElement = useRef()
   const { language } = useContext(LangContext)
   const currentAccount = useContext(AccountContext)
-  console.log("currentAccount", currentAccount)
+  console.log("currentAccount", currentAccount.account)
 
   const allAccounts = [
     { name: "Alfijah", source: Alfijah },
@@ -57,7 +57,9 @@ const Navbar = () => {
     { name: "Fatos", source: Fatos },
     { name: "Jens", source: Jens },
   ]
-  
+  const profilePic = allAccounts.find(e => e.name === currentAccount.account);
+  console.log('profile', profilePic)
+
   window.onscroll = () => {
     setIsScrolled(window.pageYOffset === 0 ? false : true)
     return () => (window.onscroll = null)
@@ -322,11 +324,7 @@ const Navbar = () => {
                 <NavLink to="" className="account-link">
                   <span className="profile-link">
                     <img
-                      src={
-                        currentAccount.account === "defaultAccount"
-                          ? "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-                          : `../../assets/images/accounts/${currentAccount.account}.jpg`
-                      }
+                      src={currentAccount.account === 'defaultAccount' ? "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" : profilePic.source}
                       alt={currentAccount.account}
                       className="profile-icon"
                     />

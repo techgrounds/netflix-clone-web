@@ -1,3 +1,4 @@
+import "./AccountMenu.scss"
 import { useDispatch } from "react-redux"
 import { changeAccount } from "../../redux/account/account.action"
 import { useContext } from "react"
