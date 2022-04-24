@@ -8,8 +8,9 @@ import moviesReducer from './movies/movies.reducer';
 import searchReducer from './search/search.reducer';
 
 const persistConfig = {
-  key: 'root',
+  key: "root",
   storage,
+  blacklist: 'gridActive'
 };
 
 const rootReducer = combineReducers({
@@ -17,7 +18,7 @@ const rootReducer = combineReducers({
   account: accountReducer,
   search: searchReducer,
   movies: moviesReducer,
-  genres: genresReducer
+  genres: genresReducer,
 });
 
 export default persistReducer(persistConfig, rootReducer);

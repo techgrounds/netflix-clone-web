@@ -1,8 +1,9 @@
-import "./Navbar.scss"
-import { useState, useRef } from "react"
-import { NavLink } from "react-router-dom"
-import SearchBar from "../SearchBar/SearchBar"
-import { useOnClickOutside } from "./ClickOutsideHook"
+import './Navbar.scss'
+import { useState, useRef } from 'react'
+import { NavLink } from 'react-router-dom'
+import SearchBar from '../SearchBar/SearchBar'
+import { useOnClickOutside } from './ClickOutsideHook'
+import { genreGridActive } from "../../redux/genres/genres.actions";
 
 //language
 import { useContext } from "react"
@@ -29,8 +30,16 @@ import Miki from "../../assets/images/accounts/miki.jpg"
 import Alfijah from "../../assets/images/accounts/alfijah.jpg"
 import Wesley from "../../assets/images/accounts/wesley.jpg"
 import Carolyn from "../../assets/images/accounts/carolyn.webp"
+import { NetflixLogo } from '../Logos/NetflixLogo'
+import { IconNotification } from '../Icons/IconNotification'
+import { IconCaretDown } from '../Icons/IconCaretDown'
+import { IconPencil } from '../Icons/IconPencil'
+import { IconAccount } from '../Icons/IconAccount'
+import { IconQuestion } from '../Icons/IconQuestion'
+import { useDispatch } from 'react-redux'
 
 const Navbar = () => {
+  const dispatch = useDispatch()
   const [dropdown, setDropdown] = useState(false)
   const [isClicked, setIsClicked] = useState(false)
   const [notifications, setNotifications] = useState(false)
@@ -151,7 +160,8 @@ const Navbar = () => {
           </li>
           <li className="navigation-tab">
             <NavLink
-              to="/genre"
+              to='/genre'
+              onClick={() => { dispatch(genreGridActive(false)) }}
               className={({ isActive }) =>
                 isActive ? activeClassName : undefined
               }
