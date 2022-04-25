@@ -15,7 +15,7 @@ import FilmInfoModal from "../FilmInfoModal/FilmInfoModal";
 import FilmInfoModalVideo from "../FilmInfoModalVideo/FilmInfoModalVideo";
 import { LangContext } from "../../redux/languages/languages.context";
 
-const HomeHero = ({ setIsVideoPlaying, isVideoPlaying, mute, setMute }) => {
+const HomeHero = ({ setIsVideoPlaying, isVideoPlaying }) => {
   const { language } = useContext(LangContext);
   const element = useRef();
   const timeline = useRef();
@@ -74,7 +74,7 @@ const HomeHero = ({ setIsVideoPlaying, isVideoPlaying, mute, setMute }) => {
             <div className="home-hero-button-component">
               <div className="home-hero-volume-button-wrapper">
                 <button className="home-hero-volume-button">
-                  <ButtonMute setMute={setMute} mute={mute} />
+                  <ButtonMute />
                 </button>
               </div>
               <div className="home-hero-maturity-rating">
@@ -125,8 +125,6 @@ const HomeHero = ({ setIsVideoPlaying, isVideoPlaying, mute, setMute }) => {
         <FilmInfoModal
           setIsVideoPlaying={setIsVideoPlaying}
           isVideoPlaying={isVideoPlaying}
-          setMute={setMute}
-          mute={mute}
         />
       </div>
     </div>

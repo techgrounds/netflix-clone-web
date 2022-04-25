@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 import { fetchGenresResultsAsync } from "../redux/genres/genres.actions";
 import { GenreGrid } from "../components/GenreGrid/GenreGrid";
-import { selectGenre, genreGridActive } from "../redux/genres/genres.actions";
+import { genreGridActive } from "../redux/genres/genres.actions";
 
 const GenrePage = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
@@ -17,8 +17,6 @@ const GenrePage = () => {
   const gridActive = useSelector((state) => state.genres.gridActive);
   const moviesByGenreData = useSelector((state) => state.genres.allGenres);
   const movieData = useSelector((state) => state.movies.movie);
-
-  const [mute, setMute] = useState(false);
 
   useEffect(() => {
     dispatch(fetchGenresResultsAsync());
@@ -57,8 +55,6 @@ const GenrePage = () => {
                 movies={movieSet.movies}
                 trailer={movieSet.trailer}
                 key={uuidv4()}
-                mute={mute}
-                setMute={setMute}
                 setIsVideoPlaying={setIsVideoPlaying}
               />
             );

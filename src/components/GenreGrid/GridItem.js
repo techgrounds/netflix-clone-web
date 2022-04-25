@@ -3,12 +3,7 @@ import { useState, useEffect } from "react";
 import MiniModal from "../MiniModal/MiniModal";
 import "./GenreGrid.scss";
 
-export const GridItem = ({
-    movie,
-    leftIndex,
-    rightIndex,
-    index
-}) => {
+export const GridItem = ({ movie, leftIndex, rightIndex, index }) => {
   const size = useWindowSize();
   const [loadMovie, setLoadMovie] = useState(false);
   const [hovered, setHovered] = useState(false);
@@ -75,8 +70,6 @@ export const GridItem = ({
               runtime={movie.runtime}
               rating={movie.rating}
               movie={movie}
-              // mute={mute}
-              // setMute={setMute}
             />
           )}
         </div>
@@ -96,12 +89,7 @@ export const GridItem = ({
         className="laneItemTitle"
         style={{ width: `${size.itemWidth * 0.9}vw`, overflow: `hidden` }}
       >
-        {/* {movie.title} */}
-        {/* <div className="movieLogo">
-          <img src={movie.logo} />
-        </div> */}
-              
-              {movieLogoCheck() }
+        {movieLogoCheck()}
       </div>
     </div>
   );

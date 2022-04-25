@@ -32,7 +32,7 @@ const initialState = {
   isLoading: false,
   movieDetails: { id: 0, movieDetailsResults: {} },
   movieInfoModal: false,
-  // soundMute: false,
+  soundMute: false,
 };
 
 const moviesReducer = (state = initialState, action) => {
@@ -52,16 +52,16 @@ const moviesReducer = (state = initialState, action) => {
         ...state,
         movieInfoModal: action.payload,
       };
-    // case moviesActionTypes.SOUND_MUTE_ON:
-    //   return {
-    //     ...state,
-    //     movieInfoModal: action.payload,
-    //   };
-    // case moviesActionTypes.SOUND_MUTE_OFF:
-    //   return {
-    //     ...state,
-    //     movieInfoModal: action.payload,
-    //   };
+    case moviesActionTypes.SOUND_MUTE_ON:
+      return {
+        ...state,
+        soundMute: action.payload,
+      };
+    case moviesActionTypes.SOUND_MUTE_OFF:
+      return {
+        ...state,
+        soundMute: action.payload,
+      };
     case moviesActionTypes.FETCH_MOVIES_RESULTS_SUCCESS:
       return {
         ...state,

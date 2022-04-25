@@ -39,12 +39,12 @@ export const movieInfoModalToggle = (bool) => ({
   payload: bool,
 });
 
-/*export const soundMuteSwitch = (bool) => ({
+export const soundMuteSwitch = (bool) => ({
   type: bool
     ? moviesActionTypes.SOUND_MUTE_ON
     : moviesActionTypes.SOUND_MUTE_OFF,
   payload: bool,
-});*/
+});
 
 export const fetchMovieDetailsAsync = (id) => {
   return async (dispatch) => {
