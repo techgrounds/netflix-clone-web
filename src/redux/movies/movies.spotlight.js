@@ -5,7 +5,7 @@ export const spotlightMovies = [
     image: 'https://image.tmdb.org/t/p/w300/95SwyPKoWGK35zOnAjikra7OFIQ.jpg',
     imageHR:
       'https://image.tmdb.org/t/p/original/95SwyPKoWGK35zOnAjikra7OFIQ.jpg',
-    keywords: [('tennis', 'tennis player', 'father')],
+    keywords: ['tennis', 'tennis player', 'father'],
     logo: 'http://assets.fanart.tv/fanart/movies/614917/hdmovielogo/king-richard-615c883a5af71.png',
     poster: 'https://image.tmdb.org/t/p/w500/2dfujXrxePtYJPiPHj1HkAFQvpu.jpg',
     rating: '12',
@@ -61,7 +61,7 @@ export const spotlightMovies = [
     image: 'https://image.tmdb.org/t/p/w300/dW3fQJrshh2wYDoW4HUA7ZabsN1.jpg',
     imageHR:
       'https://image.tmdb.org/t/p/original/dW3fQJrshh2wYDoW4HUA7ZabsN1.jpg',
-    keywords: (3)[('ambulance', 'remake', 'car crash')],
+    keywords: ['ambulance', 'remake', 'car crash'],
     logo: 'http://assets.fanart.tv/fanart/movies/763285/hdmovielogo/ambulance-6234c6b196c1e.png',
     poster: 'https://image.tmdb.org/t/p/w500/zT5ynZ0UR6HFfWQSRf2uKtqCyWD.jpg',
     rating: '16',

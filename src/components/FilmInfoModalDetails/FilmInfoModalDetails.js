@@ -6,7 +6,6 @@ const FilmInfoModalDetails = ({
   actors,
   releaseDate,
   directors,
-  genres,
   rating,
   movieData,
   certification,
@@ -31,7 +30,7 @@ const FilmInfoModalDetails = ({
           <FilmInfoModalDetailsItem tagLabel='Actors' tagItems={actors} />
 
           <FilmInfoModalDetailsItem
-            tagLabel='This programme is'
+            tagLabel='This film is'
             tagItems={movieData?.keywords}
           />
           <FilmInfoModalDetailsItem tagLabel='Director' tagItems={directors} />
