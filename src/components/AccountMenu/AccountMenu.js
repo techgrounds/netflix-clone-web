@@ -17,8 +17,7 @@ import Carolyn from "../../assets/images/accounts/carolyn.webp"
 
 const AccountMenu = () => {
   const dispatch = useDispatch()
-  const { account, setAccount } = useContext(AccountContext)
-  console.log(account)
+  const { setAccount } = useContext(AccountContext)
 
   const allAccounts = [
     { name: "Alfijah", source: Alfijah },
@@ -32,9 +31,7 @@ const AccountMenu = () => {
     { name: "Fatos", source: Fatos },
     { name: "Jens", source: Jens },
   ]
-  console.log(allAccounts)
   const customAccount = allAccounts.map((profile) => {
-    console.log(profile.name)
     return (
       <li
         className="sub-menu-item profile"
