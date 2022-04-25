@@ -29,7 +29,11 @@ const FilmInfoModalDetails = ({
         </div>
         <div className='modal-details-right'>
           <FilmInfoModalDetailsItem tagLabel='Actors' tagItems={actors} />
-          <FilmInfoModalDetailsItem tagLabel='Genres' tagItems={genres} />
+
+          <FilmInfoModalDetailsItem
+            tagLabel='This programme is'
+            tagItems={movieData?.keywords}
+          />
           <FilmInfoModalDetailsItem tagLabel='Director' tagItems={directors} />
         </div>
       </div>
