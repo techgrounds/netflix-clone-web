@@ -1,7 +1,9 @@
+import AccountMenu from "../components/AccountMenu/AccountMenu"
 const ErrorPage = () => {
     return (
         <>
-        <div>Error Page</div>
+        <div>error</div>
+        <AccountMenu />
         </>
     )
 }
