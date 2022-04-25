@@ -29,6 +29,7 @@ const HomePage = () => {
             trailer={movieSet.trailer}
             key={uuidv4()}
             setIsVideoPlaying={setIsVideoPlaying}
+            isVideoPlaying={isVideoPlaying}
           />
         );
       })}

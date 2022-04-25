@@ -6,8 +6,7 @@ export const GenreGrid = ({ moviesByGenreData, genreTitle }) => {
 
     console.log("griddata?", moviesByGenreData, genreTitle)
     return (
-
-        <>
+        <div className='grid'>
             <div className="containerTitleGenre">
                 <h2>{genreTitle}</h2>
             </div>
@@ -15,7 +14,6 @@ export const GenreGrid = ({ moviesByGenreData, genreTitle }) => {
 
                 {moviesByGenreData?.map((movie) => {
                     return (
-                        
                         // <div className='gridItem'
                         // >
                         //     {/* {movie.title} */}
@@ -25,15 +23,10 @@ export const GenreGrid = ({ moviesByGenreData, genreTitle }) => {
                         //         className='movieImage'
                         //     />
                         // </div>
-                        
                         <GridItem key={movie.id} movie={movie}/>
-
                     )
                 })}
             </div>
-
-
-        </>
-
+        </div>
     )
 }
