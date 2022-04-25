@@ -1,4 +1,4 @@
-@import "../../assets/scss/mixins";
+@import '../../assets/scss/mixins';
 
 .member-footer {
   @include pagePadding;
@@ -12,7 +12,7 @@
   margin: 0 auto;
   padding-bottom: 2em;
   background-color: var(--black);
-  font-family: "NetflixSansLight", sans-serif;
+  font-family: 'NetflixSansLight', sans-serif;
   color: var(--gray);
   @include breakpoint(md) {
     width: 90%;

@@ -3,6 +3,7 @@ import Navbar from './components/Navbar/Navbar'
 import './assets/scss/main.scss'
 import React, { useState } from 'react'
 import { LangProvider } from './redux/languages/languages.context'
+import { AccountProvider } from './redux/account/account.context'
 import ScrollToTop from './components/ScrollToTop'
 import LandingPage from './pages/LandingPage'
 import HomePage from './pages/HomePage'
@@ -17,6 +18,7 @@ function App() {
   return (
     <div className='App'>
       <LangProvider>
+              <AccountProvider>
         <Router>
           <ScrollToTop>
             <Routes>
@@ -56,9 +58,11 @@ function App() {
               />
               <Route path='/signin' element={<SignInPage />} />
               <Route path='*' element={<ErrorPage />} />
+              
             </Routes>
           </ScrollToTop>
         </Router>
+        </AccountProvider>
       </LangProvider>
     </div>
   )
