@@ -28,22 +28,22 @@ export const LaneItem = ({
     }
   };
 
-  const stopVideo = async () => {
-    await sleep(800)
-    hovered ? setIsVideoPlaying(false) :
-    setIsVideoPlaying(true)
-  }
+  // const stopVideo = async () => {
+  //   await sleep(800)
+  //   hovered ? setIsVideoPlaying(false) :
+  //   setIsVideoPlaying(true)
+  // }
 
   useEffect( () => {
     if (hovered) {
       updateZIndexRef(999);
       setLoadMovie(true);
-      stopVideo()
+      // stopVideo()
     }
     if (!hovered) {
       updateZIndexRef(0);
       setLoadMovie(false);
-      setIsVideoPlaying(true)
+      // setIsVideoPlaying(true)
     }
   }, [hovered]);
 
