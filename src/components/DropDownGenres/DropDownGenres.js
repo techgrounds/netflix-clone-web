@@ -1,7 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
 import "./DropDownGenres.scss";
-import { IconCaretDown } from "../Icons/IconCaretDown";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectGenre,
@@ -43,7 +41,7 @@ function DropDownGenres() {
                 </button> */}
 
         <select
-          className="dropdown-toggle-btn"
+          className="select-toggle-btn"
           value={currentGenre}
           onChange={(e) => {
             dispatch(selectGenre(e.target.value));
@@ -51,7 +49,7 @@ function DropDownGenres() {
           }}
         >
           {moviesByGenreData.map((genre) => (
-            <option value={genre.genre} key={genre.genre}>
+            <option className="option-bg" value={genre.genre} key={genre.genre}>
               {genre.genre}
             </option>
           ))}

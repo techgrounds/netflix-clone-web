@@ -5,7 +5,6 @@ export const AccountContext = createContext();
 
 export const AccountProvider = ({ children }) => {
   const [account, setAccount] = useState("defaultAccount")
-  console.log('accoun', account)
   return (
     <AccountContext.Provider value={{ account, setAccount }}>
       {children}

@@ -1,9 +1,12 @@
-import './LanguagesSelector.scss'
-import { useSelector, useDispatch } from 'react-redux'
-import { useContext, useEffect, useState } from 'react'
-import { LangContext } from '../../redux/languages/languages.context'
-import { changeLanguage } from '../../redux/languages/languages.actions'
-import { IconWorld } from '../Icons/IconWorld'
+import "./LanguagesSelector.scss"
+
+import { useSelector, useDispatch } from "react-redux"
+import { useContext, useEffect } from "react"
+
+import { LangContext } from "../../redux/languages/languages.context"
+import { changeLanguage } from "../../redux/languages/languages.actions"
+
+import { IconWorld } from "../Icons/IconWorld"
 
 const LanguagesSelector = () => {
   const currentLanguage = useSelector((state) => state.language.language)
@@ -17,11 +20,11 @@ const LanguagesSelector = () => {
   }, [language])
 
   const languages = [
-    { code: 'EN', name: 'English' },
-    { code: 'NL', name: 'Nederlands' },
+    { code: "EN", name: "English" },
+    { code: "NL", name: "Nederlands" },
   ]
 
-  if (language === 'NL') {
+  if (language === "NL") {
     languages.reverse()
   }
   const languageOptions = languages.map((language) => {
@@ -34,12 +37,13 @@ const LanguagesSelector = () => {
 
   return (
     <>
-      <div className='selectContainer'>
+      <div className="selectContainer">
         <IconWorld />
         <select
-          className='customSelect'
+          className="customSelect"
           onChange={(e) => handleChange(e)}
-          placeholder={currentLanguage}>
+          placeholder={currentLanguage}
+        >
           {languageOptions}
         </select>
       </div>
