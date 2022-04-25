@@ -1,17 +1,34 @@
-import { IconVolumeMute } from '../Icons/IconVolumeMute'
-import { IconVolumeUp } from '../Icons/IconVolumeUp'
-import './ButtonMute.scss'
+import { IconVolumeMute } from "../Icons/IconVolumeMute";
+import { IconVolumeUp } from "../Icons/IconVolumeUp";
+import { soundMuteSwitch } from "../../redux/movies/movies.actions";
+import { useDispatch, useSelector } from "react-redux";
+
+import "./ButtonMute.scss";
 
 const ButtonMute = ({ mute, setMute }) => {
   const switchMute = () => {
-    setMute(!mute)
-  }
-
+    setMute(!mute);
+  };
+  // const ButtonMute = () => {
+  //   const dispatch = useDispatch();
+  //   const switchMute = useSelector((state) => state.movies.soundMute);
+  //   console.log(switchMute);
   return (
-    <div className='volume-button' onClick={switchMute}>
+    <div className="volume-button" onClick={switchMute}>
       {!mute ? <IconVolumeMute /> : <IconVolumeUp />}
     </div>
-  )
-}
+  );
 
-export default ButtonMute
+  // return (
+  //   <div
+  //     className="volume-button"
+  //     onClick={() => {
+  //       dispatch(soundMuteSwitch(switchMute));
+  //     }}
+  //   >
+  //     {!switchMute ? <IconVolumeMute /> : <IconVolumeUp />}
+  //   </div>
+  // );
+};
+
+export default ButtonMute;
