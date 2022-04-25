@@ -1,7 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
 import "./DropDownGenres.scss";
-import { IconCaretDown } from "../Icons/IconCaretDown";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectGenre,
