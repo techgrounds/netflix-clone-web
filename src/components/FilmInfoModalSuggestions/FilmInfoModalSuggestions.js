@@ -1,12 +1,14 @@
 import './FilmInfoModalSuggestions.scss'
 import { useState } from 'react'
 import { IconKijkWijzer16 } from '../Icons/IconKijkWijzer16'
-import { IconArrowDown } from '../Icons/IconArrowDown'
-import { ButtonRoundDarkTooltip } from '../ButtonRound/ButtonRound'
 import ButtonAdd from '../ButtonAdd/ButtonAdd'
+import ButtonMore from '../ButtonMore/ButtonMore'
 import movieMockupData from '../../movies.json'
+import { useContext } from 'react'
+import { LangContext } from '../../redux/languages/languages.context'
 
 const FilmInfoModalSuggestions = () => {
+  const { language } = useContext(LangContext)
   const [amountVisible, setAmountVisible] = useState(6)
 
   const showMoreItems = () => {
@@ -15,7 +17,8 @@ const FilmInfoModalSuggestions = () => {
 
   return (
     <section>
-      <h3 className='suggestions-title'>More Like This</h3>
+      <h3 className='suggestions-title'>
+        {language === 'EN' ? 'More Like This' : 'Meer zoals dit'}</h3>
       <div className='suggestions-container collapsed'>
         {movieMockupData.slice(0, amountVisible).map(({ id, description }) => (
           <div className='suggestions-item' key={id}>
@@ -51,9 +54,7 @@ const FilmInfoModalSuggestions = () => {
         <div
           className='suggestions-button'
           onClick={() => showMoreItems((prevProps) => !prevProps)}>
-          <ButtonRoundDarkTooltip tooltiptext='Show More'>
-            <IconArrowDown />
-          </ButtonRoundDarkTooltip>
+          <ButtonMore />
         </div>
       </div>
     </section>
