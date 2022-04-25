@@ -11,17 +11,17 @@
 
 .container-header-genre {
   background-color: transparent;
+  justify-content: flex-start;
   width: 100%;
   color: white;
   font-family: 'NetflixSansLight';
   position: absolute;
-  top: 1.5rem;
-  right: 0;
-  z-index: 800;
+  top: 3rem;
+  left: 0;
+  z-index: 400;
   height: 60px;
   padding: 0 4%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   @include breakpoint(sm) {
     top: 2.5rem;
@@ -42,9 +42,10 @@
     top: 0;
     transition-timing-function: ease-in-out;
     transition: 1s;
+    width: 100%;
     background: var(--black);
     z-index: 800;
-    position: fixed;
+    position: sticky;
   }
 }
 

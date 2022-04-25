@@ -5,8 +5,11 @@ import MiniModalVideo from '../MiniModalVideo/MiniModalVideo'
 import ButtonRating from '../ButtonRating/ButtonRating'
 import ButtonAdd from '../ButtonAdd/ButtonAdd'
 import ButtonMute from '../ButtonMute/ButtonMute'
+import { useContext } from 'react'
+import { LangContext } from '../../redux/languages/languages.context'
 
 const FilmInfoModalVideo = ({ isVideoPlaying, movieData }) => {
+  const { language } = useContext(LangContext)
   const [mute, setMute] = useState(false)
   return (
     <>
@@ -25,7 +28,8 @@ const FilmInfoModalVideo = ({ isVideoPlaying, movieData }) => {
                 <IconPlayBlack />
               </div>
               <div style={{ width: '0.5rem' }}></div>
-              <span className='home-hero-button-text'>Play</span>
+              <span className='home-hero-button-text'>
+                {language === 'EN' ? 'Play' : 'Afspelen'}</span>
             </button>
             <div className='header-button-container'>
               <ButtonAdd />

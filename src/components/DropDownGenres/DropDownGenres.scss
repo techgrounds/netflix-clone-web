@@ -6,19 +6,19 @@
   top: 0;
   left: 0;
   display: flex;
-  flex-grow: 1;
+  width: fit-content;
   height: 2rem;
   z-index: 200;
   @include breakpoint(xlg) {
-    left: 2rem;
+    left: 1rem;
   }
 }
 
-.dropdown-toggle-btn {
+.select-toggle-btn {
   position: absolute;
   top: 0;
   left: 0;
-  width: 5rem;
+  // width: 5rem;
   height: 2rem;
   padding: 0 0.8rem;
   display: flex;
@@ -31,14 +31,20 @@
   border: solid 1px var(--white);
   cursor: pointer;
   @include breakpoint(sm) {
-    width: 8rem;
-    height: 2rem;
+    // width: 8rem;
+    // height: 2rem;
   }
   svg {
     font-size: 0.5rem;
     margin-left: 0.5rem;
   }
-  select {
+  .option-bg {
+  position: absolute;
+  bottom: 0;
+  }
+}
+
+.option-bg {
   position: absolute;
   width: 16em;
   padding: 1rem;
@@ -49,31 +55,6 @@
   top: 100%;
   line-height: 2em;
   z-index: 200;
-  }
-}
-
-.dropdown-toggle-btn:hover {
-  background-color: var(--whiteOpacity);
-}
-
-.dropdown-ui {
-  position: absolute;
-  width: 16em;
-  padding: 1rem;
-  background-color: var(--black);
-  border: solid 0.5px var(--gray);
-  font-family: 'NetflixSansRegular', sans-serif;
-  font-size: 0.813rem;
-  top: 100%;
-  line-height: 2em;
-  z-index: 200;
-}
-
-.dropdown-links ul a {
-  padding-right: 2rem;
-  &:hover {
-    text-decoration-line: underline;
-  }
 }
 
 @media (min-width: 600px) {
@@ -81,12 +62,12 @@
     display: flex;
     left: 2rem;
   }
-  .dropdown-links {
+  .option-bg {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
   }
-  .selectGenre {
+  .option-bg {
     width: auto;
   }
 }

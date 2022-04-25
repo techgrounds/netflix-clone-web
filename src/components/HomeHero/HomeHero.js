@@ -1,5 +1,5 @@
 import "./HomeHero.scss";
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { gsap } from "gsap";
 import TextTruncate from "react-text-truncate";
@@ -13,8 +13,10 @@ import { IconPlayBlack } from "../Icons/IconPlayBlack";
 import KijkWijzer from "../KijkWijzer/KijkWijzer";
 import FilmInfoModal from "../FilmInfoModal/FilmInfoModal";
 import FilmInfoModalVideo from "../FilmInfoModalVideo/FilmInfoModalVideo";
+import { LangContext } from "../../redux/languages/languages.context";
 
 const HomeHero = ({ setIsVideoPlaying, isVideoPlaying, mute, setMute }) => {
+  const { language } = useContext(LangContext);
   const element = useRef();
   const timeline = useRef();
   const selector = gsap.utils.selector(element);
@@ -95,7 +97,9 @@ const HomeHero = ({ setIsVideoPlaying, isVideoPlaying, mute, setMute }) => {
                       <IconPlayBlack />
                     </div>
                     <div className="breadcrumb"></div>
-                    <span className="home-hero-button-text">Play</span>
+                    <span className="home-hero-button-text">
+                      {language === "EN" ? "Play" : "Afspelen"}
+                    </span>
                   </button>
                   <button
                     className="home-hero-button home-hero-info-button has-icon"
@@ -109,7 +113,9 @@ const HomeHero = ({ setIsVideoPlaying, isVideoPlaying, mute, setMute }) => {
                       <IconInfo />
                     </div>
                     <div className="breadcrumb"></div>
-                    <span className="home-hero-button-text">More Info</span>
+                    <span className="home-hero-button-text">
+                      {language === "EN" ? "More Info" : "Meer info"}
+                    </span>
                   </button>
                 </div>
               </div>
