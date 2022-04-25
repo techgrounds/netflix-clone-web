@@ -5,6 +5,8 @@ const initialState = {
   movie: null,
   error: null,
   isLoading: false,
+  selectGenre: "",
+  gridActive: false
 };
 
 const genresReducer = (state = initialState, action) => {
@@ -33,6 +35,17 @@ const genresReducer = (state = initialState, action) => {
         error: action.payload,
         isLoading: false,
       };
+    case genresActionTypes.SELECT_MOVIE_GENRE:
+      return {
+        ...state,
+        selectGenre: action.payload,
+
+      }
+    case genresActionTypes.GENRE_GRID_ACTIVE: 
+      return {
+        ...state,
+        gridActive: action.payload
+      }
     default:
       return state;
   }

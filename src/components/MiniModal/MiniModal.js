@@ -25,7 +25,14 @@ const MiniModal = ({
   const movieLogoCheck = () => {
     if (movie.logo === "") {return movie.title};
     if (movie.logo !== "") {return <div className='movieLogoBig'><img src={movie.logo} /></div>};
+    if (movie.logo != '') {
+      return (
+        <div className='movieLogoBig'>
+          <img src={movie.logo} />
+        </div>
+      )
     }
+  }
 
   useEffect(() => {
     dispatch(fetchSingleMovie(movie))
@@ -47,7 +54,7 @@ const MiniModal = ({
     })
   }
 
-  updateZIndexRef(999)
+  if (updateZIndexRef) updateZIndexRef(999)
 
   return (
     <div

@@ -22,6 +22,16 @@ export const fetchGenresResultsFailure = (errorMessage) => ({
   payload: errorMessage,
 });
 
+export const selectGenre = (genre) => ({
+  type: genresActionTypes.SELECT_MOVIE_GENRE,
+  payload: genre,
+})
+
+export const genreGridActive = (bool) => ({
+  type: genresActionTypes.GENRE_GRID_ACTIVE,
+  payload: bool
+})
+
 export const fetchGenresResultsAsync = () => {
   return async (dispatch) => {
     dispatch(fetchGenresResultsRequest());

@@ -38,7 +38,6 @@ const FilmInfoModal = ({ setIsVideoPlaying }) => {
     certificationDefinition,
     directors,
     genres,
-
     releaseDate,
     writers,
   } = movieDetails

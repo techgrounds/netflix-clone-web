@@ -24,9 +24,9 @@ const KijkWijzer = ({ value }) => {
   }
 
   return (
-    <div>
+    <>
       <CheckAge value={value} />
-    </div>
+    </>
   )
 }
 

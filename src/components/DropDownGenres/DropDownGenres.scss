@@ -38,6 +38,18 @@
     font-size: 0.5rem;
     margin-left: 0.5rem;
   }
+  select {
+  position: absolute;
+  width: 16em;
+  padding: 1rem;
+  background-color: var(--black);
+  border: solid 0.5px var(--gray);
+  font-family: 'NetflixSansRegular', sans-serif;
+  font-size: 0.813rem;
+  top: 100%;
+  line-height: 2em;
+  z-index: 200;
+  }
 }
 
 .dropdown-toggle-btn:hover {
