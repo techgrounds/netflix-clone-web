@@ -1,9 +1,9 @@
-import './Navbar.scss'
-import { useState, useRef, useEffect } from 'react'
-import { NavLink } from 'react-router-dom'
-import SearchBar from '../SearchBar/SearchBar'
-import { useOnClickOutside } from './ClickOutsideHook'
-import { genreGridActive } from "../../redux/genres/genres.actions";
+import "./Navbar.scss"
+import { useState, useRef, useEffect } from "react"
+import { NavLink } from "react-router-dom"
+import SearchBar from "../SearchBar/SearchBar"
+import { useOnClickOutside } from "./ClickOutsideHook"
+import { genreGridActive } from "../../redux/genres/genres.actions"
 
 //language
 import { useContext } from "react"
@@ -30,7 +30,7 @@ import Miki from "../../assets/images/accounts/miki.jpg"
 import Alfijah from "../../assets/images/accounts/alfijah.jpg"
 import Wesley from "../../assets/images/accounts/wesley.jpg"
 import Carolyn from "../../assets/images/accounts/carolyn.webp"
-import { useDispatch } from 'react-redux'
+import { useDispatch } from "react-redux"
 
 const Navbar = () => {
   const dispatch = useDispatch()
@@ -43,7 +43,6 @@ const Navbar = () => {
   const notificationsElement = useRef()
   const { language } = useContext(LangContext)
   const currentAccount = useContext(AccountContext)
-  console.log("currentAccount", currentAccount.account)
 
   const allAccounts = [
     { name: "Alfijah", source: Alfijah },
@@ -57,8 +56,7 @@ const Navbar = () => {
     { name: "Fatos", source: Fatos },
     { name: "Jens", source: Jens },
   ]
-  const profilePic = allAccounts.find(e => e.name === currentAccount.account);
-  console.log('profile', profilePic)
+  const profilePic = allAccounts.find((e) => e.name === currentAccount.account)
 
   window.onscroll = () => {
     setIsScrolled(window.pageYOffset === 0 ? false : true)
@@ -112,32 +110,15 @@ const Navbar = () => {
                     </NavLink>
                   </li>
                   <li className="sub-menu-item">
-                    {/* <NavLink to="/genre"> */}
                     <NavLink
                       to="/genre"
                       className={({ isActive }) =>
                         isActive ? activeClassName : undefined
                       }
                     >
-                      {/* Series */}
                       Genres
                     </NavLink>
                   </li>
-
-                  {/* <li className="sub-menu-item">
-                    <NavLink to="/home"
-                       className={({ isActive }) =>
-                       isActive ? activeClassName : undefined
-                     }
-                    >New &amp; Popular</NavLink>
-                  </li>
-                  <li className="sub-menu-item">
-                    <NavLink to="/home"
-                       className={({ isActive }) =>
-                       isActive ? activeClassName : undefined
-                     }
-                    >My List</NavLink>
-                  </li> */}
                 </ul>
               </div>
             ) : (
@@ -156,35 +137,17 @@ const Navbar = () => {
           </li>
           <li className="navigation-tab">
             <NavLink
-              to='/genre'
-              onClick={() => { dispatch(genreGridActive(false)) }}
+              to="/genre"
+              onClick={() => {
+                dispatch(genreGridActive(false))
+              }}
               className={({ isActive }) =>
                 isActive ? activeClassName : undefined
               }
             >
-              {/* Series */}
               Genres
             </NavLink>
           </li>
-
-          {/* <li className="navigation-tab">
-            <NavLink to="/home"
-               className={({ isActive }) =>
-               isActive ? activeClassName : undefined
-             }
-            >
-              New &amp; Popular
-            </NavLink>
-          </li>
-          <li className="navigation-tab">
-            <NavLink to="/home" 
-               className={({ isActive }) =>
-               isActive ? activeClassName : undefined
-             }
-            >
-              My List
-            </NavLink>
-          </li> */}
         </ul>
 
         <div className="secondary-nav">
@@ -324,7 +287,11 @@ const Navbar = () => {
                 <NavLink to="" className="account-link">
                   <span className="profile-link">
                     <img
-                      src={currentAccount.account === 'defaultAccount' ? "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" : profilePic.source}
+                      src={
+                        currentAccount.account === "defaultAccount"
+                          ? "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+                          : profilePic.source
+                      }
                       alt={currentAccount.account}
                       className="profile-icon"
                     />
@@ -340,149 +307,6 @@ const Navbar = () => {
 
                   <ul className="sub-menu-list profiles">
                     <AccountMenu />
-                    {/*}
-                    <li className='sub-menu-item profile'>
-                      <div>
-                        <NavLink to='' className='profile-link'>
-                          <div className='avatar-wrapper'>
-                            <img
-                              className='profile-icon custom-profile-icon'
-                              src={Miki}
-                              alt='Miki'
-                            />
-                          </div>
-                          <span className='profile-name'>Miki</span>
-                        </NavLink>
-                      </div>
-                    </li>
-                    <li className='sub-menu-item profile'>
-                      <div>
-                        <NavLink to='' className='profile-link'>
-                          <div className='avatar-wrapper'>
-                            <img
-                              className='profile-icon custom-profile-icon'
-                              src={Carolyn}
-                              alt='Carolyn'
-                            />
-                          </div>
-                          <span className='profile-name'>Carolyn</span>
-                        </NavLink>
-                      </div>
-                    </li>
-                    <li className='sub-menu-item profile'>
-                      <div>
-                        <NavLink to='' className='profile-link'>
-                          <div className='avatar-wrapper'>
-                            <img
-                              className='profile-icon custom-profile-icon'
-                              src={Janou}
-                              alt='Janou'
-                            />
-                          </div>
-                          <span className='profile-name'>Janou</span>
-                        </NavLink>
-                      </div>
-                    </li>
-                    <li className='sub-menu-item profile'>
-                      <div>
-                        <NavLink to='' className='profile-link'>
-                          <div className='avatar-wrapper'>
-                            <img
-                              className='profile-icon custom-profile-icon'
-                              src={Jens}
-                              alt='Jens'
-                              height='12px'
-                            />
-                          </div>
-                          <span className='profile-name'>Jens</span>
-                        </NavLink>
-                      </div>
-                    </li>
-                    <li className='sub-menu-item profile'>
-                      <div>
-                        <NavLink to='' className='profile-link'>
-                          <div className='avatar-wrapper'>
-                            <img
-                              className='profile-icon custom-profile-icon'
-                              src={Michael}
-                              alt='Michael'
-                            />
-                          </div>
-                          <span className='profile-name'>Michael</span>
-                        </NavLink>
-                      </div>
-                    </li>
-                    <li className='sub-menu-item profile'>
-                      <div>
-                        <NavLink to='' className='profile-link'>
-                          <div className='avatar-wrapper'>
-                            <img
-                              className='profile-icon custom-profile-icon'
-                              src={Roibin}
-                              alt='Roibin'
-                            />
-                          </div>
-                          <span className='profile-name'>Roibin</span>
-                        </NavLink>
-                      </div>
-                    </li>
-                    <li className='sub-menu-item profile'>
-                      <div>
-                        <NavLink to='' className='profile-link'>
-                          <div className='avatar-wrapper'>
-                            <img
-                              className='profile-icon custom-profile-icon'
-                              src={Fatos}
-                              alt='Fatos'
-                            />
-                          </div>
-                          <span className='profile-name'>Fatos</span>
-                        </NavLink>
-                      </div>
-                    </li>
-                    <li className='sub-menu-item profile'>
-                      <div>
-                        <NavLink to='' className='profile-link'>
-                          <div className='avatar-wrapper'>
-                            <img
-                              className='profile-icon custom-profile-icon'
-                              src={Zico}
-                              alt='Zico'
-                            />
-                          </div>
-                          <span className='profile-name'>Zico</span>
-                        </NavLink>
-                      </div>
-                    </li>
-                    <li className='sub-menu-item profile'>
-                      <div>
-                        <NavLink to='' className='profile-link'>
-                          <div className='avatar-wrapper'>
-                            <img
-                              className='profile-icon custom-profile-icon'
-                              src={Alfi}
-                              alt='Alfi'
-                            />
-                          </div>
-                          <span className='profile-name'>Alfi</span>
-                        </NavLink>
-                      </div>
-                    </li>
-                    <li className='sub-menu-item profile'>
-                      <div>
-                        <NavLink to='' className='profile-link'>
-                          <div className='avatar-wrapper'>
-                            <img
-                              className='profile-icon custom-profile-icon'
-                              src={Wesley}
-                              alt='Wesley'
-                            />
-                          </div>
-                          <span className='profile-name'>Wesley</span>
-                        </NavLink>
-                      </div>
-                    </li>
-                  */}
                     <li className="sub-menu-item profile-link">
                       <NavLink
                         to=""
