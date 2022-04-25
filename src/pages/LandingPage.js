@@ -1,15 +1,19 @@
-import React from 'react';
+import React from "react";
+import LandingHero from "./../components/LandingHero/LandingHero";
+import FooterLandingPage from "../components/FooterLandingPage/FooterLandingPage";
+import Loader from "../components/Loader";
 
-import LandingHero from './../components/LandingHero/LandingHero';
-import FooterLandingPage from '../components/FooterLandingPage/FooterLandingPage';
+
 
 const LandingPage = () => {
+  // document.readyState === "complete" ?
   return (
-    <div className='landingPage'>
+    <div className="landingPage">
       <LandingHero />
       <FooterLandingPage />
     </div>
-  )
+  );
 }
 
-export default LandingPage
+
+export default LandingPage;

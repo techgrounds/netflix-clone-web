@@ -17,14 +17,15 @@ const MiniModal = ({
   keywords,
   updateZIndexRef,
   setIsVideoPlaying,
+  mute,
+  setMute
 }) => {
   const dispatch = useDispatch();
   const youtubeId = trailer.substr(32);
   const movieLogoCheck = () => {
-    if (movie.logo === "") {
-      return movie.title;
-    }
-    if (movie.logo != "") {
+    if (movie.logo === "") {return movie.title};
+    if (movie.logo !== "") {return <div className='movieLogoBig'><img src={movie.logo} /></div>};
+    if (movie.logo != '') {
       return (
         <div className="movieLogoBig">
           <img src={movie.logo} />
