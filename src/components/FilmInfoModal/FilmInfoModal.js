@@ -42,6 +42,8 @@ const FilmInfoModal = ({ setIsVideoPlaying, setMute, mute }) => {
     writers,
   } = movieDetails
 
+  console.log('moviedetails', movieDetails)
+
   const handleKeyPress = useCallback(
     (event) => {
       if (event.key === 'Escape' && isModalVisible) {
