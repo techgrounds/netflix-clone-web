@@ -43,7 +43,7 @@ function DropDownGenres() {
                 </button> */}
 
         <select
-          className="dropdown-toggle-btn"
+          className="select-toggle-btn"
           value={currentGenre}
           onChange={(e) => {
             dispatch(selectGenre(e.target.value));
@@ -51,7 +51,7 @@ function DropDownGenres() {
           }}
         >
           {moviesByGenreData.map((genre) => (
-            <option value={genre.genre} key={genre.genre}>
+            <option className="option-bg" value={genre.genre} key={genre.genre}>
               {genre.genre}
             </option>
           ))}
