@@ -11,7 +11,6 @@ import FilmInfoModal from '../../FilmInfoModal/FilmInfoModal'
 import KijkWijzer from '../../KijkWijzer/KijkWijzer'
 import { v4 as uuidv4 } from 'uuid'
 
-
 const MiniModalDetails = ({ runtime, rating, keywords, setIsVideoPlaying }) => {
   const [isChecked, setIsChecked] = useState(false);
   const dispatch = useDispatch();

@@ -1,7 +1,6 @@
 import useWindowSize from './WindowSize'
 import { useState, useEffect } from 'react'
 import MiniModal from '../MiniModal/MiniModal'
-import MiniLoader from "../Loader/MiniLoader/MiniLoader"
 import { v4 as uuidv4 } from 'uuid'
 import '../Lane/Lane.scss'
 
@@ -27,7 +26,7 @@ export const LaneItem = ({
   }
 
 
-  useEffect(() => {
+  useEffect( () => {
     if (hovered) {
       updateZIndexRef(999)
       setLoadMovie(true)

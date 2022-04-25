@@ -18,14 +18,13 @@ const GenrePage = () => {
   const moviesByGenreData = useSelector((state) => state.genres.allGenres)
   const movieData = useSelector((state) => state.movies.movie)
 
-  const [mute, setMute] = useState(false)
 
   useEffect(() => {
     dispatch(fetchGenresResultsAsync())
     dispatch(genreGridActive(false))
 
-    return () => dispatch(genreGridActive(false))
-  }, [])
+    // return () => dispatch(genreGridActive())
+  }, [dispatch])
 
   const selectMovieSet = moviesByGenreData?.find(
     (movieSet) => movieSet.genre === selectCurrentGenre
@@ -34,7 +33,7 @@ const GenrePage = () => {
   //console.log('moviesByGenreDataJanou', moviesByGenreData)
   // console.log("selectgenre", typeof selectCurrentGenre, selectCurrentGenre)
   //console.log('selectMovieSet', selectMovieSet)
-  console.log('GRID ACTIVE', gridActive)
+  // console.log('GRID ACTIVE', gridActive)
 
   return (
     <>
@@ -53,15 +52,14 @@ const GenrePage = () => {
               moviesByGenreData={selectMovieSet?.movies}
             />
           )
-        : moviesByGenreData?.map((movieSet) => {
+        :
+        moviesByGenreData?.map((movieSet) => {
             return (
               <Lane
                 laneTitle={movieSet.genre}
                 movies={movieSet.movies}
                 trailer={movieSet.trailer}
                 key={uuidv4()}
-                mute={mute}
-                setMute={setMute}
                 setIsVideoPlaying={setIsVideoPlaying}
               />
             )
