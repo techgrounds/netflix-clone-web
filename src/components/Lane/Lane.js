@@ -40,7 +40,6 @@ const Lane = ({ laneTitle, movies }) => {
               : rightIndex
           }
           index={index}
-          isModalVisible={isModalVisible}
         />
       );
     });
