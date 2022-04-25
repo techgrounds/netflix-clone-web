@@ -1,9 +1,9 @@
 import './FilmInfoModalSuggestions.scss'
 import { useState } from 'react'
 import { IconKijkWijzer16 } from '../Icons/IconKijkWijzer16'
-import { IconAdd } from '../Icons/IconAdd'
 import { IconArrowDown } from '../Icons/IconArrowDown'
 import { ButtonRoundDarkTooltip } from '../ButtonRound/ButtonRound'
+import ButtonAdd from '../ButtonAdd/ButtonAdd'
 import movieMockupData from '../../movies.json'
 
 const FilmInfoModalSuggestions = () => {
@@ -37,9 +37,7 @@ const FilmInfoModalSuggestions = () => {
                   <div className='suggestions-year'>1996</div>
                 </div>
                 <div className='suggestions-second-line'>
-                  <ButtonRoundDarkTooltip tooltiptext='Add to My List'>
-                    <IconAdd />
-                  </ButtonRoundDarkTooltip>
+                  <ButtonAdd />
                 </div>
               </div>
               <div className='suggestions-bottom'>
