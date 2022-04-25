@@ -4,13 +4,16 @@ import { useSwipeable } from 'react-swipeable'
 import { IconArrowRight } from '../Icons/IconArrowRight'
 import { IconArrowLeft } from '../Icons/IconArrowLeft'
 import { LaneItem } from '../../components/Lane/LaneItem'
+// import MiniLoader from "../Loader/MiniLoader/MiniLoader"
 import useWindowSize from './WindowSize'
 import './Lane.scss'
+
 
 const Lane = ({ laneTitle, movies, mute, setMute }) => {
   const size = useWindowSize()
   const [activeIndex, setActiveIndex] = useState(0)
   const [startSwitch, setStartSwitch] = useState(0)
+ 
   const [animationState, setAnimationState] = useState(false)
   const zIndexRef = useRef()
   const laneRef = useRef()
@@ -31,7 +34,7 @@ const Lane = ({ laneTitle, movies, mute, setMute }) => {
         (leftIndex + (size.length - 1))-movies.length
 
     return (
-        <LaneItem
+          <LaneItem
           key={movie.id}
           updateZIndexRef={updateZIndexRef}
           movie={movie}

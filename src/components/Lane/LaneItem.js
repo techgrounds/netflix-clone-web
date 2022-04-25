@@ -1,6 +1,8 @@
 import useWindowSize from './WindowSize'
 import { useState, useEffect } from 'react'
 import MiniModal from '../MiniModal/MiniModal'
+import MiniLoader from "../Loader/MiniLoader/MiniLoader"
+import { v4 as uuidv4 } from 'uuid'
 import '../Lane/Lane.scss'
 
 export const LaneItem = ({
@@ -10,7 +12,7 @@ export const LaneItem = ({
   rightIndex,
   index,
   mute,
-  setMute,
+  setMute
 }) => {
   const size = useWindowSize()
   const [loadMovie, setLoadMovie] = useState(false)
@@ -46,6 +48,7 @@ export const LaneItem = ({
       onMouseLeave={() => {
         setHovered(false)
       }}>
+
       {loadMovie && (
         <div
           className={`miniModal
@@ -60,7 +63,8 @@ export const LaneItem = ({
           style={{
             height: `${size.itemHeight * 2.5}vw`,
             width: `${size.itemWidth * 1.5}vw`,
-          }}>
+          }}
+          key={uuidv4}>
           {loadMovie && (
             <MiniModal
               loadMovie={loadMovie}
@@ -73,8 +77,10 @@ export const LaneItem = ({
               rating={movie.rating}
               keywords={movie.keywords}
               movie={movie}
+              key={uuidv4}
               mute={mute}
               setMute={setMute}
+
             />
           )}
         </div>

@@ -10,7 +10,6 @@ import { useDispatch } from 'react-redux'
 const MiniModal = ({
   setLoadMovie,
   moviePoster,
-  movieTitle,
   trailer,
   rating,
   runtime,
@@ -18,6 +17,8 @@ const MiniModal = ({
   keywords,
   updateZIndexRef,
   setIsVideoPlaying,
+  mute,
+  setMute
 }) => {
   const dispatch = useDispatch()
   const youtubeId = trailer.substr(32)
@@ -33,7 +34,7 @@ const MiniModal = ({
   const boxRef = useRef()
   const [active, setActive] = useState(true)
   const [start, setStart] = useState(false)
-  const [mute, setMute] = useState(false)
+  // const [mute, setMute] = useState(false)
 
   const remove = () => {
     setStart(true)
@@ -57,7 +58,7 @@ const MiniModal = ({
       }}>
       <div className='top-container'>
         {start && (
-          <MiniModalVideo setMute={setMute} mute={mute} youtubeId={youtubeId} />
+          <MiniModalVideo mute={mute} youtubeId={youtubeId} />
         )}
         {active && (
           <img

@@ -11,7 +11,7 @@ import FilmInfoModalSuggestions from '../FilmInfoModalSuggestions/FilmInfoModalS
 import FilmInfoModalFooter from '../FilmInfoModalFooter/FilmInfoModalFooter'
 import { fetchMovieDetailsAsync } from '../../redux/movies/movies.actions'
 
-const FilmInfoModal = ({ setIsVideoPlaying, setMute, mute }) => {
+const FilmInfoModal = ({ setIsVideoPlaying }) => {
   const dispatch = useDispatch()
   const modalQuit = useRef()
   const isModalVisible = useSelector((state) => state.movies.movieInfoModal)
@@ -100,8 +100,6 @@ const FilmInfoModal = ({ setIsVideoPlaying, setMute, mute }) => {
               <div className='modal-header'>
                 <FilmInfoModalHeader
                   movieData={movieData}
-                  setMute={setMute}
-                  mute={mute}
                 />
               </div>
               <div className='modal-description'>

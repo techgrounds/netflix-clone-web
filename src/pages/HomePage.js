@@ -4,14 +4,13 @@ import FooterBrowserPage from '../components/FooterBrowserPage/FooterBrowserPage
 import Lane from '../components/Lane/Lane'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchMoviesResultsAsync } from '../redux/movies/movies.actions'
-import Loader from "../components/Loader"
 import { v4 as uuidv4 } from 'uuid'
 
 const HomePage = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(true)
-  const [mute, setMute] = useState(false)
   const dispatch = useDispatch()
   const allMoviesSelector = useSelector((state) => state.movies.allMovies)
+  const [mute, setMute] = useState(false)
 
   useEffect(() => {
     dispatch(fetchMoviesResultsAsync())
@@ -22,26 +21,20 @@ const HomePage = () => {
       <HomeHero
         setIsVideoPlaying={setIsVideoPlaying}
         isVideoPlaying={isVideoPlaying}
-        mute={mute}
-        setMute={setMute}
       />
-
-       {document.readyState === "complete" ?
-      allMoviesSelector?.map((movieSet) => {
+      {allMoviesSelector?.map((movieSet) => {
         return (
           <Lane
             laneTitle={movieSet.genre}
             movies={movieSet.movies}
             trailer={movieSet.trailer}
             key={uuidv4()}
+            setIsVideoPlaying={setIsVideoPlaying}
             mute={mute}
             setMute={setMute}
-            setIsVideoPlaying={setIsVideoPlaying}
           />
         )
-      })
-      : <Loader/>
-    }
+      })}
       <FooterBrowserPage />
     </>
   )
