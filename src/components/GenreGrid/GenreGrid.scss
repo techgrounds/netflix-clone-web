@@ -1,18 +1,22 @@
 @import "../../assets/scss/mixins";
 
+.grid{
+  position: relative;
+}
+
 .containerTitleGenre {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
   align-content: flex-end;
   color: var(--white);
-  background-color: var(--black);
-  height: 16vh;
   padding: 0 5%;
-   @include breakpoint(sm){
-      padding: 0 5%;
-  }
+  // margin-top: 22vh;
+  //  @include breakpoint(sm){
+  //     padding: 0 5%;
+  // }
   h2 {
     font-size: 1.4em;
     font-family: "NetflixSansBold";

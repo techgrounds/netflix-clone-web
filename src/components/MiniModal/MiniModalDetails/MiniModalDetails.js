@@ -1,14 +1,15 @@
-import "./MiniModalDetails.scss";
-import { IconPlayBlack } from "../../Icons/IconPlayBlack";
-import { IconArrowDown } from "../../Icons/IconArrowDown";
-import { useSelector, useDispatch } from "react-redux";
-import { movieInfoModalToggle } from "../../../redux/movies/movies.actions";
-import { useState } from "react";
-import ButtonRating from "../../ButtonRating/ButtonRating";
-import ButtonAdd from "../../ButtonAdd/ButtonAdd";
-import ButtonCheck from "../../ButtonCheck/ButtonCheck";
-import FilmInfoModal from "../../FilmInfoModal/FilmInfoModal";
-import KijkWijzer from "../../KijkWijzer/KijkWijzer";
+import './MiniModalDetails.scss'
+import { IconPlayBlack } from '../../Icons/IconPlayBlack'
+import { IconArrowDown } from '../../Icons/IconArrowDown'
+import { useSelector, useDispatch } from 'react-redux'
+import { movieInfoModalToggle } from '../../../redux/movies/movies.actions'
+import { useState } from 'react'
+import ButtonRating from '../../ButtonRating/ButtonRating'
+import ButtonAdd from '../../ButtonAdd/ButtonAdd'
+import ButtonCheck from '../../ButtonCheck/ButtonCheck'
+import FilmInfoModal from '../../FilmInfoModal/FilmInfoModal'
+import KijkWijzer from '../../KijkWijzer/KijkWijzer'
+import { v4 as uuidv4 } from 'uuid'
 
 const MiniModalDetails = ({ runtime, rating, keywords, setIsVideoPlaying }) => {
   const [isChecked, setIsChecked] = useState(false);
@@ -18,6 +19,11 @@ const MiniModalDetails = ({ runtime, rating, keywords, setIsVideoPlaying }) => {
   const changeIcon = () => {
     !isChecked ? setIsChecked(true) : setIsChecked(false);
   };
+
+  const uuid1 = uuidv4()
+  const uuid2 = uuidv4()
+  const uuid3 = uuidv4()
+  const uuid4 = uuidv4()
 
   return (
     <>
@@ -54,16 +60,16 @@ const MiniModalDetails = ({ runtime, rating, keywords, setIsVideoPlaying }) => {
       <div className="tag-container">
         {keywords?.map((keyword, id) => (
           <>
-            <span key={id} className="tag-item-mini">
+            <span key={uuid1} className='tag-item-mini'>
               {keyword}
             </span>
             {id !== keywords.length - 1 && (
-              <span className="tag-item-circle">•</span>
+              <span key={uuid2} className='tag-item-circle'>•</span>
             )}
           </>
         ))}
       </div>
-      <FilmInfoModal />
+      <FilmInfoModal key={uuid3}/>
     </>
   );
 };

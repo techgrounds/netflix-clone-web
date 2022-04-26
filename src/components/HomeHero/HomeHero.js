@@ -1,28 +1,28 @@
-import "./HomeHero.scss"
-import { useContext, useEffect, useRef } from "react"
-import { useSelector, useDispatch } from "react-redux"
-import { gsap } from "gsap"
-import TextTruncate from "react-text-truncate"
+import "./HomeHero.scss";
+import { useContext, useEffect, useRef } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { gsap } from "gsap";
+import TextTruncate from "react-text-truncate";
 import {
   movieInfoModalToggle,
   fetchSingleMovie,
-} from "../../redux/movies/movies.actions"
-import { IconInfo } from "../Icons/IconInfo"
-import ButtonMute from "../ButtonMute/ButtonMute"
-import { IconPlayBlack } from "../Icons/IconPlayBlack"
-import KijkWijzer from "../KijkWijzer/KijkWijzer"
-import FilmInfoModal from "../FilmInfoModal/FilmInfoModal"
-import FilmInfoModalVideo from "../FilmInfoModalVideo/FilmInfoModalVideo"
-import { LangContext } from "../../redux/languages/languages.context"
+} from "../../redux/movies/movies.actions";
+import { IconInfo } from "../Icons/IconInfo";
+import ButtonMute from "../ButtonMute/ButtonMute";
+import { IconPlayBlack } from "../Icons/IconPlayBlack";
+import KijkWijzer from "../KijkWijzer/KijkWijzer";
+import FilmInfoModal from "../FilmInfoModal/FilmInfoModal";
+import FilmInfoModalVideo from "../FilmInfoModalVideo/FilmInfoModalVideo";
+import { LangContext } from "../../redux/languages/languages.context";
 
-const HomeHero = ({ setIsVideoPlaying, isVideoPlaying, mute, setMute }) => {
-  const { language } = useContext(LangContext)
-  const element = useRef()
-  const timeline = useRef()
-  const selector = gsap.utils.selector(element)
-  const dispatch = useDispatch()
-  const movieData = useSelector((state) => state.movies.heroMovie)
-  const isModalOpen = useSelector((state) => state.movies.movieInfoModal)
+const HomeHero = ({ setIsVideoPlaying, isVideoPlaying }) => {
+  const { language } = useContext(LangContext);
+  const element = useRef();
+  const timeline = useRef();
+  const selector = gsap.utils.selector(element);
+  const dispatch = useDispatch();
+  const movieData = useSelector((state) => state.movies.heroMovie);
+  const isModalOpen = useSelector((state) => state.movies.movieInfoModal);
 
   useEffect(() => {
     timeline.current = gsap
@@ -48,8 +48,8 @@ const HomeHero = ({ setIsVideoPlaying, isVideoPlaying, mute, setMute }) => {
           ease: "power4",
         },
         "start"
-      )
-  }, [selector])
+      );
+  }, [selector]);
 
   return (
     <div className="home-hero">
@@ -74,7 +74,7 @@ const HomeHero = ({ setIsVideoPlaying, isVideoPlaying, mute, setMute }) => {
             <div className="home-hero-button-component">
               <div className="home-hero-volume-button-wrapper">
                 <button className="home-hero-volume-button">
-                  <ButtonMute setMute={setMute} mute={mute} />
+                  <ButtonMute />
                 </button>
               </div>
               <div className="home-hero-maturity-rating">
@@ -104,9 +104,9 @@ const HomeHero = ({ setIsVideoPlaying, isVideoPlaying, mute, setMute }) => {
                   <button
                     className="home-hero-button home-hero-info-button has-icon"
                     onClick={() => {
-                      dispatch(fetchSingleMovie(movieData))
-                      dispatch(movieInfoModalToggle(!isModalOpen))
-                      setIsVideoPlaying(false)
+                      dispatch(fetchSingleMovie(movieData));
+                      dispatch(movieInfoModalToggle(!isModalOpen));
+                      setIsVideoPlaying(false);
                     }}
                   >
                     <div className="home-hero-button-icon">
@@ -114,7 +114,8 @@ const HomeHero = ({ setIsVideoPlaying, isVideoPlaying, mute, setMute }) => {
                     </div>
                     <div className="breadcrumb"></div>
                     <span className="home-hero-button-text">
-                      {language === 'EN' ? 'More Info' : 'Meer info'}</span>
+                      {language === "EN" ? "More Info" : "Meer info"}
+                    </span>
                   </button>
                 </div>
               </div>
@@ -124,12 +125,10 @@ const HomeHero = ({ setIsVideoPlaying, isVideoPlaying, mute, setMute }) => {
         <FilmInfoModal
           setIsVideoPlaying={setIsVideoPlaying}
           isVideoPlaying={isVideoPlaying}
-          setMute={setMute}
-          mute={mute}
         />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default HomeHero
+export default HomeHero;

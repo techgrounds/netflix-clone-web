@@ -12,7 +12,6 @@ const LanguagesSelector = () => {
   const currentLanguage = useSelector((state) => state.language.language)
   const dispatch = useDispatch()
   const { language, setLanguage } = useContext(LangContext)
-
   const handleChange = (e) => {
     setLanguage(e.target.value)
   }

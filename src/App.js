@@ -1,20 +1,19 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import Navbar from "./components/Navbar/Navbar"
-import "./assets/scss/main.scss"
-import React from "react"
-import { LangProvider } from "./redux/languages/languages.context"
-import { AccountProvider } from "./redux/account/account.context"
-import ScrollToTop from "./components/ScrollToTop"
-import LandingPage from "./pages/LandingPage"
-import HomePage from "./pages/HomePage"
-import GenrePage from "./pages/GenrePage"
-import ErrorPage from "./pages/ErrorPage"
-import SearchPage from "./pages/SearchPage"
-import SignInPage from "./pages/SignInPage"
-import HeaderGenre from "./components/HeaderGenre/HeaderGenre"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar/Navbar";
+import "./assets/scss/main.scss";
+import React from "react";
+import { LangProvider } from "./redux/languages/languages.context";
+import { AccountProvider } from "./redux/account/account.context";
+import ScrollToTop from "./components/ScrollToTop";
+import LandingPage from "./pages/LandingPage";
+import HomePage from "./pages/HomePage";
+import GenrePage from "./pages/GenrePage";
+import ErrorPage from "./pages/ErrorPage";
+import SearchPage from "./pages/SearchPage";
+import SignInPage from "./pages/SignInPage";
+import HeaderGenre from "./components/HeaderGenre/HeaderGenre";
 
 function App() {
-  // const [mute, setMute] = useState(false);
   return (
     <div className="App">
       <LangProvider>
@@ -28,10 +27,7 @@ function App() {
                   element={
                     <>
                       <Navbar />
-                      <HomePage
-                      // mute={mute}
-                      // setMute={setMute}
-                      />
+                      <HomePage />
                     </>
                   }
                 />
@@ -41,9 +37,7 @@ function App() {
                     <>
                       <Navbar />
                       <HeaderGenre />
-                      <GenrePage
-                      // mute={mute} setMute={setMute}
-                      />
+                      <GenrePage />
                     </>
                   }
                 />
@@ -64,7 +58,7 @@ function App() {
         </AccountProvider>
       </LangProvider>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
