@@ -43,23 +43,22 @@ const GenrePage = () => {
 
       {gridActive
         ? selectMovieSet?.movies && (
-            <GenreGrid
-              genreTitle={selectMovieSet.genre}
-              moviesByGenreData={selectMovieSet?.movies}
+          <GenreGrid
+            genreTitle={selectMovieSet.genre}
+            moviesByGenreData={selectMovieSet?.movies}
+          />
+        )
+        : moviesByGenreData?.map((movieSet) => {
+          return (
+            <Lane
+              laneTitle={movieSet.genre}
+              movies={movieSet.movies}
+              trailer={movieSet.trailer}
+              key={uuidv4()}
+              setIsVideoPlaying={setIsVideoPlaying}
             />
           )
-        :
-        moviesByGenreData?.map((movieSet) => {
-            return (
-              <Lane
-                laneTitle={movieSet.genre}
-                movies={movieSet.movies}
-                trailer={movieSet.trailer}
-                key={uuidv4()}
-                setIsVideoPlaying={setIsVideoPlaying}
-              />
-            );
-          })}
+        })}
 
       <FooterBrowserPage />
     </>
