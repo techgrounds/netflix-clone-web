@@ -8,7 +8,7 @@
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   align-content: flex-end;
   color: var(--white);
@@ -41,7 +41,7 @@
   border-radius: 7%;
 //   overflow: hidden;
 }
-.laneItemTitle {
+.gridItemTitle {
   position: absolute;
   bottom: 10%;
   text-shadow: 1px 1px var(--black);
@@ -50,91 +50,5 @@
   font-size: 0.8vw;
 }
 
-.movieImage {
-  position: relative;
-  min-height: 100%;
-  min-width: 100%;
-  object-fit: contain;
-  overflow: hidden;
-}
-.movieLogo {
- margin-left: 0%;
- margin-right: 55%;
-}
-
-.miniModal {
-  position: absolute;
-  z-index: 10;
-  cursor: pointer;
-  animation: miniModalGrow 1000ms;
-}
-.leftModal {
-  position: absolute;
-  z-index: 1;
-  transform: translateX(60px);
-  cursor: pointer;
-  animation: miniModalGrowLeft 1000ms;
-}
-// .rightModal {
-//   position: absolute;
-//   z-index: 1;
-//   transform: translateX(-60px);
-//   cursor: pointer;
-//   animation: miniModalGrowRight 1000ms;
-// }
-
-// @keyframes miniModalGrowRight {
-//   0% {
-//     transform: scale(0.65) translateY(5vw);
-//     opacity: 0;
-//   }
-//   80% {
-//     transform: scale(0.65) translateY(5vw);
-//     opacity: 0;
-//   }
-//   81% {
-//     transform: scale(0.65) translateY(5vw);
-//     opacity: 1;
-//   }
-//   100% {
-//     transform: translateX(-60px) scale(1);
-//   }
-// }
-
-// @keyframes miniModalGrowLeft {
-//   0% {
-//     transform: scale(0.65) translateY(5vw);
-//     opacity: 0;
-//   }
-//   80% {
-//     transform: scale(0.65) translateY(5vw);
-//     opacity: 0;
-//   }
-//   81% {
-//     transform: scale(0.65) translateY(5vw);
-//     opacity: 1;
-//   }
-//   100% {
-//     transform: translateX(60px) scale(1);
-//   }
-// }
-
-// @keyframes miniModalGrow {
-//   0% {
-//     transform: scale(0.65);
-//     opacity: 0;
-//   }
-//   80% {
-//     transform: scale(0.65) translateY(5vw);
-//     opacity: 0;
-//   }
-//   81% {
-//     transform: scale(0.65) translateY(5vw);
-//     opacity: 1;
-//   }
-//   100% {
-//     transform: scale(1);
-//   }
-// }
 
 
