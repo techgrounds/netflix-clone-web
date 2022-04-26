@@ -59,7 +59,7 @@ const HomeHero = ({ setIsVideoPlaying, isVideoPlaying }) => {
             <div className="home-hero-motion-background">
               {isVideoPlaying ? (
                 <FilmInfoModalVideo
-                  youtubeId={movieData?.trailer.substr(32) + "&mute=1"}
+                  youtubeId={movieData?.trailer ? movieData.trailer.substr(32) + "&mute=1" : "m0Xb9BhfVjY&mute=1"}
                 />
               ) : (
                 <img
