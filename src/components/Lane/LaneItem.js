@@ -9,13 +9,11 @@ export const LaneItem = ({
   leftIndex,
   rightIndex,
   index,
-  isVideoPlaying,
-  setIsVideoPlaying
 }) => {
   const size = useWindowSize();
   const [loadMovie, setLoadMovie] = useState(false);
   const [hovered, setHovered] = useState(false);
-  // const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+
 
   const sleep = (milliseconds) => {
     return new Promise((resolve) => setTimeout(resolve, milliseconds));
@@ -30,41 +28,16 @@ export const LaneItem = ({
     }
   };
 
-  // const stopVideo = async () => {
-  //   await sleep(800)
-  //   hovered ? setIsVideoPlaying(false) :
-  //   setIsVideoPlaying(true)
-  // }
-
   useEffect( () => {
     if (hovered) {
       updateZIndexRef(999);
       setLoadMovie(true);
-      // stopVideo()
     }
     if (!hovered) {
       updateZIndexRef(0);
       setLoadMovie(false);
-      // setIsVideoPlaying(true)
     }
   }, [hovered]);
-
-  // const stopVideo = async () => {
-  //   await sleep(800);
-  //   setIsVideoPlaying(isVideoPlaying);
-  // };
-  // useEffect(() => {
-  //   if (hovered) {
-  //     updateZIndexRef(999);
-  //     setLoadMovie(true);
-  //     stopVideo();
-  //   }
-  //   if (!hovered) {
-  //     updateZIndexRef(0);
-  //     setLoadMovie(false);
-  //     setIsVideoPlaying(!isVideoPlaying);
-  //   }
-  // }, [hovered]);
 
   return (
     <div

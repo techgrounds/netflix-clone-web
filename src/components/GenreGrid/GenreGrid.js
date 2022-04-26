@@ -4,7 +4,6 @@ import { GridItem } from './GridItem'
 
 const GenreGrid = ({ moviesByGenreData, genreTitle }) => {
 
-    console.log("griddata?", moviesByGenreData, genreTitle)
     return (
         <div className='grid'>
             <div className="containerTitleGenre">

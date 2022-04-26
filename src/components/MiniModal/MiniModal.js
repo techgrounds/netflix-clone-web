@@ -47,8 +47,9 @@ const MiniModal = ({
       duration: 2,
       delay: 4,
       ease: "power4",
-      onComplete: () => setActive(false),
+      // onComplete: () => setActive(false),
     });
+    // setActive(false)
   };
 
   if (updateZIndexRef) updateZIndexRef(999);

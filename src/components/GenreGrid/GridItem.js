@@ -12,7 +12,6 @@ export const GridItem = ({ movie, leftIndex, rightIndex, index }) => {
 
     return new Promise((resolve) => setTimeout(resolve, milliseconds));
   };
-  // console.log('index', index)
   const movieLogoCheck = () => {
     if (movie.logo === "") {
       return movie.title;

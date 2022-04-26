@@ -56,6 +56,14 @@ export const fetchMovieDetailsAsync = (id) => {
 
       dispatch(saveMovieDetails(movieDetails));
     } catch (err) {
+      console.log(`Error inside fetchMovieDetailsAsync thunk with id: ${id}`)
+
+      const requestDetails = await axios.get(
+        `${requests.fetchDiscover}/movie?id=8960`
+      );
+
+      dispatch(saveMovieDetails(requestDetails.data));
+
     }
   };
 };
