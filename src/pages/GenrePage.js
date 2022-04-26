@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { v4 as uuidv4 } from 'uuid'
 import { fetchGenresResultsAsync } from '../redux/genres/genres.actions'
 import { GenreGrid } from '../components/GenreGrid/GenreGrid'
-import { selectGenre, genreGridActive } from '../redux/genres/genres.actions'
+import { genreGridActive } from '../redux/genres/genres.actions'
 
 const GenrePage = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(true)
@@ -25,15 +25,15 @@ const GenrePage = () => {
     dispatch(genreGridActive(false))
 
     return () => dispatch(genreGridActive(false))
-  }, [])
+  }, [dispatch])
 
   const selectMovieSet = moviesByGenreData?.find(
     (movieSet) => movieSet.genre === selectCurrentGenre
   )
 
-  //console.log('moviesByGenreDataJanou', moviesByGenreData)
-  // console.log("selectgenre", typeof selectCurrentGenre, selectCurrentGenre)
-  //console.log('selectMovieSet', selectMovieSet)
+  console.log('moviesByGenreDataJanou', moviesByGenreData)
+  console.log("selectgenre", typeof selectCurrentGenre, selectCurrentGenre)
+  console.log('selectMovieSet', selectMovieSet)
   console.log('GRID ACTIVE', gridActive)
 
   return (
@@ -48,24 +48,24 @@ const GenrePage = () => {
 
       {gridActive
         ? selectMovieSet?.movies && (
-            <GenreGrid
-              genreTitle={selectMovieSet.genre}
-              moviesByGenreData={selectMovieSet?.movies}
+          <GenreGrid
+            genreTitle={selectMovieSet.genre}
+            moviesByGenreData={selectMovieSet?.movies}
+          />
+        )
+        : moviesByGenreData?.map((movieSet) => {
+          return (
+            <Lane
+              laneTitle={movieSet.genre}
+              movies={movieSet.movies}
+              trailer={movieSet.trailer}
+              key={uuidv4()}
+              mute={mute}
+              setMute={setMute}
+              setIsVideoPlaying={setIsVideoPlaying}
             />
           )
-        : moviesByGenreData?.map((movieSet) => {
-            return (
-              <Lane
-                laneTitle={movieSet.genre}
-                movies={movieSet.movies}
-                trailer={movieSet.trailer}
-                key={uuidv4()}
-                mute={mute}
-                setMute={setMute}
-                setIsVideoPlaying={setIsVideoPlaying}
-              />
-            )
-          })}
+        })}
 
       <FooterBrowserPage />
     </>
