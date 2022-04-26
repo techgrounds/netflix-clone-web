@@ -37,23 +37,10 @@
   border-radius: 7%;
 }
 
-.laneItemTitle {
+.gridItemTitle {
   position: absolute;
   bottom: 10%;
   text-shadow: 1px 1px var(--black);
   color: var (--smokewhite);
   font-size: 0.8vw;
-}
-
-.movieImage {
-  position: relative;
-  min-height: 100%;
-  min-width: 100%;
-  object-fit: contain;
-  overflow: hidden;
-}
-
-.movieLogo {
- margin-left: 0%;
- margin-right: 55%;
 }
