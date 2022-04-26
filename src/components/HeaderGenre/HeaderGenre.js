@@ -13,7 +13,6 @@ function HeaderGenre() {
   }
   return (
     <>
-      <div className='header-genre-bg-navbar'></div>
       <div
         className={
           isScrolledUp
@@ -24,14 +23,14 @@ function HeaderGenre() {
           <h2>Films</h2>
         </div>
         <DropDownGenres className='flexgrow-drowpdown' />
-        <div className='container-icons-left'>
+        {/* <div className='container-icons-left'>
           <button className='toggle-list-icon'>
             <IconList className='border-icons' />
           </button>
           <button className='toggle-row-icon'>
             <IconGallery />
           </button>
-        </div>
+        </div> */}
       </div>
     </>
   )

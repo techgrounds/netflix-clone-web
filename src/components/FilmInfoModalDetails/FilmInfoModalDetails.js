@@ -2,6 +2,8 @@ import './FilmInfoModalDetails.scss'
 import FilmInfoModalDetailsItem from '../FilmInfoModalDetailsItem/FilmInfoModalDetailsItem'
 import KijkWijzer from '../KijkWijzer/KijkWijzer'
 
+import { useContext } from 'react'
+import { LangContext } from '../../redux/languages/languages.context'
 const FilmInfoModalDetails = ({
   actors,
   releaseDate,
@@ -10,6 +12,7 @@ const FilmInfoModalDetails = ({
   movieData,
   certification,
 }) => {
+  const { language } = useContext(LangContext)
   return (
     <>
       <div className='modal-details-wrapper'>
@@ -27,12 +30,17 @@ const FilmInfoModalDetails = ({
           <p className='modal-details-description'>{movieData?.desc}</p>
         </div>
         <div className='modal-details-right'>
-          <FilmInfoModalDetailsItem tagLabel='Actors' tagItems={actors} />
-
-          <FilmInfoModalDetailsItem tagLabel='Director' tagItems={directors} />
           <FilmInfoModalDetailsItem
-            tagLabel='This film is'
+            tagLabel={language === 'EN' ? 'Actors' : 'Acteurs'}
+            tagItems={actors}
+          />
+          <FilmInfoModalDetailsItem
+            tagLabel={language === 'EN' ? 'This film is' : 'Deze film is'}
             tagItems={movieData?.keywords}
+          />
+          <FilmInfoModalDetailsItem
+            tagLabel={language === 'EN' ? 'Director' : 'Regiseur'}
+            tagItems={directors}
           />
         </div>
       </div>
