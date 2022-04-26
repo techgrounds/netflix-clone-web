@@ -7,7 +7,7 @@ const MiniModalVideo = ({ youtubeId }) => {
   const modestBranding = "&modestbranding=1&showinfo=0&fs=0&iv_load_policy=3";
   const embedUrl = `https://www.youtube-nocookie.com/embed/${youtubeId}?${autoPlay}${loop}${modestBranding}`;
   const switchMute = useSelector((state) => state.movies.soundMute);
-  
+
   return (
     <div className="video-container">
       <iframe

@@ -2,7 +2,7 @@ import React from 'react'
 import './GenreGrid.scss'
 import { GridItem } from './GridItem'
 
-export const GenreGrid = ({ moviesByGenreData, genreTitle }) => {
+const GenreGrid = ({ moviesByGenreData, genreTitle }) => {
 
     console.log("griddata?", moviesByGenreData, genreTitle)
     return (
@@ -14,15 +14,6 @@ export const GenreGrid = ({ moviesByGenreData, genreTitle }) => {
 
                 {moviesByGenreData?.map((movie) => {
                     return (
-                        // <div className='gridItem'
-                        // >
-                        //     {/* {movie.title} */}
-                        //     <img
-                        //         src={movie.image}
-                        //         alt={movie.title}
-                        //         className='movieImage'
-                        //     />
-                        // </div>
                         <GridItem key={movie.id} movie={movie}/>
                     )
                 })}
@@ -30,3 +21,5 @@ export const GenreGrid = ({ moviesByGenreData, genreTitle }) => {
         </div>
     )
 }
+
+export default GenreGrid;
