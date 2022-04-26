@@ -9,6 +9,7 @@ const FilmInfoModalVideo = ({ youtubeId }) => {
   const embedUrl = `https://www.youtube-nocookie.com/embed/${youtubeId}?${autoPlay}${loop}${modestBranding}`;
   const switchMute = useSelector((state) => state.movies.soundMute);
 
+
   return (
     <div className="film-modal-video-container">
       <iframe

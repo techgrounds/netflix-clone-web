@@ -1,37 +1,37 @@
-import "./FilmInfoModal.scss";
-import { useSelector, useDispatch } from "react-redux";
-import { IconClose } from "../Icons/IconClose";
-import { useEffect, useCallback, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { movieInfoModalToggle } from "../../redux/movies/movies.actions";
-import useOutsideClick from "../../hooks/useOutsideClick";
-import FilmInfoModalHeader from "../FilmInfoModalHeader/FilmInfoModalHeader";
-import FilmInfoModalDetails from "../FilmInfoModalDetails/FilmInfoModalDetails";
-import FilmInfoModalSuggestions from "../FilmInfoModalSuggestions/FilmInfoModalSuggestions";
-import FilmInfoModalFooter from "../FilmInfoModalFooter/FilmInfoModalFooter";
-import { fetchMovieDetailsAsync } from "../../redux/movies/movies.actions";
+import './FilmInfoModal.scss'
+import { useSelector, useDispatch } from 'react-redux'
+import { IconClose } from '../Icons/IconClose'
+import { useEffect, useCallback, useRef } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { movieInfoModalToggle } from '../../redux/movies/movies.actions'
+import useOutsideClick from '../../hooks/useOutsideClick'
+import FilmInfoModalHeader from '../FilmInfoModalHeader/FilmInfoModalHeader'
+import FilmInfoModalDetails from '../FilmInfoModalDetails/FilmInfoModalDetails'
+import FilmInfoModalSuggestions from '../FilmInfoModalSuggestions/FilmInfoModalSuggestions'
+import FilmInfoModalFooter from '../FilmInfoModalFooter/FilmInfoModalFooter'
+import { fetchMovieDetailsAsync } from '../../redux/movies/movies.actions'
 
 const FilmInfoModal = ({ setIsVideoPlaying }) => {
-  const dispatch = useDispatch();
-  const modalQuit = useRef();
-  const isModalVisible = useSelector((state) => state.movies.movieInfoModal);
+  const dispatch = useDispatch()
+  const modalQuit = useRef()
+  const isModalVisible = useSelector((state) => state.movies.movieInfoModal)
 
   useOutsideClick(modalQuit, () => {
     if (isModalVisible) {
-      dispatch(movieInfoModalToggle(!isModalVisible));
-      setIsVideoPlaying(true);
+      dispatch(movieInfoModalToggle(!isModalVisible))
+      setIsVideoPlaying(true)
     }
-  });
+  })
 
-  const movieData = useSelector((state) => state.movies.movie);
+  const movieData = useSelector((state) => state.movies.movie)
 
   useEffect(() => {
-    dispatch(fetchMovieDetailsAsync(movieData?.id));
-  }, [movieData?.id]);
+    dispatch(fetchMovieDetailsAsync(movieData?.id))
+  }, [movieData?.id])
 
   const movieDetails = useSelector(
     (state) => state.movies.movieDetails.movieDetailsResults
-  );
+  )
 
   const {
     actors,
@@ -40,24 +40,22 @@ const FilmInfoModal = ({ setIsVideoPlaying }) => {
     genres,
     releaseDate,
     writers,
-  } = movieDetails;
-
-  console.log('moviedetails', movieDetails)
+  } = movieDetails
 
   const handleKeyPress = useCallback(
     (event) => {
-      if (event.key === "Escape" && isModalVisible) {
-        dispatch(movieInfoModalToggle(!isModalVisible));
-        setIsVideoPlaying(true);
+      if (event.key === 'Escape' && isModalVisible) {
+        dispatch(movieInfoModalToggle(!isModalVisible))
+        setIsVideoPlaying(true)
       }
     },
     [isModalVisible, setIsVideoPlaying, dispatch]
-  );
+  )
 
   useEffect(() => {
-    document.addEventListener("keydown", handleKeyPress);
-    return () => document.removeEventListener("keydown", handleKeyPress);
-  }, [handleKeyPress]);
+    document.addEventListener('keydown', handleKeyPress)
+    return () => document.removeEventListener('keydown', handleKeyPress)
+  }, [handleKeyPress])
 
   return (
     <AnimatePresence>
@@ -78,8 +76,7 @@ const FilmInfoModal = ({ setIsVideoPlaying }) => {
               delay: 0.2,
             },
           }}
-          className="modal-background"
-        >
+          className='modal-background'>
           <motion.div
             initial={{
               scale: 0,
@@ -96,15 +93,14 @@ const FilmInfoModal = ({ setIsVideoPlaying }) => {
                 delay: 0.2,
               },
             }}
-            className="modal-container"
-            ref={modalQuit}
-          >
-            <div className="modal-content">
-              <div className="modal-header">
+            className='modal-container'
+            ref={modalQuit}>
+            <div className='modal-content'>
+              <div className='modal-header'>
                 <FilmInfoModalHeader movieData={movieData} />
               </div>
-              <div className="modal-description">
-                <div className="modal-details">
+              <div className='modal-description'>
+                <div className='modal-details'>
                   <FilmInfoModalDetails
                     actors={actors}
                     genres={genres}
@@ -114,11 +110,11 @@ const FilmInfoModal = ({ setIsVideoPlaying }) => {
                     movieData={movieData}
                   />
                 </div>
-                <div className="modal-suggestions">
+                <div className='modal-suggestions'>
                   <FilmInfoModalSuggestions />
                 </div>
               </div>
-              <div className="modal-footer">
+              <div className='modal-footer'>
                 <FilmInfoModalFooter
                   actors={actors}
                   genres={genres}
@@ -129,12 +125,11 @@ const FilmInfoModal = ({ setIsVideoPlaying }) => {
                 />
               </div>
               <button
-                className="modal-close-button"
+                className='modal-close-button'
                 onClick={() => {
-                  dispatch(movieInfoModalToggle(!isModalVisible));
-                  setIsVideoPlaying(true);
-                }}
-              >
+                  dispatch(movieInfoModalToggle(!isModalVisible))
+                  setIsVideoPlaying(true)
+                }}>
                 <IconClose />
               </button>
             </div>
@@ -142,7 +137,7 @@ const FilmInfoModal = ({ setIsVideoPlaying }) => {
         </motion.div>
       )}
     </AnimatePresence>
-  );
-};
+  )
+}
 
-export default FilmInfoModal;
+export default FilmInfoModal
