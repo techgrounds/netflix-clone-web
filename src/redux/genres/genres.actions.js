@@ -25,12 +25,12 @@ export const fetchGenresResultsFailure = (errorMessage) => ({
 export const selectGenre = (genre) => ({
   type: genresActionTypes.SELECT_MOVIE_GENRE,
   payload: genre,
-})
+});
 
 export const genreGridActive = (bool) => ({
   type: genresActionTypes.GENRE_GRID_ACTIVE,
-  payload: bool
-})
+  payload: bool,
+});
 
 export const fetchGenresResultsAsync = () => {
   return async (dispatch) => {
@@ -40,9 +40,12 @@ export const fetchGenresResultsAsync = () => {
       const request = await axios.get(requests.fetchGenres);
       const allGenres = transformMovieData(request.data);
 
+      console.log(`WHATS IN THE REQUEST ${request}, ${allGenres}`);
+
       dispatch(fetchGenresResultsSuccess(allGenres));
     } catch (err) {
       dispatch(fetchGenresResultsFailure(err.message));
+      console.log(`ERROR INSIDE FETCH GENRE RESULTS => ${err}`);
     }
   };
 };

@@ -18,7 +18,7 @@ const FilmInfoModal = ({ setIsVideoPlaying }) => {
 
   useOutsideClick(modalQuit, () => {
     if (isModalVisible) {
-      dispatch(movieInfoModalToggle(!isModalVisible));
+      dispatch(movieInfoModalToggle());
       setIsVideoPlaying(true);
     }
   });
@@ -45,7 +45,7 @@ const FilmInfoModal = ({ setIsVideoPlaying }) => {
   const handleKeyPress = useCallback(
     (event) => {
       if (event.key === "Escape" && isModalVisible) {
-        dispatch(movieInfoModalToggle(!isModalVisible));
+        dispatch(movieInfoModalToggle());
         setIsVideoPlaying(true);
       }
     },
@@ -129,7 +129,7 @@ const FilmInfoModal = ({ setIsVideoPlaying }) => {
               <button
                 className="modal-close-button"
                 onClick={() => {
-                  dispatch(movieInfoModalToggle(!isModalVisible));
+                  dispatch(movieInfoModalToggle());
                   setIsVideoPlaying(true);
                 }}
               >

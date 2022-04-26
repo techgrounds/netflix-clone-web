@@ -32,11 +32,15 @@ export const fetchMoviesResultsFailure = (errorMessage) => ({
   payload: errorMessage,
 });
 
-export const movieInfoModalToggle = (bool) => ({
-  type: bool
-    ? moviesActionTypes.MOVIE_INFO_MODAL_OPEN
-    : moviesActionTypes.MOVIE_INFO_MODAL_CLOSE,
-  payload: bool,
+// export const movieInfoModalToggle = (bool) => ({
+//   type: bool
+//     ? moviesActionTypes.MOVIE_INFO_MODAL_OPEN
+//     : moviesActionTypes.MOVIE_INFO_MODAL_CLOSE,
+//   payload: bool,
+// });
+
+export const movieInfoModalToggle = () => ({
+  type: moviesActionTypes.MOVIE_INFO_MODAL_TOGGLE,
 });
 
 export const soundMuteSwitch = (bool) => ({
@@ -53,9 +57,11 @@ export const fetchMovieDetailsAsync = (id) => {
         `${requests.fetchDiscover}/movie?id=${id}`
       );
       const movieDetails = requestDetails.data;
+      console.log("MOVIE DETAILS", movieDetails);
 
       dispatch(saveMovieDetails(movieDetails));
     } catch (err) {
+      console.log(`ERRROR INSIDE FETCH MOVIE DETAILS ${err}`);
       console.log(err);
     }
   };
@@ -67,6 +73,7 @@ export const fetchMoviesResultsAsync = () => {
 
     try {
       const request = await axios.get(requests.fetchDiscover);
+      console.log("REQUEST", request);
 
       const allMovies = transformMovieData(request.data);
 

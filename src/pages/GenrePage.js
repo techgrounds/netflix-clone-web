@@ -22,8 +22,8 @@ const GenrePage = () => {
     dispatch(fetchGenresResultsAsync());
     dispatch(genreGridActive(false));
 
-    // return () => dispatch(genreGridActive())
-  }, [dispatch])
+    return () => dispatch(genreGridActive(false));
+  }, []);
 
   const selectMovieSet = moviesByGenreData?.find(
     (movieSet) => movieSet.genre === selectCurrentGenre
@@ -48,8 +48,7 @@ const GenrePage = () => {
               moviesByGenreData={selectMovieSet?.movies}
             />
           )
-        :
-        moviesByGenreData?.map((movieSet) => {
+        : moviesByGenreData?.map((movieSet) => {
             return (
               <Lane
                 laneTitle={movieSet.genre}

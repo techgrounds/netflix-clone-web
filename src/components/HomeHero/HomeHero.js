@@ -22,7 +22,7 @@ const HomeHero = ({ setIsVideoPlaying, isVideoPlaying }) => {
   const selector = gsap.utils.selector(element);
   const dispatch = useDispatch();
   const movieData = useSelector((state) => state.movies.heroMovie);
-  const isModalOpen = useSelector((state) => state.movies.movieInfoModal);
+  // const isModalOpen = useSelector((state) => state.movies.movieInfoModal);
 
   useEffect(() => {
     timeline.current = gsap
@@ -105,7 +105,7 @@ const HomeHero = ({ setIsVideoPlaying, isVideoPlaying }) => {
                     className="home-hero-button home-hero-info-button has-icon"
                     onClick={() => {
                       dispatch(fetchSingleMovie(movieData));
-                      dispatch(movieInfoModalToggle(!isModalOpen));
+                      dispatch(movieInfoModalToggle());
                       setIsVideoPlaying(false);
                     }}
                   >

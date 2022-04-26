@@ -42,16 +42,22 @@ const moviesReducer = (state = initialState, action) => {
         ...state,
         isLoading: true,
       };
-    case moviesActionTypes.MOVIE_INFO_MODAL_OPEN:
+
+    case moviesActionTypes.MOVIE_INFO_MODAL_TOGGLE:
       return {
         ...state,
-        movieInfoModal: action.payload,
+        movieInfoModal: !state.movieInfoModal,
       };
-    case moviesActionTypes.MOVIE_INFO_MODAL_CLOSE:
-      return {
-        ...state,
-        movieInfoModal: action.payload,
-      };
+    // case moviesActionTypes.MOVIE_INFO_MODAL_OPEN:
+    //   return {
+    //     ...state,
+    //     movieInfoModal: action.payload,
+    //   };
+    // case moviesActionTypes.MOVIE_INFO_MODAL_CLOSE:
+    //   return {
+    //     ...state,
+    //     movieInfoModal: action.payload,
+    //   };
     case moviesActionTypes.SOUND_MUTE_ON:
       return {
         ...state,
