@@ -50,7 +50,11 @@
 }
 
 .flex-grow-dropdown {
+  position: absolute;
+  top: 0;
+  left: 0;
   flex: 10%;
+  background-color: aqua;
 }
 
 .container-icons-left {

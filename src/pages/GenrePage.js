@@ -22,7 +22,7 @@ const GenrePage = () => {
     dispatch(fetchGenresResultsAsync());
     dispatch(genreGridActive(false));
 
-    // return () => dispatch(genreGridActive())
+    return () => dispatch(genreGridActive())
   }, [dispatch])
 
   const selectMovieSet = moviesByGenreData?.find(

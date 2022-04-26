@@ -17,8 +17,6 @@ const MiniModal = ({
   keywords,
   updateZIndexRef,
   setIsVideoPlaying,
-  mute,
-  setMute
 }) => {
   const dispatch = useDispatch();
   const youtubeId = trailer.substr(32);

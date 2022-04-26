@@ -1,7 +1,7 @@
 import React from "react";
 import LandingHero from "./../components/LandingHero/LandingHero";
 import FooterLandingPage from "../components/FooterLandingPage/FooterLandingPage";
-import Loader from "../components/Loader";
+// import Loader from "../components/Loader";
 
 
 

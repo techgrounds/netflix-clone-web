@@ -2,7 +2,7 @@ import useWindowSize from "../Lane/WindowSize";
 import { useState, useEffect } from "react";
 import MiniModal from "../MiniModal/MiniModal";
 import "./GenreGrid.scss";
-import "../Lane/Lane.scss"
+
 
 export const GridItem = ({ movie, leftIndex, rightIndex, index }) => {
   const size = useWindowSize();
@@ -48,15 +48,15 @@ export const GridItem = ({ movie, leftIndex, rightIndex, index }) => {
     >
       {loadMovie && (
         <div
-          className={`miniModal
-                 ${
-                   index === leftIndex
-                     ? "leftModal"
-                     : index === rightIndex
-                     ? "rightModal"
-                     : "not"
-                 }
-                 `}
+          className="miniModal"
+          //  ${
+          //    index === leftIndex
+          //      ? "leftModal"
+          //      : index === rightIndex
+          //      ? "rightModal"
+          //      : "not"
+          //  }
+
           style={{
             height: `${size.itemHeight * 2.5}vw`,
             width: `${size.itemWidth * 1.5}vw`,
