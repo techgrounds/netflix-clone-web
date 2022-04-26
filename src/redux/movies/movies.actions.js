@@ -61,11 +61,7 @@ export const fetchMovieDetailsAsync = (id) => {
 
       dispatch(saveMovieDetails(movieDetails));
     } catch (err) {
-<<<<<<< HEAD
-      console.log(`ERRROR INSIDE FETCH MOVIE DETAILS ${err}`);
       console.log(err);
-=======
->>>>>>> 277e4fe37a781e4047210feb5a90bf44160b8f75
     }
   };
 };
