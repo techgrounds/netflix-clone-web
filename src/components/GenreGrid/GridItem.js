@@ -48,15 +48,7 @@ export const GridItem = ({ movie, leftIndex, rightIndex, index }) => {
     >
       {loadMovie && (
         <div
-          className={`miniModal
-                 ${
-                   index === leftIndex
-                     ? "leftModal"
-                     : index === rightIndex
-                     ? "rightModal"
-                     : "not"
-                 }
-                 `}
+          className="miniModal"
           style={{
             height: `${size.itemHeight * 2.5}vw`,
             width: `${size.itemWidth * 1.5}vw`,
