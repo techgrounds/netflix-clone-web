@@ -11,7 +11,7 @@ import { genreGridActive } from "../redux/genres/genres.actions";
 
 const GenrePage = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
-  const [isModalVisible, setIsModalVisible] = useState(false);
+  // const [isModalVisible, setIsModalVisible] = useState(false);
   const dispatch = useDispatch();
   const selectCurrentGenre = useSelector((state) => state.genres.selectGenre);
   const gridActive = useSelector((state) => state.genres.gridActive);
@@ -22,8 +22,8 @@ const GenrePage = () => {
     dispatch(fetchGenresResultsAsync());
     dispatch(genreGridActive(false));
 
-    return () => dispatch(genreGridActive(false));
-  }, []);
+    // return () => dispatch(genreGridActive())
+  }, [dispatch]);
 
   const selectMovieSet = moviesByGenreData?.find(
     (movieSet) => movieSet.genre === selectCurrentGenre
@@ -36,8 +36,8 @@ const GenrePage = () => {
       <HomeHero
         setIsVideoPlaying={setIsVideoPlaying}
         isVideoPlaying={isVideoPlaying}
-        isModalVisible={isModalVisible}
-        setIsModalVisible={setIsModalVisible}
+        // isModalVisible={isModalVisible}
+        // setIsModalVisible={setIsModalVisible}
         movieData={movieData}
       />
 

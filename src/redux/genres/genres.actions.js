@@ -40,16 +40,12 @@ export const fetchGenresResultsAsync = () => {
       const request = await axios.get(requests.fetchGenres);
       const allGenres = transformMovieData(request.data);
 
-      console.log(`WHATS IN THE REQUEST ${request}, ${allGenres}`);
-
       dispatch(fetchGenresResultsSuccess(allGenres));
     } catch (err) {
       dispatch(fetchGenresResultsFailure(err.message));
-      console.log(`ERROR INSIDE FETCH GENRE RESULTS => ${err}`);
     }
   };
 };
-
 /////////////
 //REMOVE NULL FROM LINK!
 // let backdropUrl = movie.backdropUrls[0].split('null')
