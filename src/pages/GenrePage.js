@@ -55,8 +55,6 @@ const GenrePage = () => {
               movies={movieSet.movies}
               trailer={movieSet.trailer}
               key={uuidv4()}
-              mute={mute}
-              setMute={setMute}
               setIsVideoPlaying={setIsVideoPlaying}
             />
           )
