@@ -2,15 +2,17 @@ import useWindowSize from "../Lane/WindowSize";
 import { useState, useEffect } from "react";
 import MiniModal from "../MiniModal/MiniModal";
 import "./GenreGrid.scss";
+import "../Lane/Lane.scss"
 
 export const GridItem = ({ movie, leftIndex, rightIndex, index }) => {
   const size = useWindowSize();
   const [loadMovie, setLoadMovie] = useState(false);
   const [hovered, setHovered] = useState(false);
   const sleep = (milliseconds) => {
+
     return new Promise((resolve) => setTimeout(resolve, milliseconds));
   };
-
+  // console.log('index', index)
   const movieLogoCheck = () => {
     if (movie.logo === "") {
       return movie.title;
@@ -78,7 +80,7 @@ export const GridItem = ({ movie, leftIndex, rightIndex, index }) => {
         }}
       />
       <div
-        className="laneItemTitle"
+        className="gridItemTitle"
         style={{ width: `${size.itemWidth * 0.9}vw`, overflow: `hidden` }}
       >
         {movieLogoCheck()}
