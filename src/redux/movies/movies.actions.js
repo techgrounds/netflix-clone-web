@@ -56,7 +56,6 @@ export const fetchMovieDetailsAsync = (id) => {
 
       dispatch(saveMovieDetails(movieDetails));
     } catch (err) {
-      console.log(err);
     }
   };
 };

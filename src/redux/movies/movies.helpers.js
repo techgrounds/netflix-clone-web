@@ -4,6 +4,7 @@ export const transformMovieData = (moviesObject) => {
   const movies = [];
 
   Object.entries(moviesObject).forEach(([key, value]) => {
+    console.log("value: ",value)
     let filteredMovies = value.categoryDetails
       .map((movie) => {
         return {
