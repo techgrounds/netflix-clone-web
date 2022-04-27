@@ -11,7 +11,7 @@ import FilmInfoModal from '../../FilmInfoModal/FilmInfoModal'
 import KijkWijzer from '../../KijkWijzer/KijkWijzer'
 import { v4 as uuidv4 } from 'uuid'
 
-const MiniModalDetails = ({ runtime, rating, keywords, setIsVideoPlaying }) => {
+const MiniModalDetails = ({ runtime, rating, keywords }) => {
   const [isChecked, setIsChecked] = useState(false)
   const dispatch = useDispatch()
   const isModalOpen = useSelector((state) => state.movies.movieInfoModal)
@@ -19,11 +19,6 @@ const MiniModalDetails = ({ runtime, rating, keywords, setIsVideoPlaying }) => {
   const changeIcon = () => {
     !isChecked ? setIsChecked(true) : setIsChecked(false)
   }
-
-  const uuid1 = uuidv4()
-  const uuid2 = uuidv4()
-  const uuid3 = uuidv4()
-  const uuid4 = uuidv4()
 
   return (
     <>
@@ -42,7 +37,6 @@ const MiniModalDetails = ({ runtime, rating, keywords, setIsVideoPlaying }) => {
             className='moreInfo-button'
             onClick={() => {
               dispatch(movieInfoModalToggle(!isModalOpen))
-              setIsVideoPlaying(false)
             }}>
             <IconArrowDown />
           </button>
@@ -57,20 +51,16 @@ const MiniModalDetails = ({ runtime, rating, keywords, setIsVideoPlaying }) => {
         <span className='feature-badge'>HD</span>
       </div>
       <div className='tag-container'>
-        {keywords?.map((keyword, id, i) => (
-          <>
-            <span key={uuid1} className='tag-item-mini'>
-              {keyword}
-            </span>
+        {keywords?.map((keyword, id) => (
+          <div key={id}>
+            <span className='tag-item-mini'>{keyword}</span>
             {id !== keywords.length - 1 && (
-              <span key={uuid2} className='tag-item-circle'>
-                •
-              </span>
+              <span className='tag-item-circle'>•</span>
             )}
-          </>
+          </div>
         ))}
       </div>
-      <FilmInfoModal key={uuid3} />
+      <FilmInfoModal />
     </>
   )
 }

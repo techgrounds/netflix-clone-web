@@ -1,8 +1,6 @@
 import { useState } from 'react'
 import './HeaderGenre.scss'
 import DropDownGenres from '../../components/DropDownGenres/DropDownGenres'
-import { IconList } from '../Icons/IconList'
-import { IconGallery } from '../Icons/IconGallery'
 
 function HeaderGenre() {
   const [isScrolledUp, setIsScrolledUp] = useState(false)

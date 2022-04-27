@@ -2,7 +2,7 @@ import useWindowSize from "../Lane/WindowSize";
 import { useState, useEffect } from "react";
 import MiniModal from "../MiniModal/MiniModal";
 import "./GenreGrid.scss";
-import "../Lane/Lane.scss"
+
 
 export const GridItem = ({ movie, leftIndex, rightIndex, index }) => {
   const size = useWindowSize();
@@ -12,7 +12,6 @@ export const GridItem = ({ movie, leftIndex, rightIndex, index }) => {
 
     return new Promise((resolve) => setTimeout(resolve, milliseconds));
   };
-  // console.log('index', index)
   const movieLogoCheck = () => {
     if (movie.logo === "") {
       return movie.title;

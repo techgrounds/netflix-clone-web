@@ -38,17 +38,16 @@
     font-size: 0.5rem;
     margin-left: 0.5rem;
   }
-  .option-bg {
-  position: absolute;
-  bottom: 0;
-  }
+ 
 }
 
-.option-bg {
+.optionBG {
   position: absolute;
+  top: 0;
+  left: 0;
   width: 16em;
   padding: 1rem;
-  background-color: var(--black);
+  background-color: rgb(225, 255, 192);
   border: solid 0.5px var(--gray);
   font-family: 'NetflixSansRegular', sans-serif;
   font-size: 0.813rem;
@@ -57,17 +56,10 @@
   z-index: 200;
 }
 
+
 @media (min-width: 600px) {
   .container-dropdown-genres {
     display: flex;
     left: 2rem;
-  }
-  .option-bg {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-  }
-  .option-bg {
-    width: auto;
   }
 }

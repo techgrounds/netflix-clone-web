@@ -118,9 +118,14 @@
 }
 
 .tag-container {
+  display: flex;
+  flex-flow: row wrap;
   color: var(--whiteOpacity);
-  white-space: normal;
+  // white-space: normal;
   width: 90%;
+  @include breakpoint(xlg) {
+    font-size: 1.2rem;
+  }
   @include breakpoint(xlg) {
     font-size: 1.2rem;
   }

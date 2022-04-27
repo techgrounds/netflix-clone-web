@@ -4,7 +4,6 @@ import FooterBrowserPage from "../components/FooterBrowserPage/FooterBrowserPage
 import Lane from "../components/Lane/Lane";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMoviesResultsAsync } from "../redux/movies/movies.actions";
-import { v4 as uuidv4 } from "uuid";
 
 const HomePage = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
@@ -15,9 +14,6 @@ const HomePage = () => {
   }, [dispatch]);
 
   const allMoviesSelector = useSelector((state) => state.movies.allMovies);
-
-  console.log("allMoviesSelector " , allMoviesSelector)
-
   return (
     <>
       <HomeHero
@@ -30,7 +26,7 @@ const HomePage = () => {
             laneTitle={movieSet.genre}
             movies={movieSet.movies}
             trailer={movieSet.trailer}
-            key={uuidv4()}
+            key={movieSet.genre}
             setIsVideoPlaying={setIsVideoPlaying}
             isVideoPlaying={isVideoPlaying}
           />
