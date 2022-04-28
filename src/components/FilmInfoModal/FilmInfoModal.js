@@ -1,15 +1,15 @@
-import "./FilmInfoModal.scss";
-import { useSelector, useDispatch } from "react-redux";
-import { IconClose } from "../Icons/IconClose";
-import { useEffect, useCallback, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { movieInfoModalToggle } from "../../redux/movies/movies.actions";
-import useOutsideClick from "../../hooks/useOutsideClick";
-import FilmInfoModalHeader from "../FilmInfoModalHeader/FilmInfoModalHeader";
-import FilmInfoModalDetails from "../FilmInfoModalDetails/FilmInfoModalDetails";
-import FilmInfoModalSuggestions from "../FilmInfoModalSuggestions/FilmInfoModalSuggestions";
-import FilmInfoModalFooter from "../FilmInfoModalFooter/FilmInfoModalFooter";
-import { fetchMovieDetailsAsync } from "../../redux/movies/movies.actions";
+import './FilmInfoModal.scss';
+import { useSelector, useDispatch } from 'react-redux';
+import { IconClose } from '../Icons/IconClose';
+import { useEffect, useCallback, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { movieInfoModalToggle } from '../../redux/movies/movies.actions';
+import useOutsideClick from '../../hooks/useOutsideClick';
+import FilmInfoModalHeader from '../FilmInfoModalHeader/FilmInfoModalHeader';
+import FilmInfoModalDetails from '../FilmInfoModalDetails/FilmInfoModalDetails';
+import FilmInfoModalSuggestions from '../FilmInfoModalSuggestions/FilmInfoModalSuggestions';
+import FilmInfoModalFooter from '../FilmInfoModalFooter/FilmInfoModalFooter';
+import { fetchMovieDetailsAsync } from '../../redux/movies/movies.actions';
 
 const FilmInfoModal = ({ setIsVideoPlaying }) => {
   const dispatch = useDispatch();
@@ -44,7 +44,7 @@ const FilmInfoModal = ({ setIsVideoPlaying }) => {
 
   const handleKeyPress = useCallback(
     (event) => {
-      if (event.key === "Escape" && isModalVisible) {
+      if (event.key === 'Escape' && isModalVisible) {
         dispatch(movieInfoModalToggle());
         setIsVideoPlaying(true);
       }
@@ -53,8 +53,8 @@ const FilmInfoModal = ({ setIsVideoPlaying }) => {
   );
 
   useEffect(() => {
-    document.addEventListener("keydown", handleKeyPress);
-    return () => document.removeEventListener("keydown", handleKeyPress);
+    document.addEventListener('keydown', handleKeyPress);
+    return () => document.removeEventListener('keydown', handleKeyPress);
   }, [handleKeyPress]);
 
   return (

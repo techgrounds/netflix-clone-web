@@ -1,8 +1,8 @@
-import { moviesActionTypes } from "./movies.types";
-import requests from "../../requests";
-import axios from "../../axiosInstance";
-import { transformMovieData } from "./movies.helpers";
-import { spotlightMovies } from "./movies.spotlight";
+import { moviesActionTypes } from './movies.types';
+import requests from '../../requests';
+import axios from '../../axiosInstance';
+import { transformMovieData } from './movies.helpers';
+import { spotlightMovies } from './movies.spotlight';
 
 export const fetchMoviesResultsRequest = () => ({
   type: moviesActionTypes.FETCH_MOVIES_RESULTS_REQUEST,
@@ -59,7 +59,7 @@ export const fetchMovieDetailsAsync = (id) => {
         `${requests.fetchDiscover}/movie?id=${id}`
       );
       const movieDetails = requestDetails.data;
-      console.log("MOVIE DETAILS", movieDetails);
+      console.log('MOVIE DETAILS', movieDetails);
 
       dispatch(saveMovieDetails(movieDetails));
     } catch (err) {
@@ -74,7 +74,7 @@ export const fetchMoviesResultsAsync = () => {
 
     try {
       const request = await axios.get(requests.fetchDiscover);
-      console.log("REQUEST", request);
+      console.log('REQUEST', request);
 
       const allMovies = transformMovieData(request.data);
 

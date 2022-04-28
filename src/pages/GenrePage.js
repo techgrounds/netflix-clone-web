@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import HomeHero from "../components/HomeHero/HomeHero";
 import FooterBrowserPage from "../components/FooterBrowserPage/FooterBrowserPage";
 import Lane from "../components/Lane/Lane";
-import "../components/Lane/Lane.scss";
+import GenreGrid  from "../components/GenreGrid/GenreGrid"
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 import { fetchGenresResultsAsync } from "../redux/genres/genres.actions";
@@ -11,7 +11,10 @@ import { genreGridActive } from "../redux/genres/genres.actions";
 
 const GenrePage = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
-  const [isModalVisible, setIsModalVisible] = useState(false);
+  const gridActive = useSelector((state) => state.genres.gridActive);
+  const moviesByGenreData = useSelector((state) => state.genres.allGenres);
+  const selectCurrentGenre = useSelector((state) => state.genres.selectGenre);
+  const selectMovieSet = moviesByGenreData?.find((movieSet) => movieSet.genre === selectCurrentGenre);
   const dispatch = useDispatch();
   const selectCurrentGenre = useSelector((state) => state.genres.selectGenre);
   const gridActive = useSelector((state) => state.genres.gridActive);
@@ -25,14 +28,6 @@ const GenrePage = () => {
     dispatch(fetchGenresResultsAsync());
     dispatch(genreGridActive(false));
 
-    // return () => dispatch(genreGridActive())
-  }, [dispatch]);
-
-  const selectMovieSet = moviesByGenreData?.find(
-    (movieSet) => movieSet.genre === selectCurrentGenre
-  );
-  console.log("selectMovieSet ", selectMovieSet);
-
   return (
     <>
       <HomeHero
@@ -42,26 +37,21 @@ const GenrePage = () => {
         setIsModalVisible={setIsModalVisible}
         movieData={movieData}
       />
-
-      {gridActive
-        ? selectMovieSet?.movies && (
-            <GenreGrid
-              genreTitle={selectMovieSet.genre}
-              moviesByGenreData={selectMovieSet?.movies}
-            />
-          )
-        : moviesByGenreData?.map((movieSet) => {
-            return (
-              <Lane
-                laneTitle={movieSet.genre}
-                movies={movieSet.movies}
-                trailer={movieSet.trailer}
-                key={uuidv4()}
-                setIsVideoPlaying={setIsVideoPlaying}
-              />
-            );
-          })}
-
+      {gridActive ? selectMovieSet?.movies &&
+      <GenreGrid
+      genreTitle={selectMovieSet.genre}
+      moviesByGenreData={selectMovieSet?.movies}/>
+      :
+      moviesByGenreData?.map((movieSet) => {
+        return (
+        <Lane
+        laneTitle={movieSet.genre}
+        movies={movieSet.movies}
+        trailer={movieSet.trailer}
+        key={uuidv4()}
+        setIsVideoPlaying={setIsVideoPlaying}
+        />);
+      })}
       <FooterBrowserPage />
     </>
   );

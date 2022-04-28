@@ -49,7 +49,7 @@ function DropDownGenres() {
           }}
         >
           {moviesByGenreData.map((genre) => (
-            <option className="option-bg" value={genre.genre} key={genre.genre}>
+            <option className="optionBg" value={genre.genre} key={genre.genre}>
               {genre.genre}
             </option>
           ))}

@@ -1,19 +1,19 @@
-import "./HomeHero.scss";
-import { useContext, useEffect, useRef } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { gsap } from "gsap";
-import TextTruncate from "react-text-truncate";
+import './HomeHero.scss';
+import { useContext, useEffect, useRef } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { gsap } from 'gsap';
+import TextTruncate from 'react-text-truncate';
 import {
   movieInfoModalToggle,
   fetchSingleMovie,
-} from "../../redux/movies/movies.actions";
-import { IconInfo } from "../Icons/IconInfo";
-import ButtonMute from "../ButtonMute/ButtonMute";
-import { IconPlayBlack } from "../Icons/IconPlayBlack";
-import KijkWijzer from "../KijkWijzer/KijkWijzer";
-import FilmInfoModal from "../FilmInfoModal/FilmInfoModal";
-import FilmInfoModalVideo from "../FilmInfoModalVideo/FilmInfoModalVideo";
-import { LangContext } from "../../redux/languages/languages.context";
+} from '../../redux/movies/movies.actions';
+import { IconInfo } from '../Icons/IconInfo';
+import ButtonMute from '../ButtonMute/ButtonMute';
+import { IconPlayBlack } from '../Icons/IconPlayBlack';
+import KijkWijzer from '../KijkWijzer/KijkWijzer';
+import FilmInfoModal from '../FilmInfoModal/FilmInfoModal';
+import FilmInfoModalVideo from '../FilmInfoModalVideo/FilmInfoModalVideo';
+import { LangContext } from '../../redux/languages/languages.context';
 
 const HomeHero = ({ setIsVideoPlaying, isVideoPlaying }) => {
   const { language } = useContext(LangContext);
@@ -27,27 +27,27 @@ const HomeHero = ({ setIsVideoPlaying, isVideoPlaying }) => {
   useEffect(() => {
     timeline.current = gsap
       .timeline()
-      .add("start")
+      .add('start')
       .to(
-        selector(".title-wrapper"),
+        selector('.title-wrapper'),
         {
           duration: 2,
           delay: 125,
-          ease: "power4.out",
-          yPercent: "55",
+          ease: 'power4.out',
+          yPercent: '55',
           scale: 0.8,
-          transformOrigin: "left bottom",
+          transformOrigin: 'left bottom',
         },
-        "start"
+        'start'
       )
       .to(
-        selector(".info-wrapper"),
+        selector('.info-wrapper'),
         {
           opacity: 0,
           delay: 125,
-          ease: "power4",
+          ease: 'power4',
         },
-        "start"
+        'start'
       );
   }, [selector]);
 
@@ -59,7 +59,11 @@ const HomeHero = ({ setIsVideoPlaying, isVideoPlaying }) => {
             <div className="home-hero-motion-background">
               {isVideoPlaying ? (
                 <FilmInfoModalVideo
-                  youtubeId={movieData?.trailer.substr(32) + "&mute=1"}
+                  youtubeId={
+                    movieData?.trailer
+                      ? movieData.trailer.substr(32) + '&mute=1'
+                      : 'm0Xb9BhfVjY&mute=1'
+                  }
                 />
               ) : (
                 <img
@@ -98,7 +102,7 @@ const HomeHero = ({ setIsVideoPlaying, isVideoPlaying }) => {
                     </div>
                     <div className="breadcrumb"></div>
                     <span className="home-hero-button-text">
-                      {language === "EN" ? "Play" : "Afspelen"}
+                      {language === 'EN' ? 'Play' : 'Afspelen'}
                     </span>
                   </button>
                   <button
@@ -114,7 +118,7 @@ const HomeHero = ({ setIsVideoPlaying, isVideoPlaying }) => {
                     </div>
                     <div className="breadcrumb"></div>
                     <span className="home-hero-button-text">
-                      {language === "EN" ? "More Info" : "Meer info"}
+                      {language === 'EN' ? 'More Info' : 'Meer Informatie'}
                     </span>
                   </button>
                 </div>

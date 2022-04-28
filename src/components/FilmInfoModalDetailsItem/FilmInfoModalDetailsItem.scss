@@ -5,7 +5,6 @@
   line-height: 20px;
   margin-top: 1.2em;
   padding-bottom: 0.5rem;
-  word-wrap: break-word;
   @include breakpoint(md) {
     font-size: 0.9rem;
   }
@@ -21,6 +20,7 @@
   margin: 0;
   cursor: pointer;
   margin-right: 0.3rem;
+  text-transform: capitalize;
   &:hover {
     border-bottom: 1px solid #ddd;
   }

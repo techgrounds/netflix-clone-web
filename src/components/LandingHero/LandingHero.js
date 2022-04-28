@@ -6,23 +6,16 @@ import { IconArrowRight } from '../Icons/IconArrowRight'
 import { Link } from 'react-router-dom'
 import { useContext } from 'react'
 import { LangContext } from '../../redux/languages/languages.context'
-// import SignInModal from '../SignInModal/SignInModal'
 import './styles.scss'
 
 export default function LandingHero() {
   const { language } = useContext(LangContext)
-  // const [isModalOpen, setIsModalOpen] = useState(false);
-
-  // const [signIn, setSignIn] = useState(false)
 
   return (
     <div
       className='hero-container'
       style={{ backgroundImage: `url(${HeroBG})` }}>
       <LandingHeader />
-      {/* {signIn ? (
-        <SignInModal />
-      ) : ( */}
       <div className='hero-card'>
         <h1 className='hero-card-title'>
           {language === 'EN'
@@ -51,8 +44,6 @@ export default function LandingHero() {
             <Link to='/signin'>
               <ButtonRed
                 className='start-button'
-                // onClick = {() => setSignIn(true)}
-                // onClick={() => setIsModalOpen(true)}
               >
                 <span>{language === 'EN' ? 'Get started' : 'Aan de slag'}</span>
 
@@ -61,9 +52,7 @@ export default function LandingHero() {
             </Link>
           </div>
         </form>
-        {/* {isModalOpen && <SignInModal setIsModalOpen={setIsModalOpen} />} */}
       </div>
-      {/* )} */}
     </div>
   )
 }

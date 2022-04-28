@@ -8,7 +8,6 @@ const FilmInfoModalDetails = ({
   actors,
   releaseDate,
   directors,
-  genres,
   rating,
   movieData,
   certification,
@@ -31,9 +30,18 @@ const FilmInfoModalDetails = ({
           <p className='modal-details-description'>{movieData?.desc}</p>
         </div>
         <div className='modal-details-right'>
-          <FilmInfoModalDetailsItem tagLabel={language === 'EN' ? 'Actors' : 'Acteurs'} tagItems={actors} />
-          <FilmInfoModalDetailsItem tagLabel={language === 'EN' ? 'Genres' : 'Genres'} tagItems={genres} />
-          <FilmInfoModalDetailsItem tagLabel={language === 'EN' ? 'Director' : 'Regiseur'} tagItems={directors} />
+          <FilmInfoModalDetailsItem
+            tagLabel={language === 'EN' ? 'Actors' : 'Acteurs'}
+            tagItems={actors}
+          />
+          <FilmInfoModalDetailsItem
+            tagLabel={language === 'EN' ? 'This film is' : 'Deze film is'}
+            tagItems={movieData?.keywords}
+          />
+          <FilmInfoModalDetailsItem
+            tagLabel={language === 'EN' ? 'Director' : 'Regiseur'}
+            tagItems={directors}
+          />
         </div>
       </div>
     </>
