@@ -58,16 +58,21 @@ const moviesReducer = (state = initialState, action) => {
     //     ...state,
     //     movieInfoModal: action.payload,
     //   };
-    case moviesActionTypes.SOUND_MUTE_ON:
+    case moviesActionTypes.SOUND_MUTE_TOGGLE:
       return {
         ...state,
-        soundMute: action.payload,
+        soundMute: !state.soundMute,
       };
-    case moviesActionTypes.SOUND_MUTE_OFF:
-      return {
-        ...state,
-        soundMute: action.payload,
-      };
+    // case moviesActionTypes.SOUND_MUTE_ON:
+    //   return {
+    //     ...state,
+    //     soundMute: action.payload,
+    //   };
+    // case moviesActionTypes.SOUND_MUTE_OFF:
+    //   return {
+    //     ...state,
+    //     soundMute: action.payload,
+    //   };
     case moviesActionTypes.FETCH_MOVIES_RESULTS_SUCCESS:
       return {
         ...state,

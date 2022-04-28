@@ -42,13 +42,15 @@ export const fetchMoviesResultsFailure = (errorMessage) => ({
 export const movieInfoModalToggle = () => ({
   type: moviesActionTypes.MOVIE_INFO_MODAL_TOGGLE,
 });
-
-export const soundMuteSwitch = (bool) => ({
-  type: bool
-    ? moviesActionTypes.SOUND_MUTE_ON
-    : moviesActionTypes.SOUND_MUTE_OFF,
-  payload: bool,
+export const soundMuteToggle = () => ({
+  type: moviesActionTypes.SOUND_MUTE_TOGGLE,
 });
+// export const soundMuteSwitch = (bool) => ({
+//   type: bool
+//     ? moviesActionTypes.SOUND_MUTE_ON
+//     : moviesActionTypes.SOUND_MUTE_OFF,
+//   payload: bool,
+// });
 
 export const fetchMovieDetailsAsync = (id) => {
   return async (dispatch) => {
