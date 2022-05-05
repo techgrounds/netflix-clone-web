@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import HomeHero from "../components/HomeHero/HomeHero";
-import FooterBrowserPage from "../components/FooterBrowserPage/FooterBrowserPage";
-import Lane from "../components/Lane/Lane";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchMoviesResultsAsync } from "../redux/movies/movies.actions";
+import React, { useEffect, useState } from 'react';
+import HomeHero from '../components/HomeHero/HomeHero';
+import FooterBrowserPage from '../components/FooterBrowserPage/FooterBrowserPage';
+import Lane from '../components/Lane/Lane';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchMoviesResultsAsync } from '../redux/movies/movies.actions';
 
 const HomePage = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
@@ -14,6 +14,7 @@ const HomePage = () => {
   }, [dispatch]);
 
   const allMoviesSelector = useSelector((state) => state.movies.allMovies);
+  console.log(allMoviesSelector);
   return (
     <>
       <HomeHero
