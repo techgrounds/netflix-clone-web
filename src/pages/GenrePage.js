@@ -4,6 +4,7 @@ import FooterBrowserPage from '../components/FooterBrowserPage/FooterBrowserPage
 import Lane from '../components/Lane/Lane';
 import GenreGrid from '../components/GenreGrid/GenreGrid';
 import { useDispatch, useSelector } from 'react-redux';
+import { fetchGenresResultsAsync } from '../redux/genres/genres.actions';
 import { fetchMoviesResultsAsync } from '../redux/movies/movies.actions';
 import { v4 as uuidv4 } from 'uuid';
 const GenrePage = () => {
@@ -16,7 +17,7 @@ const GenrePage = () => {
   );
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchMoviesResultsAsync());
+    dispatch(fetchGenresResultsAsync());
   }, [dispatch]);
   return (
     <>
