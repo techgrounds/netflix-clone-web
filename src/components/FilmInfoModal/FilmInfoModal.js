@@ -43,11 +43,6 @@ const FilmInfoModal = ({ setIsVideoPlaying }) => {
     releaseDate,
     writers,
   } = movieDetails;
-
-  console.log(actors)
-  console.log(directors)
-  console.log(writers)
-  console.log(genres)
   
   const handleKeyPress = useCallback(
     (event) => {
