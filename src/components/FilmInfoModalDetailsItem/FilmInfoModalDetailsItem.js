@@ -1,6 +1,7 @@
 import './FilmInfoModalDetailsItem.scss'
 
 const FilmInfoModalDetailsItem = ({ tagLabel, tagItems }) => {
+  console.log(tagItems)
   return (
     <section>
       <div className='details-tags'>
