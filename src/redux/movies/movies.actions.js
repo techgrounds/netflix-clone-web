@@ -55,9 +55,12 @@ export const soundMuteToggle = () => ({
 export const fetchMovieDetailsAsync = (id) => {
   return async (dispatch) => {
     try {
+      console.log(id)
+      console.log(requests.fetchDiscover)
       const requestDetails = await axios.get(
         `${requests.fetchDiscover}/movie?id=${id}`
       );
+      console.log(requestDetails)
       const movieDetails = requestDetails.data;
 
       dispatch(saveMovieDetails(movieDetails));
