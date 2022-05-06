@@ -33,7 +33,6 @@ const FilmInfoModal = ({ setIsVideoPlaying }) => {
     (state) => state.movies.movieDetails.movieDetailsResults
   );
   
-  console.log(movieDetails)
 
   const {
     actors,

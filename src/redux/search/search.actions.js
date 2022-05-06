@@ -18,7 +18,6 @@ export const searchMoviesResults = (movieData) => ({
 });
 
 export const searchMoviesResultsAsync = () => {
-  // console.log("inside ");
 
   return async (dispatch) => {
     try {
@@ -49,20 +48,3 @@ export const searchMoviesResultsAsync = () => {
     }
   };
 };
-
-// accumulator => acc => beginwaarde 0, {}, []
-// curr => currentValue => huidige loop iteratie
-// {genre: 'eeighties', movies: []}
-
-// const grades = [
-//   { grade: 10 },
-//   { grade: 20 },
-//   { grade: 30 },
-//   { grade: 40 },
-//   { grade: 50 },
-// ];
-// const totalScores = grades.reduce((acc, curr) => {
-//   return acc + curr.grade;
-// }, 0);
-
-// console.log("TOTAL", totalScores);

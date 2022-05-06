@@ -13,7 +13,6 @@ const FilmInfoModalDetails = ({
   certification,
 }) => {
   const { language } = useContext(LangContext)
-  console.log(movieData)
   return (
     <>
       <div className='modal-details-wrapper'>

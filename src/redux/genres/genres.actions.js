@@ -38,13 +38,11 @@ export const fetchGenresResultsAsync = () => {
 
     try {
       const request = await axios.get(requests.fetchGenres);
-      console.log("request " ,request)
       const allGenres = transformMovieData(request.data);
 
       dispatch(fetchGenresResultsSuccess(allGenres));
     } catch (err) {
       dispatch(fetchGenresResultsFailure(err.message));
-      console.log("err fetchGenre: " ,err);
     }
   };
 };

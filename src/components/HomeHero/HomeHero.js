@@ -108,6 +108,7 @@ const HomeHero = ({ setIsVideoPlaying, isVideoPlaying }) => {
                   <button
                     className="home-hero-button home-hero-info-button has-icon"
                     onClick={() => {
+                      if (!movieData) return
                       dispatch(fetchSingleMovie(movieData));
                       dispatch(movieInfoModalToggle());
                       setIsVideoPlaying(false);
