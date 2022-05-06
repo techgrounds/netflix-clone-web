@@ -32,6 +32,8 @@ const FilmInfoModal = ({ setIsVideoPlaying }) => {
   const movieDetails = useSelector(
     (state) => state.movies.movieDetails.movieDetailsResults
   );
+  
+  console.log(movieDetails)
 
   const {
     actors,

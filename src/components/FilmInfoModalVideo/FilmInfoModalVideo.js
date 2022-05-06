@@ -9,11 +9,6 @@ const FilmInfoModalVideo = ({ youtubeId }) => {
   const switchMute = useSelector((state) => state.movies.soundMute);
   const embedUrl = `https://www.youtube-nocookie.com/embed/${youtubeId}?${autoPlay}${loop}${modestBranding}`;;
 
-  // if (youtubeId !== "undefined&mute=1") {
-  //   embedUrl = `https://www.youtube-nocookie.com/embed/${youtubeId}?${autoPlay}${loop}${modestBranding}`;}
-  // if (youtubeId === "undefined&mute=1") { 
-  //   embedUrl = "https://www.youtube-nocookie.com/embed/m0Xb9BhfVjY&mute=1?&autoplay=1&playlist=m0Xb9BhfVjY&mute=1&loop=1&modestbranding=1&showinfo=0&fs=0&iv_load_policy=3"}
-
   return (
     <div className="film-modal-video-container">
       <iframe

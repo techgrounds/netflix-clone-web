@@ -59,7 +59,6 @@ export const fetchMovieDetailsAsync = (id) => {
         `${requests.fetchDiscover}/movie?id=${id}`
       );
       const movieDetails = requestDetails.data;
-      console.log('MOVIE DETAILS', movieDetails);
 
       dispatch(saveMovieDetails(movieDetails));
     } catch (err) {

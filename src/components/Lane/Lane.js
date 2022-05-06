@@ -8,7 +8,6 @@ import useWindowSize from "./WindowSize";
 import "./Lane.scss";
 
 const Lane = ({ laneTitle, movies, isVideoPlaying, setIsVideoPlaying }) => {
-  console.log("MOVIES", movies);
   const size = useWindowSize();
   const [activeIndex, setActiveIndex] = useState(0);
   const [startSwitch, setStartSwitch] = useState(0);
