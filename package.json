@@ -2,7 +2,7 @@
   "name": "netflix-clone-web",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://techgrounds.github.io/netflix",
+  "homepage": "https://techgrounds.github.io/netflix-clone-web/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.3",
