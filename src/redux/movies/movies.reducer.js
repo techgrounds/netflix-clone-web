@@ -2,18 +2,7 @@ import { moviesActionTypes } from "./movies.types";
 
 const initialState = {
   allMovies: [],
-  movie: {
-    id: 0,
-    title: "",
-    desc: "",
-    image: "",
-    imageHR: "",
-    poster: "",
-    trailer: "",
-    rating: "",
-    runtime: "",
-    logo: "",
-  },
+  movie: {},
   heroMovie: {
     id: 0,
     title: "",
