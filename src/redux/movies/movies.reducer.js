@@ -13,7 +13,6 @@ const initialState = {
     rating: "",
     runtime: "",
     logo: "",
-    keywords: "",
   },
   heroMovie: {
     id: 0,
