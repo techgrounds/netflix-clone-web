@@ -8,9 +8,10 @@ import moviesReducer from './movies/movies.reducer';
 import searchReducer from './search/search.reducer';
 
 const persistConfig = {
-  key: "root",
+  key: 'root',
   storage,
-  blacklist: 'gridActive'
+  blacklist: 'gridActive',
+  blacklist: 'movieInfoModal',
 };
 
 const rootReducer = combineReducers({
