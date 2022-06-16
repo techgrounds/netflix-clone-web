@@ -22,6 +22,7 @@ const HomeHero = ({ setIsVideoPlaying, isVideoPlaying }) => {
   const selector = gsap.utils.selector(element);
   const dispatch = useDispatch();
   const movieData = useSelector((state) => state.movies.heroMovie);
+  const totalData = useSelector((state) => state.movies.allMovies);
   // const isModalOpen = useSelector((state) => state.movies.movieInfoModal);
 
   useEffect(() => {
@@ -108,6 +109,7 @@ const HomeHero = ({ setIsVideoPlaying, isVideoPlaying }) => {
                   <button
                     className="home-hero-button home-hero-info-button has-icon"
                     onClick={() => {
+                      if (totalData.length < 1) return
                       dispatch(fetchSingleMovie(movieData));
                       dispatch(movieInfoModalToggle());
                       setIsVideoPlaying(false);

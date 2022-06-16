@@ -59,7 +59,6 @@ export const fetchMovieDetailsAsync = (id) => {
         `${requests.fetchDiscover}/movie?id=${id}`
       );
       const movieDetails = requestDetails.data;
-      console.log('MOVIE DETAILS', movieDetails);
 
       dispatch(saveMovieDetails(movieDetails));
     } catch (err) {
@@ -74,7 +73,6 @@ export const fetchMoviesResultsAsync = () => {
 
     try {
       const request = await axios.get(requests.fetchDiscover);
-      console.log('REQUEST', request);
 
       const allMovies = transformMovieData(request.data);
 

@@ -14,7 +14,6 @@ const HomePage = () => {
   }, [dispatch]);
 
   const allMoviesSelector = useSelector((state) => state.movies.allMovies);
-  console.log(allMoviesSelector);
   return (
     <>
       <HomeHero
